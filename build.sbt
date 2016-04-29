@@ -52,43 +52,43 @@ def docSettings(diagrams:Boolean): Seq[Setting[_]] =
           "-doc-title", name.value,
           "-doc-root-content", baseDirectory.value + "/rootdoc.txt"
         ),
-    autoAPIMappings := ! git.gitUncommittedChanges.value,
-    apiMappings <++=
-      ( git.gitUncommittedChanges,
-        dependencyClasspath in Compile in doc,
-        IMCEKeys.nexusJavadocRepositoryRestAPIURL2RepositoryName,
-        IMCEKeys.pomRepositoryPathRegex,
-        streams ) map { (uncommitted, deps, repoURL2Name, repoPathRegex, s) =>
-        if (uncommitted)
-          Map[File, URL]()
-        else
-          (for {
-            jar <- deps
-            url <- jar.metadata.get(AttributeKey[ModuleID]("moduleId")).flatMap { moduleID =>
-              val urls = for {
-                (repoURL, repoName) <- repoURL2Name
-                (query, match2publishF) = IMCEPlugin.nexusJavadocPOMResolveQueryURLAndPublishURL(
-                  repoURL, repoName, moduleID)
-                url <- nonFatalCatch[Option[URL]]
-                  .withApply { (_: java.lang.Throwable) => None }
-                  .apply({
-                    val conn = query.openConnection.asInstanceOf[java.net.HttpURLConnection]
-                    conn.setRequestMethod("GET")
-                    conn.setDoOutput(true)
-                    repoPathRegex
-                      .findFirstMatchIn(Source.fromInputStream(conn.getInputStream).getLines.mkString)
-                      .map { m =>
-                        val javadocURL = match2publishF(m)
-                        s.log.info(s"Javadoc for: $moduleID")
-                        s.log.info(s"= mapped to: $javadocURL")
-                        javadocURL
-                      }
-                  })
-              } yield url
-              urls.headOption
-            }
-          } yield jar.data -> url).toMap
-      }
+    autoAPIMappings := ! git.gitUncommittedChanges.value
+//    apiMappings <++=
+//      ( git.gitUncommittedChanges,
+//        dependencyClasspath in Compile in doc,
+//        IMCEKeys.nexusJavadocRepositoryRestAPIURL2RepositoryName,
+//        IMCEKeys.pomRepositoryPathRegex,
+//        streams ) map { (uncommitted, deps, repoURL2Name, repoPathRegex, s) =>
+//        if (uncommitted)
+//          Map[File, URL]()
+//        else
+//          (for {
+//            jar <- deps
+//            url <- jar.metadata.get(AttributeKey[ModuleID]("moduleId")).flatMap { moduleID =>
+//              val urls = for {
+//                (repoURL, repoName) <- repoURL2Name
+//                (query, match2publishF) = IMCEPlugin.nexusJavadocPOMResolveQueryURLAndPublishURL(
+//                  repoURL, repoName, moduleID)
+//                url <- nonFatalCatch[Option[URL]]
+//                  .withApply { (_: java.lang.Throwable) => None }
+//                  .apply({
+//                    val conn = query.openConnection.asInstanceOf[java.net.HttpURLConnection]
+//                    conn.setRequestMethod("GET")
+//                    conn.setDoOutput(true)
+//                    repoPathRegex
+//                      .findFirstMatchIn(Source.fromInputStream(conn.getInputStream).getLines.mkString)
+//                      .map { m =>
+//                        val javadocURL = match2publishF(m)
+//                        s.log.info(s"Javadoc for: $moduleID")
+//                        s.log.info(s"= mapped to: $javadocURL")
+//                        javadocURL
+//                      }
+//                  })
+//              } yield url
+//              urls.headOption
+//            }
+//          } yield jar.data -> url).toMap
+//      }
   )
 
 resolvers := {
@@ -120,8 +120,8 @@ lazy val core = Project("org-omg-oti-mof-schema", file("."))
   .enablePlugins(IMCEGitPlugin)
   .enablePlugins(IMCEReleasePlugin)
   .settings(dynamicScriptsResourceSettings(Some("org.omg.oti.mof.schema")))
-  //.settings(IMCEPlugin.strictScalacFatalWarningsSettings)
-  //.settings(docSettings(diagrams=false))
+  .settings(IMCEPlugin.strictScalacFatalWarningsSettings)
+  .settings(docSettings(diagrams=true))
   .settings(IMCEReleasePlugin.packageReleaseProcessSettings)
   .settings(
     IMCEKeys.licenseYearOrRange := "2014-2016",

@@ -1,46 +1,15 @@
 # OMG Tool-Infrastructure MOF Information Schema & API
 
-## What is not represented?
+This is work-in-progress.
 
-- Well-formedness contraints (e.g. OCL)
+The goal is to experimentally validate a radical simplification for managing models
+compared to the current paradigm based on implementations of OMG's modeling specifications.
 
-  It is necessary to have a representation of a model before one can decide whether it is well-formed or not
-  relative to constraints.
+Currently, UML models are serialized as XMI trees and tool-specific UML APIs reflect
+the class + property organization of the OMG UML 2.5 metamodel. From a database perspective,
+this corresponds to a materialized view of a database schema -- i.e., the OMG UML 2.5 metamodel
+and tool-specific implementations of it. That is, from a database theory perspective,
+there is no normalized database schema.
 
-  Note that some structural well-formedness constraints are implicitly captured in
-  the syntax of metaclasses & associations.
-
-## What is represented?
-
-- The definition of an M2 metamodel (e.g. UML, BPMN, CWM, ...).
-
-  Note that the OMG UML 2.5 metamodel is distinct from a tool-specific implementation of it
-  (e.g., MD 18's UML2.5 metamodel; Eclipse 5.0's UML 2.5 metamodel)
-
-  Defining a MOF metamodel is, roughly, specifying the set of:
-
-  - Metaclasses
-  - CMOF directed associations (composite or reference, ordered or unordered)
-  - Primitive types and/or Enumerations
-  - Data property attributes defined in the context of a metaclass and typed by a primitive or enumeration data type
-
-- The definition of a profile that extends an M2 metamodel (e.g. SysML, ...)
-
-  Defining a profile for a given M2 metamodel is, roughly, specifying the set of:
-
-  - The extended metamodel (this can be any M2 metamodel, see UML 2.5, 12.3.3.2)
-  - Stereotypes (the metaclasses that are extended by a particular stereotype)
-  - CMOF directed associations among stereotypes
-
-- The content of an M1 model as an instance of an M2 metamodel possibly extended by the application of profiles
-
-  This content is, roughly, specifying the set of:
-
-  - Element metaclasses (an element is an instance of a metamodel-defined metaclass)
-  - Metamodel association links (metaclass instances can be related via link instances of associations relating
-    their respective metaclasses)
-  - Applied stereotypes (an element can have zero or more profile-defined stereotypes applied)
-  - Metamodel & profile data property values
-
-- All metamodels, profiles & models are artifacts that serialized to or deserialized from a located resource.
-
+This project is based on the idea of applying the principles of database theory, particularly that of
+defining a normalized schema, as the foundation for modeling.
