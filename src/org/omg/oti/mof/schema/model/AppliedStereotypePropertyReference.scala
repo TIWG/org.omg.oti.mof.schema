@@ -36,15 +36,30 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.library
+package org.omg.oti.mof.schema.model
 
-import org.omg.oti.mof.schema.Identification.{LibraryEnumerationLiteralUUID, LibraryEnumerationUUID}
+import org.omg.oti.mof.schema.Identification.{AssociationTargetEndUUID, ModelElementUUID}
 
 import scala.Int
 import scala.Predef.String
 import scalaz.@@
 
-case class Enumeration2Literal
-( enumeration: String @@ LibraryEnumerationUUID,
-  literal: String @@ LibraryEnumerationLiteralUUID,
-  index: Int)
+sealed trait AppliedStereotypePropertyReference {
+  val modelElement: String @@ ModelElementUUID
+  val associationTargetEnd: String @@ AssociationTargetEndUUID
+  val referencedElement: String @@ ModelElementUUID
+}
+
+case class AppliedStereotypePropertyUnorderedReference
+( override val modelElement: String @@ ModelElementUUID,
+  override val associationTargetEnd: String @@ AssociationTargetEndUUID,
+  override val referencedElement: String @@ ModelElementUUID)
+  extends AppliedStereotypePropertyReference
+
+
+case class AppliedStereotypePropertyOrderedReference
+( override val modelElement: String @@ ModelElementUUID,
+  override val associationTargetEnd: String @@ AssociationTargetEndUUID,
+  override val referencedElement: String @@ ModelElementUUID,
+  index: Int )
+  extends AppliedStereotypePropertyReference

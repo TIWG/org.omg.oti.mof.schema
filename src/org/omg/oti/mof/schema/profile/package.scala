@@ -36,15 +36,19 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.library
+package org.omg.oti.mof.schema
 
-import org.omg.oti.mof.schema.Identification.{LibraryEnumerationLiteralUUID, LibraryEnumerationUUID}
-
-import scala.Int
-import scala.Predef.String
-import scalaz.@@
-
-case class Enumeration2Literal
-( enumeration: String @@ LibraryEnumerationUUID,
-  literal: String @@ LibraryEnumerationLiteralUUID,
-  index: Int)
+/**
+  * An OTI MOF Profile is a resource whose extent is a set of:
+  *
+  * Entities:
+  *   - [[profile.Stereotype]]
+  *
+  * Relations:
+  *   - [[profile.Stereotype2Attribute]]
+  *   - [[profile.StereotypeAssociationTargetEndMetaClassProperty]]
+  *   - [[profile.StereotypeAssociationTargetEndStereotypeProperty]]
+  *   - [[OTIMOFResourceLibraryImport]]
+  *   - [[OTIMOFResourceProfileImport]]
+  */
+package object profile {}

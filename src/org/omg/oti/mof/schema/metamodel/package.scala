@@ -36,48 +36,20 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.library
+package org.omg.oti.mof.schema
 
-import org.omg.oti.mof.schema.identification._
-import org.omg.oti.mof.schema.Common._
-import scala.Predef.String
-import scalaz.@@
-
-sealed trait DatatypeEntityDefinition {
-  val uuid: String @@ (_ <: LibraryEntityUUID)
-  val name: String @@ NAME
-}
-
-sealed trait DatatypeDefinition extends DatatypeEntityDefinition {
-  override val uuid: String @@ (_ <: LibraryDatatypeUUID)
-}
-
-sealed trait AtomicDatatype extends DatatypeDefinition
-
-case class PrimitiveDataType
-( override val uuid: String @@ LibraryPrimitiveTypeUUID,
-  override val name: String @@ NAME,
-  datatypeMapDefinition: String @@ DATATYPE_ABBREVIATED_IRI )
-  extends AtomicDatatype
-
-case class EnumerationDataType
-( override val uuid: String @@ LibraryEnumerationUUID,
-  override val name: String @@ NAME )
-  extends AtomicDatatype
-
-case class StructuredDatatype
-( override val uuid: String @@ LibraryStructuredDatatypeUUID,
-  override val name: String @@ NAME )
-  extends DatatypeDefinition
-
-sealed trait DatatypeFeatureDefinition extends DatatypeEntityDefinition
-
-case class EnumerationLiteral
-( override val uuid: String @@ LibraryEnumerationLiteralUUID,
-  override val name: String @@ NAME )
-  extends DatatypeFeatureDefinition
-
-case class StructuredDatatypeAttribute
-( override val uuid: String @@ LibraryStructuredAttributeUUID,
-  override val name: String @@ NAME )
-  extends DatatypeFeatureDefinition
+/**
+  * An OTI MOF Metamodel is a resource whose extent is a set of:
+  *
+  * Entities:
+  *   - [[metamodel.MetamodelClassifier]]
+  *
+  * Relations:
+  *   - [[metamodel.MetaAssociation2SourceEndProperty]]
+  *   - [[metamodel.MetaAssociation2TargetEndProperty]]
+  *   - [[metamodel.MetaAssociationEndProperty2MetaClassType]]
+  *   - [[metamodel.MetaClass2Attribute]]
+  *   - [[OTIMOFResourceLibraryImport]]
+  *   - [[OTIMOFResourceMetamodelImport]]
+  */
+package object metamodel {}

@@ -36,15 +36,20 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.library
+package org.omg.oti.mof.schema
 
-import org.omg.oti.mof.schema.Identification.{LibraryEnumerationLiteralUUID, LibraryEnumerationUUID}
-
-import scala.Int
-import scala.Predef.String
-import scalaz.@@
-
-case class Enumeration2Literal
-( enumeration: String @@ LibraryEnumerationUUID,
-  literal: String @@ LibraryEnumerationLiteralUUID,
-  index: Int)
+/**
+  * An OTI MOF Model is a resource whose extent is a set of:
+  *
+  * Entities:
+  *   - [[model.ModelElement]]
+  *
+  * Relations:
+  *   - [[model.AppliedStereotype]]
+  *   - [[model.AppliedStereotypePropertyReference]]
+  *   - [[model.ModelElementAttributeValue]]
+  *   - [[model.ModelLink]]
+  *   - [[OTIMOFResourceAppliedProfile]]
+  *   - [[OTIMOFResourceInstantiatedMetamodel]]
+  */
+package object model {}

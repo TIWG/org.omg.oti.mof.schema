@@ -38,20 +38,19 @@
  */
 package org.omg.oti.mof.schema
 
+import org.omg.oti.mof.schema.Identification.ProfileIRI
+
+import scala.Predef.String
+import scalaz.@@
+
 /**
-  * Identification is essential for the exchange of information about anything in MOF.
+  * OTIMOFResourceProfileImport corresponds to a UML PackageImport relationship from
+  * an importing UML Profile of an OTI Profile resource
+  * to the imported UML Profile of an OTI Profile resource.
   *
-  * In terms of OMG's MOF 2.5, MOF resources such as metamodels, profiles, libraries and models
-  * are identified by their Package URI. According to the MOF 2.5 specification,
-  * MOF elements in the extent of a MOF resource can be identified; presumably in terms of the values
-  * of their metaclass porperties that have `{isID=true}`.
-  *
-  * Here, identification is defined differently for MOF resources (i.e., metamodels, profiles, libraries and models)
-  * than it is for MOF elements in their MOF extent. In the former case, MOF resources are identified by their IRI;
-  * in the latter case, MOF elements are identified by the value of their identifying UUID metaclass property attribute.
-  *
-  * Since IRIs and UUIDs are involved in the serialization of references to OTI MOF resources and entities respectively,
-  * the OTI MOF schema defines a lightweight, compile-time partitioning of all OTI MOF IRIs and UUIDs to capture
-  * the intent of the references to OTI MOF resources and entities of a particular kind.
+  * @param importingProfile The importing OTI MOF Profile IRI
+  * @param importedProfile The imported OTI MOF Profile IRI
   */
-package object identification {}
+case class OTIMOFResourceProfileImport
+( importingProfile: String @@ ProfileIRI,
+  importedProfile: String @@ ProfileIRI )

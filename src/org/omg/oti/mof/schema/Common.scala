@@ -38,6 +38,8 @@
  */
 package org.omg.oti.mof.schema
 
+import scalaz.Tag
+
 object Common {
 
   /**
@@ -50,7 +52,8 @@ object Common {
     * @see [[http://www.w3.org/TR/owl2-syntax/#Datatype_Maps]]
     * @see [[http://www.w3.org/TR/owl2-syntax/#IRIs]]
     */
-  trait DATATYPE_ABBREVIATED_IRI
+  sealed trait DatatypeAbbrevIRI
+  val DatatypeAbbrevIRI = Tag.of[DatatypeAbbrevIRI]
 
   /**
     * NAME is the partition of Strings that represent the name of an OTI MOF entity.
@@ -65,6 +68,18 @@ object Common {
     * Therefore, it is necessary to further partition the space of all OTI MOF entity UUIDs according
     * to the OTI MOF entity kind to capture the intended type of OTI MOF entity reference.
     */
-  trait NAME
+  sealed trait Name
+  val Name = Tag.of[Name]
 
+  /**
+    * Int @@ NonNegative represents the subset of positive Int values including 0
+    */
+  sealed trait NonNegative
+  val NonNegative = Tag.of[NonNegative]
+
+  /**
+    * Int @@ UnlimitedNatural represents the subset of positive Int values including 0 and -1 to denote positive infinity
+    */
+  sealed trait UnlimitedNatural
+  val UnlimitedNatural = Tag.of[UnlimitedNatural]
 }

@@ -36,15 +36,13 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.library
+package org.omg.oti.mof.schema.model
 
-import org.omg.oti.mof.schema.Identification.{LibraryEnumerationLiteralUUID, LibraryEnumerationUUID}
+import org.omg.oti.mof.schema.Identification.{MetaClassUUID, ModelElementUUID}
 
-import scala.Int
 import scala.Predef.String
 import scalaz.@@
 
-case class Enumeration2Literal
-( enumeration: String @@ LibraryEnumerationUUID,
-  literal: String @@ LibraryEnumerationLiteralUUID,
-  index: Int)
+case class ModelElement
+( uuid: String @@ ModelElementUUID,
+  metaClass: String @@ MetaClassUUID )

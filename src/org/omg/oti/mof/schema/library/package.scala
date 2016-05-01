@@ -39,6 +39,14 @@
 package org.omg.oti.mof.schema
 
 /**
-  * An OTI MOF Library is a resource whose extent is a set of OTI MOF atomic or structured datatype definitions.
+  * An OTI MOF Library is a resource whose extent is a set of:
+  *
+  * Entities:
+  *   - [[library.DatatypeClassifier]]
+  *
+  * Relations:
+  *   - [[library.Enumeration2Literal]]
+  *   - [[library.StructuredDatatype2Attribute]]
+  *   - [[OTIMOFResourceLibraryImport]]
   */
 package object library {}

@@ -36,15 +36,25 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.library
+package org.omg.oti.mof.schema.metamodel
 
-import org.omg.oti.mof.schema.Identification.{LibraryEnumerationLiteralUUID, LibraryEnumerationUUID}
+import org.omg.oti.mof.schema.Common.Name
+import org.omg.oti.mof.schema.Identification._
 
-import scala.Int
 import scala.Predef.String
 import scalaz.@@
 
-case class Enumeration2Literal
-( enumeration: String @@ LibraryEnumerationUUID,
-  literal: String @@ LibraryEnumerationLiteralUUID,
-  index: Int)
+sealed trait MetamodelClassifier {
+  val uuid: String @@ (_ <: MetamodelClassifierUUID)
+  val name: String @@ Name
+}
+
+case class MetaClass
+( override val uuid: String @@ MetaClassUUID,
+  override val name: String @@ Name )
+  extends MetamodelClassifier
+
+case class MetaAssociation
+( override val uuid: String @@ MetaAssociationUUID,
+  override val name: String @@ Name )
+  extends MetamodelClassifier

@@ -36,15 +36,26 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.library
+package omgSpecifications
 
-import org.omg.oti.mof.schema.Identification.{LibraryEnumerationLiteralUUID, LibraryEnumerationUUID}
+import org.omg.oti.mof.schema.Common._
+import org.omg.oti.mof.schema.Identification._
+import org.omg.oti.mof.schema._
+import org.omg.oti.mof.schema.library._
 
-import scala.Int
-import scala.Predef.String
-import scalaz.@@
+object PrimitiveTypes {
 
-case class Enumeration2Literal
-( enumeration: String @@ LibraryEnumerationUUID,
-  literal: String @@ LibraryEnumerationLiteralUUID,
-  index: Int)
+  val primitiveTypesLibrary = OTIMOFLibrary(LibraryIRI("http://www.omg.org/spec/UML/20131001/PrimitiveTypes"))
+
+  val booleanPT = PrimitiveDataType(
+    LibraryPrimitiveTypeUUID("123"),
+    Name("Boolean"),
+    DatatypeAbbrevIRI("xsd:boolean") )
+
+  val integerPT = PrimitiveDataType(
+    LibraryPrimitiveTypeUUID("456"),
+    Name("Integer"),
+    DatatypeAbbrevIRI("xsd:int") )
+
+
+}

@@ -36,15 +36,21 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.library
+package org.omg.oti.mof.schema
 
-import org.omg.oti.mof.schema.Identification.{LibraryEnumerationLiteralUUID, LibraryEnumerationUUID}
+import org.omg.oti.mof.schema.Identification.{ModelIRI, ProfileIRI}
 
-import scala.Int
 import scala.Predef.String
 import scalaz.@@
 
-case class Enumeration2Literal
-( enumeration: String @@ LibraryEnumerationUUID,
-  literal: String @@ LibraryEnumerationLiteralUUID,
-  index: Int)
+/**
+  * OTIMOFResourceAppliedProfile corresponds to a UML ProfileApplication relationship from
+  * an applying UML Package of an OTI MOF Model resource
+  * to the applied UML Profile of an OTI MOF Profile resource.
+  *
+  * @param applyingModel The applying OTI MOF Model IRI
+  * @param appliedProfile The applied OTI MOF Profile IRI
+  */
+case class OTIMOFResourceAppliedProfile
+( applyingModel: String @@ ModelIRI,
+  appliedProfile: String @@ ProfileIRI )

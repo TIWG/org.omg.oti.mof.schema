@@ -44,7 +44,7 @@ def docSettings(diagrams:Boolean): Seq[Setting[_]] =
 
     scalacOptions in (Compile,doc) ++=
       (if (diagrams)
-        Seq("-diagrams")
+        Seq("-diagrams", "-diagrams-dot-path", "/usr/bin/dot", "-verbose", "-diagrams-debug")
       else
         Seq()
         ) ++
@@ -151,6 +151,12 @@ lazy val core = Project("org-omg-oti-mof-schema", file("."))
       baseDirectory.value / "src-gen",
     
     resourceDirectory in Compile :=
+      baseDirectory.value / "resources",
+
+    scalaSource in Test :=
+      baseDirectory.value / "test",
+
+    resourceDirectory in Test :=
       baseDirectory.value / "resources",
 
     // disable publishing the jar produced by `test:package`

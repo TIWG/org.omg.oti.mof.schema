@@ -36,15 +36,29 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.library
+package org.omg.oti.mof.schema.model
 
-import org.omg.oti.mof.schema.Identification.{LibraryEnumerationLiteralUUID, LibraryEnumerationUUID}
+import org.omg.oti.mof.schema.Identification.{MetaAssociationUUID, ModelElementUUID}
 
 import scala.Int
 import scala.Predef.String
 import scalaz.@@
 
-case class Enumeration2Literal
-( enumeration: String @@ LibraryEnumerationUUID,
-  literal: String @@ LibraryEnumerationLiteralUUID,
-  index: Int)
+sealed trait ModelLink {
+  val sourceElement: String @@ ModelElementUUID
+  val targetElement: String @@ ModelElementUUID
+  val metaAssociation: String @@ MetaAssociationUUID
+}
+
+case class ModelUnorderedLink
+( override val sourceElement: String @@ ModelElementUUID,
+  override val targetElement: String @@ ModelElementUUID,
+  override val metaAssociation: String @@ MetaAssociationUUID )
+  extends ModelLink
+
+case class ModelOrderedLink
+( override val sourceElement: String @@ ModelElementUUID,
+  override val targetElement: String @@ ModelElementUUID,
+  override val metaAssociation: String @@ MetaAssociationUUID,
+  index: Int )
+  extends ModelLink

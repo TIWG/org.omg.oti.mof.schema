@@ -36,39 +36,15 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.identification
+package org.omg.oti.mof.schema.metamodel
 
-/**
-  * Every OTI MOF resource (i.e., (i.e., metamodel, profile, librarie or model)
-  * is identified by the IRI of its persistent location (internationalized URI).
-  *
-  * In OTI MOF, a ResourceIRI is an externally visible and uniquely identifying
-  * characteristic of an OTI MOF Resource.
-  *
-  * In the OTI MOF serialization, OTI MOF resources are referenced by their IRI.
-  * By defining a lightweight compile-time partitioning of the space
-  * of all possible OTI MOF resource IRIs according to the OTI MOF resource kind,
-  * the OTI MOF schema captures important type-level information about
-  * well-formed references to OTI MOF resources of a particular kind.
-  */
-trait ResourceIRI {}
+import org.omg.oti.mof.schema.Identification.{DatatypedAttributePropertyUUID, MetaClassUUID}
 
-/**
-  * The persistent location of an OTI MOF Metamodel resource
-  */
-trait MetamodelIRI extends ResourceIRI
+import scala.Int
+import scala.Predef.String
+import scalaz.@@
 
-/**
-  * The persistent location of an OTI MOF Profile resource
-  */
-trait ProfileIRI extends ResourceIRI
-
-/**
-  * The persistent location of an OTI MOF Library resource
-  */
-trait LibraryIRI extends ResourceIRI
-
-/**
-  * The persistent location of an OTI MOF Model resource
-  */
-trait ModelIRI extends ResourceIRI
+case class MetaClass2Attribute
+(metaClass: String @@ MetaClassUUID,
+ attribute: String @@ DatatypedAttributePropertyUUID,
+ index: Int )

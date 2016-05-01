@@ -36,15 +36,22 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.library
+package org.omg.oti.mof.schema
 
-import org.omg.oti.mof.schema.Identification.{LibraryEnumerationLiteralUUID, LibraryEnumerationUUID}
+import org.omg.oti.mof.schema.Identification.{MetamodelIRI, ModelIRI}
 
-import scala.Int
 import scala.Predef.String
 import scalaz.@@
 
-case class Enumeration2Literal
-( enumeration: String @@ LibraryEnumerationUUID,
-  literal: String @@ LibraryEnumerationLiteralUUID,
-  index: Int)
+/**
+  * OTIMOFResourceInstantiatedMetamodel does not have any explicitly
+  * defined abstract syntax in OMG modeling specifications.
+  * Informally, this relationship is usually shown in diagrams
+  * as if it were a dependency stereotyped 'instanceOf'.
+  *
+  * @param instantiatingModel The instantiating OTI MOF Model IRI
+  * @param instantiatedMetamodel The instantiated OTI MOF Metamodel IRI
+  */
+case class OTIMOFResourceInstantiatedMetamodel
+( instantiatingModel: String @@ ModelIRI,
+  instantiatedMetamodel: String @@ MetamodelIRI )

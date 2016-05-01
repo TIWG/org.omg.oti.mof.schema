@@ -36,33 +36,13 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema
+package org.omg.oti.mof.schema.metamodel
 
-import org.omg.oti.mof.schema.identification._
-import org.omg.oti.mof.schema.library.{Enumeration2Literal, StructuredDatatype2Attribute}
+import org.omg.oti.mof.schema.Identification.{AssociationTargetEndUUID, MetaAssociationUUID}
 
 import scala.Predef.String
 import scalaz.@@
 
-sealed trait OTIMOFEntityExtent {
-  val resourceIRI: String @@ (_ <: ResourceIRI)
-}
-
-sealed trait OTIMOFLibraryExtent extends OTIMOFEntityExtent {
-  override val resourceIRI: String @@ LibraryIRI
-}
-
-case class OTIMOFLibraryEntityExtent
-( override val resourceIRI: String @@ LibraryIRI,
-  datatypeDefinition: String @@ (_ <: LibraryDatatypeUUID) )
-  extends OTIMOFLibraryExtent
-
-case class OTIMOFLibraryEnumeration2LiteralExtent
-( override val resourceIRI: String @@ LibraryIRI,
-  enumeration2literal: Enumeration2Literal )
-  extends OTIMOFLibraryExtent
-
-case class OTIMOFLibraryStructuredDatatype2AttributeExtent
-( override val resourceIRI: String @@ LibraryIRI,
-  structuredDatatype2Attribute: StructuredDatatype2Attribute )
-  extends OTIMOFLibraryExtent
+case class MetaAssociation2TargetEndProperty
+( association: String @@ MetaAssociationUUID,
+  targetEnd: String @@ AssociationTargetEndUUID )

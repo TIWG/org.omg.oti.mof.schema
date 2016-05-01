@@ -38,13 +38,13 @@
  */
 package org.omg.oti.mof.schema.library
 
-import org.omg.oti.mof.schema.identification.{LibraryStructuredAttributeUUID, LibraryStructuredDatatypeUUID}
+import org.omg.oti.mof.schema.Identification.{DatatypedAttributePropertyUUID, LibraryStructuredClassifierUUID}
 
 import scala.Int
 import scala.Predef.String
 import scalaz.@@
 
 case class StructuredDatatype2Attribute
-( structuredDatatype: String @@ LibraryStructuredDatatypeUUID,
-  attribute: String @@ LibraryStructuredAttributeUUID,
-  index: Int )
+(structuredDatatype: String @@ LibraryStructuredClassifierUUID,
+ attribute: String @@ DatatypedAttributePropertyUUID,
+ index: Int )

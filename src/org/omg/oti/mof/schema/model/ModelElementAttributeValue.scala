@@ -36,15 +36,33 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.library
+package org.omg.oti.mof.schema.model
 
-import org.omg.oti.mof.schema.Identification.{LibraryEnumerationLiteralUUID, LibraryEnumerationUUID}
+import org.omg.oti.mof.schema.Identification.ModelElementUUID
+import org.omg.oti.mof.schema.values.AttributeValue
 
 import scala.Int
 import scala.Predef.String
 import scalaz.@@
 
-case class Enumeration2Literal
-( enumeration: String @@ LibraryEnumerationUUID,
-  literal: String @@ LibraryEnumerationLiteralUUID,
-  index: Int)
+/**
+  * ModelElementAttributeValue represents the value of a [[org.omg.oti.mof.schema.features.DatatypedAttributeProperty]]
+  * that is defined either in a [[org.omg.oti.mof.schema.metamodel.MetaClass]]
+  * or a [[org.omg.oti.mof.schema.profile.Stereotype]]
+  */
+sealed trait ModelElementAttributeValue {
+  val modelElement: String @@ ModelElementUUID
+  val attributeValue: AttributeValue
+}
+
+case class ModelElementUnorderedAttributeValue
+( override val modelElement: String @@ ModelElementUUID,
+  override val attributeValue: AttributeValue )
+  extends ModelElementAttributeValue
+
+
+case class ModelElementOrderedAttributeValue
+( override val modelElement: String @@ ModelElementUUID,
+  override val attributeValue: AttributeValue,
+  index: Int )
+  extends ModelElementAttributeValue

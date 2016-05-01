@@ -36,15 +36,34 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.library
+package org.omg.oti.mof.schema.features
 
-import org.omg.oti.mof.schema.Identification.{LibraryEnumerationLiteralUUID, LibraryEnumerationUUID}
+import org.omg.oti.mof.schema.Common.Name
+import org.omg.oti.mof.schema.Identification.{AssociationEndUUID, AssociationSourceEndUUID, AssociationTargetEndUUID}
 
-import scala.Int
 import scala.Predef.String
 import scalaz.@@
 
-case class Enumeration2Literal
-( enumeration: String @@ LibraryEnumerationUUID,
-  literal: String @@ LibraryEnumerationLiteralUUID,
-  index: Int)
+sealed trait AssociationEndProperty {
+  val uuid: String @@ (_ <: AssociationEndUUID)
+  val name: String @@ Name
+}
+
+case class AssociationSourceEndProperty
+( override val uuid: String @@ AssociationSourceEndUUID,
+  override val name: String @@ Name )
+  extends AssociationEndProperty
+
+sealed trait AssociationTargetEndProperty extends AssociationEndProperty {
+  override val uuid: String @@ AssociationTargetEndUUID
+}
+
+case class AssociationTargetEndReferenceProperty
+( override val uuid: String @@ AssociationTargetEndUUID,
+  override val name: String @@ Name )
+  extends AssociationTargetEndProperty
+
+case class AssociationTargetEndCompositeProperty
+( override val uuid: String @@ AssociationTargetEndUUID,
+  override val name: String @@ Name )
+  extends AssociationTargetEndProperty

@@ -38,13 +38,33 @@
  */
 package org.omg.oti.mof.schema.library
 
-import org.omg.oti.mof.schema.Identification.{LibraryEnumerationLiteralUUID, LibraryEnumerationUUID}
-
-import scala.Int
+import org.omg.oti.mof.schema.Identification._
+import org.omg.oti.mof.schema.Common._
 import scala.Predef.String
 import scalaz.@@
 
-case class Enumeration2Literal
-( enumeration: String @@ LibraryEnumerationUUID,
-  literal: String @@ LibraryEnumerationLiteralUUID,
-  index: Int)
+/**
+  * Every DatatypeClassifier has a name and an uuid primary identifier
+  */
+sealed trait DatatypeClassifier {
+  val uuid: String @@ (_ <: LibraryClassifierUUID)
+  val name: String @@ Name
+}
+
+sealed trait AtomicDatatype extends DatatypeClassifier
+
+case class PrimitiveDataType
+(override val uuid: String @@ LibraryPrimitiveTypeUUID,
+ override val name: String @@ Name,
+ datatypeMapDefinition: String @@ DatatypeAbbrevIRI )
+  extends AtomicDatatype
+
+case class EnumerationDataType
+( override val uuid: String @@ LibraryEnumerationUUID,
+  override val name: String @@ Name )
+  extends AtomicDatatype
+
+case class StructuredDatatype
+(override val uuid: String @@ LibraryStructuredClassifierUUID,
+ override val name: String @@ Name )
+  extends DatatypeClassifier

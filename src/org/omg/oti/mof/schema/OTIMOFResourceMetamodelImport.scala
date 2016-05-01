@@ -36,15 +36,21 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.library
+package org.omg.oti.mof.schema
 
-import org.omg.oti.mof.schema.Identification.{LibraryEnumerationLiteralUUID, LibraryEnumerationUUID}
+import org.omg.oti.mof.schema.Identification.MetamodelIRI
 
-import scala.Int
 import scala.Predef.String
 import scalaz.@@
 
-case class Enumeration2Literal
-( enumeration: String @@ LibraryEnumerationUUID,
-  literal: String @@ LibraryEnumerationLiteralUUID,
-  index: Int)
+/**
+  * OTIMOFResourceLibraryImport corresponds to a UML PackageImport relationship from
+  * an importing UML Package of an OTI MOF Metamodel resource
+  * to the imported UML Package of an OTI Metamodel resource.
+  *
+  * @param importingMetamodel The importing OTI MOF Metamodel IRI
+  * @param importedMetamodel The imported OTI MOF Metamodel IRI
+  */
+case class OTIMOFResourceMetamodelImport
+( importingMetamodel: String @@ MetamodelIRI,
+  importedMetamodel: String @@ MetamodelIRI )
