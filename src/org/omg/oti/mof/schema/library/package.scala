@@ -43,10 +43,18 @@ package org.omg.oti.mof.schema
   *
   * Entities:
   *   - [[library.DatatypeClassifier]]
+  *   - [[features.DataTypedFeature]]
+  *
+  * Characteristics:
+  *   - [[features.FeatureLowerBound]]
+  *   - [[features.FeatureUpperBound]]
+  *   - [[features.FeatureOrdering]]
   *
   * Relations:
+  *   - [[features.AttributeProperty2Type]]
   *   - [[library.Enumeration2Literal]]
   *   - [[library.StructuredDatatype2Attribute]]
+  *   - [[library.StructuredDataTypeGeneralization]]
   *   - [[OTIMOFResourceLibraryImport]]
   */
 package object library {}

@@ -36,32 +36,13 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package omgSpecifications
+package org.omg.oti.mof.schema.metamodel
 
-import org.omg.oti.mof.schema.Common._
-import org.omg.oti.mof.schema.Identification._
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.library._
+import org.omg.oti.mof.schema.Identification.MetamodelClassifierUUID
 
-import scala.collection.immutable._
+import scala.Predef.String
+import scalaz.@@
 
-object PrimitiveTypes {
-
-  val primitiveTypesIRI = LibraryIRI("http://www.omg.org/spec/UML/20131001/PrimitiveTypes")
-
-  val booleanPT = PrimitiveDataType(
-    LibraryPrimitiveTypeUUID("123"),
-    Name("Boolean"),
-    DatatypeAbbrevIRI("xsd:boolean") )
-
-  val integerPT = PrimitiveDataType(
-    LibraryPrimitiveTypeUUID("456"),
-    Name("Integer"),
-    DatatypeAbbrevIRI("xsd:int") )
-
-
-  val primitiveTypesExtent = OTIMOFLibraryResourceExtent(
-    resource = OTIMOFLibrary(primitiveTypesIRI),
-    classifiers = Set(booleanPT, integerPT))
-
-}
+case class MetaClassifierGeneralization
+( specific: String @@ MetamodelClassifierUUID,
+  general: String @@ MetamodelClassifierUUID )

@@ -43,13 +43,21 @@ package org.omg.oti.mof.schema
   *
   * Entities:
   *   - [[metamodel.MetamodelClassifier]]
+  *   - [[features.AssociationEndProperty]]
+  *   - [[features.DataTypedFeature]]
+  *
+  * Characteristics:
+  *   - [[features.FeatureLowerBound]]
+  *   - [[features.FeatureUpperBound]]
+  *   - [[features.FeatureOrdering]]
   *
   * Relations:
+  *   - [[features.AttributeProperty2Type]]
+  *   - [[OTIMOFResourceLibraryImport]]
   *   - [[metamodel.MetaAssociation2SourceEndProperty]]
   *   - [[metamodel.MetaAssociation2TargetEndProperty]]
   *   - [[metamodel.MetaAssociationEndProperty2MetaClassType]]
   *   - [[metamodel.MetaClass2Attribute]]
-  *   - [[OTIMOFResourceLibraryImport]]
   *   - [[OTIMOFResourceMetamodelImport]]
   */
 package object metamodel {}

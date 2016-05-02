@@ -38,16 +38,7 @@
  */
 package org.omg.oti.mof.schema
 
-import org.omg.oti.mof.schema.features.{FeatureLowerBound, FeatureOrdering, FeatureUpperBound}
-import org.omg.oti.mof.schema.Identification._
-import org.omg.oti.mof.schema.library.{Enumeration2Literal, StructuredDatatype2Attribute}
-import org.omg.oti.mof.schema.metamodel.{MetaAssociation2SourceEndProperty, MetaAssociation2TargetEndProperty}
-import org.omg.oti.mof.schema.metamodel.{MetaAssociationEndProperty2MetaClassType, MetaClass2Attribute}
-import org.omg.oti.mof.schema.model.ModelLink
-import org.omg.oti.mof.schema.profile.{StereotypeAssociationTargetEndMetaClassProperty, StereotypeAssociationTargetEndStereotypeProperty}
-
-import scala.Predef.String
-import scalaz.@@
+import scala.collection.immutable._
 
 /**
   * OTIMOFEntityExtent is an abstract type for the database table relationships
@@ -62,175 +53,138 @@ import scalaz.@@
   * (@see [[OTIMOFResourceLibraryImport.importedLibrary]]
   */
 sealed trait OTIMOFResourceExtent {
-  val resourceIRI: String @@ (_ <: ResourceIRI)
+  val resource: OTIMOFResource
 }
 
 /**
-  * OTIMOFLibraryExtent is an abstract type for the database table relationships
-  * that specify the extent of an OTI MOF Library resource.
+  * The contents of an OTI MOF Library Resource
   *
-  * The `resourceIRI` is a foreign key identifying an [[OTIMOFLibrary]] resource.
+  * @param resource
+  * @param classifiers           Entity
+  * @param attributes            Entity
+  * @param featureLowerBounds    Characteristic
+  * @param featureUpperBounds    Characteristic
+  * @param featureOrdering       Characteristic
+  * @param attribute2type        Relation
+  * @param enumeration2literals  Relation
+  * @param structure2attribute   Relation
+  * @param generalizations       Relation
+  * @param importedLibraries     Relation
   */
-sealed trait OTIMOFLibraryExtent extends OTIMOFResourceExtent {
-  override val resourceIRI: String @@ LibraryIRI
-}
+case class OTIMOFLibraryResourceExtent
+( override val resource: OTIMOFLibrary,
 
-case class OTIMOFLibraryClassifierExtent
-( override val resourceIRI: String @@ LibraryIRI,
-  classifier: String @@ (_ <: LibraryClassifierUUID) )
-  extends OTIMOFLibraryExtent
+  classifiers: Set[library.DatatypeClassifier] = Set(),
+  attributes: Set[features.DataTypedFeature] = Set(),
 
-case class OTIMOFLibraryEnumerationLiteralExtent
-( override val resourceIRI: String @@ LibraryIRI,
-  enumerationliteral: String @@ LibraryEnumerationLiteralUUID )
-  extends OTIMOFLibraryExtent
+  featureLowerBounds: Set[features.FeatureLowerBound] = Set(),
+  featureUpperBounds: Set[features.FeatureUpperBound] = Set(),
+  featureOrdering: Set[features.FeatureOrdering] = Set(),
 
-case class OTIMOFLibraryEnumeration2LiteralExtent
-( override val resourceIRI: String @@ LibraryIRI,
-  enumeration2literal: Enumeration2Literal )
-  extends OTIMOFLibraryExtent
-
-case class OTIMOFLibraryStructuredAttributeExtent
-( override val resourceIRI: String @@ LibraryIRI,
-  attributeProperty: String @@ DatatypedAttributePropertyUUID )
-  extends OTIMOFLibraryExtent
-
-case class OTIMOFLibraryStructuredAttributeLowerBoundExtent
-( override val resourceIRI: String @@ LibraryIRI,
-  attributeLowerBound: FeatureLowerBound )
-  extends OTIMOFLibraryExtent
-
-case class OTIMOFLibraryStructuredAttributeUpperBoundExtent
-( override val resourceIRI: String @@ LibraryIRI,
-  attributeUpperBound: FeatureUpperBound )
-  extends OTIMOFLibraryExtent
-
-case class OTIMOFLibraryStructuredAttributeOrderingExtent
-( override val resourceIRI: String @@ LibraryIRI,
-  attributeOrdering: FeatureOrdering )
-  extends OTIMOFLibraryExtent
-
-case class OTIMOFLibraryStructuredDatatype2AttributeExtent
-( override val resourceIRI: String @@ LibraryIRI,
-  structuredDatatype2attribute: StructuredDatatype2Attribute )
-  extends OTIMOFLibraryExtent
+  attribute2type: Set[features.AttributeProperty2Type] = Set(),
+  enumeration2literals: Set[library.Enumeration2Literal] = Set(),
+  structure2attribute: Set[library.StructuredDatatype2Attribute] = Set(),
+  generalizations: Set[library.StructuredDataTypeGeneralization] = Set(),
+  importedLibraries: Set[OTIMOFResourceLibraryImport] = Set())
+  extends OTIMOFResourceExtent
 
 /**
-  * OTIMOFMetamodelExtent is an abstract type for the database table relationships
-  * that specify the extent of an OTI MOF Metamodel resource.
+  * The contents of an OTI MOF Metamodel Resource
   *
-  * The `resourceIRI` is a foreign key identifying an [[OTIMOFMetamodel]] resource.
+  * @param resource
+  * @param classifiers               Entity
+  * @param associationEnds           Entity
+  * @param attributes                Entity
+  * @param featureLowerBounds        Characteristic
+  * @param featureUpperBounds        Characteristic
+  * @param featureOrdering           Characteristic
+  * @param attribute2type            Relation
+  * @param importedLibraries         Relation
+  * @param association2source        Relation
+  * @param association2Target        Relation
+  * @param associationEnd2Metaclass  Relation
+  * @param metaclass2attribute       Relation
+  * @param generalizations           Relation
+  * @param importedMetamodels        Relation
   */
-sealed trait OTIMOFMetamodelExtent extends OTIMOFResourceExtent {
-  override val resourceIRI: String @@ MetamodelIRI
-}
+case class OTIMOFMetamodelResourceExtent
+( override val resource: OTIMOFMetamodel,
 
-case class OTIMOFMetamodelClassifierExtent
-( override val resourceIRI: String @@ MetamodelIRI,
-  classifier: String @@ MetamodelClassifierUUID )
-  extends OTIMOFMetamodelExtent
+  classifiers: Set[metamodel.MetamodelClassifier] = Set(),
+  associationEnds: Set[features.AssociationEndProperty] = Set(),
+  attributes: Set[features.DataTypedFeature] = Set(),
 
-case class OTIMOFMetamodelAttributeExtent
-( override val resourceIRI: String @@ MetamodelIRI,
-  attributeProperty: String @@ DatatypedAttributePropertyUUID )
-  extends OTIMOFMetamodelExtent
+  featureLowerBounds: Set[features.FeatureLowerBound] = Set(),
+  featureUpperBounds: Set[features.FeatureUpperBound] = Set(),
+  featureOrdering: Set[features.FeatureOrdering] = Set(),
 
-case class OTIMOFMetamodelMetaClass2AttributeExtent
-( override val resourceIRI: String @@ MetamodelIRI,
-  metaClass2attribute: MetaClass2Attribute )
-  extends OTIMOFMetamodelExtent
-
-case class OTIMOFMetamodelAssociationEndProperty2MetaClassTypeExtent
-( override val resourceIRI: String @@ MetamodelIRI,
-  associationEndType: MetaAssociationEndProperty2MetaClassType )
-  extends OTIMOFMetamodelExtent
-
-case class OTIMOFMetamodelAssociationEndPropertyExtent
-( override val resourceIRI: String @@ MetamodelIRI,
-  associationEnd: String @@ AssociationEndUUID )
-  extends OTIMOFMetamodelExtent
-
-case class OTIMOFMetamodelFeatureLowerBoundExtent
-( override val resourceIRI: String @@ MetamodelIRI,
-  lowerBound: FeatureLowerBound )
-  extends OTIMOFMetamodelExtent
-
-case class OTIMOFMetamodelFeatureUpperBoundExtent
-( override val resourceIRI: String @@ MetamodelIRI,
-  upperBound: FeatureUpperBound )
-  extends OTIMOFMetamodelExtent
-
-case class OTIMOFMetamodelFeatureOrderingExtent
-( override val resourceIRI: String @@ MetamodelIRI,
-  ordering: FeatureOrdering )
-  extends OTIMOFMetamodelExtent
-
-case class OTIMOFMetamodelAssociation2SourceEndPropertyExtent
-( override val resourceIRI: String @@ MetamodelIRI,
-  association2sourceEnd: MetaAssociation2SourceEndProperty )
-  extends OTIMOFMetamodelExtent
-
-case class OTIMOFMetamodelAssociation2TargetEndPropertyExtent
-( override val resourceIRI: String @@ MetamodelIRI,
-  association2targetEnd: MetaAssociation2TargetEndProperty )
-  extends OTIMOFMetamodelExtent
+  attribute2type: Set[features.AttributeProperty2Type] = Set(),
+  importedLibraries: Set[OTIMOFResourceLibraryImport] = Set(),
+  association2source: Set[metamodel.MetaAssociation2SourceEndProperty] = Set(),
+  association2Target: Set[metamodel.MetaAssociation2TargetEndProperty] = Set(),
+  associationEnd2Metaclass: Set[metamodel.MetaAssociationEndProperty2MetaClassType] = Set(),
+  metaclass2attribute: Set[metamodel.MetaClass2Attribute] = Set(),
+  generalizations: Set[metamodel.MetaClassifierGeneralization] = Set(),
+  importedMetamodels: Set[OTIMOFResourceMetamodelImport] = Set())
+  extends OTIMOFResourceExtent
 
 /**
-  * OTIMOFProfileExtent is an abstract type for the database table relationships
-  * that specify the extent of an OTI MOF Profile resource.
+  * The contents of an OTI MOF Profile Resource
   *
-  * The `resourceIRI` is a foreign key identifying an [[OTIMOFProfile]] resource.
+  * @param resource
+  * @param classifiers           Entity
+  * @param attributes            Entity
+  * @param featureLowerBounds    Characteristic
+  * @param featureUpperBounds    Characteristic
+  * @param featureOrdering       Characteristic
+  * @param attribute2type        Relation
+  * @param importedLibraries     Relation
+  * @param generalizations       Relation
+  * @param stereotype2attribute  Relation
+  * @param stereotype2associationEndMetaClassProperty   Relation
+  * @param stereotype2associationEndStereotypeProperty  Relation
+  * @param importedProfiles      Relation
   */
-sealed trait OTIMOFProfileExtent extends OTIMOFResourceExtent {
-  override val resourceIRI: String @@ ProfileIRI
-}
+case class OTIMOFProfileResourceExtent
+( override val resource: OTIMOFProfile,
 
-case class OTIMOFProfileStereotypeExtent
-( override val resourceIRI: String @@ ProfileIRI,
-  stereotype: String @@ StereotypeUUID )
-  extends OTIMOFProfileExtent
+  classifiers: Set[profile.Stereotype] = Set(),
+  attributes: Set[features.DataTypedFeature] = Set(),
 
-case class OTIMOFProfileStereotypeAssociationTargetEndMetaClassPropertyExtent
-( override val resourceIRI: String @@ ProfileIRI,
-  metaClassProperty: StereotypeAssociationTargetEndMetaClassProperty )
-  extends OTIMOFProfileExtent
+  featureLowerBounds: Set[features.FeatureLowerBound] = Set(),
+  featureUpperBounds: Set[features.FeatureUpperBound] = Set(),
+  featureOrdering: Set[features.FeatureOrdering] = Set(),
 
-case class OTIMOFProfileStereotypeAssociationTargetEndStereotypePropertyExtent
-( override val resourceIRI: String @@ ProfileIRI,
-  stereotypeProperty: StereotypeAssociationTargetEndStereotypeProperty )
-  extends OTIMOFProfileExtent
-
-case class OTIMOFProfileStereotypeAssociationTargetEndLowerBoundExtent
-( override val resourceIRI: String @@ ProfileIRI,
-  attributeLowerBound: FeatureLowerBound )
-  extends OTIMOFProfileExtent
-
-case class OTIMOFProfileStereotypeAssociationTargetEndUpperBoundExtent
-( override val resourceIRI: String @@ ProfileIRI,
-  attributeUpperBound: FeatureUpperBound )
-  extends OTIMOFProfileExtent
-
-case class OTIMOFProfileStereotypeAssociationTargetEndOrderingExtent
-( override val resourceIRI: String @@ ProfileIRI,
-  attributeOrdering: FeatureOrdering )
-  extends OTIMOFProfileExtent
+  attribute2type: Set[features.AttributeProperty2Type] = Set(),
+  importedLibraries: Set[OTIMOFResourceLibraryImport] = Set(),
+  generalizations: Set[profile.StereotypeGeneralization] = Set(),
+  stereotype2attribute: Set[profile.Stereotype2Attribute] = Set(),
+  stereotype2associationEndMetaClassProperty: Set[profile.StereotypeAssociationTargetEndMetaClassProperty] = Set(),
+  stereotype2associationEndStereotypeProperty: Set[profile.StereotypeAssociationTargetEndStereotypeProperty] = Set(),
+  importedProfiles: Set[OTIMOFResourceProfileImport] = Set())
+  extends OTIMOFResourceExtent
 
 /**
-  * OTIMOFModelExtent is an abstract type for the database table relationships
-  * that specify the extent of an OTI MOF Model resource.
+  * The contents of an OTI MOF Model Resource
   *
-  * The `resourceIRI` is a foreign key identifying an [[OTIMOFModel]] resource.
+  * @param resource
+  * @param elements                             Element
+  * @param links                                Relation
+  * @param appliedStereotype                    Relation
+  * @param appliedStereotypePropertyReferences  Relation
+  * @param elementAttributeValues               Characteristic
+  * @param instantiatedMetamodels               Relation
+  * @param appliedProfiles                      Relation
   */
-sealed trait OTIMOFModelExtent extends OTIMOFResourceExtent {
-  override val resourceIRI: String @@ ModelIRI
-}
+case class OTIMOFModelResourceExtent
+( override val resource: OTIMOFModel,
 
-case class OTIMOFModelElementExtent
-( override val resourceIRI: String @@ ModelIRI,
-  element: String @@ ModelElementUUID )
-  extends OTIMOFModelExtent
+  elements: Set[model.ModelElement],
 
-case class OTIMOFModelLinkExtent
-( override val resourceIRI: String @@ ModelIRI,
-  link: ModelLink )
-  extends OTIMOFModelExtent
+  links: Set[model.ModelLink] = Set(),
+  appliedStereotype: Set[model.AppliedStereotype] = Set(),
+  appliedStereotypePropertyReferences: Set[model.AppliedStereotypePropertyReference] = Set(),
+  elementAttributeValues: Set[model.ModelElementAttributeValue] = Set(),
+  instantiatedMetamodels: Set[OTIMOFResourceInstantiatedMetamodel] = Set(),
+  appliedProfiles: Set[OTIMOFResourceModelAppliedProfile] = Set())
+  extends OTIMOFResourceExtent

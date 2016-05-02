@@ -64,7 +64,7 @@ case class EnumerationDataType
   override val name: String @@ Name )
   extends AtomicDatatype
 
-case class StructuredDatatype
+case class StructuredDataType
 (override val uuid: String @@ LibraryStructuredClassifierUUID,
  override val name: String @@ Name )
   extends DatatypeClassifier

@@ -43,12 +43,20 @@ package org.omg.oti.mof.schema
   *
   * Entities:
   *   - [[profile.Stereotype]]
+  *   - [[features.DataTypedFeature]]
+  *
+  * Characteristics:
+  *   - [[features.FeatureLowerBound]]
+  *   - [[features.FeatureUpperBound]]
+  *   - [[features.FeatureOrdering]]
   *
   * Relations:
+  *   - [[features.AttributeProperty2Type]]
+  *   - [[OTIMOFResourceLibraryImport]]
+  *   - [[profile.StereotypeGeneralization]]
   *   - [[profile.Stereotype2Attribute]]
   *   - [[profile.StereotypeAssociationTargetEndMetaClassProperty]]
   *   - [[profile.StereotypeAssociationTargetEndStereotypeProperty]]
-  *   - [[OTIMOFResourceLibraryImport]]
   *   - [[OTIMOFResourceProfileImport]]
   */
 package object profile {}

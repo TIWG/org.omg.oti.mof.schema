@@ -38,12 +38,25 @@
  */
 package org.omg.oti.mof.schema.features
 
+
 import org.omg.oti.mof.schema.Common.Name
-import org.omg.oti.mof.schema.Identification.DatatypedAttributePropertyUUID
+import org.omg.oti.mof.schema.Identification.{DatatypedAttributePropertyUUID, FeatureEntityUUID, LibraryEnumerationLiteralUUID}
 
 import scala.Predef.String
 import scalaz.@@
 
+sealed trait DataTypedFeature {
+  val uuid: String @@ (_ <: FeatureEntityUUID)
+  val name: String @@ Name
+}
+
+case class EnumerationLiteral
+( override val uuid: String @@ LibraryEnumerationLiteralUUID,
+  override val name: String @@ Name )
+  extends DataTypedFeature
+
+
 case class DatatypedAttributeProperty
-( uuid: String @@ DatatypedAttributePropertyUUID,
-  name: String @@ Name )
+( override val uuid: String @@ DatatypedAttributePropertyUUID,
+  override val name: String @@ Name )
+  extends DataTypedFeature

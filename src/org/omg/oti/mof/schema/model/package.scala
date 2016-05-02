@@ -45,11 +45,11 @@ package org.omg.oti.mof.schema
   *   - [[model.ModelElement]]
   *
   * Relations:
-  *   - [[model.AppliedStereotype]]
-  *   - [[model.AppliedStereotypePropertyReference]]
-  *   - [[model.ModelElementAttributeValue]]
   *   - [[model.ModelLink]]
-  *   - [[OTIMOFResourceAppliedProfile]]
+  *   - [[model.AppliedStereotype]]
+  *   - [[model.ModelElementAttributeValue]]
+  *   - [[model.AppliedStereotypePropertyReference]]
   *   - [[OTIMOFResourceInstantiatedMetamodel]]
+  *   - [[OTIMOFResourceModelAppliedProfile]]
   */
 package object model {}
