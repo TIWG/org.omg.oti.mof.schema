@@ -38,9 +38,12 @@
  */
 package org.omg.oti.mof.schema.values
 
-import org.omg.oti.mof.schema.Identification.{DatatypedAttributePropertyUUID, LibraryEnumerationLiteralUUID}
+import play.json.extra._
+import play.api.libs.json._
 
-import scala.collection.immutable.Vector
+import org.omg.oti.mof.schema._
+import org.omg.oti.mof.schema.Identification.{DatatypedAttributePropertyUUID, LibraryEnumerationLiteralUUID, StructuredValueUUID}
+
 import scala.Predef.String
 import scalaz.@@
 
@@ -56,7 +59,23 @@ case class AtomicValue
   lexicalValue: String )
   extends AttributeValue
 
-case class StructuredValue
+case class StructuredValueReference
 ( structuredAttribute: String @@ DatatypedAttributePropertyUUID,
-  attributeValues: Vector[AttributeValue] )
+  structuredValue: String @@ StructuredValueUUID )
   extends AttributeValue
+
+object AttributeValue {
+
+  implicit val writes
+  : Writes[AttributeValue]
+  = Variants.writes[AttributeValue]((__ \ "type").write[String])
+
+  implicit val reads
+  : Reads[AttributeValue]
+  = Variants.reads[AttributeValue]((__ \ "type").read[String])
+
+  implicit val formats
+  : Format[AttributeValue]
+  = Variants.format[AttributeValue]((__ \ "type").format[String])
+
+}

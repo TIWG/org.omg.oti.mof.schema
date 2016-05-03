@@ -38,7 +38,9 @@
  */
 package org.omg.oti.mof.schema.library
 
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification.LibraryStructuredClassifierUUID
+import play.api.libs.json._
 
 import scala.Predef.String
 import scalaz.@@
@@ -46,3 +48,19 @@ import scalaz.@@
 case class StructuredDataTypeGeneralization
 ( specific: String @@ LibraryStructuredClassifierUUID,
   general: String @@ LibraryStructuredClassifierUUID )
+
+object StructuredDataTypeGeneralization {
+
+  implicit val writes
+  : Writes[StructuredDataTypeGeneralization]
+  = Json.writes[StructuredDataTypeGeneralization]
+
+  implicit val reads
+  : Reads[StructuredDataTypeGeneralization]
+  = Json.reads[StructuredDataTypeGeneralization]
+
+  implicit val formats
+  : Format[StructuredDataTypeGeneralization]
+  = Json.format[StructuredDataTypeGeneralization]
+
+}

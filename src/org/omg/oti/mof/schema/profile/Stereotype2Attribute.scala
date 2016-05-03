@@ -45,6 +45,6 @@ import scala.Predef.String
 import scalaz.@@
 
 case class Stereotype2Attribute
-(metaClass: String @@ StereotypeUUID,
+(stereotype: String @@ StereotypeUUID,
  attribute: String @@ DatatypedAttributePropertyUUID,
  index: Int )

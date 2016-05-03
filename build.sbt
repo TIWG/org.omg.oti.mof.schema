@@ -173,7 +173,6 @@ lazy val core = Project("org-omg-oti-mof-schema", file("."))
     libraryDependencies +=
       "gov.nasa.jpl.imce.thirdParty" %% "other-scala-libraries" % Versions_other_scala_libraries.version artifacts
         Artifact("other-scala-libraries", "zip", "zip", Some("resource"), Seq(), None, Map()),
-
     extractArchives := {},
 
     IMCEKeys.nexusJavadocRepositoryRestAPIURL2RepositoryName := Map(

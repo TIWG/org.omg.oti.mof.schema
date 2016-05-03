@@ -38,7 +38,9 @@
  */
 package org.omg.oti.mof.schema.library
 
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification.{LibraryEnumerationLiteralUUID, LibraryEnumerationUUID}
+import play.api.libs.json._
 
 import scala.Int
 import scala.Predef.String
@@ -48,3 +50,19 @@ case class Enumeration2Literal
 ( enumeration: String @@ LibraryEnumerationUUID,
   literal: String @@ LibraryEnumerationLiteralUUID,
   index: Int)
+
+object Enumeration2Literal {
+
+  implicit val writes
+  : Writes[Enumeration2Literal]
+  = Json.writes[Enumeration2Literal]
+
+  implicit val reads
+  : Reads[Enumeration2Literal]
+  = Json.reads[Enumeration2Literal]
+
+  implicit val formats
+  : Format[Enumeration2Literal]
+  = Json.format[Enumeration2Literal]
+
+}

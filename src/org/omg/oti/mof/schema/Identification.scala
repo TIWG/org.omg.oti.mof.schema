@@ -75,6 +75,12 @@ object Identification {
 
   // ==========
 
+  sealed trait StructuredValueUUID extends EntityUUID
+  val StructuredValueUUID = Tag.of[StructuredValueUUID]
+
+  // ==========
+
+
   sealed trait FeatureEntityUUID extends EntityUUID
 
   sealed trait DatatypedAttributePropertyUUID extends FeatureEntityUUID

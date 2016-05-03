@@ -36,33 +36,26 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.library
+package org.omg.oti.mof
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Identification.{DatatypedAttributePropertyUUID, LibraryStructuredClassifierUUID}
 import play.api.libs.json._
 
-import scala.Int
+import scala.StringContext
 import scala.Predef.String
-import scalaz.@@
+import scalaz._
 
-case class StructuredDatatype2Attribute
-(structuredDatatype: String @@ LibraryStructuredClassifierUUID,
- attribute: String @@ DatatypedAttributePropertyUUID,
- index: Int )
+package object schema {
 
-object StructuredDatatype2Attribute {
+  implicit def taggedStringFormat[T]
+  : Format[String @@ T]
+  = new Format[String @@ T] {
+    def reads(json: JsValue): JsResult[String @@ T] = json match {
+      case JsString(v) => JsSuccess(Tag.of[T](v))
+      case unknown => JsError(s"String value expected, got: $unknown")
+    }
 
-  implicit val writes
-  : Writes[StructuredDatatype2Attribute]
-  = Json.writes[StructuredDatatype2Attribute]
+    def writes(v: String @@ T): JsValue = JsString(Tag.unwrap(v))
+  }
 
-  implicit val reads
-  : Reads[StructuredDatatype2Attribute]
-  = Json.reads[StructuredDatatype2Attribute]
-
-  implicit val formats
-  : Format[StructuredDatatype2Attribute]
-  = Json.format[StructuredDatatype2Attribute]
 
 }

@@ -38,6 +38,10 @@
  */
 package org.omg.oti.mof.schema.library
 
+import play.json.extra._
+import play.api.libs.json._
+
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification._
 import org.omg.oti.mof.schema.Common._
 import scala.Predef.String
@@ -51,20 +55,53 @@ sealed trait DatatypeClassifier {
   val name: String @@ Name
 }
 
-sealed trait AtomicDatatype extends DatatypeClassifier
+sealed trait AtomicDatatype
 
 case class PrimitiveDataType
-(override val uuid: String @@ LibraryPrimitiveTypeUUID,
- override val name: String @@ Name,
- datatypeMapDefinition: String @@ DatatypeAbbrevIRI )
-  extends AtomicDatatype
+( override val uuid: String @@ LibraryPrimitiveTypeUUID,
+  override val name: String @@ Name,
+  datatypeMapDefinition: String @@ DatatypeAbbrevIRI )
+  extends DatatypeClassifier
+  with AtomicDatatype
 
 case class EnumerationDataType
 ( override val uuid: String @@ LibraryEnumerationUUID,
   override val name: String @@ Name )
-  extends AtomicDatatype
+  extends DatatypeClassifier
+  with AtomicDatatype
 
 case class StructuredDataType
 (override val uuid: String @@ LibraryStructuredClassifierUUID,
  override val name: String @@ Name )
   extends DatatypeClassifier
+
+object AtomicDataType {
+
+  implicit val writes
+  : Writes[AtomicDatatype]
+  = Variants.writes[AtomicDatatype]((__ \ "type").write[String])
+
+  implicit val reads
+  : Reads[AtomicDatatype]
+  = Variants.reads[AtomicDatatype]((__ \ "type").read[String])
+
+  implicit val formats
+  : Format[AtomicDatatype]
+  = Variants.format[AtomicDatatype]((__ \ "type").format[String])
+
+}
+
+object DatatypeClassifier {
+
+  implicit val writes
+  : Writes[DatatypeClassifier]
+  = Variants.writes[DatatypeClassifier]((__ \ "type").write[String])
+
+  implicit val reads
+  : Reads[DatatypeClassifier]
+  = Variants.reads[DatatypeClassifier]((__ \ "type").read[String])
+
+  implicit val formats
+  : Format[DatatypeClassifier]
+  = Variants.format[DatatypeClassifier]((__ \ "type").format[String])
+}

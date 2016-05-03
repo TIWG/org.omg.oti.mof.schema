@@ -36,33 +36,12 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.library
+package org.omg.oti.mof.schema.values
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Identification.{DatatypedAttributePropertyUUID, LibraryStructuredClassifierUUID}
-import play.api.libs.json._
+import org.omg.oti.mof.schema.Identification.StructuredValueUUID
 
-import scala.Int
 import scala.Predef.String
 import scalaz.@@
-
-case class StructuredDatatype2Attribute
-(structuredDatatype: String @@ LibraryStructuredClassifierUUID,
- attribute: String @@ DatatypedAttributePropertyUUID,
- index: Int )
-
-object StructuredDatatype2Attribute {
-
-  implicit val writes
-  : Writes[StructuredDatatype2Attribute]
-  = Json.writes[StructuredDatatype2Attribute]
-
-  implicit val reads
-  : Reads[StructuredDatatype2Attribute]
-  = Json.reads[StructuredDatatype2Attribute]
-
-  implicit val formats
-  : Format[StructuredDatatype2Attribute]
-  = Json.format[StructuredDatatype2Attribute]
-
-}
+case class StructuredValue2EnumerationLiteralValue
+( uuid: String @@ StructuredValueUUID,
+  enumerationLiteral: EnumerationLiteralValue )
