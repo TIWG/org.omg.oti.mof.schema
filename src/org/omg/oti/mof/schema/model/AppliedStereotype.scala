@@ -38,7 +38,10 @@
  */
 package org.omg.oti.mof.schema.model
 
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification.{ModelElementUUID, StereotypeUUID}
+
+import play.api.libs.json._
 
 import scala.Predef.String
 import scalaz.@@
@@ -46,3 +49,11 @@ import scalaz.@@
 case class AppliedStereotype
 ( modelElement: String @@ ModelElementUUID,
   appliedStereotype: String @@ StereotypeUUID )
+
+object AppliedStereotype {
+
+  implicit val formats
+  : Format[AppliedStereotype]
+  = Json.format[AppliedStereotype]
+
+}

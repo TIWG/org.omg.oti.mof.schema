@@ -38,6 +38,8 @@
  */
 package org.omg.oti.mof.schema.features
 
+import play.api.libs.json._
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Common.NonNegative
 import org.omg.oti.mof.schema.Identification.FeatureEntityUUID
 
@@ -48,3 +50,10 @@ import scalaz.@@
 case class FeatureLowerBound
 (feature: String @@ FeatureEntityUUID,
  lower: Int @@ NonNegative)
+
+object FeatureLowerBound {
+
+  implicit val formats
+  : Format[FeatureLowerBound]
+  = Json.format[FeatureLowerBound]
+}

@@ -38,7 +38,10 @@
  */
 package org.omg.oti.mof.schema.profile
 
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification.StereotypeUUID
+
+import play.api.libs.json._
 
 import scala.Predef.String
 import scalaz.@@
@@ -46,3 +49,11 @@ import scalaz.@@
 case class StereotypeGeneralization
 ( specific: String @@ StereotypeUUID,
   general: String @@ StereotypeUUID )
+
+object StereotypeGeneralization {
+
+  implicit val formats
+  : Format[StereotypeGeneralization]
+  = Json.format[StereotypeGeneralization]
+
+}

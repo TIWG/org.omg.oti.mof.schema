@@ -41,6 +41,7 @@ package org.omg.oti.mof
 import play.api.libs.json._
 
 import scala.StringContext
+import scala.Int
 import scala.Predef.String
 import scalaz._
 
@@ -57,5 +58,15 @@ package object schema {
     def writes(v: String @@ T): JsValue = JsString(Tag.unwrap(v))
   }
 
+  implicit def taggedIntFormat[T]
+  : Format[Int @@ T]
+  = new Format[Int @@ T] {
+    def reads(json: JsValue): JsResult[Int @@ T] = json match {
+      case JsNumber(v) => JsSuccess(Tag.of[T](v.toInt))
+      case unknown => JsError(s"Int value expected, got: $unknown")
+    }
+
+    def writes(v: Int @@ T): JsValue = JsNumber(Tag.unwrap(v))
+  }
 
 }

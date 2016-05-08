@@ -38,6 +38,8 @@
  */
 package org.omg.oti.mof.schema.features
 
+import play.api.libs.json._
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification.{DatatypedAttributePropertyUUID, LibraryClassifierUUID}
 
 import scala.Predef.String
@@ -46,3 +48,10 @@ import scalaz.@@
 case class AttributeProperty2Type
 ( attribute: String @@ DatatypedAttributePropertyUUID,
   `type`: String @@ LibraryClassifierUUID )
+
+object AttributeProperty2Type {
+
+  implicit val formats
+  : Format[AttributeProperty2Type]
+  = Json.format[AttributeProperty2Type]
+}

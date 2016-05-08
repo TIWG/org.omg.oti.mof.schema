@@ -38,7 +38,10 @@
  */
 package org.omg.oti.mof.schema.metamodel
 
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification.MetamodelClassifierUUID
+
+import play.api.libs.json._
 
 import scala.Predef.String
 import scalaz.@@
@@ -46,3 +49,11 @@ import scalaz.@@
 case class MetaClassifierGeneralization
 ( specific: String @@ MetamodelClassifierUUID,
   general: String @@ MetamodelClassifierUUID )
+
+object MetaClassifierGeneralization {
+
+  implicit val formats
+  : Format[MetaClassifierGeneralization]
+  = Json.format[MetaClassifierGeneralization]
+
+}

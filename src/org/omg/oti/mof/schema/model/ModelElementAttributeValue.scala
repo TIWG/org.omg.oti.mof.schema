@@ -38,8 +38,12 @@
  */
 package org.omg.oti.mof.schema.model
 
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification.ModelElementUUID
 import org.omg.oti.mof.schema.values.AttributeValue
+
+import play.json.extra._
+import play.api.libs.json._
 
 import scala.Int
 import scala.Predef.String
@@ -66,3 +70,11 @@ case class ModelElementOrderedAttributeValue
   override val attributeValue: AttributeValue,
   index: Int )
   extends ModelElementAttributeValue
+
+object ModelElementAttributeValue {
+
+  implicit val formats
+  : Format[ModelElementAttributeValue]
+  = Variants.format[ModelElementAttributeValue]((__ \ "type").format[String])
+
+}

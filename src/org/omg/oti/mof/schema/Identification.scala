@@ -177,4 +177,5 @@ object Identification {
     */
   sealed trait ModelIRI extends ResourceIRI
   val ModelIRI = Tag.of[ModelIRI]
+
 }

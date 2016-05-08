@@ -38,7 +38,11 @@
  */
 package org.omg.oti.mof.schema.model
 
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification.{AssociationTargetEndUUID, ModelElementUUID}
+
+import play.json.extra._
+import play.api.libs.json._
 
 import scala.Int
 import scala.Predef.String
@@ -63,3 +67,11 @@ case class AppliedStereotypePropertyOrderedReference
   override val referencedElement: String @@ ModelElementUUID,
   index: Int )
   extends AppliedStereotypePropertyReference
+
+object AppliedStereotypePropertyReference {
+
+  implicit val formats
+  : Format[AppliedStereotypePropertyReference]
+  = Variants.format[AppliedStereotypePropertyReference]((__ \ "type").format[String])
+
+}

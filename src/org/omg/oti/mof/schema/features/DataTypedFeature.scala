@@ -38,7 +38,10 @@
  */
 package org.omg.oti.mof.schema.features
 
+import play.json.extra._
+import play.api.libs.json._
 
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Common.Name
 import org.omg.oti.mof.schema.Identification.{DatatypedAttributePropertyUUID, FeatureEntityUUID, LibraryEnumerationLiteralUUID}
 
@@ -60,3 +63,11 @@ case class DatatypedAttributeProperty
 ( override val uuid: String @@ DatatypedAttributePropertyUUID,
   override val name: String @@ Name )
   extends DataTypedFeature
+
+object DataTypedFeature {
+
+  implicit val formats
+  : Format[DataTypedFeature]
+  = Variants.format[DataTypedFeature]((__ \ "type").format[String])
+
+}

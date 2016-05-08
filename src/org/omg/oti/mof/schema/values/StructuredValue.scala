@@ -38,10 +38,21 @@
  */
 package org.omg.oti.mof.schema.values
 
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification.StructuredValueUUID
+
+import play.api.libs.json._
 
 import scala.Predef.String
 import scalaz.@@
 
 case class StructuredValue
 ( uuid: String @@ StructuredValueUUID )
+
+object StructuredValue {
+
+  implicit val formats
+  : Format[StructuredValue]
+  = Json.format[StructuredValue]
+
+}

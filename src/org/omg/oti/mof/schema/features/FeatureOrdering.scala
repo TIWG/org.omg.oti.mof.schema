@@ -38,6 +38,9 @@
  */
 package org.omg.oti.mof.schema.features
 
+import play.api.libs.json._
+
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification.FeatureEntityUUID
 
 import scala.Boolean
@@ -47,3 +50,11 @@ import scalaz.@@
 case class FeatureOrdering
 (feature: String @@ FeatureEntityUUID,
  isOrdered: Boolean )
+
+object FeatureOrdering {
+
+  implicit val formats
+  : Format[FeatureOrdering]
+  = Json.format[FeatureOrdering]
+
+}

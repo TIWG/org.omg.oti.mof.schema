@@ -40,6 +40,8 @@ package org.omg.oti.mof.schema
 
 import org.omg.oti.mof.schema.Identification.{ModelIRI, ProfileIRI}
 
+import play.api.libs.json._
+
 import scala.Predef.String
 import scalaz.@@
 
@@ -54,3 +56,11 @@ import scalaz.@@
 case class OTIMOFResourceAppliedProfile
 ( applyingModel: String @@ ModelIRI,
   appliedProfile: String @@ ProfileIRI )
+
+object OTIMOFResourceAppliedProfile {
+
+  implicit val formats
+  : Format[OTIMOFResourceAppliedProfile]
+  = Json.format[OTIMOFResourceAppliedProfile]
+
+}

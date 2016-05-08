@@ -54,25 +54,41 @@ case class EnumerationLiteralValue
   literalValue: String @@ LibraryEnumerationLiteralUUID )
   extends AttributeValue
 
+object EnumerationLiteralValue {
+
+  implicit val formats
+  : Format[EnumerationLiteralValue]
+  = Json.format[EnumerationLiteralValue]
+
+}
+
 case class AtomicValue
 ( atomicAttribute: String @@ DatatypedAttributePropertyUUID,
   lexicalValue: String )
   extends AttributeValue
+
+object AtomicValue {
+
+  implicit val formats
+  : Format[AtomicValue]
+  = Json.format[AtomicValue]
+
+}
 
 case class StructuredValueReference
 ( structuredAttribute: String @@ DatatypedAttributePropertyUUID,
   structuredValue: String @@ StructuredValueUUID )
   extends AttributeValue
 
+object StructuredValueReference {
+
+  implicit val formats
+  : Format[StructuredValueReference]
+  = Json.format[StructuredValueReference]
+
+}
+
 object AttributeValue {
-
-  implicit val writes
-  : Writes[AttributeValue]
-  = Variants.writes[AttributeValue]((__ \ "type").write[String])
-
-  implicit val reads
-  : Reads[AttributeValue]
-  = Variants.reads[AttributeValue]((__ \ "type").read[String])
 
   implicit val formats
   : Format[AttributeValue]

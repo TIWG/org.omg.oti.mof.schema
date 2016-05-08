@@ -38,10 +38,22 @@
  */
 package org.omg.oti.mof.schema.values
 
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification.StructuredValueUUID
+
+import play.api.libs.json._
 
 import scala.Predef.String
 import scalaz.@@
+
 case class StructuredValue2EnumerationLiteralValue
 ( uuid: String @@ StructuredValueUUID,
   enumerationLiteral: EnumerationLiteralValue )
+
+object StructuredValue2EnumerationLiteralValue {
+
+  implicit val formats
+  : Format[StructuredValue2EnumerationLiteralValue]
+  = Json.format[StructuredValue2EnumerationLiteralValue]
+
+}

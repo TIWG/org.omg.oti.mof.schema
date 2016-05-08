@@ -38,6 +38,7 @@
  */
 package org.omg.oti.mof.schema
 
+import play.api.libs.json._
 import org.omg.oti.mof.schema.Identification.{LibraryIRI, ResourceIRI}
 
 import scala.Predef.String
@@ -53,3 +54,10 @@ import scalaz.@@
 case class OTIMOFResourceLibraryImport
 ( importingResourceIRI: String @@ ResourceIRI,
   importedLibrary: String @@ LibraryIRI )
+
+object OTIMOFResourceLibraryImport {
+
+  implicit val formats
+  : Format[OTIMOFResourceLibraryImport]
+  = Json.format[OTIMOFResourceLibraryImport]
+}

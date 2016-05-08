@@ -38,6 +38,8 @@
  */
 package org.omg.oti.mof.schema
 
+import play.api.libs.json._
+
 import org.omg.oti.mof.schema.Identification._
 
 import scala.Predef.String
@@ -86,6 +88,14 @@ case class OTIMOFLibrary
 ( override val iri: String @@ LibraryIRI )
   extends OTIMOFResource
 
+object OTIMOFLibrary {
+
+  implicit val formats
+  : Format[OTIMOFLibrary]
+  = Json.format[OTIMOFLibrary]
+
+}
+
 /**
   * OTIMOFMetamodel corresponds to an OMG MOF metamodel package.
   *
@@ -110,6 +120,14 @@ case class OTIMOFLibrary
 case class OTIMOFMetamodel
 ( override val iri: String @@ MetamodelIRI )
 extends OTIMOFResource
+
+object OTIMOFMetamodel {
+
+  implicit val formats
+  : Format[OTIMOFMetamodel]
+  = Json.format[OTIMOFMetamodel]
+
+}
 
 /**
   * OTIMOFProfile corresponds to a restricted OMG MOF profile.
@@ -148,6 +166,14 @@ case class OTIMOFProfile
 ( override val iri: String @@ ProfileIRI )
   extends OTIMOFResource
 
+object OTIMOFProfile {
+
+  implicit val formats
+  : Format[OTIMOFProfile]
+  = Json.format[OTIMOFProfile]
+
+}
+
 /**
   * OTIMOFModel corresponds to an OMG MOF package that does not define datatypes
   *
@@ -166,3 +192,11 @@ case class OTIMOFProfile
 case class OTIMOFModel
 ( override val iri: String @@ ModelIRI )
   extends OTIMOFResource
+
+object OTIMOFModel {
+
+  implicit val formats
+  : Format[OTIMOFModel]
+  = Json.format[OTIMOFModel]
+
+}

@@ -38,7 +38,10 @@
  */
 package org.omg.oti.mof.schema.metamodel
 
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification.{AssociationTargetEndUUID, MetaAssociationUUID}
+
+import play.api.libs.json._
 
 import scala.Predef.String
 import scalaz.@@
@@ -46,3 +49,11 @@ import scalaz.@@
 case class MetaAssociation2TargetEndProperty
 ( association: String @@ MetaAssociationUUID,
   targetEnd: String @@ AssociationTargetEndUUID )
+
+object MetaAssociation2TargetEndProperty {
+
+  implicit val formats
+  : Format[MetaAssociation2TargetEndProperty]
+  = Json.format[MetaAssociation2TargetEndProperty]
+
+}

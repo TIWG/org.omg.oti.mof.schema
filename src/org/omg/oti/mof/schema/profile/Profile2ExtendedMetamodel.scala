@@ -36,37 +36,24 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.metamodel
+package org.omg.oti.mof.schema.profile
 
 import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Common.Name
-import org.omg.oti.mof.schema.Identification._
-
-import play.json.extra._
+import org.omg.oti.mof.schema.Identification.{MetamodelIRI, ProfileIRI}
 import play.api.libs.json._
 
 import scala.Predef.String
 import scalaz.@@
 
-sealed trait MetamodelClassifier {
-  val uuid: String @@ (_ <: MetamodelClassifierUUID)
-  val name: String @@ Name
-}
+case class Profile2ExtendedMetamodel
+( extendingProfile: String @@ ProfileIRI,
+  extendedMetamodel: String @@ MetamodelIRI )
 
-case class MetaClass
-( override val uuid: String @@ MetaClassUUID,
-  override val name: String @@ Name )
-  extends MetamodelClassifier
-
-case class MetaAssociation
-( override val uuid: String @@ MetaAssociationUUID,
-  override val name: String @@ Name )
-  extends MetamodelClassifier
-
-object MetamodelClassifier {
+object Profile2ExtendedMetamodel {
 
   implicit val formats
-  : Format[MetamodelClassifier]
-  = Variants.format[MetamodelClassifier]((__ \ "type").format[String])
+  : Format[Profile2ExtendedMetamodel]
+  = Json.format[Profile2ExtendedMetamodel]
 
 }

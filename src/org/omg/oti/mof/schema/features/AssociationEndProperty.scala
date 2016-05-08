@@ -38,6 +38,10 @@
  */
 package org.omg.oti.mof.schema.features
 
+import play.json.extra._
+import play.api.libs.json._
+
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Common.Name
 import org.omg.oti.mof.schema.Identification.{AssociationEndUUID, AssociationSourceEndUUID, AssociationTargetEndUUID}
 
@@ -54,16 +58,34 @@ case class AssociationSourceEndProperty
   override val name: String @@ Name )
   extends AssociationEndProperty
 
-sealed trait AssociationTargetEndProperty extends AssociationEndProperty {
-  override val uuid: String @@ AssociationTargetEndUUID
+sealed trait AssociationTargetEndProperty {
+  def uuid: String @@ AssociationTargetEndUUID
 }
 
 case class AssociationTargetEndReferenceProperty
 ( override val uuid: String @@ AssociationTargetEndUUID,
   override val name: String @@ Name )
-  extends AssociationTargetEndProperty
+  extends AssociationEndProperty
+  with AssociationTargetEndProperty
 
 case class AssociationTargetEndCompositeProperty
 ( override val uuid: String @@ AssociationTargetEndUUID,
   override val name: String @@ Name )
-  extends AssociationTargetEndProperty
+  extends AssociationEndProperty
+  with AssociationTargetEndProperty
+
+object AssociationTargetEndProperty {
+
+  implicit val formats
+  : Format[AssociationTargetEndProperty]
+  = Variants.format[AssociationTargetEndProperty]((__ \ "type").format[String])
+
+}
+
+object AssociationEndProperty {
+
+  implicit val formats
+  : Format[AssociationEndProperty]
+  = Variants.format[AssociationEndProperty]((__ \ "type").format[String])
+
+}

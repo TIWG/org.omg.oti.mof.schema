@@ -38,7 +38,11 @@
  */
 package org.omg.oti.mof.schema.model
 
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification.{MetaAssociationUUID, ModelElementUUID}
+
+import play.json.extra._
+import play.api.libs.json._
 
 import scala.Int
 import scala.Predef.String
@@ -62,3 +66,11 @@ case class ModelOrderedLink
   override val metaAssociation: String @@ MetaAssociationUUID,
   index: Int )
   extends ModelLink
+
+object ModelLink {
+
+  implicit val formats
+  : Format[ModelLink]
+  = Variants.format[ModelLink]((__ \ "type").format[String])
+
+}

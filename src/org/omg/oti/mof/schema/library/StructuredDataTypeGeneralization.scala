@@ -51,14 +51,6 @@ case class StructuredDataTypeGeneralization
 
 object StructuredDataTypeGeneralization {
 
-  implicit val writes
-  : Writes[StructuredDataTypeGeneralization]
-  = Json.writes[StructuredDataTypeGeneralization]
-
-  implicit val reads
-  : Reads[StructuredDataTypeGeneralization]
-  = Json.reads[StructuredDataTypeGeneralization]
-
   implicit val formats
   : Format[StructuredDataTypeGeneralization]
   = Json.format[StructuredDataTypeGeneralization]

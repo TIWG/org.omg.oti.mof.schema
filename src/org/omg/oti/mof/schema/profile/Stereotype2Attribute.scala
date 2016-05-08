@@ -38,7 +38,10 @@
  */
 package org.omg.oti.mof.schema.profile
 
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification.{DatatypedAttributePropertyUUID, StereotypeUUID}
+
+import play.api.libs.json._
 
 import scala.Int
 import scala.Predef.String
@@ -48,3 +51,11 @@ case class Stereotype2Attribute
 (stereotype: String @@ StereotypeUUID,
  attribute: String @@ DatatypedAttributePropertyUUID,
  index: Int )
+
+object Stereotype2Attribute {
+
+  implicit val formats
+  : Format[Stereotype2Attribute]
+  = Json.format[Stereotype2Attribute]
+
+}

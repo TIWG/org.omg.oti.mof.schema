@@ -38,8 +38,10 @@
  */
 package org.omg.oti.mof.schema.profile
 
-
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification.{AssociationTargetEndUUID, StereotypeUUID}
+
+import play.api.libs.json._
 
 import scala.Predef.String
 import scalaz.@@
@@ -48,3 +50,11 @@ case class StereotypeAssociationTargetEndStereotypeProperty
 ( sourceStereotype: String @@ StereotypeUUID,
   associationTargetEnd: String @@ AssociationTargetEndUUID,
   targetStereotype: String @@ StereotypeUUID )
+
+object StereotypeAssociationTargetEndStereotypeProperty {
+
+  implicit val formats
+  : Format[StereotypeAssociationTargetEndStereotypeProperty]
+  = Json.format[StereotypeAssociationTargetEndStereotypeProperty]
+
+}

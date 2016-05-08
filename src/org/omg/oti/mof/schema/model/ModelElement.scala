@@ -38,7 +38,10 @@
  */
 package org.omg.oti.mof.schema.model
 
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification.{MetaClassUUID, ModelElementUUID}
+
+import play.api.libs.json._
 
 import scala.Predef.String
 import scalaz.@@
@@ -46,3 +49,11 @@ import scalaz.@@
 case class ModelElement
 ( uuid: String @@ ModelElementUUID,
   metaClass: String @@ MetaClassUUID )
+
+object ModelElement {
+
+  implicit val formats
+  : Format[ModelElement]
+  = Json.format[ModelElement]
+
+}

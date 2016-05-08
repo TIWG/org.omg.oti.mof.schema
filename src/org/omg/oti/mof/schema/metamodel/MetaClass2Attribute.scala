@@ -38,7 +38,10 @@
  */
 package org.omg.oti.mof.schema.metamodel
 
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Identification.{DatatypedAttributePropertyUUID, MetaClassUUID}
+
+import play.api.libs.json._
 
 import scala.Int
 import scala.Predef.String
@@ -48,3 +51,11 @@ case class MetaClass2Attribute
 (metaClass: String @@ MetaClassUUID,
  attribute: String @@ DatatypedAttributePropertyUUID,
  index: Int )
+
+object MetaClass2Attribute {
+
+  implicit val formats
+  : Format[MetaClass2Attribute]
+  = Json.format[MetaClass2Attribute]
+
+}

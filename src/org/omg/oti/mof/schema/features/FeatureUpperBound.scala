@@ -38,6 +38,8 @@
  */
 package org.omg.oti.mof.schema.features
 
+import play.api.libs.json._
+import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.Common.UnlimitedNatural
 import org.omg.oti.mof.schema.Identification.FeatureEntityUUID
 
@@ -48,3 +50,10 @@ import scalaz.@@
 case class FeatureUpperBound
 (feature: String @@ FeatureEntityUUID,
  upper: Int @@ UnlimitedNatural )
+
+object FeatureUpperBound {
+
+  implicit val formats
+  : Format[FeatureUpperBound]
+  = Json.format[FeatureUpperBound]
+}

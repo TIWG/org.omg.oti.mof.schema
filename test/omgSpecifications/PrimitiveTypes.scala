@@ -42,6 +42,7 @@ import org.omg.oti.mof.schema.Common._
 import org.omg.oti.mof.schema.Identification._
 import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.library._
+import play.api.libs.json.Json
 
 import scala.collection.immutable._
 
@@ -62,6 +63,7 @@ object PrimitiveTypes {
 
   val primitiveTypesExtent = OTIMOFLibraryResourceExtent(
     resource = OTIMOFLibrary(primitiveTypesIRI),
-    classifiers = Set(booleanPT, integerPT))
+    classifiers = Vector(booleanPT, integerPT))
 
+  val primitiveTypesJson = Json.toJson(primitiveTypesExtent)
 }

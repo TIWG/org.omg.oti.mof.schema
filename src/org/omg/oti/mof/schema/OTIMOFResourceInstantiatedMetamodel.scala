@@ -40,6 +40,8 @@ package org.omg.oti.mof.schema
 
 import org.omg.oti.mof.schema.Identification.{MetamodelIRI, ModelIRI}
 
+import play.api.libs.json._
+
 import scala.Predef.String
 import scalaz.@@
 
@@ -55,3 +57,11 @@ import scalaz.@@
 case class OTIMOFResourceInstantiatedMetamodel
 ( instantiatingModel: String @@ ModelIRI,
   instantiatedMetamodel: String @@ MetamodelIRI )
+
+object OTIMOFResourceInstantiatedMetamodel {
+
+  implicit val formats
+  : Format[OTIMOFResourceInstantiatedMetamodel]
+  = Json.format[OTIMOFResourceInstantiatedMetamodel]
+
+}
