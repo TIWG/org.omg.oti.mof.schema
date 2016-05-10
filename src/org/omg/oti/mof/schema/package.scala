@@ -40,12 +40,21 @@ package org.omg.oti.mof
 
 import play.api.libs.json._
 
-import scala.StringContext
-import scala.Int
+import scala.{Int,Ordering,StringContext}
 import scala.Predef.String
 import scalaz._
 
 package object schema {
+
+  implicit def taggedStringOrdering[T]
+  : Ordering[String @@ T]
+  = new Ordering[String @@ T] {
+
+    def compare(x: String @@ T, y: String @@ T)
+    : Int
+    = Tag.unwrap(x).compareTo(Tag.unwrap(y))
+
+  }
 
   implicit def taggedStringFormat[T]
   : Format[String @@ T]

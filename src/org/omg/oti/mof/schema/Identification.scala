@@ -117,6 +117,7 @@ object Identification {
   // ==========
 
   sealed trait MetamodelClassifierUUID extends EntityUUID
+  val MetamodelClassifierUUID = Tag.of[MetamodelClassifierUUID]
 
   sealed trait MetaClassUUID extends MetamodelClassifierUUID
   val MetaClassUUID = Tag.of[MetaClassUUID]
