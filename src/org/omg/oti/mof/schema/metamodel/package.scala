@@ -43,7 +43,7 @@ package org.omg.oti.mof.schema
   *
   * Entities:
   *   - [[metamodel.MetamodelClassifier]]
-  *   - [[features.AssociationEndProperty]]
+  *   - [[features.AssociationEnd]]
   *   - [[features.DataTypedFeature]]
   *
   * Characteristics:

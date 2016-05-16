@@ -48,44 +48,44 @@ import org.omg.oti.mof.schema.Identification.{AssociationEndUUID, AssociationSou
 import scala.Predef.String
 import scalaz.@@
 
-sealed trait AssociationEndProperty {
+sealed trait AssociationEnd {
   val uuid: String @@ (_ <: AssociationEndUUID)
   val name: String @@ Name
 }
 
-case class AssociationSourceEndProperty
+case class AssociationSourceEnd
 ( override val uuid: String @@ AssociationSourceEndUUID,
   override val name: String @@ Name )
-  extends AssociationEndProperty
+  extends AssociationEnd
 
-sealed trait AssociationTargetEndProperty {
+sealed trait AssociationTargetEnd {
   def uuid: String @@ AssociationTargetEndUUID
 }
 
-case class AssociationTargetEndReferenceProperty
+case class AssociationTargetReferenceEnd
 ( override val uuid: String @@ AssociationTargetEndUUID,
   override val name: String @@ Name )
-  extends AssociationEndProperty
-  with AssociationTargetEndProperty
+  extends AssociationEnd
+  with AssociationTargetEnd
 
-case class AssociationTargetEndCompositeProperty
+case class AssociationTargetCompositeEnd
 ( override val uuid: String @@ AssociationTargetEndUUID,
   override val name: String @@ Name )
-  extends AssociationEndProperty
-  with AssociationTargetEndProperty
+  extends AssociationEnd
+  with AssociationTargetEnd
 
-object AssociationTargetEndProperty {
+object AssociationTargetEnd {
 
   implicit val formats
-  : Format[AssociationTargetEndProperty]
-  = Variants.format[AssociationTargetEndProperty]((__ \ "type").format[String])
+  : Format[AssociationTargetEnd]
+  = Variants.format[AssociationTargetEnd]((__ \ "type").format[String])
 
 }
 
-object AssociationEndProperty {
+object AssociationEnd {
 
   implicit val formats
-  : Format[AssociationEndProperty]
-  = Variants.format[AssociationEndProperty]((__ \ "type").format[String])
+  : Format[AssociationEnd]
+  = Variants.format[AssociationEnd]((__ \ "type").format[String])
 
 }

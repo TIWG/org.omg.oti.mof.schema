@@ -120,24 +120,24 @@ object OTIMOFLibraryResourceExtent {
   * @param importedMetamodels        Relation
   */
 case class OTIMOFMetamodelResourceExtent
-( override val resource: OTIMOFMetamodel,
+(override val resource: OTIMOFMetamodel,
 
-  classifiers: Vector[metamodel.MetamodelClassifier] = Vector(),
-  associationEnds: Vector[features.AssociationEndProperty] = Vector(),
-  attributes: Vector[features.DataTypedFeature] = Vector(),
+ classifiers: Vector[metamodel.MetamodelClassifier] = Vector(),
+ associationEnds: Vector[features.AssociationEnd] = Vector(),
+ attributes: Vector[features.DataTypedFeature] = Vector(),
 
-  featureLowerBounds: Vector[features.FeatureLowerBound] = Vector(),
-  featureUpperBounds: Vector[features.FeatureUpperBound] = Vector(),
-  featureOrdering: Vector[features.FeatureOrdering] = Vector(),
+ featureLowerBounds: Vector[features.FeatureLowerBound] = Vector(),
+ featureUpperBounds: Vector[features.FeatureUpperBound] = Vector(),
+ featureOrdering: Vector[features.FeatureOrdering] = Vector(),
 
-  attribute2type: Vector[features.AttributeProperty2Type] = Vector(),
-  importedLibraries: Vector[OTIMOFResourceLibraryImport] = Vector(),
-  association2source: Vector[metamodel.MetaAssociation2SourceEndProperty] = Vector(),
-  association2Target: Vector[metamodel.MetaAssociation2TargetEndProperty] = Vector(),
-  associationEnd2Metaclass: Vector[metamodel.MetaAssociationEndProperty2MetaClassType] = Vector(),
-  metaclass2attribute: Vector[metamodel.MetaClass2Attribute] = Vector(),
-  generalizations: Vector[metamodel.MetaClassifierGeneralization] = Vector(),
-  importedMetamodels: Vector[OTIMOFResourceMetamodelImport] = Vector())
+ attribute2type: Vector[features.AttributeProperty2Type] = Vector(),
+ importedLibraries: Vector[OTIMOFResourceLibraryImport] = Vector(),
+ association2source: Vector[metamodel.MetaAssociation2SourceEndProperty] = Vector(),
+ association2Target: Vector[metamodel.MetaAssociation2TargetEndProperty] = Vector(),
+ associationEnd2Metaclass: Vector[metamodel.MetaAssociationEndProperty2MetaClassType] = Vector(),
+ metaclass2attribute: Vector[metamodel.MetaClass2Attribute] = Vector(),
+ generalizations: Vector[metamodel.MetaClassifierGeneralization] = Vector(),
+ importedMetamodels: Vector[OTIMOFResourceMetamodelImport] = Vector())
   extends OTIMOFResourceExtent
 
 object OTIMOFMetamodelResourceExtent {
