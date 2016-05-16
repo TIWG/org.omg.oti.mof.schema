@@ -74,8 +74,7 @@ Simplifying OMG MOF-based Metamodeling
 \end_layout
 
 \begin_layout Author
-Dr.
- Nicolas F.
+Nicolas F.
  Rouquette
 \end_layout
 
@@ -504,42 +503,11 @@ attribute
 
 \begin_deeper
 \begin_layout Standard
-This case is outside the scope of the fundamental constructs of metamodels.
- An important simplification of current OMG practices is a clean separation
+An important simplification of current OMG practices is a clean separation
  of datatype libraries as a kind of model that can be used in other kinds
  of non-library models, i.e.
  metamodels, profiles and models that are instances of metamodels possibly
  extended with profiles.
- Clearly, metamodels and profiles need support for datatyped attributes;
- this is a minor technicality that will not be further elaborated in this
- paper.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-A metaclass 
-\bar under
-property
-\bar default
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-(
-\family typewriter
-type
-\family default
- is a metaclass)
-\end_layout
-
-\begin_layout Standard
-In principle, CMOF constraints allow a metaclass to own a non-association
- end property typed by a metaclass.
- Without loss of generality, this paper considers this case to be a degenerate
- of the next case and can be refactored accordingly by explicitly defining
- an association.
 \end_layout
 
 \end_deeper
@@ -687,11 +655,32 @@ Symmetric subsetting means that link instances of an association with subsetting
 \end_layout
 
 \end_deeper
-\begin_layout Standard
-The rest of this paper focuses only on case (3); the role of a property
- as an end of a binary association in a metamodel.
+\begin_layout Enumerate
+A metaclass 
+\bar under
+property
+\bar default
+.
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+(
+\family typewriter
+type
+\family default
+ is a metaclass)
+\end_layout
+
+\begin_layout Standard
+In principle, CMOF constraints allow a metaclass to own a non-association
+ end property typed by a metaclass.
+ Without loss of generality, this paper considers this case to be a degenerate
+ of the previous case that can be refactored accordingly by explicitly defining
+ an association.
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Simplifying non-union derived association end properties
 \end_layout
@@ -752,14 +741,11 @@ key "UML 2.5"
 \end_inset
 
 .
- The reckoning of this redundant representation is that the operation query
- enables specifying the OCL rule while the association end property enables
- specifying the availability of the derived property.
- This redundant modeling reflects historical practices that result in unecessary
- confusion and complexity.
- Often, only the metaclass-owned end is derived, the association-owned end
- isn't.
- This creates an unecessary source of confusion.
+ Historically, this redundancy was rationalized on the basis that the operation
+ query enables specifying the OCL rule while the association end property
+ enables specifying the availability of the derived property.
+ This redundancy creates unecessary confusion where a derived association
+ has a derived metaclass-owned but a non-derived association-owned end!
  Since nagivation is irrelevant for the purposes of OCL, it makes sense
  to treat such associations as if both ends are metaclass-owned and derived.
  Then, instead of duplicating each derived end with a corresponding operation
@@ -771,13 +757,23 @@ reference "fig:Simplified CMOF metamodel"
 
 \end_inset
 
- shows the result of carrying out these simplification steps to the subset
- of the UML 2.5 metamodel corresponding to the fundamental constructs in
- CMOF metamodels (i.e.
- class, association and association end property).
- Datatyped attribute properties are not shown as explained previously.
- The operation queries corresponding to deleted associations with derived
- ends are shown in red.
+ shows the result of carrying out these simplification steps to the fundamental
+ constructs including the two variants of properties described previously.
+ 
+\end_layout
+
+\begin_layout Standard
+Whereas the OMG emphasizes the circular definition of UML as a CMOF metamodel
+ which is itself defined as a subset of UML, this paper claims that this
+ is another unecessary source of complexity.
+ To emphasize the strict separation of levels between the CMOF metamodel
+ itself vs.
+ CMOF models (e.g.
+ the UML itself), Class and Association are prefixed 'M' (Meta) to differentiate
+ these CMOF metamodeling constructs from similarly named constructs in the
+ CMOF model of UML.
+ Operation queries corresponding to the ends of deleted derived associations
+ are shown in red.
  Several metaclass attributes are no longer necessary and were deleted (Associat
 ion::isDerived, Property::isDerived, StructuralFeature::isReadOnly)
 \end_layout
@@ -828,81 +824,131 @@ Refactored CMOF metamodel.
 
 \end_inset
 
-The key to understanding the simplification of CMOF binary association and
- of association end properties is to recognize that an association end property
- specifies two distinct aspects that are currently convolved in the concept
- of CMOF property: 1) a collection of values and 2) an operation for querying
- this collection.
- Unfortunate historical circumstances and a misplaced preoccupation with
- object-oriented programming contributed to muddling these two aspects under
- the bloated concept of CMOF property.
- The semantics of a property as a collection of values is explained in UML
- 2.5.
- The semantics of a property as a query operation has been an important
- topic in the major revision of OCL 2.0, so much so that navigating across
- non-navigable ends has been a compliance point ever since.
- Unfortunately, OCL 2.0 was not ready when the OMG adopted major architecture
- changes from UML 1.x and MOF 1.x to UML 2.0 and MOF 2.0 in 2003, changes that
- were finalized in 2005 a year before OCL 2.0 in 2006.
- the major architecture changes from UML 1.x and MOF 1.x to UML 2.0 and MOF
- 2.0 in 2003 and finalized in 2005.
- Perhaps the influence of the object-oriented programming paradigm from
- the simpler Essential MOF with classes and properties contributed to muddling
- these aspects.
- Indeed, avoiding strong references from metaclass-owned association end
- properties was historically used as the reason for making association ends
- owned by the association.
- It took several years until the publication of FUML 1.0 in 2010 before the
- emphasis was made on the fact that, at the model level, values of association
- end properties are set, cleared and updated not individually but rather
- via actions on link instances of associations.
- Unfortunately, even FUML 1.2.1 does provide symmetric support for instances
- of metaclasses and of associations as suggested by the MOF abstract semantics.
- Indeed, FUML restricts the ReadExtentAction to classifiers that are classes,
- not associations.
-\end_layout
-
-\begin_layout Standard
-Separating collection from query aspect enables a significant simplification
- of CMOF, particularly since the query aspects can be fully generated from
- the collection aspects like Eclipse EMF code generation does for metamodel
- API and implementation.
- Thus, the refactored CMOF metamodel shown in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:RefactoredCMOF"
-
-\end_inset
-
- separates the roles of a CMOF property as discussed in Sec.
+Although the concept of association is a first-class construct for defining
+ metamodels, the OMG made significant changes to the concept of association
+ end property.
+ The UML 1.x and MOF 1.x specifications used the term 'property' in a general
+ sense for any of three distinct kinds of metaclasses: AssociationEnd (i.e.,
  
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Deconstructing-the-concept"
-
-\end_inset
-
-: DataProperty and AssociationEnd correspond respectively to cases 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "enu:attribute"
-
-\end_inset
-
- and 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "enu:associationEnd"
 
 \end_inset
 
+), Attribute (i.e., 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:attribute"
+
+\end_inset
+
+) and TaggedValue (not described in this paper).
+ As part of the major 2.0 revision, these three metaclasses were replaced
+ with a single one, Property.
+ Although a few 1.x distinctions were encoded as MOF constraints, the major
+ revision lost the 1.x separation between AssociationEnd and Attribute.
+ The 2.0 revision added support for the object-oriented paradigm where an
+ association end Property can be owned by a Class or by an Association.
+ Class-owned association end Properties enabled support for Essential MOF
+ metamodels where the semantics of a binary Association is defined in terms
+ of its Class-owned Properties only 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "See section 6.4"
+key "EMF"
+
+\end_inset
+
 .
- Since AssociationEnds are always attribute features of their owning Association
- because they cannot be members of two distinct namespaces like class-owned
- properties are in UML.
- Albeit a poorly understood consequence of UML 2.5 & MOF 2.5, a CMOF metamodel
- binary association is always directed from a source end to a target end
- according to a prioritized list of six criteria:
+ Historically, the 2.0 major revisions of UML and MOF were adopted in 2003
+ and finalized in 2005; at least a year before the finalization of the 2.0
+ major revision of OCL was finalized in 2006.
+ OCL 2.0 emphasized the operational aspects of querying association end propertie
+s regardless of their ownership by a class or association.
+ This emphasis is so important for OCL that it has been a compliance point
+ ever since.
+ OCL's emphasis on the query semantics of navigating association end properties
+ stands in contrast with UML's emphasis on the value semantics of association
+ end properties and on the class/property object oriented view of associations.
+ Later in 2010, the Foundational subset for executable UML (FUML) specification
+ emphasized the lifecycle aspects of creating and deleting link instances
+ of associations based on the existing UML action semantics.
+ FUML in fact requires associations to own all of their ends but unlike
+ the misconception from the object-oriented paradigm, supports operating
+ on association end properties from related classes as if such ends were
+ class-owned features.
+ However, FUML does not give association links a similar status as that
+ of class instances because FUML restricts the classifier queried by a UML
+ ReadExtentAction to be a class only.
+ The rest of this section explains the basis for simplifying CMOF meta associati
+ons in terms of the three aspects of association end properties that have
+ historically been the source of much complexity, confusion and errors in
+ OMG specifications: aggregation, ordering and subsetting/redefinition.
+\end_layout
+
+\begin_layout Subsubsection*
+Simplifying and promoting aggregation
+\end_layout
+
+\begin_layout Standard
+Since Property::aggregation has a significant effect on the semantics of
+ association end properties, the difference is elevated to the conceptual
+ level instead of being represented in terms of the Property::aggregation
+ attribute as in current MOF, UML and FUML.
+ Hence, the refactoring of the relevant subset of the CMOF abstract syntax
+ metamodel shown in Fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:RefactoredCMOF"
+
+\end_inset
+
+ distinguishes the roles of a CMOF property with respect to typing like
+ UML 1.x and MOF 1.x did (DataProperty corresponds to case 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:attribute"
+
+\end_inset
+
+ and AssociationEnd to case 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:associationEnd"
+
+\end_inset
+
+) and, in the latter case, further distinguishes the roles of CMOF MetaAssociati
+on and of MetaAssociationEnd with respect to aggregation (this distinction
+ has no counterpart in past & current OMG specifications).
+ Like UML 1.x and FUML, association ends are semantically owned features
+ of their association.
+\end_layout
+
+\begin_layout Subsubsection*
+Simplifying association end ordering
+\end_layout
+
+\begin_layout Standard
+Although association ends have always been ordered in UML 1.x and 2.x, this
+ syntactic ordering is independent from all the other characteristics of
+ association ends (aggregation, ownership, navigability and multiplicity).
+ In practice, such characteristics are typically used to explain the intended
+ ordering instead of using the notation for the association end ordering
+ (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Section 11.5.4"
+key "UML 2.5"
+
+\end_inset
+
+.
+ The refactored CMOF metamodel is designed to be compatible with current
+ metamodeling practices, in particular, it reflects the practice of infering
+ association end ordering from their characteristics according to the following
+ prioritized criteria:
 \end_layout
 
 \begin_layout Enumerate
@@ -931,30 +977,90 @@ The source end (resp.
 \end_layout
 
 \begin_layout Enumerate
-The source and target ends are respectively the first and second properties
- in the ordered member end collection.
+If none of the above applies, the source and target ends are respectively
+ the first and second properties in the ordered member end collection.
 \end_layout
 
 \begin_layout Standard
-Instead of carrying this archaic criteria, the refactored CMOF metamodel
- explicitly differentiates at the metaclass level source and target association
- ends.
- Aggregation is only relevant for a target end property.
- Additional simplification stems from reflecting in the abstract syntax
- the difference that composite vs.
- reference (i.e.
- aggregation=none in UML2.5 terminology) makes for the semantics of associations.
- Finally, since generalization has different semantics for the kind of classifie
-r involved, it is consequently specialized in the abstract syntax.
- This enables replacing the complex UML2.5 notions of property subsets and
- redefinitions with a much simpler boolean flag corresponding to the semantics
- of symmetric subsetting and of redefinition forcing: the source (resp.
- target) restriction flag on AssociationGeneralization indicates whether
- the generalization corresponds to the weak case of subsetting (i.e., restriction
- = false; the value of the specialized end is existentially constrained
- to be a subset of the value of the general end) or to the strong case of
- redefinition with forcing semantics (i.e., restriction = true; the value
- of the specialized end universally restricts the value of the general end).
+Instead of carrying such complex criteria, the refactored CMOF metamodel
+ explicitly differentiates at the metaclass level the source and target
+ association ends.
+ That is, the ordering of the association ends for a current MOF 2.5 binary
+ association must be determined according to the six criteria above whereas
+ in the refactored CMOF metamodel, the ordering is explicitly represented
+ in differentiated metaclasses , i.e.
+ MetaAssociationSourceEnd and MetaAssociationTargetEnd.
+ Additional simplifications were possible thanks to the asymmetry of aggregation
+, which is only relevant for an association target end.
+ Since aggregation has profound semantic implications for the lifecycle
+ semantics of classifiers and their instances, this important distinction
+ is elevated to a first-class status in the symmetric distinction between
+ Composite and Reference for both MetaAssociation and MetaAssociationTarget.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Simplifying subsetting and redefinition
+\end_layout
+
+\begin_layout Standard
+After the UML 2.0 major revision, the relationship between association specializa
+tion and association end subsetting or redefinition were poorly understood.
+ This topic was the subject of intense scrutiny in the UML 2.4.1 revision
+ because hundreds of errors were traced to inconsistent and/or incorrect
+ subsets and/or redefinitions.
+ Unfortunately, a clear explanation is missing from the UML 2.5 simplification.
+ Here, the refactored CMOF metamodel reflects a unified ontological view
+ of meta associations as relationships that classify related metaclasses
+ in terms of named roles.
+ In this ontological view, subsetting and redefinition have the semantics
+ of restricting the subsetted or redefined association respectively.
+ More precisely, AssociationGeneralization with source and target restriction=fa
+lse corresponds to existential subsetting; that is, the weak restriction
+ that a link classified by the specialized (i.e.
+ subsetting) association must be some link classified by the general (i.e.
+ subsetted) association.
+ AssociationGeneralization with source or target restriction=true corresponds
+ to a universal redefinition; that is, the strong restriction that all links
+ classified by the general association (i.e., with the redefined source and/or
+ target end) must also be classified by the specific association (i.e.
+ with the redefining source and/or target end.)
+\end_layout
+
+\begin_layout Subsection
+Models instantiate metamodels
+\end_layout
+
+\begin_layout Standard
+As explained in CMOF Reflection
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Section 13"
+key "MOF 2.5"
+
+\end_inset
+
+, class and association classify model elements and links respectively.
+ In contrast to the subjective rationale in CMOF Instances Model 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Section 15.3"
+key "MOF 2.5"
+
+\end_inset
+
+ for a redundant representation of links via CMOF AssociationInstances and
+ CMOF Slots on linked CMOF ElementInstances for metaclass-owned association
+ ends, this paper follows on the footsteps of FUML to unify and simplify
+ CMOF abstract syntax and semantics: the first-class classifier-level concepts
+ of metaclass and meta associations have corresponding first-class instance-leve
+l concepts as model element and link respectively.
+ This uniformity makes metaclasses and model elements akin to entity tables
+ in a normalized relational schema and makes meta associations and model
+ links akin to normalized relationship tables.the objective principles of
+ relational schema normalization to simplify the instances model, replacing
+ eliminated redundancy (i.e.
+ CMOF Slots) with queries.
  
 \end_layout
 
