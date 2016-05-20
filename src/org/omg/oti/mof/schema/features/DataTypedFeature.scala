@@ -58,11 +58,30 @@ case class EnumerationLiteral
   override val name: String @@ Name )
   extends DataTypedFeature
 
+sealed trait DataTypedAttributeProperty {
+  def uuid: String @@ DatatypedAttributePropertyUUID
+  def name: String @@ Name
+}
 
-case class DatatypedAttributeProperty
+case class DataTypedAttributeUnorderedProperty
 ( override val uuid: String @@ DatatypedAttributePropertyUUID,
   override val name: String @@ Name )
   extends DataTypedFeature
+    with DataTypedAttributeProperty
+
+case class DataTypedAttributeOrderedProperty
+( override val uuid: String @@ DatatypedAttributePropertyUUID,
+  override val name: String @@ Name )
+  extends DataTypedFeature
+    with DataTypedAttributeProperty
+
+object DataTypedAttributeProperty {
+
+  implicit val formats
+  : Format[DataTypedAttributeProperty]
+  = Variants.format[DataTypedAttributeProperty]((__ \ "type").format[String])
+
+}
 
 object DataTypedFeature {
 

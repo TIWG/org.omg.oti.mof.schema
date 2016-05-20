@@ -76,20 +76,20 @@ sealed trait OTIMOFResourceExtent {
   * @param importedLibraries     Relation
   */
 case class OTIMOFLibraryResourceExtent
-( override val resource: OTIMOFLibrary,
+(override val resource: OTIMOFLibrary,
 
-  classifiers: Vector[library.DatatypeClassifier] = Vector(),
-  attributes: Vector[features.DataTypedFeature] = Vector(),
+ classifiers: Vector[library.DatatypeClassifier] = Vector(),
+ attributes: Vector[features.DataTypedFeature] = Vector(),
 
-  featureLowerBounds: Vector[features.FeatureLowerBound] = Vector(),
-  featureUpperBounds: Vector[features.FeatureUpperBound] = Vector(),
-  featureOrdering: Vector[features.FeatureOrdering] = Vector(),
+ featureLowerBounds: Vector[features.FeatureLowerBound] = Vector(),
+ featureUpperBounds: Vector[features.FeatureUpperBound] = Vector(),
+ featureOrdering: Vector[features.FeatureOrdering] = Vector(),
 
-  attribute2type: Vector[features.AttributeProperty2Type] = Vector(),
-  enumeration2literals: Vector[library.Enumeration2Literal] = Vector(),
-  structure2attribute: Vector[library.StructuredDatatype2Attribute] = Vector(),
-  generalizations: Vector[library.StructuredDataTypeGeneralization] = Vector(),
-  importedLibraries: Vector[OTIMOFResourceLibraryImport] = Vector())
+ attribute2type: Vector[features.AttributeProperty2DataType] = Vector(),
+ enumeration2literals: Vector[library.Enumeration2Literal] = Vector(),
+ structure2attribute: Vector[library.StructuredDatatype2Attribute] = Vector(),
+ generalizations: Vector[library.StructuredDataTypeGeneralization] = Vector(),
+ importedLibraries: Vector[OTIMOFResourceLibraryImport] = Vector())
   extends OTIMOFResourceExtent
 
 object OTIMOFLibraryResourceExtent {
@@ -130,7 +130,7 @@ case class OTIMOFMetamodelResourceExtent
  featureUpperBounds: Vector[features.FeatureUpperBound] = Vector(),
  featureOrdering: Vector[features.FeatureOrdering] = Vector(),
 
- attribute2type: Vector[features.AttributeProperty2Type] = Vector(),
+ attribute2type: Vector[features.AttributeProperty2DataType] = Vector(),
  importedLibraries: Vector[OTIMOFResourceLibraryImport] = Vector(),
  association2source: Vector[metamodel.MetaAssociation2SourceEndProperty] = Vector(),
  association2Target: Vector[metamodel.MetaAssociation2TargetEndProperty] = Vector(),
@@ -168,24 +168,24 @@ object OTIMOFMetamodelResourceExtent {
   * @param importedProfiles      Relation
   */
 case class OTIMOFProfileResourceExtent
-( override val resource: OTIMOFProfile,
+(override val resource: OTIMOFProfile,
 
-  classifiers: Vector[profile.Stereotype] = Vector(),
-  attributes: Vector[features.DataTypedFeature] = Vector(),
+ classifiers: Vector[profile.Stereotype] = Vector(),
+ attributes: Vector[features.DataTypedFeature] = Vector(),
 
-  featureLowerBounds: Vector[features.FeatureLowerBound] = Vector(),
-  featureUpperBounds: Vector[features.FeatureUpperBound] = Vector(),
-  featureOrdering: Vector[features.FeatureOrdering] = Vector(),
+ featureLowerBounds: Vector[features.FeatureLowerBound] = Vector(),
+ featureUpperBounds: Vector[features.FeatureUpperBound] = Vector(),
+ featureOrdering: Vector[features.FeatureOrdering] = Vector(),
 
-  attribute2type: Vector[features.AttributeProperty2Type] = Vector(),
-  importedLibraries: Vector[OTIMOFResourceLibraryImport] = Vector(),
-  exendedMetamodels: Vector[profile.Profile2ExtendedMetamodel] = Vector(),
-  generalizations: Vector[profile.StereotypeGeneralization] = Vector(),
-  extendedMetaclass: Vector[profile.Stereotype2ExtendedMetaclass] = Vector(),
-  stereotype2attribute: Vector[profile.Stereotype2Attribute] = Vector(),
-  stereotype2associationEndMetaClassProperty: Vector[profile.StereotypeAssociationTargetEndMetaClassProperty] = Vector(),
-  stereotype2associationEndStereotypeProperty: Vector[profile.StereotypeAssociationTargetEndStereotypeProperty] = Vector(),
-  importedProfiles: Vector[OTIMOFResourceProfileImport] = Vector())
+ attribute2type: Vector[features.AttributeProperty2DataType] = Vector(),
+ importedLibraries: Vector[OTIMOFResourceLibraryImport] = Vector(),
+ exendedMetamodels: Vector[profile.Profile2ExtendedMetamodel] = Vector(),
+ generalizations: Vector[profile.StereotypeGeneralization] = Vector(),
+ extendedMetaclass: Vector[profile.Stereotype2ExtendedMetaclass] = Vector(),
+ stereotype2attribute: Vector[profile.Stereotype2Attribute] = Vector(),
+ stereotype2associationEndMetaClassProperty: Vector[profile.StereotypeAssociationTargetEndMetaClassProperty] = Vector(),
+ stereotype2associationEndStereotypeProperty: Vector[profile.StereotypeAssociationTargetEndStereotypeProperty] = Vector(),
+ importedProfiles: Vector[OTIMOFResourceProfileImport] = Vector())
   extends OTIMOFResourceExtent
 
 object OTIMOFProfileResourceExtent {

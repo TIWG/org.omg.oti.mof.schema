@@ -73,61 +73,86 @@ object Identification {
     */
   sealed trait EntityUUID
 
+  sealed trait ValueRepresentation
+
   // ==========
 
-  sealed trait StructuredValueUUID extends EntityUUID
+  sealed trait StructuredValueUUID
+    extends EntityUUID
+    with ValueRepresentation
   val StructuredValueUUID = Tag.of[StructuredValueUUID]
 
   // ==========
 
+  sealed trait AtomicValueRepresentation
+    extends ValueRepresentation
+  val AtomicValueRepresentation = Tag.of[AtomicValueRepresentation]
 
-  sealed trait FeatureEntityUUID extends EntityUUID
+  // ==========
 
-  sealed trait DatatypedAttributePropertyUUID extends FeatureEntityUUID
+  sealed trait FeatureEntityUUID
+    extends EntityUUID
+
+  sealed trait DatatypedAttributePropertyUUID
+    extends FeatureEntityUUID
   val DatatypedAttributePropertyUUID = Tag.of[DatatypedAttributePropertyUUID]
 
-  sealed trait LibraryEnumerationLiteralUUID extends FeatureEntityUUID
+  sealed trait LibraryEnumerationLiteralUUID
+    extends FeatureEntityUUID
+      with ValueRepresentation
   val LibraryEnumerationLiteralUUID = Tag.of[LibraryEnumerationLiteralUUID]
 
-  sealed trait AssociationEndUUID extends FeatureEntityUUID
+  sealed trait AssociationEndUUID
+    extends FeatureEntityUUID
   val AssociationEndUUID = Tag.of[AssociationEndUUID]
 
-  sealed trait AssociationSourceEndUUID extends AssociationEndUUID
+  sealed trait AssociationSourceEndUUID
+    extends AssociationEndUUID
   val AssociationSourceEndUUID = Tag.of[AssociationSourceEndUUID]
 
-  sealed trait AssociationTargetEndUUID extends AssociationEndUUID
+  sealed trait AssociationTargetEndUUID
+    extends AssociationEndUUID
   val AssociationTargetEndUUID = Tag.of[AssociationTargetEndUUID]
 
   // ==========
 
-  sealed trait LibraryClassifierUUID extends EntityUUID
+  sealed trait LibraryClassifierUUID
+    extends EntityUUID
 
-  sealed trait LibraryAtomicClassifierUUID extends LibraryClassifierUUID
+  sealed trait LibraryAtomicClassifierUUID
+    extends LibraryClassifierUUID
   val LibraryAtomicClassifierUUID = Tag.of[LibraryAtomicClassifierUUID]
 
-  sealed trait LibraryPrimitiveTypeUUID extends LibraryAtomicClassifierUUID
+  sealed trait LibraryPrimitiveTypeUUID
+    extends LibraryAtomicClassifierUUID
   val LibraryPrimitiveTypeUUID = Tag.of[LibraryPrimitiveTypeUUID]
 
-  sealed trait LibraryEnumerationUUID extends LibraryAtomicClassifierUUID
+  sealed trait LibraryEnumerationUUID
+    extends LibraryAtomicClassifierUUID
   val LibraryEnumerationUUID = Tag.of[LibraryEnumerationUUID]
 
-  sealed trait LibraryStructuredClassifierUUID extends LibraryClassifierUUID
+  sealed trait LibraryStructuredClassifierUUID
+    extends LibraryClassifierUUID
   val LibraryStructuredClassifierUUID = Tag.of[LibraryStructuredClassifierUUID]
 
   // ==========
 
-  sealed trait MetamodelClassifierUUID extends EntityUUID
+  sealed trait MetamodelClassifierUUID
+    extends EntityUUID
   val MetamodelClassifierUUID = Tag.of[MetamodelClassifierUUID]
 
-  sealed trait MetaClassUUID extends MetamodelClassifierUUID
+  sealed trait MetaClassUUID
+    extends MetamodelClassifierUUID
   val MetaClassUUID = Tag.of[MetaClassUUID]
 
-  sealed trait MetaAssociationUUID extends MetamodelClassifierUUID
+  sealed trait MetaAssociationUUID
+    extends MetamodelClassifierUUID
   val MetaAssociationUUID = Tag.of[MetaAssociationUUID]
 
   // ==========
 
-  sealed trait StereotypeUUID extends EntityUUID
+  sealed trait StereotypeUUID
+    extends EntityUUID
   val StereotypeUUID = Tag.of[StereotypeUUID]
 
   // ==========
@@ -136,7 +161,8 @@ object Identification {
     * A Model Element UUID is a global identify for an OTI MOF element
     * that is part of the OTI MOF extent of an OTI MOF Model resource.
     */
-  sealed trait ModelElementUUID extends EntityUUID
+  sealed trait ModelElementUUID
+    extends EntityUUID
   val ModelElementUUID = Tag.of[ModelElementUUID]
 
 
@@ -158,25 +184,29 @@ object Identification {
   /**
     * The persistent location of an OTI MOF Metamodel resource
     */
-  sealed trait MetamodelIRI extends ResourceIRI
+  sealed trait MetamodelIRI
+    extends ResourceIRI
   val MetamodelIRI = Tag.of[MetamodelIRI]
 
   /**
     * The persistent location of an OTI MOF Profile resource
     */
-  sealed trait ProfileIRI extends ResourceIRI
+  sealed trait ProfileIRI
+    extends ResourceIRI
   val ProfileIRI = Tag.of[ProfileIRI]
 
   /**
     * The persistent location of an OTI MOF Library resource
     */
-  sealed trait LibraryIRI extends ResourceIRI
+  sealed trait LibraryIRI
+    extends ResourceIRI
   val LibraryIRI = Tag.of[LibraryIRI]
 
   /**
     * The persistent location of an OTI MOF Model resource
     */
-  sealed trait ModelIRI extends ResourceIRI
+  sealed trait ModelIRI
+    extends ResourceIRI
   val ModelIRI = Tag.of[ModelIRI]
 
 }

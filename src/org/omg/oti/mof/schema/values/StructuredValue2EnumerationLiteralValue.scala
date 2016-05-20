@@ -46,6 +46,11 @@ import play.api.libs.json._
 import scala.Predef.String
 import scalaz.@@
 
+/**
+  *
+  * @param uuid References a structured value
+  * @param enumerationLiteral the value of a structured datatype attribute typed by an enumeration literal
+  */
 case class StructuredValue2EnumerationLiteralValue
 ( uuid: String @@ StructuredValueUUID,
   enumerationLiteral: EnumerationLiteralValue )

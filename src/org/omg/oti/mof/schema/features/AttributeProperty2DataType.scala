@@ -36,24 +36,22 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.values
-
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Identification.StructuredValueUUID
+package org.omg.oti.mof.schema.features
 
 import play.api.libs.json._
+import org.omg.oti.mof.schema._
+import org.omg.oti.mof.schema.Identification.{DatatypedAttributePropertyUUID, LibraryClassifierUUID}
 
 import scala.Predef.String
 import scalaz.@@
 
-case class StructuredValue2StructuredValueReference
-( uuid: String @@ StructuredValueUUID,
-  structuredValueReference: StructuredValueReference)
+case class AttributeProperty2DataType
+( attribute: String @@ DatatypedAttributePropertyUUID,
+  `type`: String @@ LibraryClassifierUUID )
 
-object StructuredValue2StructuredValueReference {
+object AttributeProperty2DataType {
 
   implicit val formats
-  : Format[StructuredValue2StructuredValueReference]
-  = Json.format[StructuredValue2StructuredValueReference]
-
+  : Format[AttributeProperty2DataType]
+  = Json.format[AttributeProperty2DataType]
 }

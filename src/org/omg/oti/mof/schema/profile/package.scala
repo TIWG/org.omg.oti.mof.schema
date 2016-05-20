@@ -51,7 +51,7 @@ package org.omg.oti.mof.schema
   *   - [[features.FeatureOrdering]]
   *
   * Relations:
-  *   - [[features.AttributeProperty2Type]]
+  *   - [[features.AttributeProperty2DataType]]
   *   - [[OTIMOFResourceLibraryImport]]
   *   - [[profile.StereotypeGeneralization]]
   *   - [[profile.Stereotype2Attribute]]

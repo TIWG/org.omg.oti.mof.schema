@@ -55,7 +55,7 @@ sealed trait DatatypeClassifier {
   val name: String @@ Name
 }
 
-sealed trait AtomicDatatype {
+sealed trait AtomicDataType {
   def uuid: String @@ (_ <: LibraryClassifierUUID)
   def name: String @@ Name
 }
@@ -65,13 +65,13 @@ case class PrimitiveDataType
   override val name: String @@ Name,
   datatypeMapDefinition: String @@ DatatypeAbbrevIRI )
   extends DatatypeClassifier
-  with AtomicDatatype
+  with AtomicDataType
 
 case class EnumerationDataType
 ( override val uuid: String @@ LibraryEnumerationUUID,
   override val name: String @@ Name )
   extends DatatypeClassifier
-  with AtomicDatatype
+  with AtomicDataType
 
 case class StructuredDataType
 ( override val uuid: String @@ LibraryStructuredClassifierUUID,
@@ -81,8 +81,8 @@ case class StructuredDataType
 object AtomicDataType {
 
   implicit val formats
-  : Format[AtomicDatatype]
-  = Variants.format[AtomicDatatype]((__ \ "type").format[String])
+  : Format[AtomicDataType]
+  = Variants.format[AtomicDataType]((__ \ "type").format[String])
 
 }
 

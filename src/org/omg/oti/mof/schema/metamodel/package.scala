@@ -52,7 +52,7 @@ package org.omg.oti.mof.schema
   *   - [[features.FeatureOrdering]]
   *
   * Relations:
-  *   - [[features.AttributeProperty2Type]]
+  *   - [[features.AttributeProperty2DataType]]
   *   - [[OTIMOFResourceLibraryImport]]
   *   - [[metamodel.MetaAssociation2SourceEndProperty]]
   *   - [[metamodel.MetaAssociation2TargetEndProperty]]

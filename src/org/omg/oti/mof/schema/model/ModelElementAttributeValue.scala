@@ -50,7 +50,7 @@ import scala.Predef.String
 import scalaz.@@
 
 /**
-  * ModelElementAttributeValue represents the value of a [[org.omg.oti.mof.schema.features.DatatypedAttributeProperty]]
+  * ModelElementAttributeValue represents the value of a [[org.omg.oti.mof.schema.features.DataTypedAttributeUnorderedProperty]]
   * that is defined either in a [[org.omg.oti.mof.schema.metamodel.MetaClass]]
   * or a [[org.omg.oti.mof.schema.profile.Stereotype]]
   */
