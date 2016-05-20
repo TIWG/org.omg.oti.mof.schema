@@ -26,7 +26,7 @@
       ><stop stop-opacity="1" stop-color="rgb(204,204,204)" offset="0%"
         /><stop stop-opacity="1" stop-color="white" offset="100%"
       /></linearGradient
-      ><linearGradient x1="28" gradientUnits="userSpaceOnUse" x2="168" y1="49" y2="126" id="linearGradient6" spreadMethod="pad"
+      ><linearGradient x1="28" gradientUnits="userSpaceOnUse" x2="168" y1="49" y2="112" id="linearGradient6" spreadMethod="pad"
       ><stop stop-opacity="1" stop-color="white" offset="0%"
         /><stop stop-opacity="1" stop-color="white" offset="100%"
       /></linearGradient
@@ -106,60 +106,71 @@
       >MetaClassifierGeneralization</text
       ><text fill="black" x="78.5" space="preserve" y="27.2104" clip-path="url(#clipPath1)" stroke="none"
       >Metamodel</text
-      ><rect x="31" width="140" height="77" y="52" clip-path="url(#clipPath1)" stroke="none"
-      /><rect x="28" y="49" clip-path="url(#clipPath1)" fill="url(#linearGradient6)" width="140" height="77" stroke="none"
-      /><rect x="28" y="49" clip-path="url(#clipPath1)" fill="none" width="140" height="77" stroke="black"
-      /><text fill="black" x="32.5" space="preserve" y="62.2104" clip-path="url(#clipPath1)" stroke="none"
-      >MetamodelClassifier</text
-      ><rect x="354" width="138" height="24" y="157" clip-path="url(#clipPath1)" stroke="none"
-      /><rect x="351" y="154" clip-path="url(#clipPath1)" fill="url(#linearGradient7)" width="138" height="24" stroke="none"
-      /><rect x="351" y="154" clip-path="url(#clipPath1)" fill="none" width="138" height="24" stroke="black"
-      /><text fill="black" x="355.5" space="preserve" y="167.2104" clip-path="url(#clipPath1)" stroke="none"
-      >MetaClass2Attribute</text
-      ><rect x="31" width="113" height="77" y="252" clip-path="url(#clipPath1)" stroke="none"
-      /><rect x="28" y="249" clip-path="url(#clipPath1)" fill="url(#linearGradient8)" width="113" height="77" stroke="none"
-      /><rect x="28" y="249" clip-path="url(#clipPath1)" fill="none" width="113" height="77" stroke="black"
-      /><text fill="black" x="32.5" space="preserve" y="262.2104" clip-path="url(#clipPath1)" stroke="none"
-      >MetaAssociation</text
-      ><rect x="66" width="77" height="66" y="157" clip-path="url(#clipPath1)" stroke="none"
-      /><rect x="63" y="154" clip-path="url(#clipPath1)" fill="url(#linearGradient9)" width="77" height="66" stroke="none"
-      /><rect x="63" y="154" clip-path="url(#clipPath1)" fill="none" width="77" height="66" stroke="black"
-      /><text fill="black" x="69" space="preserve" y="167.2104" clip-path="url(#clipPath1)" stroke="none"
-      >MetaClass</text
-      ><polygon fill="none" clip-path="url(#clipPath1)" points=" 74 133 70 126 66 133" stroke="rgb(66,66,66)"
-      /><line clip-path="url(#clipPath1)" fill="none" x1="70" x2="70" y1="133" y2="140" stroke="rgb(66,66,66)"
-      /><line clip-path="url(#clipPath1)" fill="none" x1="49" x2="103" y1="140" y2="140" stroke="rgb(66,66,66)"
-      /><rect x="584" width="301" height="296" y="50" clip-path="url(#clipPath1)" stroke="none"
-      /><rect x="584" width="107" height="19" y="31" clip-path="url(#clipPath1)" stroke="none"
-      /><polygon fill="url(#linearGradient10)" clip-path="url(#clipPath1)" points=" 688 47 688 28 581 28 581 343 882 343 882 47 581 47" stroke="none"
-      /><polygon fill="none" clip-path="url(#clipPath1)" points=" 688 47 688 28 581 28 581 343 882 343 882 47 581 47" stroke="rgb(107,117,153)"
-      /><rect x="654" width="186" height="24" y="150" clip-path="url(#clipPath1)" stroke="none"
-      /><rect x="651" y="147" clip-path="url(#clipPath1)" fill="url(#linearGradient11)" width="186" height="24" stroke="none"
-      /><rect x="651" y="147" clip-path="url(#clipPath1)" fill="none" width="186" height="24" stroke="black"
-      /><text x="656.5" y="160.2104" clip-path="url(#clipPath1)" fill="black" font-style="italic" stroke="none" space="preserve"
-      >DataTypedAttributeProperty</text
-      ><rect x="682" width="157" height="24" y="297" clip-path="url(#clipPath1)" stroke="none"
-      /><rect x="679" y="294" clip-path="url(#clipPath1)" fill="url(#linearGradient12)" width="157" height="24" stroke="none"
-      /><rect x="679" y="294" clip-path="url(#clipPath1)" fill="none" width="157" height="24" stroke="black"
-      /><text x="688" y="307.2104" clip-path="url(#clipPath1)" fill="black" font-style="italic" stroke="none" space="preserve"
-      >AssociationTargetEnd</text
-      ><rect x="661" width="149" height="24" y="262" clip-path="url(#clipPath1)" stroke="none"
-      /><rect x="658" y="259" clip-path="url(#clipPath1)" fill="url(#linearGradient13)" width="149" height="24" stroke="none"
-      /><rect x="658" y="259" clip-path="url(#clipPath1)" fill="none" width="149" height="24" stroke="black"
-      /><text fill="black" x="662" space="preserve" y="272.2104" clip-path="url(#clipPath1)" stroke="none"
-      >AssociationSourceEnd</text
-      ><rect x="703" width="126" height="24" y="108" clip-path="url(#clipPath1)" stroke="none"
-      /><rect x="700" y="105" clip-path="url(#clipPath1)" fill="url(#linearGradient14)" width="126" height="24" stroke="none"
-      /><rect x="700" y="105" clip-path="url(#clipPath1)" fill="none" width="126" height="24" stroke="black"
-      /><text x="706.5" y="118.2104" clip-path="url(#clipPath1)" fill="black" font-style="italic" stroke="none" space="preserve"
-      >DataTypedFeature</text
-      ><rect x="752" width="122" height="49" y="185" clip-path="url(#clipPath1)" stroke="none"
-      /><rect x="749" y="182" clip-path="url(#clipPath1)" fill="url(#linearGradient15)" width="122" height="49" stroke="none"
-      /><rect x="749" y="182" clip-path="url(#clipPath1)" fill="none" width="122" height="49" stroke="black"
-      /><line clip-path="url(#clipPath1)" fill="none" x1="749" x2="871" y1="200" y2="200" stroke="black"
+      ><rect x="31" width="140" height="63" y="52" clip-path="url(#clipPath1)" stroke="none"
+      /><rect x="28" y="49" clip-path="url(#clipPath1)" fill="url(#linearGradient6)" width="140" height="63" stroke="none"
+      /><rect x="28" y="49" clip-path="url(#clipPath1)" fill="none" width="140" height="63" stroke="black"
+      /><line clip-path="url(#clipPath1)" fill="none" x1="28" x2="168" y1="67" y2="67" stroke="black"
     /></g
     ><g font-style="italic" text-rendering="geometricPrecision" font-size="9" stroke-linecap="butt" stroke-linejoin="round"
-    ><text x="786.5" space="preserve" y="211.354" clip-path="url(#clipPath1)" stroke="none"
+    ><text x="74.5" space="preserve" y="78.354" clip-path="url(#clipPath1)" stroke="none"
+      >attributes</text
+    ></g
+    ><g fill="rgb(40,0,0)" text-rendering="geometricPrecision" font-size="11" stroke-linecap="butt" stroke="rgb(40,0,0)" stroke-linejoin="round"
+    ><text x="31" space="preserve" y="90.2104" clip-path="url(#clipPath1)" stroke="none"
+      >uuid : String</text
+      ><text x="31" space="preserve" y="102.2104" clip-path="url(#clipPath1)" stroke="none"
+      >name : String</text
+      ><text x="32.5" y="62.2104" clip-path="url(#clipPath1)" fill="black" stroke="none" font-weight="bold" space="preserve"
+      >MetamodelClassifier</text
+      ><rect x="354" y="157" clip-path="url(#clipPath1)" fill="rgb(178,178,178)" width="138" height="24" stroke="none"
+      /><rect x="351" y="154" clip-path="url(#clipPath1)" fill="url(#linearGradient7)" width="138" height="24" stroke="none"
+      /><rect x="351" y="154" clip-path="url(#clipPath1)" fill="none" width="138" height="24" stroke="black"
+      /><text x="355.5" y="167.2104" clip-path="url(#clipPath1)" fill="black" stroke="none" font-weight="bold" space="preserve"
+      >MetaClass2Attribute</text
+      ><rect x="31" y="252" clip-path="url(#clipPath1)" fill="rgb(178,178,178)" width="113" height="77" stroke="none"
+      /><rect x="28" y="249" clip-path="url(#clipPath1)" fill="url(#linearGradient8)" width="113" height="77" stroke="none"
+      /><rect x="28" y="249" clip-path="url(#clipPath1)" fill="none" width="113" height="77" stroke="black"
+      /><text x="32.5" y="262.2104" clip-path="url(#clipPath1)" fill="black" stroke="none" font-weight="bold" space="preserve"
+      >MetaAssociation</text
+      ><rect x="66" y="157" clip-path="url(#clipPath1)" fill="rgb(178,178,178)" width="77" height="66" stroke="none"
+      /><rect x="63" y="154" clip-path="url(#clipPath1)" fill="url(#linearGradient9)" width="77" height="66" stroke="none"
+      /><rect x="63" y="154" clip-path="url(#clipPath1)" fill="none" width="77" height="66" stroke="black"
+      /><text x="69" y="167.2104" clip-path="url(#clipPath1)" fill="black" stroke="none" font-weight="bold" space="preserve"
+      >MetaClass</text
+      ><polygon fill="none" clip-path="url(#clipPath1)" points=" 74 119 70 112 66 119" stroke="rgb(66,66,66)"
+      /><line clip-path="url(#clipPath1)" fill="none" x1="70" x2="70" y1="119" y2="130" stroke="rgb(66,66,66)"
+      /><line clip-path="url(#clipPath1)" fill="none" x1="49" x2="103" y1="130" y2="130" stroke="rgb(66,66,66)"
+      /><rect x="584" y="50" clip-path="url(#clipPath1)" fill="rgb(178,178,178)" width="301" height="296" stroke="none"
+      /><rect x="584" y="31" clip-path="url(#clipPath1)" fill="rgb(178,178,178)" width="107" height="19" stroke="none"
+      /><polygon fill="url(#linearGradient10)" clip-path="url(#clipPath1)" points=" 688 47 688 28 581 28 581 343 882 343 882 47 581 47" stroke="none"
+      /><polygon fill="none" clip-path="url(#clipPath1)" points=" 688 47 688 28 581 28 581 343 882 343 882 47 581 47" stroke="rgb(107,117,153)"
+      /><rect x="654" y="150" clip-path="url(#clipPath1)" fill="rgb(178,178,178)" width="186" height="24" stroke="none"
+      /><rect x="651" y="147" clip-path="url(#clipPath1)" fill="url(#linearGradient11)" width="186" height="24" stroke="none"
+      /><rect x="651" y="147" clip-path="url(#clipPath1)" fill="none" width="186" height="24" stroke="black"
+    /></g
+    ><g font-style="italic" text-rendering="geometricPrecision" font-size="11" font-weight="bold" stroke-linecap="butt" stroke-linejoin="round"
+    ><text x="656.5" space="preserve" y="160.2104" clip-path="url(#clipPath1)" stroke="none"
+      >DataTypedAttributeProperty</text
+      ><rect x="682" y="297" clip-path="url(#clipPath1)" fill="rgb(178,178,178)" width="157" height="24" stroke="none"
+      /><rect x="679" y="294" clip-path="url(#clipPath1)" fill="url(#linearGradient12)" width="157" height="24" stroke="none"
+      /><rect fill="none" x="679" width="157" height="24" y="294" clip-path="url(#clipPath1)"
+      /><text x="688" space="preserve" y="307.2104" clip-path="url(#clipPath1)" stroke="none"
+      >AssociationTargetEnd</text
+      ><rect x="661" y="262" clip-path="url(#clipPath1)" fill="rgb(178,178,178)" width="149" height="24" stroke="none"
+      /><rect x="658" y="259" clip-path="url(#clipPath1)" fill="url(#linearGradient13)" width="149" height="24" stroke="none"
+      /><rect fill="none" x="658" width="149" height="24" y="259" clip-path="url(#clipPath1)"
+      /><text font-style="normal" x="662" space="preserve" y="272.2104" clip-path="url(#clipPath1)" stroke="none"
+      >AssociationSourceEnd</text
+      ><rect x="703" y="108" clip-path="url(#clipPath1)" fill="rgb(178,178,178)" width="126" height="24" stroke="none"
+      /><rect x="700" y="105" clip-path="url(#clipPath1)" fill="url(#linearGradient14)" width="126" height="24" stroke="none"
+      /><rect fill="none" x="700" width="126" height="24" y="105" clip-path="url(#clipPath1)"
+      /><text x="706.5" space="preserve" y="118.2104" clip-path="url(#clipPath1)" stroke="none"
+      >DataTypedFeature</text
+      ><rect x="752" y="185" clip-path="url(#clipPath1)" fill="rgb(178,178,178)" width="122" height="49" stroke="none"
+      /><rect x="749" y="182" clip-path="url(#clipPath1)" fill="url(#linearGradient15)" width="122" height="49" stroke="none"
+      /><rect fill="none" x="749" width="122" height="49" y="182" clip-path="url(#clipPath1)"
+      /><line y2="200" fill="none" x1="749" clip-path="url(#clipPath1)" x2="871" y1="200"
+      /><text x="786.5" font-size="9" y="211.354" clip-path="url(#clipPath1)" stroke="none" font-weight="normal" space="preserve"
       >attributes</text
     ></g
     ><g fill="rgb(40,0,0)" text-rendering="geometricPrecision" font-size="11" stroke-linecap="butt" stroke="rgb(40,0,0)" stroke-linejoin="round"
@@ -251,15 +262,15 @@
       >targetEnd</text
       ><text fill="black" x="646" space="preserve" y="321.2104" clip-path="url(#clipPath1)" stroke="none"
       >1</text
-      ><circle r="3" clip-path="url(#clipPath1)" cx="655" cy="270" stroke="none"
+      ><path fill="none" d="M49 130 L49 249" clip-path="url(#clipPath1)"
+      /><circle r="3" clip-path="url(#clipPath1)" cx="655" cy="270" stroke="none"
       /><path fill="none" d="M647 267 L652 270 L647 273" clip-path="url(#clipPath1)"
       /><path fill="none" d="M652 270 L544 270" clip-path="url(#clipPath1)"
       /><text fill="black" x="589.5" space="preserve" y="265.2104" clip-path="url(#clipPath1)" stroke="none"
       >sourceEnd</text
       ><text fill="black" x="625" space="preserve" y="283.2104" clip-path="url(#clipPath1)" stroke="none"
       >1</text
-      ><path fill="none" d="M49 140 L49 249" clip-path="url(#clipPath1)"
-      /><path fill="none" d="M103 140 L103 154" clip-path="url(#clipPath1)"
+      ><path fill="none" d="M103 130 L103 154" clip-path="url(#clipPath1)"
       /><path fill="none" d="M851 95 L851 182" clip-path="url(#clipPath1)"
       /><path fill="none" d="M826 249 L826 294" clip-path="url(#clipPath1)"
       /><polygon fill="none" points=" 778 136 774 129 770 136" clip-path="url(#clipPath1)"
