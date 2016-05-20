@@ -70,57 +70,1002 @@
 \begin_body
 
 \begin_layout Title
-Simplifying OMG MOF-based Metamodeling with Scala
+Simplifying OMG MOF-based Metamodeling
+\end_layout
+
+\begin_layout Author
+Nicolas F.
+ Rouquette
+\end_layout
+
+\begin_layout Institute
+Jet Propulsion Laboratory, California Institute of Technology
 \end_layout
 
 \begin_layout Abstract
-This paper proposes a functional programming paradigm for specifying OMG's
- metamodels and profiles such as UML and SysML to address several fundamental
- issues in OMG's metamodeling architecture based on OMG's Meta-Object Facility
- (MOF) and OMG's model interchange strategy based on OMG's XML Model Interchange
- (XMI) serialization.
- The fundamental issue in OMG's MOF architecture is that it is intended
- to be reflexively defined in terms of a subset of UML.
- The complexity of MOF is a consequence of a convoluted attempt to support
- two different paradigms for the semantics of associations: the Essential
- MOF (EMOF) paradigm seeks to a follow an object-oriented approach where
- the semantics of an association is equivalent to that of a pair of class
- properties.
- In contrast, the Complete MOF (CMOF) paradigm seeks to give associations
- a first class semantic status similar to that of classes.
- Unfortunately, both EMOF and CMOF paradigms suffer from the complexity
- that properties can play multiple roles.
- CMOF adds considerable complexity by including UML's partially specified
- notion of property subsetting and redefinition.
- The key simplification described in this paper involves replacing UML's
- shared syntactic notion of property with special cases reduced to their
- essential characteristics.
+What is a metamodel? 
+\begin_inset Quotes eld
+\end_inset
+
+A metamodel is a model used to model modeling itself.
+\begin_inset Quotes erd
+\end_inset
+
+ Although this definition from the Meta-Object Facility (MOF) Core 2.5 specificat
+ion lacks clarity, it is reflective of a cultural mindset about the relationship
+ between models and metamodels.
+ This paper proposes a different perspective about this relationship; briefly,
+ equating a metamodel for a modeling language to the specification of a
+ fourth normal form relational schema for the abstract syntax of that language
+ and equating a model written in a modeling language to tabular data conforming
+ to the relational schema of that language.
+ 
 \end_layout
 
 \begin_layout Abstract
-The OMG Model Interchange Working Group (MIWG) has sought to address long
- standing problems with OMG's XMI specification, both in terms of implementation
- complexity due to a myriad of serialization options and end user difficulties
- for practical model interchange across tools claiming conformance to the
- same revisions of OMG's specifications.
- Thanks to the MIWG efforts from tool vendors and users, the OMG published
- the Canonical XMI 2.5.1 specification annex which minimizes the serialization
- variability problems of past OMG XMI revisions.
- However, Canonical XMI 2.5.1 cannot fundamentally solve the model interchange
- problems that end users encounter in practice because it does not provide
- any mechanism to account for the fundamental difference between official
- OMG modeling specifications (e.g.
- UML, SysML) and the actual tool-specific implementations.
- The key simplification described in this paper involves replacing the reflexive
- OMG MOF architecture with a non-reflexive MOF architecture that can fundamental
-ly account for defining the abstract syntax of OMG modeling specifications
- (e.g.
- UML, SysML) as well as that of tool-specific implementations.
+The essence of defining a fourth-normal relational schema for metamodel
+ involves three kinds of tables: entity tables for each metaclass, directed
+ binary relational tables for each association among metaclasses and attribute
+ tables for each datatyped property.
+ With a strict separation of modeling concerns amongst entities, relations
+ and attributes tables, it is possible to explain traditional MOF-based
+ metamodeling in a simpler way where metaclasses correspond to entity tables
+ and associations correspond to relation tables as if they were directed
+ and owned both of their association end properties.
+ More importantly, this paper explains that this paradigm shift brings three
+ tangible benefits for the practice of metamodeling at large: First, in
+ lieu of a reflexive, multi-level metamodeling architecture like MOF where
+ the notion of a profile seems to straddle between the metamodel and model
+ levels, this paper explains a simpler paradigm from the perspective of
+ equating a metamodel to the ontology of a terminology vocabulary and of
+ using ontology terminology refinement as the basis for multi-level (meta)
+ modeling.
+ Second, in lieu of a complex model interchange paradigm based on serializing
+ models using the XML Metadata Interchange (XMI) standard, this paper explains
+ the benefits of serializing models in terms of their irreducible content
+ as normal form relational data.
+ Finally, this paper explains that the focus on normalizing the information
+ schema of a model works in tandem with leveraging recent advances in functional
+ programming languages like Scala to modernize the traditional practice
+ of model-based programming with the Object Constraint Language (OCL) and
+ the Query/View/Transformation (QVT) standards.
+\end_layout
+
+\begin_layout Section
+MOF-based metamodeling is too complex
+\end_layout
+
+\begin_layout Standard
+Several factors contribute to the complexity of MOF as an incomplete architectur
+e for metamodeling and modeling with poorly separated concerns.
+ The most significant factor pertains to the fundamental modeling constructs
+ in the MOF architecture, alasses, associations and properties; and more
+ specifically to their lack of orthogonality since an association can be
+ modeled as a class with a pair of properties.
+ In practice, poor separation of concerns between entity and relationship
+ constructs invites significant conceptual redundancy and variability in
+ their use.
+ For example, a relationship among entities may be modeled via several patterns
+ of fundamental constructs: as an association (with association end properties),
+ as properties of the related entities (without an association), as a (relations
+hip) class with properties or as even more redundant combinations of the
+ above.
+ Since the Object Management Group (OMG) uses MOF for defining metamodels,
+ construct redundancy affects all OMG metamodels like the Unified Modeling
+ Language (UML) where redundancy leads to significant variability in the
+ way conceptual relationships are defined in the UML metamodel.
+\end_layout
+
+\begin_layout Standard
+The UML metamodel is defined in terms of MOF classes, associations and propertie
+s.
+ A MOF class in a metamodel for a modeling langauge represents a concept
+ in that language.
+ There is no terminology consensus for what MOF associations and properties
+ represent in the modeling language.
+ The metaclasses in the UML metamodel are organized in a classification
+ taxonomy with a single root metaclass, UML Element, which is the toplevel
+ concept in UML for a constituent of a model.
+ All the other metaclasses in the UML metamodel are directly or indirectly
+ classified as a kind of UML Element.
+ For example, a UML Relationship is a kind of UML Element specifying some
+ kind of relationship between other UML Elements.
+ Unfortunately, The UML Relationship metaclass does not classify all of
+ the UML metaclasses that conceptually represent some kind of relationship
+ in the language, for example:
+\end_layout
+
+\begin_layout Enumerate
+In the graph of a UML Activity, the ActivityEdge metaclass represents a
+ directed relationship from an ActivityNode to another.
+\end_layout
+
+\begin_layout Enumerate
+In the graph of a UML Interaction, the GeneralOrdering metaclass represents
+ a directed relationship from an OccurrenceSpecification to another.
+\end_layout
+
+\begin_layout Enumerate
+In the graph of a UML Interaction, the Message metaclass represents a trace
+ relationship between send and receive events.
+\end_layout
+
+\begin_layout Enumerate
+In the graph of a UML StateMachine, the Transition metaclass represents
+ a directed relationship from a Vertex to another.
+ 
+\end_layout
+
+\begin_layout Enumerate
+In the graph of a UML StructuredClassifier, the Connector metaclass represents
+ a join relationship among ConnectorEnds.
+\end_layout
+
+\begin_layout Standard
+In all five examples, the conceptual relationship is represented as a metaclass;
+ however, these examples differ in the way related entities are represented.
+ For ActivityEdge (1) and GeneralOrdering (2), each related entity is represente
+d as an undirected association with non-derived class-owned association
+ end properties.
+ This is done differently for the other cases (3,4,5): The representation
+ of the source and target vertices of a Transition (4) is closest to (1)
+ and (2) except that the association end property typed by the relationship
+ itself is derived in (4) compared to (1) and (2) where it isn't.
+ The representation of the send and receive events of a Message (3) involves
+ a directed association from the relationship metaclass (Message) to the
+ related entity metaclass (MessageEnd).
+ This is in contrast to (1,2,4) where the association is undirected.
+ Finally, the representation of the related ConnectorEnds for a Connector
+ (5) involves a single undiferentiated directed composite association unlike
+ all other cases (1,2,3,4) where the relating association is non-composite.
+ Although there are legitimate syntactic concerns behind the variability
+ of these five cases, the lack of syntactic homogeneity in the way conceptual
+ relationships are represented in the UML constitutes a significant source
+ of metamodeling complexity.
+\end_layout
+
+\begin_layout Standard
+This paper argues that the root cause of metamodeling complexity stems from
+ a design choice to provide support for syntactically representing characteristi
+cs of conceptual relationships that have subtle interdependencies:
+\end_layout
+
+\begin_layout Itemize
+The syntactic variability of association end property ownership (association-own
+ed vs metaclass-owned) affects property subsetting and redefinition since
+ the subsetting and redefinition contexts respectively are different in
+ each case.
+\end_layout
+
+\begin_layout Itemize
+Syntactically, property characteristics such as ownership, aggregation,
+ derivation, subsetting and redefining are independent of each other.
+ However, the syntactic coupling of properties as opposites of a binary
+ association end forces subtle restrictions on well-formed syntactic variations.
+ These subtilities were poorly understood from UML 2.0 until UML 2.3.
+ A key goal of the MOF 2.4 and UML 2.4 revisions was to formalize the well-formedn
+ess constraints applicable to all MOF metamodels and to verify the well-formedne
+ss of UML 2.4.
+ Achieving this goal involved hundreds of repairs; far too many to manually
+ review so special tools were required to mechanically verify them.
+ However, a subtle error slipped through all reviews that required an urgent
+ fix and the publication of UML 2.4.1
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+target "https://blogs.msdn.microsoft.com/stevecook/2011/10/24/uml-2-4-1-now-released/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+When UML 2.4 was released we discovered an issue that meant it was impossible
+ to interchange StructuredActivityNodes reliably.
+ StructuredActivityNodes are executable nodes in an activity diagram that
+ are also groups.
+ UML 2.4 doesn’t specify clearly whether they should be serialized as nodes
+ or as groups; as a consequence, different tools do different things.
+ In UML 2.4.1 this ambiguity is remedied by serializing them in their own
+ collection.
+ UML 2.4.1 can be found at http://www.omg.org/spec/UML/2.4.1/ and all of the machine-r
+eadable files are at http://www.omg.org/spec/UML/20110701/.
+\end_layout
+
+\begin_layout Quote
+This is the first time in the history of UML that a complete machine-readable
+ definition of the language is available online, defined as an instance
+ of itself, and with no dangling references.
+ Only of interest to UML aficionados maybe, but a milestone nonetheless.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Surprisingly, although the OMG positioned MOF as an architecture for defining
+ and managing metadata information, there is no evidence in the OMG specificatio
+ns to suggest that the proven principles of information modeling with the
+ relational model were taken into consideration, if at all.
+ This paper departs from the traditional object-oriented modeling & programming
+ perspective that influenced the original definition of UML1 and the major
+ revision in UML2.
+ Notwithstanding considerations of normalization in relational modeling
+ as a pragmatic criteria for simplifying the current MOF paradigm, there
+ is plenty of historical evidence in the records of OMG task forces about
+ the difficulties encountered in understanding the particular patterns of
+ fundamental constructs used in specifying a metamodel or a profile and
+ in correcting errors due to differences between the intended and the actual
+ meaning of the abstract syntax according to the OMG task force vs.
+ the patterns of MOF fundamental constructs used.
+ Historically, the cost of finding and correcting these discrepancies has
+ been very high in terms of the man/years of effort by OMG task forces and
+ by tool vendors implementing revisions of OMG specifications.
+ Experience suggests that the current OMG processes for revising OMG specificati
+ons incur significant missed opportunity costs because of the lack of pragmatic
+ rigor in exploiting modern computer science techniques for rigorous specificati
+on development, for example:
+\end_layout
+
+\begin_layout Itemize
+Formal methods help ensure that a system behaves according to its specification.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+How about verifying that a system (e.g.
+ an implementation of a modeling language like the UML) behaves according
+ to its specification (e.g., the OMG UML abstract syntax metamodel)?
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\shape italic
+A type system is a tractable syntactic method for proving the absence of
+ certain program behaviors by classifying phrases according to the kinds
+ of values they compute
+\begin_inset CommandInset citation
+LatexCommand cite
+key "TypesAndProgrammingLanguages"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+The OMG publishes several modeling specifications with executable semantics
+ such as Alf & fUML and BPMN.
+ Alf is an example of a recently developed specification at the OMG where
+ the Alf modeling language is specified in the same fashion as programming
+ languages are, that is, with an explicitly defined type system.
+ Alf is an exception at the OMG.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+In particular, it is noteworthy to emphasize that the OMG publication process
+ requires every OMG modeling specification to specify criteria of conformance
+ to the specification.
+ Such criteria pertain to notions of abstract and concrete syntax, model
+ interchange, diagram interchange and semantics.
+ Historically, this process requirement has received very little attention
+ from the computer science community.
+ In particular, even though every OMG modeling specification includes some
+ kind of abstract syntax conformance criteria, none do so in terms of a
+ specification for the program interface of a system implemention.
+ This paper contributes to bridging this gap on two levels:
+\end_layout
+
+\begin_layout Enumerate
+Defining an Application Program Interface (API) for a simplified OMG's MOF
+ 2.5 based on a normalized relational model.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Generating an Application Program Interface (API) from the simplified MOF
+ abstract syntax metamodel of OMG UML 2.5.
+\end_layout
+
+\begin_layout Standard
+The first step towards bridging the gap between the OMG and computer science
+ culture is simplifying OMG's MOF 2.5
+\end_layout
+
+\begin_layout Section
+An ontological normal form of a MOF
+\end_layout
+
+\begin_layout Standard
+This section explains the rationale of each step involved in simplifying
+ OMG's MOF into a irreducible, ontological, normal form information schema.
+\end_layout
+
+\begin_layout Subsection
+Which of the three concepts is redundant?
+\end_layout
+
+\begin_layout Standard
+Having established the redundancy of MOF Class, MOF Association and MOF
+ Property for defining metamodels, which of these three can be eliminated?
+ MOF Class is a first-class concept in metamodels because every element
+ in a model must be an instance of at least one (meta)class defined in the
+ metamodel that the model conforms to.
+ Historically, there's been much debated about which of MOF Property and
+ of MOF Association needs first-class status.
+ MOF Property is a first-class concept in the Eclipse Modeling Framework
+ (EMF).
+ However, full support for binary MOF Associations requires a suitable EMF
+ code generator represent them in EMF without loss of information.
+ In terms of OMG's MOF 2.5 and EMF 2.12, there are three variations of binary
+ MOF Associations to consider: 1) metaclass-owned association end properties;
+ 2) one association-owned end and one metaclass-owned end; 3) association-owned
+ ends.
+ EMF directly supports case (1) only: metaclass-owned association end properties
+ are represented as opposite EMF 
+\family typewriter
+EReferences
+\family default
+ to update the opposite when one end is updated.
+ The other two cases depend on the EMF code generator used.
+ For example, the Eclipse UML code generator adds to each metaclass that
+ is the type of an association-owned end property an EMF annotation that
+ effectively acts as if the association-owned end property were instead
+ owned by that metaclass.
+ Since full association support depends on EMF code generation techniques,
+ navigating models using the EMF 
+\family typewriter
+EObject
+\family default
+ and 
+\family typewriter
+EReference
+\family default
+ API is limited to the first case only.
+ For cases (2,3), API-based navigation requires knowledge of the code generation
+ encoding of association-owned ends, if they are represented at all
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The default EMF code generator does not map association-owned end properties
+\begin_inset CommandInset citation
+LatexCommand cite
+after "See section 6.4"
+key "EMF"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ Since EMF is widely accepted as the de-facto open-source reference implementati
+on of OMG's Essential MOF (EMOF) subset
+\begin_inset CommandInset citation
+LatexCommand cite
+after "section 2.6.2"
+key "EMF"
+
+\end_inset
+
+, the above analysis should suffice to claim that EMF is insufficient for
+ code-generation agnostic API-based navigation of models according to all
+ three cases of Complete MOF (CMOF) binary associations.
+ Therefore, one must conclude that class+association are first-class concepts
+ and that property isn't.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Deconstructing-the-concept"
+
+\end_inset
+
+Deconstructing the concept of CMOF property
+\end_layout
+
+\begin_layout Standard
+MOF Property is not a first-class concept because it lacks conceptual unity.
+ Indeed, a property can play different roles in a CMOF metamodel.
+ In the absence of an official terminology, the terms used in this paper
+ are underlined:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:attribute"
+
+\end_inset
+
+A metaclass or datatype 
+\bar under
+attribute
+\bar default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+An important simplification of current OMG practices is a clean separation
+ of datatype libraries as a kind of model that can be used in other kinds
+ of non-library models, i.e.
+ metamodels, profiles and models that are instances of metamodels possibly
+ extended with profiles.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:associationEnd"
+
+\end_inset
+
+A binary association 
+\bar under
+end
+\bar default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+(
+\family typewriter
+type
+\family default
+ is a metaclass; 
+\family typewriter
+aggregation=none|composite
+\family default
+; 
+\family typewriter
+isID=false
+\family default
+)
+\end_layout
+
+\begin_layout Standard
+Since ends are an essential part of the definition of an association, the
+ concept of MOF binary association is augmented to include the relevant
+ characteristics of both ends (i.e., 
+\family typewriter
+type
+\family default
+, 
+\family typewriter
+lowerValue
+\family default
+, 
+\family typewriter
+upperValue
+\family default
+, 
+\family typewriter
+isOrdered
+\family default
+, 
+\family typewriter
+isUnique
+\family default
+,
+\family typewriter
+ isDerived
+\family default
+, 
+\family typewriter
+isDerivedUnion
+\family default
+, 
+\family typewriter
+isReadOnly
+\family default
+,
+\family typewriter
+ aggregation
+\family default
+,
+\family typewriter
+ subsettedProperty
+\family default
+, and 
+\family typewriter
+redefinedProperty
+\family default
+).
+ Note that the last three characteristics are coupled between the two ends
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+See resolutions of issues 14993 and 14977 in UML 2.4.1
+\begin_inset CommandInset citation
+LatexCommand cite
+key "UML 2.4.1 Report"
+
+\end_inset
+
+ for the last two.
+ 
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+aggregation
+\family default
+: Only one end may be 
+\family typewriter
+composite
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+subsettedProperty
+\family default
+: must be symmetric.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+redefinedProperty
+\family default
+: must be accompanied by corresponding subsetting or redefinition at the
+ other end.
+\end_layout
+
+\begin_layout Standard
+Symmetric subsetting means that link instances of an association with subsetting
+ ends must be also link instances of the other associations with the subsetted
+ ends.
+ This implies that an association with subsetting ends effectively specializes
+ the associations whose ends are subsetted.
+ Like subsetting, redefinition has a semantics of association specialization
+ but with an additional forcing semantics in the contexts of the redefining
+ ends: In such contexts, the redefining ends replace the redefined ends.
+ This means that in such contexts, it is not possible to create link instances
+ of the associations with redefined ends because such links must be instead
+ instances of the association with redefining ends.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+A metaclass 
+\bar under
+property
+\bar default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+(
+\family typewriter
+type
+\family default
+ is a metaclass)
+\end_layout
+
+\begin_layout Standard
+In principle, CMOF constraints allow a metaclass to own a non-association
+ end property typed by a metaclass.
+ Without loss of generality, this paper considers this case to be a degenerate
+ of the previous case that can be refactored accordingly by explicitly defining
+ an association.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Simplifying non-union derived association end properties
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename SimplifiedCMOF.svg
+	width 15cm
+	height 20cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Simplified CMOF metamodel"
+
+\end_inset
+
+Simplified CMOF metamodel.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The UML metamodel adopted a convention where non-union derived association
+ end properties have a corresponding operation query
+\begin_inset CommandInset citation
+LatexCommand cite
+after "section 6.4.1"
+key "UML 2.5"
+
+\end_inset
+
+.
+ Historically, this redundancy was rationalized on the basis that the operation
+ query enables specifying the OCL rule while the association end property
+ enables specifying the availability of the derived property.
+ This redundancy creates unecessary confusion where a derived association
+ has a derived metaclass-owned but a non-derived association-owned end!
+ Since nagivation is irrelevant for the purposes of OCL, it makes sense
+ to treat such associations as if both ends are metaclass-owned and derived.
+ Then, instead of duplicating each derived end with a corresponding operation
+ query, it makes sense to delete the association altogether.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Simplified CMOF metamodel"
+
+\end_inset
+
+ shows the result of carrying out these simplification steps to the fundamental
+ constructs including the two variants of properties described previously.
+ 
+\end_layout
+
+\begin_layout Standard
+Whereas the OMG emphasizes the circular definition of UML as a CMOF metamodel
+ which is itself defined as a subset of UML, this paper claims that this
+ is another unecessary source of complexity.
+ To emphasize the strict separation of levels between the CMOF metamodel
+ itself vs.
+ CMOF models (e.g.
+ the UML itself), Class and Association are prefixed 'M' (Meta) to differentiate
+ these CMOF metamodeling constructs from similarly named constructs in the
+ CMOF model of UML.
+ Operation queries corresponding to the ends of deleted derived associations
+ are shown in red.
+ Several metaclass attributes are no longer necessary and were deleted (Associat
+ion::isDerived, Property::isDerived, StructuralFeature::isReadOnly)
+\end_layout
+
+\begin_layout Subsection
+Deconstructing the concept of CMOF association
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename RefactoredCMOFAssociation.svg
+	width 12cm
+	height 20cm
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:RefactoredCMOF"
+
+\end_inset
+
+Refactored CMOF metamodel.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Although the concept of association is a first-class construct for defining
+ metamodels, the OMG made significant changes to the concept of association
+ end property.
+ The UML 1.x and MOF 1.x specifications used the term 'property' in a general
+ sense for any of three distinct kinds of metaclasses: AssociationEnd (i.e.,
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:associationEnd"
+
+\end_inset
+
+), Attribute (i.e., 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:attribute"
+
+\end_inset
+
+) and TaggedValue (not described in this paper).
+ As part of the major 2.0 revision, these three metaclasses were replaced
+ with a single one, Property.
+ Although a few 1.x distinctions were encoded as MOF constraints, the major
+ revision lost the 1.x separation between AssociationEnd and Attribute.
+ The 2.0 revision added support for the object-oriented paradigm where an
+ association end Property can be owned by a Class or by an Association.
+ Class-owned association end Properties enabled support for Essential MOF
+ metamodels where the semantics of a binary Association is defined in terms
+ of its Class-owned Properties only 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "See section 6.4"
+key "EMF"
+
+\end_inset
+
+.
+ Historically, the 2.0 major revisions of UML and MOF were adopted in 2003
+ and finalized in 2005; at least a year before the finalization of the 2.0
+ major revision of OCL was finalized in 2006.
+ OCL 2.0 emphasized the operational aspects of querying association end propertie
+s regardless of their ownership by a class or association.
+ This emphasis is so important for OCL that it has been a compliance point
+ ever since.
+ OCL's emphasis on the query semantics of navigating association end properties
+ stands in contrast with UML's emphasis on the value semantics of association
+ end properties and on the class/property object oriented view of associations.
+ Later in 2010, the Foundational subset for executable UML (FUML) specification
+ emphasized the lifecycle aspects of creating and deleting link instances
+ of associations based on the existing UML action semantics.
+ FUML in fact requires associations to own all of their ends but unlike
+ the misconception from the object-oriented paradigm, supports operating
+ on association end properties from related classes as if such ends were
+ class-owned features.
+ However, FUML does not give association links a similar status as that
+ of class instances because FUML restricts the classifier queried by a UML
+ ReadExtentAction to be a class only.
+ The rest of this section explains the basis for simplifying CMOF meta associati
+ons in terms of the three aspects of association end properties that have
+ historically been the source of much complexity, confusion and errors in
+ OMG specifications: aggregation, ordering and subsetting/redefinition.
+\end_layout
+
+\begin_layout Subsubsection*
+Simplifying and promoting aggregation
+\end_layout
+
+\begin_layout Standard
+Since Property::aggregation has a significant effect on the semantics of
+ association end properties, the difference is elevated to the conceptual
+ level instead of being represented in terms of the Property::aggregation
+ attribute as in current MOF, UML and FUML.
+ Hence, the refactoring of the relevant subset of the CMOF abstract syntax
+ metamodel shown in Fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:RefactoredCMOF"
+
+\end_inset
+
+ distinguishes the roles of a CMOF property with respect to typing like
+ UML 1.x and MOF 1.x did (DataProperty corresponds to case 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:attribute"
+
+\end_inset
+
+ and AssociationEnd to case 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:associationEnd"
+
+\end_inset
+
+) and, in the latter case, further distinguishes the roles of CMOF MetaAssociati
+on and of MetaAssociationEnd with respect to aggregation (this distinction
+ has no counterpart in past & current OMG specifications).
+ Like UML 1.x and FUML, association ends are semantically owned features
+ of their association.
+\end_layout
+
+\begin_layout Subsubsection*
+Simplifying association end ordering
+\end_layout
+
+\begin_layout Standard
+Although association ends have always been ordered in UML 1.x and 2.x, this
+ syntactic ordering is independent from all the other characteristics of
+ association ends (aggregation, ownership, navigability and multiplicity).
+ In practice, such characteristics are typically used to explain the intended
+ ordering instead of using the notation for the association end ordering
+ (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Section 11.5.4"
+key "UML 2.5"
+
+\end_inset
+
+.
+ The refactored CMOF metamodel is designed to be compatible with current
+ metamodeling practices, in particular, it reflects the practice of infering
+ association end ordering from their characteristics according to the following
+ prioritized criteria:
+\end_layout
+
+\begin_layout Enumerate
+The target end is composite, the source end is not.
+\end_layout
+
+\begin_layout Enumerate
+The source end is owned by the association, the target end by a metaclass.
+\end_layout
+
+\begin_layout Enumerate
+Both ends are owned by the association, the source end is navigable, the
+ target end isn't.
+\end_layout
+
+\begin_layout Enumerate
+Both ends are not composite, the source end is unbounded, the target end
+ has a finite upper bound.
+\end_layout
+
+\begin_layout Enumerate
+The source end (resp.
+ the target end) directly or indirectly subsets or redefines another source
+ end (resp.
+ target end).
+\end_layout
+
+\begin_layout Enumerate
+If none of the above applies, the source and target ends are respectively
+ the first and second properties in the ordered member end collection.
+\end_layout
+
+\begin_layout Standard
+Instead of carrying such complex criteria, the refactored CMOF metamodel
+ explicitly differentiates at the metaclass level the source and target
+ association ends.
+ That is, the ordering of the association ends for a current MOF 2.5 binary
+ association must be determined according to the six criteria above whereas
+ in the refactored CMOF metamodel, the ordering is explicitly represented
+ in differentiated metaclasses , i.e.
+ MetaAssociationSourceEnd and MetaAssociationTargetEnd.
+ Additional simplifications were possible thanks to the asymmetry of aggregation
+, which is only relevant for an association target end.
+ Since aggregation has profound semantic implications for the lifecycle
+ semantics of classifiers and their instances, this important distinction
+ is elevated to a first-class status in the symmetric distinction between
+ Composite and Reference for both MetaAssociation and MetaAssociationTarget.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Simplifying subsetting and redefinition
+\end_layout
+
+\begin_layout Standard
+After the UML 2.0 major revision, the relationship between association specializa
+tion and association end subsetting or redefinition were poorly understood.
+ This topic was the subject of intense scrutiny in the UML 2.4.1 revision
+ because hundreds of errors were traced to inconsistent and/or incorrect
+ subsets and/or redefinitions.
+ Unfortunately, a clear explanation is missing from the UML 2.5 simplification.
+ Here, the refactored CMOF metamodel reflects a unified ontological view
+ of meta associations as relationships that classify related metaclasses
+ in terms of named roles.
+ In this ontological view, subsetting and redefinition have the semantics
+ of restricting the subsetted or redefined association respectively.
+ More precisely, AssociationGeneralization with source and target restriction=fa
+lse corresponds to existential subsetting; that is, the weak restriction
+ that a link classified by the specialized (i.e.
+ subsetting) association must be some link classified by the general (i.e.
+ subsetted) association.
+ AssociationGeneralization with source or target restriction=true corresponds
+ to a universal redefinition; that is, the strong restriction that all links
+ classified by the general association (i.e., with the redefined source and/or
+ target end) must also be classified by the specific association (i.e.
+ with the redefining source and/or target end.)
+\end_layout
+
+\begin_layout Subsection
+Models instantiate metamodels
+\end_layout
+
+\begin_layout Standard
+As explained in CMOF Reflection
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Section 13"
+key "MOF 2.5"
+
+\end_inset
+
+, class and association classify model elements and links respectively.
+ In contrast to the subjective rationale in CMOF Instances Model 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Section 15.3"
+key "MOF 2.5"
+
+\end_inset
+
+ for a redundant representation of links via CMOF AssociationInstances and
+ CMOF Slots on linked CMOF ElementInstances for metaclass-owned association
+ ends, this paper follows on the footsteps of FUML to unify and simplify
+ CMOF abstract syntax and semantics: the first-class classifier-level concepts
+ of metaclass and meta associations have corresponding first-class instance-leve
+l concepts as model element and link respectively.
+ This uniformity makes metaclasses and model elements akin to entity tables
+ in a normalized relational schema and makes meta associations and model
+ links akin to normalized relationship tables.the objective principles of
+ relational schema normalization to simplify the instances model, replacing
+ eliminated redundancy (i.e.
+ CMOF Slots) with queries.
  
 \end_layout
 
 \begin_layout Section
-Introduction
+Contributions
 \end_layout
 
 \begin_layout Standard
@@ -251,56 +1196,139 @@ UML provides a rich vocabulary for describing the structure and behavior
 \end_layout
 
 \end_deeper
+\begin_layout Section*
+Acknowledgements
+\end_layout
+
 \begin_layout Standard
-This paper is organized as follows....
+This research was carried out at the Jet Propulsion Laboratory, California
+ Institute of Technology, under a contract with the National Aeronautics
+ and Space Administration.
 \end_layout
 
-\begin_layout Section
-Background & Motivation
+\begin_layout Standard
+Reference herein to any specific commercial product, process, or service
+ by trade name, trademark, manufacturer, or otherwise, does not constitute
+ or imply its endorsement by the United States Government or the Jet Propulsion
+ Laboratory, California Institute of Technology.
 \end_layout
 
-\begin_layout Itemize
-Key factors contributing to UML's accidental complexity include:
+\begin_layout Standard
+The author expresses gratitude to many colleagues at the Jet Propulsion
+ Laboratory's Integrated Model-Centric Engineering project and the Laboratory
+ for Reliable Software, in particular, M.
+ Elaasar, K.
+ Havelind, S.
+ Herzig, S.
+ Jenkins and R.
+ Kumar, and to many current and past task force colleagues at the Object
+ Management Group (OMG), in particular, Y.
+ Bernard, C.
+ Bock, R.
+ Burkhart, S.
+ Cook, S.
+ Friedenthal, M.
+ Elaasar, M.
+ Koethe, P.
+ Rivett, E.
+ Seidewitz and B.
+ Selic.
 \end_layout
 
-\begin_deeper
-\begin_layout Itemize
-The labor-intensive, error-prone OMG process for maintaining and evolving
- the UML specification
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "TypesAndProgrammingLanguages"
+
+\end_inset
+
+B.
+ C.
+ Pierce, 
+\begin_inset Quotes eld
+\end_inset
+
+Types and Programming Languages
+\begin_inset Quotes erd
+\end_inset
+
+, 2002.
 \end_layout
 
-\begin_layout Itemize
-Circular definition of UML in terms of an extended subset of itself
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "EMF"
+
+\end_inset
+
+D.
+ Steinberg, F.
+ Budinsky, M.
+ Paternostro, E.
+ Merks, 
+\begin_inset Quotes eld
+\end_inset
+
+EMF Eclipse Modeling Framework
+\begin_inset Quotes erd
+\end_inset
+
+, 2nd edition, Addison-Wesley, 2008.
 \end_layout
 
-\begin_layout Itemize
-An overly complex tree serialization model (XMI)
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MOF 2.5"
+
+\end_inset
+
+Object Management Group, 
+\begin_inset Quotes eld
+\end_inset
+
+Meta-Object Facility Core Specification
+\begin_inset Quotes erd
+\end_inset
+
+, version 2.5, formal/2015-06-05, 2015.
 \end_layout
 
-\end_deeper
-\begin_layout Itemize
-The practical consequences affecting UML's stakeholders:
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "UML 2.4.1 Report"
+
+\end_inset
+
+Object Management Group, 
+\begin_inset Quotes eld
+\end_inset
+
+Report of the UML version 2.4.1 Revision Task Force
+\begin_inset Quotes erd
+\end_inset
+
+, ptc/2011-01-19, 2010.
 \end_layout
 
-\begin_deeper
-\begin_layout Itemize
-Difficulties for OMG UML revision task force members to understand and analyze
- the impact of proposed changes to the UML metamodel
-\end_layout
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "UML 2.5"
 
-\begin_layout Itemize
-Difficulties for UML tool vendors to provide verifiable evidence of their
- tool's conformance to the UML specification
-\end_layout
+\end_inset
 
-\begin_layout Itemize
-Limited interoperatibility for UML users working with different UML tool
- implementations
-\end_layout
+Object Management Group, 
+\begin_inset Quotes eld
+\end_inset
 
-\end_deeper
-\begin_layout Section
-A Tool-neutral API for UML's Abstract Syntax
+Unified Modeling Language version 2.5
+\begin_inset Quotes erd
+\end_inset
+
+, formal/2015-03-01, 2015.
 \end_layout
 
 \end_body
