@@ -38,44 +38,6 @@
  */
 package org.omg.oti.mof
 
-import play.api.libs.json._
-
-import scala.{Int,Ordering,StringContext}
-import scala.Predef.String
-import scalaz._
-
 package object schema {
-
-  implicit def taggedStringOrdering[T]
-  : Ordering[String @@ T]
-  = new Ordering[String @@ T] {
-
-    def compare(x: String @@ T, y: String @@ T)
-    : Int
-    = Tag.unwrap(x).compareTo(Tag.unwrap(y))
-
-  }
-
-  implicit def taggedStringFormat[T]
-  : Format[String @@ T]
-  = new Format[String @@ T] {
-    def reads(json: JsValue): JsResult[String @@ T] = json match {
-      case JsString(v) => JsSuccess(Tag.of[T](v))
-      case unknown => JsError(s"String value expected, got: $unknown")
-    }
-
-    def writes(v: String @@ T): JsValue = JsString(Tag.unwrap(v))
-  }
-
-  implicit def taggedIntFormat[T]
-  : Format[Int @@ T]
-  = new Format[Int @@ T] {
-    def reads(json: JsValue): JsResult[Int @@ T] = json match {
-      case JsNumber(v) => JsSuccess(Tag.of[T](v.toInt))
-      case unknown => JsError(s"Int value expected, got: $unknown")
-    }
-
-    def writes(v: Int @@ T): JsValue = JsNumber(Tag.unwrap(v))
-  }
 
 }

@@ -38,33 +38,31 @@
  */
 package org.omg.oti.mof.schema.model
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Identification.{AssociationTargetEndUUID, ModelElementUUID}
+import org.omg.oti.mof.schema.common.{AssociationTargetEndUUID, ModelElementUUID}
 
 import play.json.extra._
 import play.api.libs.json._
 
 import scala.Int
 import scala.Predef.String
-import scalaz.@@
 
 sealed trait AppliedStereotypePropertyReference {
-  val modelElement: String @@ ModelElementUUID
-  val associationTargetEnd: String @@ AssociationTargetEndUUID
-  val referencedElement: String @@ ModelElementUUID
+  val modelElement: ModelElementUUID
+  val associationTargetEnd: AssociationTargetEndUUID
+  val referencedElement: ModelElementUUID
 }
 
 case class AppliedStereotypePropertyUnorderedReference
-( override val modelElement: String @@ ModelElementUUID,
-  override val associationTargetEnd: String @@ AssociationTargetEndUUID,
-  override val referencedElement: String @@ ModelElementUUID)
+( override val modelElement: ModelElementUUID,
+  override val associationTargetEnd: AssociationTargetEndUUID,
+  override val referencedElement: ModelElementUUID)
   extends AppliedStereotypePropertyReference
 
 
 case class AppliedStereotypePropertyOrderedReference
-( override val modelElement: String @@ ModelElementUUID,
-  override val associationTargetEnd: String @@ AssociationTargetEndUUID,
-  override val referencedElement: String @@ ModelElementUUID,
+( override val modelElement: ModelElementUUID,
+  override val associationTargetEnd: AssociationTargetEndUUID,
+  override val referencedElement: ModelElementUUID,
   index: Int )
   extends AppliedStereotypePropertyReference
 

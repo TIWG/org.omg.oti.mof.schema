@@ -38,12 +38,9 @@
  */
 package org.omg.oti.mof.schema
 
-import org.omg.oti.mof.schema.Identification.{ModelIRI, ProfileIRI}
+import org.omg.oti.mof.schema.common.{ModelIRI, ProfileIRI}
 
 import play.api.libs.json._
-
-import scala.Predef.String
-import scalaz.@@
 
 /**
   * OTIMOFResourceAppliedProfile corresponds to a UML ProfileApplication relationship from
@@ -54,8 +51,8 @@ import scalaz.@@
   * @param appliedProfile The applied OTI MOF Profile IRI
   */
 case class OTIMOFResourceAppliedProfile
-( applyingModel: String @@ ModelIRI,
-  appliedProfile: String @@ ProfileIRI )
+( applyingModel: ModelIRI,
+  appliedProfile: ProfileIRI )
 
 object OTIMOFResourceAppliedProfile {
 

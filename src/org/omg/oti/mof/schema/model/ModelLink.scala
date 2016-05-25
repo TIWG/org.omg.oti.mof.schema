@@ -38,32 +38,30 @@
  */
 package org.omg.oti.mof.schema.model
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Identification.{MetaAssociationUUID, ModelElementUUID}
+import org.omg.oti.mof.schema.common.{MetaAssociationUUID, ModelElementUUID}
 
 import play.json.extra._
 import play.api.libs.json._
 
 import scala.Int
 import scala.Predef.String
-import scalaz.@@
 
 sealed trait ModelLink {
-  val sourceElement: String @@ ModelElementUUID
-  val targetElement: String @@ ModelElementUUID
-  val metaAssociation: String @@ MetaAssociationUUID
+  val sourceElement: ModelElementUUID
+  val targetElement: ModelElementUUID
+  val metaAssociation: MetaAssociationUUID
 }
 
 case class ModelUnorderedLink
-( override val sourceElement: String @@ ModelElementUUID,
-  override val targetElement: String @@ ModelElementUUID,
-  override val metaAssociation: String @@ MetaAssociationUUID )
+( override val sourceElement: ModelElementUUID,
+  override val targetElement: ModelElementUUID,
+  override val metaAssociation: MetaAssociationUUID )
   extends ModelLink
 
 case class ModelOrderedLink
-( override val sourceElement: String @@ ModelElementUUID,
-  override val targetElement: String @@ ModelElementUUID,
-  override val metaAssociation: String @@ MetaAssociationUUID,
+( override val sourceElement: ModelElementUUID,
+  override val targetElement: ModelElementUUID,
+  override val metaAssociation: MetaAssociationUUID,
   index: Int )
   extends ModelLink
 

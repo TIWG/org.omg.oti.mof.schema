@@ -38,17 +38,14 @@
  */
 package org.omg.oti.mof.schema.library
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Identification.{LibraryEnumerationLiteralUUID, LibraryEnumerationUUID}
+import org.omg.oti.mof.schema.common.{LibraryEnumerationLiteralUUID, LibraryEnumerationUUID}
 import play.api.libs.json._
 
 import scala.Int
-import scala.Predef.String
-import scalaz.@@
 
 case class Enumeration2Literal
-( enumeration: String @@ LibraryEnumerationUUID,
-  literal: String @@ LibraryEnumerationLiteralUUID,
+( enumeration: LibraryEnumerationUUID,
+  literal: LibraryEnumerationLiteralUUID,
   index: Int)
 
 object Enumeration2Literal {

@@ -38,29 +38,26 @@
  */
 package org.omg.oti.mof.schema.metamodel
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Common.Name
-import org.omg.oti.mof.schema.Identification._
+import org.omg.oti.mof.schema.common._
 
 import play.json.extra._
 import play.api.libs.json._
 
 import scala.Predef.String
-import scalaz.@@
 
 sealed trait MetamodelClassifier {
-  val uuid: String @@ (_ <: MetamodelClassifierUUID)
-  val name: String @@ Name
+  val uuid: MetamodelClassifierUUID
+  val name: Name
 }
 
 case class MetaClass
-( override val uuid: String @@ MetaClassUUID,
-  override val name: String @@ Name )
+( override val uuid: MetaClassUUID,
+  override val name: Name )
   extends MetamodelClassifier
 
 case class MetaAssociation
-( override val uuid: String @@ MetaAssociationUUID,
-  override val name: String @@ Name )
+( override val uuid: MetaAssociationUUID,
+  override val name: Name )
   extends MetamodelClassifier
 
 object MetamodelClassifier {

@@ -39,18 +39,15 @@
 package org.omg.oti.mof.schema
 
 import org.omg.oti.mof.schema.features.{FeatureLowerBound, FeatureOrdering, FeatureUpperBound}
-import org.omg.oti.mof.schema.Identification._
+import org.omg.oti.mof.schema.common._
 import org.omg.oti.mof.schema.library.{Enumeration2Literal, StructuredDatatype2Attribute}
 import org.omg.oti.mof.schema.metamodel.{MetaAssociation2SourceEndProperty, MetaAssociation2TargetEndProperty}
 import org.omg.oti.mof.schema.metamodel.{MetaAssociationEndProperty2MetaClassType, MetaClass2Attribute}
 import org.omg.oti.mof.schema.model.ModelLink
 import org.omg.oti.mof.schema.profile.{StereotypeAssociationTargetEndMetaClassProperty, StereotypeAssociationTargetEndStereotypeProperty}
 
-import scala.Predef.String
-import scalaz.@@
-
 sealed trait OTIMOFResourceItem {
-  val resourceIRI: String @@ (_ <: ResourceIRI)
+  val resourceIRI: ResourceIRI
 }
 
 /**
@@ -60,46 +57,46 @@ sealed trait OTIMOFResourceItem {
   * The `resourceIRI` is a foreign key identifying an [[OTIMOFLibrary]] resource.
   */
 sealed trait OTIMOFLibraryItem extends OTIMOFResourceItem {
-  override val resourceIRI: String @@ LibraryIRI
+  override val resourceIRI: LibraryIRI
 }
 
 case class OTIMOFLibraryClassifierItem
-( override val resourceIRI: String @@ LibraryIRI,
-  classifier: String @@ (_ <: LibraryClassifierUUID) )
+( override val resourceIRI: LibraryIRI,
+  classifier: LibraryClassifierUUID )
   extends OTIMOFLibraryItem
 
 case class OTIMOFLibraryEnumerationLiteralItem
-( override val resourceIRI: String @@ LibraryIRI,
-  enumerationliteral: String @@ LibraryEnumerationLiteralUUID )
+( override val resourceIRI: LibraryIRI,
+  enumerationliteral: LibraryEnumerationLiteralUUID )
   extends OTIMOFLibraryItem
 
 case class OTIMOFLibraryEnumeration2LiteralItem
-( override val resourceIRI: String @@ LibraryIRI,
+( override val resourceIRI: LibraryIRI,
   enumeration2literal: Enumeration2Literal )
   extends OTIMOFLibraryItem
 
 case class OTIMOFLibraryStructuredAttributeItem
-( override val resourceIRI: String @@ LibraryIRI,
-  attributeProperty: String @@ DatatypedAttributePropertyUUID )
+( override val resourceIRI: LibraryIRI,
+  attributeProperty: DatatypedAttributePropertyUUID )
   extends OTIMOFLibraryItem
 
 case class OTIMOFLibraryStructuredAttributeLowerBoundItem
-( override val resourceIRI: String @@ LibraryIRI,
+( override val resourceIRI: LibraryIRI,
   attributeLowerBound: FeatureLowerBound )
   extends OTIMOFLibraryItem
 
 case class OTIMOFLibraryStructuredAttributeUpperBoundItem
-( override val resourceIRI: String @@ LibraryIRI,
+( override val resourceIRI: LibraryIRI,
   attributeUpperBound: FeatureUpperBound )
   extends OTIMOFLibraryItem
 
 case class OTIMOFLibraryStructuredAttributeOrderingItem
-( override val resourceIRI: String @@ LibraryIRI,
+( override val resourceIRI: LibraryIRI,
   attributeOrdering: FeatureOrdering )
   extends OTIMOFLibraryItem
 
 case class OTIMOFLibraryStructuredDatatype2AttributeItem
-( override val resourceIRI: String @@ LibraryIRI,
+( override val resourceIRI: LibraryIRI,
   structuredDatatype2attribute: StructuredDatatype2Attribute )
   extends OTIMOFLibraryItem
 
@@ -110,56 +107,56 @@ case class OTIMOFLibraryStructuredDatatype2AttributeItem
   * The `resourceIRI` is a foreign key identifying an [[OTIMOFMetamodel]] resource.
   */
 sealed trait OTIMOFMetamodelItem extends OTIMOFResourceItem {
-  override val resourceIRI: String @@ MetamodelIRI
+  override val resourceIRI: MetamodelIRI
 }
 
 case class OTIMOFMetamodelClassifierItem
-( override val resourceIRI: String @@ MetamodelIRI,
-  classifier: String @@ MetamodelClassifierUUID )
+( override val resourceIRI: MetamodelIRI,
+  classifier: MetamodelClassifierUUID )
   extends OTIMOFMetamodelItem
 
 case class OTIMOFMetamodelAttributeItem
-( override val resourceIRI: String @@ MetamodelIRI,
-  attributeProperty: String @@ DatatypedAttributePropertyUUID )
+( override val resourceIRI: MetamodelIRI,
+  attributeProperty: DatatypedAttributePropertyUUID )
   extends OTIMOFMetamodelItem
 
 case class OTIMOFMetamodelMetaClass2AttributeItem
-( override val resourceIRI: String @@ MetamodelIRI,
+( override val resourceIRI: MetamodelIRI,
   metaClass2attribute: MetaClass2Attribute )
   extends OTIMOFMetamodelItem
 
 case class OTIMOFMetamodelAssociationEndProperty2MetaClassTypeItem
-( override val resourceIRI: String @@ MetamodelIRI,
+( override val resourceIRI: MetamodelIRI,
   associationEndType: MetaAssociationEndProperty2MetaClassType )
   extends OTIMOFMetamodelItem
 
 case class OTIMOFMetamodelAssociationEndPropertyItem
-( override val resourceIRI: String @@ MetamodelIRI,
-  associationEnd: String @@ AssociationEndUUID )
+( override val resourceIRI: MetamodelIRI,
+  associationEnd: AssociationEndUUID )
   extends OTIMOFMetamodelItem
 
 case class OTIMOFMetamodelFeatureLowerBoundItem
-( override val resourceIRI: String @@ MetamodelIRI,
+( override val resourceIRI: MetamodelIRI,
   lowerBound: FeatureLowerBound )
   extends OTIMOFMetamodelItem
 
 case class OTIMOFMetamodelFeatureUpperBoundItem
-( override val resourceIRI: String @@ MetamodelIRI,
+( override val resourceIRI: MetamodelIRI,
   upperBound: FeatureUpperBound )
   extends OTIMOFMetamodelItem
 
 case class OTIMOFMetamodelFeatureOrderingItem
-( override val resourceIRI: String @@ MetamodelIRI,
+( override val resourceIRI: MetamodelIRI,
   ordering: FeatureOrdering )
   extends OTIMOFMetamodelItem
 
 case class OTIMOFMetamodelAssociation2SourceEndPropertyItem
-( override val resourceIRI: String @@ MetamodelIRI,
+( override val resourceIRI: MetamodelIRI,
   association2sourceEnd: MetaAssociation2SourceEndProperty )
   extends OTIMOFMetamodelItem
 
 case class OTIMOFMetamodelAssociation2TargetEndPropertyItem
-( override val resourceIRI: String @@ MetamodelIRI,
+( override val resourceIRI: MetamodelIRI,
   association2targetEnd: MetaAssociation2TargetEndProperty )
   extends OTIMOFMetamodelItem
 
@@ -170,36 +167,36 @@ case class OTIMOFMetamodelAssociation2TargetEndPropertyItem
   * The `resourceIRI` is a foreign key identifying an [[OTIMOFProfile]] resource.
   */
 sealed trait OTIMOFProfileItem extends OTIMOFResourceItem {
-  override val resourceIRI: String @@ ProfileIRI
+  override val resourceIRI: ProfileIRI
 }
 
 case class OTIMOFProfileStereotypeItem
-( override val resourceIRI: String @@ ProfileIRI,
-  stereotype: String @@ StereotypeUUID )
+( override val resourceIRI: ProfileIRI,
+  stereotype: StereotypeUUID )
   extends OTIMOFProfileItem
 
 case class OTIMOFProfileStereotypeAssociationTargetEndMetaClassPropertyItem
-( override val resourceIRI: String @@ ProfileIRI,
+( override val resourceIRI: ProfileIRI,
   metaClassProperty: StereotypeAssociationTargetEndMetaClassProperty )
   extends OTIMOFProfileItem
 
 case class OTIMOFProfileStereotypeAssociationTargetEndStereotypePropertyItem
-( override val resourceIRI: String @@ ProfileIRI,
+( override val resourceIRI: ProfileIRI,
   stereotypeProperty: StereotypeAssociationTargetEndStereotypeProperty )
   extends OTIMOFProfileItem
 
 case class OTIMOFProfileStereotypeAssociationTargetEndLowerBoundItem
-( override val resourceIRI: String @@ ProfileIRI,
+( override val resourceIRI: ProfileIRI,
   attributeLowerBound: FeatureLowerBound )
   extends OTIMOFProfileItem
 
 case class OTIMOFProfileStereotypeAssociationTargetEndUpperBoundItem
-( override val resourceIRI: String @@ ProfileIRI,
+( override val resourceIRI: ProfileIRI,
   attributeUpperBound: FeatureUpperBound )
   extends OTIMOFProfileItem
 
 case class OTIMOFProfileStereotypeAssociationTargetEndOrderingItem
-( override val resourceIRI: String @@ ProfileIRI,
+( override val resourceIRI: ProfileIRI,
   attributeOrdering: FeatureOrdering )
   extends OTIMOFProfileItem
 
@@ -210,15 +207,15 @@ case class OTIMOFProfileStereotypeAssociationTargetEndOrderingItem
   * The `resourceIRI` is a foreign key identifying an [[OTIMOFModel]] resource.
   */
 sealed trait OTIMOFModelItem extends OTIMOFResourceItem {
-  override val resourceIRI: String @@ ModelIRI
+  override val resourceIRI: ModelIRI
 }
 
 case class OTIMOFModelElementItem
-( override val resourceIRI: String @@ ModelIRI,
-  element: String @@ ModelElementUUID )
+( override val resourceIRI: ModelIRI,
+  element: ModelElementUUID )
   extends OTIMOFModelItem
 
 case class OTIMOFModelLinkItem
-( override val resourceIRI: String @@ ModelIRI,
+( override val resourceIRI: ModelIRI,
   link: ModelLink )
   extends OTIMOFModelItem

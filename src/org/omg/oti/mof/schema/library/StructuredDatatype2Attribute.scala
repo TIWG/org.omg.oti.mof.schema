@@ -38,17 +38,14 @@
  */
 package org.omg.oti.mof.schema.library
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Identification.{DatatypedAttributePropertyUUID, LibraryStructuredClassifierUUID}
+import org.omg.oti.mof.schema.common.{DatatypedAttributePropertyUUID, LibraryStructuredClassifierUUID}
 import play.api.libs.json._
 
 import scala.Int
-import scala.Predef.String
-import scalaz.@@
 
 case class StructuredDatatype2Attribute
-(structuredDatatype: String @@ LibraryStructuredClassifierUUID,
- attribute: String @@ DatatypedAttributePropertyUUID,
+(structuredDatatype: LibraryStructuredClassifierUUID,
+ attribute: DatatypedAttributePropertyUUID,
  index: Int )
 
 object StructuredDatatype2Attribute {

@@ -41,37 +41,34 @@ package org.omg.oti.mof.schema.features
 import play.json.extra._
 import play.api.libs.json._
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Common.Name
-import org.omg.oti.mof.schema.Identification.{DatatypedAttributePropertyUUID, FeatureEntityUUID, LibraryEnumerationLiteralUUID}
+import org.omg.oti.mof.schema.common._
 
 import scala.Predef.String
-import scalaz.@@
 
 sealed trait DataTypedFeature {
-  val uuid: String @@ (_ <: FeatureEntityUUID)
-  val name: String @@ Name
+  val uuid: FeatureEntityUUID
+  val name: Name
 }
 
 case class EnumerationLiteral
-( override val uuid: String @@ LibraryEnumerationLiteralUUID,
-  override val name: String @@ Name )
+( override val uuid: LibraryEnumerationLiteralUUID,
+  override val name: Name )
   extends DataTypedFeature
 
 sealed trait DataTypedAttributeProperty {
-  def uuid: String @@ DatatypedAttributePropertyUUID
-  def name: String @@ Name
+  def uuid: DatatypedAttributePropertyUUID
+  def name: Name
 }
 
 case class DataTypedAttributeUnorderedProperty
-( override val uuid: String @@ DatatypedAttributePropertyUUID,
-  override val name: String @@ Name )
+( override val uuid: DatatypedAttributePropertyUUID,
+  override val name: Name )
   extends DataTypedFeature
     with DataTypedAttributeProperty
 
 case class DataTypedAttributeOrderedProperty
-( override val uuid: String @@ DatatypedAttributePropertyUUID,
-  override val name: String @@ Name )
+( override val uuid: DatatypedAttributePropertyUUID,
+  override val name: Name )
   extends DataTypedFeature
     with DataTypedAttributeProperty
 

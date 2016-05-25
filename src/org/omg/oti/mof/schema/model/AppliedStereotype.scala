@@ -38,17 +38,13 @@
  */
 package org.omg.oti.mof.schema.model
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Identification.{ModelElementUUID, StereotypeUUID}
+import org.omg.oti.mof.schema.common.{ModelElementUUID, StereotypeUUID}
 
 import play.api.libs.json._
 
-import scala.Predef.String
-import scalaz.@@
-
 case class AppliedStereotype
-( modelElement: String @@ ModelElementUUID,
-  appliedStereotype: String @@ StereotypeUUID )
+( modelElement: ModelElementUUID,
+  appliedStereotype: StereotypeUUID )
 
 object AppliedStereotype {
 

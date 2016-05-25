@@ -39,10 +39,7 @@
 package org.omg.oti.mof.schema
 
 import play.api.libs.json._
-import org.omg.oti.mof.schema.Identification.{LibraryIRI, ResourceIRI}
-
-import scala.Predef.String
-import scalaz.@@
+import org.omg.oti.mof.schema.common.{LibraryIRI, ResourceIRI}
 
 /**
   * OTIMOFResourceLibraryImport corresponds to a UML PackageImport relationship to
@@ -52,12 +49,13 @@ import scalaz.@@
   * @param importedLibrary The imported OTI MOF Library resource IRI
   */
 case class OTIMOFResourceLibraryImport
-( importingResourceIRI: String @@ ResourceIRI,
-  importedLibrary: String @@ LibraryIRI )
+( importingResourceIRI: ResourceIRI,
+  importedLibrary: LibraryIRI )
 
 object OTIMOFResourceLibraryImport {
 
   implicit val formats
   : Format[OTIMOFResourceLibraryImport]
   = Json.format[OTIMOFResourceLibraryImport]
+
 }

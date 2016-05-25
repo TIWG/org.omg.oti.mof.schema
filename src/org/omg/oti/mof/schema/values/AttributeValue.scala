@@ -40,20 +40,18 @@ package org.omg.oti.mof.schema.values
 
 import play.json.extra._
 import play.api.libs.json._
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Identification._
+import org.omg.oti.mof.schema.common._
 
 import scala.Predef.String
-import scalaz.@@
 
 sealed trait AttributeValue {
-  val attribute: String @@ DatatypedAttributePropertyUUID
-  val value: String @@ (_ <: ValueRepresentation)
+  val attribute: DatatypedAttributePropertyUUID
+  val value: ValueRepresentation
 }
 
 case class EnumerationLiteralValue
-( override val attribute: String @@ DatatypedAttributePropertyUUID,
-  override val value: String @@ LibraryEnumerationLiteralUUID )
+( override val attribute: DatatypedAttributePropertyUUID,
+  override val value: LibraryEnumerationLiteralUUID )
   extends AttributeValue
 
 object EnumerationLiteralValue {
@@ -65,8 +63,8 @@ object EnumerationLiteralValue {
 }
 
 case class AtomicValue
-( override val attribute: String @@ DatatypedAttributePropertyUUID,
-  override val value: String @@ AtomicValueRepresentation)
+( override val attribute: DatatypedAttributePropertyUUID,
+  override val value: AtomicValueRepresentation)
   extends AttributeValue
 
 object AtomicValue {
@@ -78,8 +76,8 @@ object AtomicValue {
 }
 
 case class StructuredValueLink
-( override val attribute: String @@ DatatypedAttributePropertyUUID,
-  override val value: String @@ StructuredValueUUID )
+( override val attribute: DatatypedAttributePropertyUUID,
+  override val value: StructuredValueUUID )
   extends AttributeValue
 
 object StructuredValueLink {

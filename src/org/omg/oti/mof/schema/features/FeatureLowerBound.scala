@@ -39,17 +39,11 @@
 package org.omg.oti.mof.schema.features
 
 import play.api.libs.json._
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Common.NonNegative
-import org.omg.oti.mof.schema.Identification.FeatureEntityUUID
-
-import scala.Int
-import scala.Predef.String
-import scalaz.@@
+import org.omg.oti.mof.schema.common._
 
 case class FeatureLowerBound
-(feature: String @@ FeatureEntityUUID,
- lower: Int @@ NonNegative)
+(feature: FeatureEntityUUID,
+ lower: NonNegativeInt)
 
 object FeatureLowerBound {
 

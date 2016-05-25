@@ -38,18 +38,14 @@
  */
 package org.omg.oti.mof.schema.profile
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Identification.{AssociationTargetEndUUID, StereotypeUUID}
+import org.omg.oti.mof.schema.common.{AssociationTargetEndUUID, StereotypeUUID}
 
 import play.api.libs.json._
 
-import scala.Predef.String
-import scalaz.@@
-
 case class StereotypeAssociationTargetEndStereotypeProperty
-( sourceStereotype: String @@ StereotypeUUID,
-  associationTargetEnd: String @@ AssociationTargetEndUUID,
-  targetStereotype: String @@ StereotypeUUID )
+( sourceStereotype: StereotypeUUID,
+  associationTargetEnd: AssociationTargetEndUUID,
+  targetStereotype: StereotypeUUID )
 
 object StereotypeAssociationTargetEndStereotypeProperty {
 

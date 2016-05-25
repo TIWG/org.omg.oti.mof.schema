@@ -38,17 +38,12 @@
  */
 package org.omg.oti.mof.schema.profile
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Common.Name
-import org.omg.oti.mof.schema.Identification.{MetaClassUUID, StereotypeUUID}
+import org.omg.oti.mof.schema.common.{MetaClassUUID, StereotypeUUID}
 import play.api.libs.json._
 
-import scala.Predef.String
-import scalaz.@@
-
 case class Stereotype2ExtendedMetaclass
-( extendingStereotype: String @@ StereotypeUUID,
-  extendedMetaclass: String @@ MetaClassUUID )
+( extendingStereotype: StereotypeUUID,
+  extendedMetaclass: MetaClassUUID )
 
 object Stereotype2ExtendedMetaclass {
 

@@ -39,15 +39,11 @@
 package org.omg.oti.mof.schema.features
 
 import play.api.libs.json._
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Identification.{DatatypedAttributePropertyUUID, LibraryClassifierUUID}
-
-import scala.Predef.String
-import scalaz.@@
+import org.omg.oti.mof.schema.common.{DatatypedAttributePropertyUUID, LibraryClassifierUUID}
 
 case class AttributeProperty2DataType
-( attribute: String @@ DatatypedAttributePropertyUUID,
-  `type`: String @@ LibraryClassifierUUID )
+( attribute: DatatypedAttributePropertyUUID,
+  `type`: LibraryClassifierUUID )
 
 object AttributeProperty2DataType {
 

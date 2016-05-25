@@ -38,18 +38,15 @@
  */
 package org.omg.oti.mof.schema.metamodel
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Identification.{DatatypedAttributePropertyUUID, MetaClassUUID}
+import org.omg.oti.mof.schema.common.{DatatypedAttributePropertyUUID, MetaClassUUID}
 
 import play.api.libs.json._
 
 import scala.Int
-import scala.Predef.String
-import scalaz.@@
 
 case class MetaClass2Attribute
-(metaClass: String @@ MetaClassUUID,
- attribute: String @@ DatatypedAttributePropertyUUID,
+(metaClass: MetaClassUUID,
+ attribute: DatatypedAttributePropertyUUID,
  index: Int )
 
 object MetaClass2Attribute {

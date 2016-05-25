@@ -38,17 +38,13 @@
  */
 package org.omg.oti.mof.schema.metamodel
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Identification.{AssociationEndUUID, MetaClassUUID}
+import org.omg.oti.mof.schema.common.{AssociationEndUUID, MetaClassUUID}
 
 import play.api.libs.json._
 
-import scala.Predef.String
-import scalaz.@@
-
 case class MetaAssociationEndProperty2MetaClassType
-( associationEnd: String @@ AssociationEndUUID,
-  `type`: String @@ MetaClassUUID )
+( associationEnd: AssociationEndUUID,
+  `type`: MetaClassUUID )
 
 object MetaAssociationEndProperty2MetaClassType {
 

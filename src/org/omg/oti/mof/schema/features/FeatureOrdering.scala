@@ -40,15 +40,12 @@ package org.omg.oti.mof.schema.features
 
 import play.api.libs.json._
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Identification.FeatureEntityUUID
+import org.omg.oti.mof.schema.common.FeatureEntityUUID
 
 import scala.Boolean
-import scala.Predef.String
-import scalaz.@@
 
 case class FeatureOrdering
-(feature: String @@ FeatureEntityUUID,
+(feature: FeatureEntityUUID,
  isOrdered: Boolean )
 
 object FeatureOrdering {

@@ -38,13 +38,9 @@
  */
 package org.omg.oti.mof.schema.values
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Identification.StructuredValueUUID
+import org.omg.oti.mof.schema.common.StructuredValueUUID
 
 import play.api.libs.json._
-
-import scala.Predef.String
-import scalaz.@@
 
 /**
   *
@@ -52,7 +48,7 @@ import scalaz.@@
   * @param enumerationLiteral the value of a structured datatype attribute typed by an enumeration literal
   */
 case class StructuredValue2EnumerationLiteralValue
-( uuid: String @@ StructuredValueUUID,
+( uuid: StructuredValueUUID,
   enumerationLiteral: EnumerationLiteralValue )
 
 object StructuredValue2EnumerationLiteralValue {

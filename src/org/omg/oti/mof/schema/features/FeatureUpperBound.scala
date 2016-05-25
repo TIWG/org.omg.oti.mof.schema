@@ -39,17 +39,11 @@
 package org.omg.oti.mof.schema.features
 
 import play.api.libs.json._
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Common.UnlimitedNatural
-import org.omg.oti.mof.schema.Identification.FeatureEntityUUID
-
-import scala.Int
-import scala.Predef.String
-import scalaz.@@
+import org.omg.oti.mof.schema.common._
 
 case class FeatureUpperBound
-(feature: String @@ FeatureEntityUUID,
- upper: Int @@ UnlimitedNatural )
+(feature: FeatureEntityUUID,
+ upper: UnlimitedNatural )
 
 object FeatureUpperBound {
 

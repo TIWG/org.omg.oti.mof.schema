@@ -41,41 +41,38 @@ package org.omg.oti.mof.schema.library
 import play.json.extra._
 import play.api.libs.json._
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Identification._
-import org.omg.oti.mof.schema.Common._
+import org.omg.oti.mof.schema.common._
 import scala.Predef.String
-import scalaz.@@
 
 /**
   * Every DatatypeClassifier has a name and an uuid primary identifier
   */
 sealed trait DatatypeClassifier {
-  val uuid: String @@ (_ <: LibraryClassifierUUID)
-  val name: String @@ Name
+  val uuid: LibraryClassifierUUID
+  val name: Name
 }
 
 sealed trait AtomicDataType {
-  def uuid: String @@ (_ <: LibraryClassifierUUID)
-  def name: String @@ Name
+  def uuid: LibraryClassifierUUID
+  def name: Name
 }
 
 case class PrimitiveDataType
-( override val uuid: String @@ LibraryPrimitiveTypeUUID,
-  override val name: String @@ Name,
-  datatypeMapDefinition: String @@ DatatypeAbbrevIRI )
+( override val uuid: LibraryPrimitiveTypeUUID,
+  override val name: Name,
+  datatypeMapDefinition: DatatypeAbbrevIRI )
   extends DatatypeClassifier
   with AtomicDataType
 
 case class EnumerationDataType
-( override val uuid: String @@ LibraryEnumerationUUID,
-  override val name: String @@ Name )
+( override val uuid: LibraryEnumerationUUID,
+  override val name: Name )
   extends DatatypeClassifier
   with AtomicDataType
 
 case class StructuredDataType
-( override val uuid: String @@ LibraryStructuredClassifierUUID,
-  override val name: String @@ Name )
+( override val uuid: LibraryStructuredClassifierUUID,
+  override val name: Name )
   extends DatatypeClassifier
 
 object AtomicDataType {

@@ -64,22 +64,22 @@ sealed trait OTIMOFResourceExtent {
   * The contents of an OTI MOF Library Resource
   *
   * @param resource
-  * @param classifiers           Entity
-  * @param attributes            Entity
-  * @param featureLowerBounds    Characteristic
-  * @param featureUpperBounds    Characteristic
-  * @param featureOrdering       Characteristic
-  * @param attribute2type        Relation
-  * @param enumeration2literals  Relation
-  * @param structure2attribute   Relation
-  * @param generalizations       Relation
-  * @param importedLibraries     Relation
+  * @param classifiers           Entity Schema::Library::DatatypeClassifier
+  * @param dataTypedFeatures     Entity Schema::Features::DataTypedFeature
+  * @param featureLowerBounds    Characteristic Schema::Features::FeatureLowerBound
+  * @param featureUpperBounds    Characteristic Schema::Features::FeatureUpperBound
+  * @param featureOrdering       Characteristic Schema::Features::FeatureOrdering
+  * @param attribute2type        Relation Schema::Features::AttributeProperty2DataType
+  * @param enumeration2literals  Relation Schema::Library::Enumeration2Literal
+  * @param structure2attribute   Relation Schema::Library::StructuredDataType2Attribute
+  * @param generalizations       Relation Schema::Library::Generalization
+  * @param importedLibraries     Relation Schema::Resources::A_library_imports
   */
 case class OTIMOFLibraryResourceExtent
 (override val resource: OTIMOFLibrary,
 
  classifiers: Vector[library.DatatypeClassifier] = Vector(),
- attributes: Vector[features.DataTypedFeature] = Vector(),
+ dataTypedFeatures: Vector[features.DataTypedFeature] = Vector(),
 
  featureLowerBounds: Vector[features.FeatureLowerBound] = Vector(),
  featureUpperBounds: Vector[features.FeatureUpperBound] = Vector(),
@@ -104,27 +104,27 @@ object OTIMOFLibraryResourceExtent {
   * The contents of an OTI MOF Metamodel Resource
   *
   * @param resource
-  * @param classifiers               Entity
-  * @param associationEnds           Entity
-  * @param attributes                Entity
-  * @param featureLowerBounds        Characteristic
-  * @param featureUpperBounds        Characteristic
-  * @param featureOrdering           Characteristic
-  * @param attribute2type            Relation
-  * @param importedLibraries         Relation
-  * @param association2source        Relation
-  * @param association2Target        Relation
-  * @param associationEnd2Metaclass  Relation
-  * @param metaclass2attribute       Relation
-  * @param generalizations           Relation
-  * @param importedMetamodels        Relation
+  * @param classifiers               Entity Schema::Metamodel::MetamodelClassifier
+  * @param associationEnds           Entity Schema::Features::AssociationEnd
+  * @param attributes                Entity Schema::Features::DataTypedAttributeProperty
+  * @param featureLowerBounds        Characteristic Schema::Features::FeatureLowerBound
+  * @param featureUpperBounds        Characteristic Schema::Features::FeatureUpperBound
+  * @param featureOrdering           Characteristic Schema::Features::FeatureOrdering
+  * @param attribute2type            Relation Schema::Features::AttributeProperty2DataType
+  * @param importedLibraries         Relation Schema::Resources::A_library_imports
+  * @param association2source        Relation Schema::Metamodel::MetaAssociation2SourceEndProperty
+  * @param association2Target        Relation Schema::Metamodel::MetaAssociation2TargetEndProperty
+  * @param associationEnd2Metaclass  Relation Schema::Metamodel::MetaAssociationEndProperty2MetaClass
+  * @param metaclass2attribute       Relation Schema::Metamodel::MetaClass2Attribute
+  * @param generalizations           Relation Schema::Metamodel::MetaClassifierGeneralization
+  * @param importedMetamodels        Relation Schema::Resources::A_metamodel_imports
   */
 case class OTIMOFMetamodelResourceExtent
 (override val resource: OTIMOFMetamodel,
 
  classifiers: Vector[metamodel.MetamodelClassifier] = Vector(),
  associationEnds: Vector[features.AssociationEnd] = Vector(),
- attributes: Vector[features.DataTypedFeature] = Vector(),
+ attributes: Vector[features.DataTypedAttributeProperty] = Vector(),
 
  featureLowerBounds: Vector[features.FeatureLowerBound] = Vector(),
  featureUpperBounds: Vector[features.FeatureUpperBound] = Vector(),
@@ -152,8 +152,8 @@ object OTIMOFMetamodelResourceExtent {
   * The contents of an OTI MOF Profile Resource
   *
   * @param resource
-  * @param classifiers           Entity
-  * @param attributes            Entity
+  * @param classifiers           Entity Schema::Profile::Stereotype
+  * @param attributes            Entity Schema::Features::DataTypedAttributeProperty
   * @param featureLowerBounds    Characteristic
   * @param featureUpperBounds    Characteristic
   * @param featureOrdering       Characteristic
@@ -171,7 +171,7 @@ case class OTIMOFProfileResourceExtent
 (override val resource: OTIMOFProfile,
 
  classifiers: Vector[profile.Stereotype] = Vector(),
- attributes: Vector[features.DataTypedFeature] = Vector(),
+ attributes: Vector[features.DataTypedAttributeProperty] = Vector(),
 
  featureLowerBounds: Vector[features.FeatureLowerBound] = Vector(),
  featureUpperBounds: Vector[features.FeatureUpperBound] = Vector(),

@@ -38,12 +38,9 @@
  */
 package org.omg.oti.mof.schema
 
-import org.omg.oti.mof.schema.Identification.MetamodelIRI
+import org.omg.oti.mof.schema.common.MetamodelIRI
 
 import play.api.libs.json._
-
-import scala.Predef.String
-import scalaz.@@
 
 /**
   * OTIMOFResourceLibraryImport corresponds to a UML PackageImport relationship from
@@ -54,8 +51,8 @@ import scalaz.@@
   * @param importedMetamodel The imported OTI MOF Metamodel IRI
   */
 case class OTIMOFResourceMetamodelImport
-( importingMetamodel: String @@ MetamodelIRI,
-  importedMetamodel: String @@ MetamodelIRI )
+( importingMetamodel: MetamodelIRI,
+  importedMetamodel: MetamodelIRI )
 
 object OTIMOFResourceMetamodelImport {
 

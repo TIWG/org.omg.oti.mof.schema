@@ -38,12 +38,9 @@
  */
 package org.omg.oti.mof.schema
 
-import org.omg.oti.mof.schema.Identification.{MetamodelIRI, ModelIRI}
+import org.omg.oti.mof.schema.common.{MetamodelIRI, ModelIRI}
 
 import play.api.libs.json._
-
-import scala.Predef.String
-import scalaz.@@
 
 /**
   * OTIMOFResourceInstantiatedMetamodel does not have any explicitly
@@ -55,8 +52,8 @@ import scalaz.@@
   * @param instantiatedMetamodel The instantiated OTI MOF Metamodel IRI
   */
 case class OTIMOFResourceInstantiatedMetamodel
-( instantiatingModel: String @@ ModelIRI,
-  instantiatedMetamodel: String @@ MetamodelIRI )
+( instantiatingModel: ModelIRI,
+  instantiatedMetamodel: MetamodelIRI )
 
 object OTIMOFResourceInstantiatedMetamodel {
 

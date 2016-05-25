@@ -38,8 +38,7 @@
  */
 package org.omg.oti.mof.schema.model
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Identification.ModelElementUUID
+import org.omg.oti.mof.schema.common.ModelElementUUID
 import org.omg.oti.mof.schema.values.AttributeValue
 
 import play.json.extra._
@@ -47,7 +46,6 @@ import play.api.libs.json._
 
 import scala.Int
 import scala.Predef.String
-import scalaz.@@
 
 /**
   * ModelElementAttributeValue represents the value of a [[org.omg.oti.mof.schema.features.DataTypedAttributeUnorderedProperty]]
@@ -55,18 +53,18 @@ import scalaz.@@
   * or a [[org.omg.oti.mof.schema.profile.Stereotype]]
   */
 sealed trait ModelElementAttributeValue {
-  val modelElement: String @@ ModelElementUUID
+  val modelElement: ModelElementUUID
   val attributeValue: AttributeValue
 }
 
 case class ModelElementUnorderedAttributeValue
-( override val modelElement: String @@ ModelElementUUID,
+( override val modelElement: ModelElementUUID,
   override val attributeValue: AttributeValue )
   extends ModelElementAttributeValue
 
 
 case class ModelElementOrderedAttributeValue
-( override val modelElement: String @@ ModelElementUUID,
+( override val modelElement: ModelElementUUID,
   override val attributeValue: AttributeValue,
   index: Int )
   extends ModelElementAttributeValue

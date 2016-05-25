@@ -40,10 +40,7 @@ package org.omg.oti.mof.schema
 
 import play.api.libs.json._
 
-import org.omg.oti.mof.schema.Identification._
-
-import scala.Predef.String
-import scalaz.@@
+import org.omg.oti.mof.schema.common._
 
 /**
   * The OMG modeling architecture has traditionally been described in terms of 4 levels: M0, M1, M2, M3.
@@ -66,7 +63,7 @@ import scalaz.@@
   *   and linking applied stereotypes according to profile stereotype associations and profile metaclass associations.
   */
 sealed trait OTIMOFResource {
-  val iri: String @@ (_ <: ResourceIRI)
+  val iri: ResourceIRI
 }
 
 /**
@@ -85,7 +82,7 @@ sealed trait OTIMOFResource {
   *            the corresponding OMG `UML::Package` library.
   */
 case class OTIMOFLibrary
-( override val iri: String @@ LibraryIRI )
+( override val iri: LibraryIRI )
   extends OTIMOFResource
 
 object OTIMOFLibrary {
@@ -118,7 +115,7 @@ object OTIMOFLibrary {
   *            the corresponding OMG `UML::Package` metamodel.
   */
 case class OTIMOFMetamodel
-( override val iri: String @@ MetamodelIRI )
+( override val iri: MetamodelIRI )
 extends OTIMOFResource
 
 object OTIMOFMetamodel {
@@ -163,7 +160,7 @@ object OTIMOFMetamodel {
   *            the corresponding OMG `UML::Profile` profile.
   */
 case class OTIMOFProfile
-( override val iri: String @@ ProfileIRI )
+( override val iri: ProfileIRI )
   extends OTIMOFResource
 
 object OTIMOFProfile {
@@ -190,7 +187,7 @@ object OTIMOFProfile {
   *            the corresponding OMG `UML::Package` metamodel
   */
 case class OTIMOFModel
-( override val iri: String @@ ModelIRI )
+( override val iri: ModelIRI )
   extends OTIMOFResource
 
 object OTIMOFModel {

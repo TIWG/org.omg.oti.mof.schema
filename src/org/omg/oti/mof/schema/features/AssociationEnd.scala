@@ -41,36 +41,33 @@ package org.omg.oti.mof.schema.features
 import play.json.extra._
 import play.api.libs.json._
 
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.Common.Name
-import org.omg.oti.mof.schema.Identification.{AssociationEndUUID, AssociationSourceEndUUID, AssociationTargetEndUUID}
+import org.omg.oti.mof.schema.common._
 
 import scala.Predef.String
-import scalaz.@@
 
 sealed trait AssociationEnd {
-  val uuid: String @@ (_ <: AssociationEndUUID)
-  val name: String @@ Name
+  val uuid: AssociationEndUUID
+  val name: Name
 }
 
 case class AssociationSourceEnd
-( override val uuid: String @@ AssociationSourceEndUUID,
-  override val name: String @@ Name )
+( override val uuid: AssociationSourceEndUUID,
+  override val name: Name )
   extends AssociationEnd
 
 sealed trait AssociationTargetEnd {
-  def uuid: String @@ AssociationTargetEndUUID
+  def uuid: AssociationTargetEndUUID
 }
 
 case class AssociationTargetReferenceEnd
-( override val uuid: String @@ AssociationTargetEndUUID,
-  override val name: String @@ Name )
+( override val uuid: AssociationTargetEndUUID,
+  override val name: Name )
   extends AssociationEnd
   with AssociationTargetEnd
 
 case class AssociationTargetCompositeEnd
-( override val uuid: String @@ AssociationTargetEndUUID,
-  override val name: String @@ Name )
+( override val uuid: AssociationTargetEndUUID,
+  override val name: Name )
   extends AssociationEnd
   with AssociationTargetEnd
 

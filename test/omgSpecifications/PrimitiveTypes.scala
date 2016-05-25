@@ -38,8 +38,7 @@
  */
 package omgSpecifications
 
-import org.omg.oti.mof.schema.Common._
-import org.omg.oti.mof.schema.Identification._
+import org.omg.oti.mof.schema.common._
 import org.omg.oti.mof.schema._
 import org.omg.oti.mof.schema.library._
 import play.api.libs.json.Json
