@@ -23,3 +23,5 @@ resolvers += Resolver.url(
   url("http://dl.bintray.com/banno/oss"))(Resolver.ivyStylePatterns)
 
 addSbtPlugin("gov.nasa.jpl.imce" % "imce-sbt-plugin" % "2.5.2")
+
+addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.3")

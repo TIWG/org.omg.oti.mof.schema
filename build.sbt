@@ -107,6 +107,11 @@ lazy val specsRoot = SettingKey[File]("specs-root", "MagicDraw DynamicScripts Te
 
 lazy val runMDTests = taskKey[Unit]("Run MagicDraw DynamicScripts Unit Tests")
 
+val duplicatedFiles = Set(
+  // scalahost also provides `scalac-plugin.xml`, but we are only interested in ours.
+  "scalac-plugin.xml"
+)
+
 /*
  * For now, we can't compile in strict mode because the Scala macros used for generating the JSon adapters
  * results in a compilation warning:
@@ -127,6 +132,8 @@ lazy val core = Project("org-omg-oti-mof-schema", file("."))
     IMCEKeys.licenseYearOrRange := "2014-2016",
     IMCEKeys.organizationInfo := IMCEPlugin.Organizations.oti,
     IMCEKeys.targetJDK := IMCEKeys.jdk18.value,
+
+    logLevel in assembly := Level.Info,
 
     organization := "org.omg.tiwg",
     organizationHomepage :=
@@ -171,8 +178,32 @@ lazy val core = Project("org-omg-oti-mof-schema", file("."))
     unmanagedClasspath in Compile <++= unmanagedJars in Compile,
 
     libraryDependencies +=
-      "gov.nasa.jpl.imce.thirdParty" %% "other-scala-libraries" % Versions_other_scala_libraries.version artifacts
-        Artifact("other-scala-libraries", "zip", "zip", Some("resource"), Seq(), None, Map()),
+      "org.scala-lang" % "scala-library" % scalaVersion.value % "provided",
+
+    libraryDependencies +=
+      "org.scala-lang" % "scalap" % scalaVersion.value % "provided",
+
+    libraryDependencies ~= {
+      _ map { m =>
+        m
+          .exclude("commons-logging", "commons-logging")
+          .exclude("com.typesafe", "config")
+          .exclude("com.typesafe.play", "sbt-link")
+          .exclude("org.slf4j", "slf4j-api")
+          .exclude("org.slf4j", "slf4j-nop")
+          .exclude("org.slf4j", "jcl-over-slf4j")
+          .exclude("ch.qos.logback", "logback-classic")
+      }
+    },
+
+    libraryDependencies ++= Seq(
+      "com.typesafe.play" %% "play" % Versions.play % "compile" withSources(),
+      "com.typesafe.play" %% "play-iteratees" % Versions.play % "compile" withSources(),
+      "com.typesafe.play" %% "play-json" % Versions.play % "compile" withSources(),
+
+      "io.megl" %% "play-json-extra" % Versions.play_json_extra % "compile" withSources()
+    ),
+
     extractArchives := {},
 
     IMCEKeys.nexusJavadocRepositoryRestAPIURL2RepositoryName := Map(
@@ -180,8 +211,34 @@ lazy val core = Project("org-omg-oti-mof-schema", file("."))
       "https://cae-nexuspro.jpl.nasa.gov/nexus/service/local" -> "JPL",
       "https://cae-nexuspro.jpl.nasa.gov/nexus/content/groups/jpl.beta.group" -> "JPL Beta Group",
       "https://cae-nexuspro.jpl.nasa.gov/nexus/content/groups/jpl.public.group" -> "JPL Public Group"),
-    IMCEKeys.pomRepositoryPathRegex := """\<repositoryPath\>\s*([^\"]*)\s*\<\/repositoryPath\>""".r
+    IMCEKeys.pomRepositoryPathRegex := """\<repositoryPath\>\s*([^\"]*)\s*\<\/repositoryPath\>""".r,
 
+    // do not include the scala library
+    assembleArtifact in assemblyPackageScala := false,
+
+    assemblyMergeStrategy in assembly := {
+      case x if duplicatedFiles exists (x endsWith _) =>
+        MergeStrategy.first
+      case x =>
+        val oldStrategy = (assemblyMergeStrategy in assembly).value
+        oldStrategy(x)
+    },
+
+    assemblyShadeRules in assembly := Seq(
+      ShadeRule
+        .rename("com.typesafe.config.**" -> "oti_mof_schema_config.@1")
+        .inLibrary("com.typesafe" % "config" % "1.3.0")
+        .inProject
+    ),
+
+    // include the assembly as an artifact for publish or publishLocal
+
+    artifact in (Compile, assembly) := {
+      val art = (artifact in (Compile, assembly)).value
+      art.copy(`classifier` = Some("assembly"))
+    },
+
+    addArtifact(artifact in (Compile, assembly), assembly)
   )
 
 def dynamicScriptsResourceSettings(dynamicScriptsProjectName: Option[String] = None): Seq[Setting[_]] = {
