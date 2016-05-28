@@ -39,6 +39,8 @@
 package org.omg.oti.mof.schema.common
 
 import play.api.libs.json._
+
+import scala.{Int,Ordering,StringContext}
 import scala.Predef.String
 
 /**
@@ -59,8 +61,27 @@ case class Name
 
 object Name {
 
+  implicit val ordering
+  : Ordering[Name]
+  = new Ordering[Name] {
+
+    def compare(x: Name, y: Name)
+    : Int
+    = x.value.compareTo(y.value)
+
+  }
+
   implicit val formats
   : Format[Name]
-  = Json.format[Name]
+  = new Format[Name] {
+
+    def reads(json: JsValue): JsResult[Name] = json match {
+      case JsString(v) => JsSuccess(Name(v))
+      case unknown => JsError(s"Name: String value expected, got: $unknown")
+    }
+
+    def writes(name: Name): JsValue = JsString(name.value)
+
+  }
 
 }

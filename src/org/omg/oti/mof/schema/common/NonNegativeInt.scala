@@ -39,7 +39,7 @@
 package org.omg.oti.mof.schema.common
 
 import play.api.libs.json._
-import scala.Int
+import scala.{Int,StringContext}
 
 /**
   * Represents the subset of positive Int values including 0
@@ -51,6 +51,14 @@ object NonNegativeInt {
 
   implicit val formats
   : Format[NonNegativeInt]
-  = Json.format[NonNegativeInt]
+  = new Format[NonNegativeInt] {
 
+    def reads(json: JsValue): JsResult[NonNegativeInt] = json match {
+      case JsNumber(v) => JsSuccess(NonNegativeInt(v.intValue()))
+      case unknown => JsError(s"NonNegativeInt: Number value expected, got: $unknown")
+    }
+
+    def writes(n: NonNegativeInt): JsValue = JsNumber(n.value)
+
+  }
 }

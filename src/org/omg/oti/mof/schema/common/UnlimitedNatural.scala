@@ -39,7 +39,7 @@
 package org.omg.oti.mof.schema.common
 
 import play.api.libs.json._
-import scala.Int
+import scala.{Int,StringContext}
 
 /**
   * Int @@ UnlimitedNatural represents the subset of positive Int values including 0 and -1 to denote positive infinity
@@ -51,6 +51,14 @@ object UnlimitedNatural {
 
   implicit val formats
   : Format[UnlimitedNatural]
-  = Json.format[UnlimitedNatural]
+  = new Format[UnlimitedNatural] {
 
+    def reads(json: JsValue): JsResult[UnlimitedNatural] = json match {
+      case JsNumber(v) if v.isValidInt && v >= -1 => JsSuccess(UnlimitedNatural(v.intValue()))
+      case unknown => JsError(s"UnlimitedNatural: Number value expected, got: $unknown")
+    }
+
+    def writes(n: UnlimitedNatural): JsValue = JsNumber(n.value)
+
+  }
 }
