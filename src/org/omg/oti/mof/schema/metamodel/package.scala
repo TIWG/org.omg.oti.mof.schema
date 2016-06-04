@@ -39,7 +39,7 @@
 package org.omg.oti.mof.schema
 
 /**
-  * An OTI MOF Metamodel is a resource whose extent is a set of:
+  * An [[OTIMOFMetamodel]] is a resource whose [[OTIMOFMetamodelResourceExtent]] is a set of [[OTIMOFMetamodelItem]]s:
   *
   * Entities:
   *   - [[metamodel.MetamodelClassifier]]
@@ -59,5 +59,6 @@ package org.omg.oti.mof.schema
   *   - [[metamodel.MetaAssociationEndProperty2MetaClassType]]
   *   - [[metamodel.MetaClass2Attribute]]
   *   - [[OTIMOFResourceMetamodelImport]]
+  * @group metamodel
   */
-package object metamodel {}
+package object metamodel

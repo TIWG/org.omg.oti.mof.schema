@@ -39,7 +39,7 @@
 package org.omg.oti.mof.schema.common
 
 import play.api.libs.json._
-
+import scala.StringContext
 import scala.Predef.String
 
 /**
@@ -54,32 +54,25 @@ import scala.Predef.String
   * of all possible OTI MOF resource IRIs according to the OTI MOF resource kind,
   * the OTI MOF schema captures important type-level information about
   * well-formed references to OTI MOF resources of a particular kind.
+  * @group id
   */
-trait ResourceIRI {
-  val value: String
-}
+case class ResourceIRI(value: String)
 
+/**
+  * @group id
+  */
 object ResourceIRI {
 
   implicit val formats
   : Format[ResourceIRI]
   = new Format[ResourceIRI] {
 
-    def reads(json: JsValue)
-    : JsResult[ResourceIRI]
-    = MetamodelIRI.formats.reads(json)
-      .orElse(ProfileIRI.formats.reads(json))
-      .orElse(LibraryIRI.formats.reads(json))
-      .orElse(ModelIRI.formats.reads(json))
-
-    def writes(o: ResourceIRI)
-    : JsValue
-    = o match {
-      case mm: MetamodelIRI => MetamodelIRI.formats.writes(mm)
-      case pf: ProfileIRI => ProfileIRI.formats.writes(pf)
-      case lib: LibraryIRI => LibraryIRI.formats.writes(lib)
-      case m: ModelIRI => ModelIRI.formats.writes(m)
+    def reads(json: JsValue): JsResult[ResourceIRI] = json match {
+      case JsString(v) => JsSuccess(ResourceIRI(v))
+      case unknown => JsError(s"ResourceIRI: String value expected, got: $unknown")
     }
+
+    def writes(iri: ResourceIRI): JsValue = JsString(iri.value)
 
   }
 

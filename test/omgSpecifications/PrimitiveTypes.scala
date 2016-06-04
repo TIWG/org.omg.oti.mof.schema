@@ -47,15 +47,15 @@ import scala.collection.immutable._
 
 object PrimitiveTypes {
 
-  val primitiveTypesIRI = LibraryIRI("http://www.omg.org/spec/UML/20131001/PrimitiveTypes")
+  val primitiveTypesIRI = ResourceIRI("http://www.omg.org/spec/UML/20131001/PrimitiveTypes")
 
   val booleanPT = PrimitiveDataType(
-    LibraryPrimitiveTypeUUID("123"),
+    EntityUUID("123"),
     Name("Boolean"),
     DatatypeAbbrevIRI("xsd:boolean") )
 
   val integerPT = PrimitiveDataType(
-    LibraryPrimitiveTypeUUID("456"),
+    EntityUUID("456"),
     Name("Integer"),
     DatatypeAbbrevIRI("xsd:int") )
 

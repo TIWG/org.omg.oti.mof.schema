@@ -61,13 +61,14 @@ import org.omg.oti.mof.schema.common._
   *   profile and whose contents are elements that are instances of metaclasses where such elements can be related
   *   to other elements by link instances of metaassociations and can be extended by applying stereotypes
   *   and linking applied stereotypes according to profile stereotype associations and profile metaclass associations.
+  * @group resources
   */
 sealed trait OTIMOFResource {
   val iri: ResourceIRI
 }
 
 /**
-  * OTIMOFLibrary corresponds to an OMG MOF library package used for OMG MOF metamodels, profiles or models.
+  * A resource corresponding to an OMG MOF library package used for OMG MOF metamodels, profiles or models.
   *
   * @example The OMG PrimitiveTypes library from OMG UML 2.5 could be defined as follows:
   * {{{
@@ -80,11 +81,15 @@ sealed trait OTIMOFResource {
   *
   * @param iri Corresponds to the OMG `UML::Package::URI` unique identifier of
   *            the corresponding OMG `UML::Package` library.
+  * @group library
   */
 case class OTIMOFLibrary
-( override val iri: LibraryIRI )
+( override val iri: ResourceIRI )
   extends OTIMOFResource
 
+/**
+  * @group library
+  */
 object OTIMOFLibrary {
 
   implicit val formats
@@ -94,7 +99,7 @@ object OTIMOFLibrary {
 }
 
 /**
-  * OTIMOFMetamodel corresponds to an OMG MOF metamodel package.
+  * A resource corresponding to an OMG MOF metamodel package.
   *
   * @example The OMG UML Metamodel package from OMG UML 2.5 could be defined as follows:
   * {{{
@@ -113,11 +118,15 @@ object OTIMOFLibrary {
   *
   * @param iri Corresponds to the OMG `UML::Package::URI` unique identifier of
   *            the corresponding OMG `UML::Package` metamodel.
+  * @group metamodel
   */
 case class OTIMOFMetamodel
-( override val iri: MetamodelIRI )
+( override val iri: ResourceIRI )
 extends OTIMOFResource
 
+/**
+  * @group metamodel
+  */
 object OTIMOFMetamodel {
 
   implicit val formats
@@ -127,7 +136,7 @@ object OTIMOFMetamodel {
 }
 
 /**
-  * OTIMOFProfile corresponds to a restricted OMG MOF profile.
+  * A resource corresponding to a restricted OMG MOF profile.
   * The restrictions are:
   *   - An OTI MOF Profile can only define Stereotypes and Stereotype associations
   *
@@ -158,11 +167,15 @@ object OTIMOFMetamodel {
   * }}}
   * @param iri Corresponds to the OMG `UML::Package::URI` unique identifier of
   *            the corresponding OMG `UML::Profile` profile.
+  * @group profile
   */
 case class OTIMOFProfile
-( override val iri: ProfileIRI )
+( override val iri: ResourceIRI )
   extends OTIMOFResource
 
+/**
+  * @group profile
+  */
 object OTIMOFProfile {
 
   implicit val formats
@@ -172,7 +185,7 @@ object OTIMOFProfile {
 }
 
 /**
-  * OTIMOFModel corresponds to an OMG MOF package that does not define datatypes
+  * A resource corresponding to an OMG MOF package that does not define datatypes
   *
   * @example The OMG conceptual model for Quantities, Units, Dimensions and Values (QUDV) from
   *          OMG SysML 1.4 could be defined as a combination of:
@@ -185,11 +198,15 @@ object OTIMOFProfile {
   *
   * @param iri Corresponds to the OMG `UML::Package::URI` unique identifier of
   *            the corresponding OMG `UML::Package` metamodel
+  * @group model
   */
 case class OTIMOFModel
-( override val iri: ModelIRI )
+( override val iri: ResourceIRI )
   extends OTIMOFResource
 
+/**
+  * @group model
+  */
 object OTIMOFModel {
 
   implicit val formats

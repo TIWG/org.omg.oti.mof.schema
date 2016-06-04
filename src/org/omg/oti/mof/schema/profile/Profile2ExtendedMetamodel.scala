@@ -38,12 +38,12 @@
  */
 package org.omg.oti.mof.schema.profile
 
-import org.omg.oti.mof.schema.common.{MetamodelIRI, ProfileIRI}
+import org.omg.oti.mof.schema.common.ResourceIRI
 import play.api.libs.json._
 
 case class Profile2ExtendedMetamodel
-( extendingProfile: ProfileIRI,
-  extendedMetamodel: MetamodelIRI )
+( extendingProfile: ResourceIRI,
+  extendedMetamodel: ResourceIRI )
 
 object Profile2ExtendedMetamodel {
 

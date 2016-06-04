@@ -39,11 +39,12 @@
 package org.omg.oti.mof.schema
 
 /**
-  * An OTI MOF Profile is a resource whose extent is a set of:
+  * An [[OTIMOFProfile]] is a resource whose [[OTIMOFProfileResourceExtent]] is a set of [[OTIMOFProfileItem]]s:
   *
   * Entities:
   *   - [[profile.Stereotype]]
-  *   - [[features.DataTypedFeature]]
+  *   - [[features.AssociationTargetEnd]]
+  *   - [[features.DataTypedAttributeProperty]]
   *
   * Characteristics:
   *   - [[features.FeatureLowerBound]]
@@ -51,12 +52,14 @@ package org.omg.oti.mof.schema
   *   - [[features.FeatureOrdering]]
   *
   * Relations:
-  *   - [[features.AttributeProperty2DataType]]
   *   - [[OTIMOFResourceLibraryImport]]
+  *   - [[profile.Profile2ExtendedMetamodel]]
+  *   - [[OTIMOFResourceProfileImport]]
   *   - [[profile.StereotypeGeneralization]]
   *   - [[profile.Stereotype2Attribute]]
+  *   - [[features.AttributeProperty2DataType]]
   *   - [[profile.StereotypeAssociationTargetEndMetaClassProperty]]
   *   - [[profile.StereotypeAssociationTargetEndStereotypeProperty]]
-  *   - [[OTIMOFResourceProfileImport]]
+  * @group profile
   */
-package object profile {}
+package object profile

@@ -51,10 +51,11 @@ import scala.Predef.String
   * The `resourceIRI` is a foreign key identifying an OTI MOF Resource of some kind.
   *
   * A `resourceIRI` can be referenced as the importing resource
-  * (@see [[OTIMOFResourceLibraryImport.importingResourceIRI]])
+  * (@see [[OTIMOFResourceLibraryImport.importingResource]])
   *
   * A `resourceIRI` identifying an OTI MOF Library resource can be referenced as the imported resource
   * (@see [[OTIMOFResourceLibraryImport.importedLibrary]]
+  * @group resources
   */
 sealed trait OTIMOFResourceExtent {
   val resource: OTIMOFResource
@@ -74,6 +75,7 @@ sealed trait OTIMOFResourceExtent {
   * @param structure2attribute   Relation Schema::Library::StructuredDataType2Attribute
   * @param generalizations       Relation Schema::Library::Generalization
   * @param importedLibraries     Relation Schema::Resources::A_library_imports
+  * @group library
   */
 case class OTIMOFLibraryResourceExtent
 (override val resource: OTIMOFLibrary,
@@ -92,6 +94,9 @@ case class OTIMOFLibraryResourceExtent
  importedLibraries: Vector[OTIMOFResourceLibraryImport] = Vector())
   extends OTIMOFResourceExtent
 
+/**
+  * @group library
+  */
 object OTIMOFLibraryResourceExtent {
 
   implicit val formats
@@ -118,6 +123,7 @@ object OTIMOFLibraryResourceExtent {
   * @param metaclass2attribute       Relation Schema::Metamodel::MetaClass2Attribute
   * @param generalizations           Relation Schema::Metamodel::MetaClassifierGeneralization
   * @param importedMetamodels        Relation Schema::Resources::A_metamodel_imports
+  * @group metamodel
   */
 case class OTIMOFMetamodelResourceExtent
 (override val resource: OTIMOFMetamodel,
@@ -140,6 +146,9 @@ case class OTIMOFMetamodelResourceExtent
  importedMetamodels: Vector[OTIMOFResourceMetamodelImport] = Vector())
   extends OTIMOFResourceExtent
 
+/**
+  * @group metamodel
+  */
 object OTIMOFMetamodelResourceExtent {
 
   implicit val formats
@@ -153,6 +162,7 @@ object OTIMOFMetamodelResourceExtent {
   *
   * @param resource
   * @param classifiers           Entity Schema::Profile::Stereotype
+  * @param associationTargetEnds       Entity Schema::Features::AssociationTargetEnd
   * @param attributes            Entity Schema::Features::DataTypedAttributeProperty
   * @param featureLowerBounds    Characteristic
   * @param featureUpperBounds    Characteristic
@@ -166,28 +176,33 @@ object OTIMOFMetamodelResourceExtent {
   * @param stereotype2associationEndMetaClassProperty   Relation
   * @param stereotype2associationEndStereotypeProperty  Relation
   * @param importedProfiles      Relation
+  * @group profile
   */
 case class OTIMOFProfileResourceExtent
 (override val resource: OTIMOFProfile,
 
  classifiers: Vector[profile.Stereotype] = Vector(),
+ associationTargetEnds: Vector[features.AssociationTargetEnd] = Vector(),
  attributes: Vector[features.DataTypedAttributeProperty] = Vector(),
 
  featureLowerBounds: Vector[features.FeatureLowerBound] = Vector(),
  featureUpperBounds: Vector[features.FeatureUpperBound] = Vector(),
  featureOrdering: Vector[features.FeatureOrdering] = Vector(),
 
- attribute2type: Vector[features.AttributeProperty2DataType] = Vector(),
  importedLibraries: Vector[OTIMOFResourceLibraryImport] = Vector(),
  exendedMetamodels: Vector[profile.Profile2ExtendedMetamodel] = Vector(),
+ importedProfiles: Vector[OTIMOFResourceProfileImport] = Vector(),
  generalizations: Vector[profile.StereotypeGeneralization] = Vector(),
  extendedMetaclass: Vector[profile.Stereotype2ExtendedMetaclass] = Vector(),
  stereotype2attribute: Vector[profile.Stereotype2Attribute] = Vector(),
+ attribute2type: Vector[features.AttributeProperty2DataType] = Vector(),
  stereotype2associationEndMetaClassProperty: Vector[profile.StereotypeAssociationTargetEndMetaClassProperty] = Vector(),
- stereotype2associationEndStereotypeProperty: Vector[profile.StereotypeAssociationTargetEndStereotypeProperty] = Vector(),
- importedProfiles: Vector[OTIMOFResourceProfileImport] = Vector())
+ stereotype2associationEndStereotypeProperty: Vector[profile.StereotypeAssociationTargetEndStereotypeProperty] = Vector())
   extends OTIMOFResourceExtent
 
+/**
+  * @group profile
+  */
 object OTIMOFProfileResourceExtent {
 
   implicit val formats
@@ -207,6 +222,7 @@ object OTIMOFProfileResourceExtent {
   * @param elementAttributeValues               Characteristic
   * @param instantiatedMetamodels               Relation
   * @param appliedProfiles                      Relation
+  * @group model
   */
 case class OTIMOFModelResourceExtent
 ( override val resource: OTIMOFModel,
@@ -221,6 +237,9 @@ case class OTIMOFModelResourceExtent
   appliedProfiles: Vector[OTIMOFResourceModelAppliedProfile] = Vector())
   extends OTIMOFResourceExtent
 
+/**
+  * @group model
+  */
 object OTIMOFModelResourceExtent {
 
   implicit val formats
@@ -229,6 +248,9 @@ object OTIMOFModelResourceExtent {
 
 }
 
+/**
+  * @group resources
+  */
 object OTIMOFResourceExtent {
 
   implicit val formats

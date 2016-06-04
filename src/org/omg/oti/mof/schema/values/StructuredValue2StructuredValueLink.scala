@@ -38,12 +38,12 @@
  */
 package org.omg.oti.mof.schema.values
 
-import org.omg.oti.mof.schema.common.StructuredValueUUID
+import org.omg.oti.mof.schema.common.EntityUUID
 
 import play.api.libs.json._
 
 case class StructuredValue2StructuredValueLink
-(uuid: StructuredValueUUID,
+(uuid: EntityUUID,
  structuredValueLink: StructuredValueLink)
 
 object StructuredValue2StructuredValueLink {

@@ -38,4 +38,9 @@
  */
 package org.omg.oti.mof.schema
 
-package object values {}
+/**
+  * Types for representing values of datatyped attribute features
+  *
+  * @group value
+  */
+package object values

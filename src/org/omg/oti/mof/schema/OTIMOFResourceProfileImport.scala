@@ -38,7 +38,7 @@
  */
 package org.omg.oti.mof.schema
 
-import org.omg.oti.mof.schema.common.ProfileIRI
+import org.omg.oti.mof.schema.common.ResourceIRI
 
 import play.api.libs.json._
 
@@ -47,13 +47,17 @@ import play.api.libs.json._
   * an importing UML Profile of an OTI Profile resource
   * to the imported UML Profile of an OTI Profile resource.
   *
-  * @param importingProfile The importing OTI MOF Profile IRI
-  * @param importedProfile The imported OTI MOF Profile IRI
+  * @param importingProfile The importing [[OTIMOFProfile]]
+  * @param importedProfile The imported [[OTIMOFProfile]]
+  * @group profile
   */
 case class OTIMOFResourceProfileImport
-( importingProfile: ProfileIRI,
-  importedProfile: ProfileIRI )
+( importingProfile: ResourceIRI,
+  importedProfile: ResourceIRI )
 
+/**
+  * @group profile
+  */
 object OTIMOFResourceProfileImport {
 
   implicit val formats

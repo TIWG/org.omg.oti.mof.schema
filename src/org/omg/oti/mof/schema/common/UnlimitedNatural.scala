@@ -42,11 +42,15 @@ import play.api.libs.json._
 import scala.{Int,StringContext}
 
 /**
-  * Int @@ UnlimitedNatural represents the subset of positive Int values including 0 and -1 to denote positive infinity
+  * UnlimitedNatural represents the subset of positive Int values including 0 and -1 to denote positive infinity
+  * @group value
   */
 case class UnlimitedNatural
 (value: Int)
 
+/**
+  * @group value
+  */
 object UnlimitedNatural {
 
   implicit val formats

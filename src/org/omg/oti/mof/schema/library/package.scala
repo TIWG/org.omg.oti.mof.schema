@@ -39,7 +39,7 @@
 package org.omg.oti.mof.schema
 
 /**
-  * An OTI MOF Library is a resource whose extent is a set of:
+  * An [[OTIMOFLibrary]] is a resource whose [[OTIMOFLibraryResourceExtent]] is a set of [[OTIMOFLibraryItem]]s:
   *
   * Entities:
   *   - [[library.DatatypeClassifier]]
@@ -56,5 +56,6 @@ package org.omg.oti.mof.schema
   *   - [[library.StructuredDatatype2Attribute]]
   *   - [[library.StructuredDataTypeGeneralization]]
   *   - [[OTIMOFResourceLibraryImport]]
+  * @group library
   */
-package object library {}
+package object library

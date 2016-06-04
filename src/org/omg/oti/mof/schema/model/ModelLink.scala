@@ -38,7 +38,7 @@
  */
 package org.omg.oti.mof.schema.model
 
-import org.omg.oti.mof.schema.common.{MetaAssociationUUID, ModelElementUUID}
+import org.omg.oti.mof.schema.common.EntityUUID
 
 import play.json.extra._
 import play.api.libs.json._
@@ -47,21 +47,21 @@ import scala.Int
 import scala.Predef.String
 
 sealed trait ModelLink {
-  val sourceElement: ModelElementUUID
-  val targetElement: ModelElementUUID
-  val metaAssociation: MetaAssociationUUID
+  val sourceElement: EntityUUID
+  val targetElement: EntityUUID
+  val metaAssociation: EntityUUID
 }
 
 case class ModelUnorderedLink
-( override val sourceElement: ModelElementUUID,
-  override val targetElement: ModelElementUUID,
-  override val metaAssociation: MetaAssociationUUID )
+( override val sourceElement: EntityUUID,
+  override val targetElement: EntityUUID,
+  override val metaAssociation: EntityUUID )
   extends ModelLink
 
 case class ModelOrderedLink
-( override val sourceElement: ModelElementUUID,
-  override val targetElement: ModelElementUUID,
-  override val metaAssociation: MetaAssociationUUID,
+( override val sourceElement: EntityUUID,
+  override val targetElement: EntityUUID,
+  override val metaAssociation: EntityUUID,
   index: Int )
   extends ModelLink
 

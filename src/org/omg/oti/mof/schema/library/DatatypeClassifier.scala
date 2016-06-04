@@ -46,35 +46,51 @@ import scala.Predef.String
 
 /**
   * Every DatatypeClassifier has a name and an uuid primary identifier
+  * @group entity
   */
 sealed trait DatatypeClassifier {
-  val uuid: LibraryClassifierUUID
+  val uuid: EntityUUID
   val name: Name
 }
 
+/**
+  * @group entity
+  */
 sealed trait AtomicDataType {
-  def uuid: LibraryClassifierUUID
+  def uuid: EntityUUID
   def name: Name
 }
 
+/**
+  * @group entity
+  */
 case class PrimitiveDataType
-( override val uuid: LibraryPrimitiveTypeUUID,
+( override val uuid: EntityUUID,
   override val name: Name,
   datatypeMapDefinition: DatatypeAbbrevIRI )
   extends DatatypeClassifier
   with AtomicDataType
 
+/**
+  * @group entity
+  */
 case class EnumerationDataType
-( override val uuid: LibraryEnumerationUUID,
+( override val uuid: EntityUUID,
   override val name: Name )
   extends DatatypeClassifier
   with AtomicDataType
 
+/**
+  * @group entity
+  */
 case class StructuredDataType
-( override val uuid: LibraryStructuredClassifierUUID,
+( override val uuid: EntityUUID,
   override val name: Name )
   extends DatatypeClassifier
 
+/**
+  * @group entity
+  */
 object AtomicDataType {
 
   implicit val formats
@@ -83,6 +99,9 @@ object AtomicDataType {
 
 }
 
+/**
+  * @group entity
+  */
 object DatatypeClassifier {
 
   implicit val formats

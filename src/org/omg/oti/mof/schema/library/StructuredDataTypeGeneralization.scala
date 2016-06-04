@@ -38,13 +38,23 @@
  */
 package org.omg.oti.mof.schema.library
 
-import org.omg.oti.mof.schema.common.LibraryStructuredClassifierUUID
+import org.omg.oti.mof.schema.common.EntityUUID
 import play.api.libs.json._
 
+/**
+  * A taxonomic relationship between structured datatypes
+  *
+  * @param specific A [[StructuredDataType]]
+  * @param general A [[StructuredDataType]]
+  * @group relation
+  */
 case class StructuredDataTypeGeneralization
-( specific: LibraryStructuredClassifierUUID,
-  general: LibraryStructuredClassifierUUID )
+( specific: EntityUUID,
+  general: EntityUUID )
 
+/**
+  * @group relation
+  */
 object StructuredDataTypeGeneralization {
 
   implicit val formats

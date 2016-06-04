@@ -36,32 +36,41 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema
-
-import org.omg.oti.mof.schema.common.ResourceIRI
+package org.omg.oti.mof.schema.common
 
 import play.api.libs.json._
+import scala.StringContext
+import scala.Predef.String
 
 /**
-  * OTIMOFResourceModelAppliedProfile corresponds to a UML ProfileApplication relationship from
-  * the applying model UML Package of an OTI Model resource
-  * to the applied UML Profile of an OTI Profile resource.
+  * The partition of Strings that represent the abbreviated form of the
+  * IRI of an atomic datatype definition in the normative OWL2-DL datatype map.
   *
-  * @param applyingModel The applying [[OTIMOFModel]]
-  * @param appliedProfile The applied [[OTIMOFProfile]]
-  * @group model
+  * An abbreviated IRI has the form 'pn:rc' where 'pn' is the prefix IRI and 'rc' is the remaining
+  * characters in the IRI after 'pn'.
+  *
+  * @see [[http://www.w3.org/TR/owl2-syntax/#Datatype_Maps]]
+  * @see [[http://www.w3.org/TR/owl2-syntax/#IRIs]]
+  * @group id
   */
-case class OTIMOFResourceModelAppliedProfile
-( applyingModel: ResourceIRI,
-  appliedProfile: ResourceIRI )
+case class DatatypeAbbrevIRI
+(value: String)
 
 /**
-  * @group model
+  * @group id
   */
-object OTIMOFResourceModelAppliedProfile {
+object DatatypeAbbrevIRI {
 
   implicit val formats
-  : Format[OTIMOFResourceModelAppliedProfile]
-  = Json.format[OTIMOFResourceModelAppliedProfile]
+  : Format[DatatypeAbbrevIRI]
+  = new Format[DatatypeAbbrevIRI] {
 
+    def reads(json: JsValue): JsResult[DatatypeAbbrevIRI] = json match {
+      case JsString(v) => JsSuccess(DatatypeAbbrevIRI(v))
+      case unknown => JsError(s"DatatypeAbbrevIRI: String value expected, got: $unknown")
+    }
+
+    def writes(abiri: DatatypeAbbrevIRI): JsValue = JsString(abiri.value)
+
+  }
 }

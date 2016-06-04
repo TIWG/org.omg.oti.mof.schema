@@ -39,12 +39,23 @@
 package org.omg.oti.mof.schema.features
 
 import play.api.libs.json._
-import org.omg.oti.mof.schema.common.{DatatypedAttributePropertyUUID, LibraryClassifierUUID}
+import org.omg.oti.mof.schema.common.EntityUUID
 
+/**
+  * A relation specifying the [[org.omg.oti.mof.schema.library.DatatypeClassifier]] typing
+  * a [[DataTypedAttributeProperty]]
+  *
+  * @param attribute A [[DataTypedAttributeProperty]]
+  * @param `type` A [[org.omg.oti.mof.schema.library.DatatypeClassifier]]
+  * @group Attribute
+  */
 case class AttributeProperty2DataType
-( attribute: DatatypedAttributePropertyUUID,
-  `type`: LibraryClassifierUUID )
+( attribute: EntityUUID,
+  `type`: EntityUUID )
 
+/**
+  * @group Attribute
+  */
 object AttributeProperty2DataType {
 
   implicit val formats

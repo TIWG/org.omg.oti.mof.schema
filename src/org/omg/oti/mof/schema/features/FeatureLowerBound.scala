@@ -41,10 +41,20 @@ package org.omg.oti.mof.schema.features
 import play.api.libs.json._
 import org.omg.oti.mof.schema.common._
 
+/**
+  * The lower bound characteristic of a [[Feature]]
+  *
+  * @param feature A [[Feature]]
+  * @param lower A non-negative integer lower bound
+  * @group Base
+  */
 case class FeatureLowerBound
-(feature: FeatureEntityUUID,
+(feature: EntityUUID,
  lower: NonNegativeInt)
 
+/**
+  * @group Base
+  */
 object FeatureLowerBound {
 
   implicit val formats

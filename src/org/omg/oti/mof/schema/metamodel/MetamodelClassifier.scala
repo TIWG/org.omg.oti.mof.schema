@@ -46,17 +46,17 @@ import play.api.libs.json._
 import scala.Predef.String
 
 sealed trait MetamodelClassifier {
-  val uuid: MetamodelClassifierUUID
+  val uuid: EntityUUID
   val name: Name
 }
 
 case class MetaClass
-( override val uuid: MetaClassUUID,
+( override val uuid: EntityUUID,
   override val name: Name )
   extends MetamodelClassifier
 
 case class MetaAssociation
-( override val uuid: MetaAssociationUUID,
+( override val uuid: EntityUUID,
   override val name: Name )
   extends MetamodelClassifier
 

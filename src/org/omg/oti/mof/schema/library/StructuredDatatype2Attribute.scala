@@ -38,16 +38,26 @@
  */
 package org.omg.oti.mof.schema.library
 
-import org.omg.oti.mof.schema.common.{DatatypedAttributePropertyUUID, LibraryStructuredClassifierUUID}
+import org.omg.oti.mof.schema.common.EntityUUID
 import play.api.libs.json._
 
 import scala.Int
 
+/**
+  *
+  * @param structuredDatatype A [[StructuredDataType]]
+  * @param attribute A [[org.omg.oti.mof.schema.features.DataTypedAttributeProperty]]
+  * @param index
+  * @group relation
+  */
 case class StructuredDatatype2Attribute
-(structuredDatatype: LibraryStructuredClassifierUUID,
- attribute: DatatypedAttributePropertyUUID,
+(structuredDatatype: EntityUUID,
+ attribute: EntityUUID,
  index: Int )
 
+/**
+  * @group relation
+  */
 object StructuredDatatype2Attribute {
 
   implicit val writes

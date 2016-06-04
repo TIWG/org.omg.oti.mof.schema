@@ -40,14 +40,24 @@ package org.omg.oti.mof.schema.features
 
 import play.api.libs.json._
 
-import org.omg.oti.mof.schema.common.FeatureEntityUUID
+import org.omg.oti.mof.schema.common.EntityUUID
 
 import scala.Boolean
 
+/**
+  * The ordering characteristic of a [[Feature]]
+  *
+  * @param feature A [[Feature]]
+  * @param isOrdered true if the feature is ordered
+  * @group Base
+  */
 case class FeatureOrdering
-(feature: FeatureEntityUUID,
+(feature: EntityUUID,
  isOrdered: Boolean )
 
+/**
+  * @group Base
+  */
 object FeatureOrdering {
 
   implicit val formats

@@ -45,13 +45,17 @@ import org.omg.oti.mof.schema.common._
 import scala.Predef.String
 
 sealed trait AttributeValue {
-  val attribute: DatatypedAttributePropertyUUID
-  val value: ValueRepresentation
+  val attribute: EntityUUID
 }
 
+/**
+  *
+  * @param attribute A [[org.omg.oti.mof.schema.features.DataTypedAttributeProperty]]
+  * @param value A [[org.omg.oti.mof.schema.features.EnumerationLiteral]]
+  */
 case class EnumerationLiteralValue
-( override val attribute: DatatypedAttributePropertyUUID,
-  override val value: LibraryEnumerationLiteralUUID )
+( override val attribute: EntityUUID,
+  value: EntityUUID )
   extends AttributeValue
 
 object EnumerationLiteralValue {
@@ -63,8 +67,8 @@ object EnumerationLiteralValue {
 }
 
 case class AtomicValue
-( override val attribute: DatatypedAttributePropertyUUID,
-  override val value: AtomicValueRepresentation)
+( override val attribute: EntityUUID,
+  value: AtomicValueRepresentation)
   extends AttributeValue
 
 object AtomicValue {
@@ -75,9 +79,14 @@ object AtomicValue {
 
 }
 
+/**
+  *
+  * @param attribute A [[org.omg.oti.mof.schema.features.DataTypedAttributeProperty]]
+  * @param value A [[StructuredValue]]
+  */
 case class StructuredValueLink
-( override val attribute: DatatypedAttributePropertyUUID,
-  override val value: StructuredValueUUID )
+( override val attribute: EntityUUID,
+  value: EntityUUID )
   extends AttributeValue
 
 object StructuredValueLink {

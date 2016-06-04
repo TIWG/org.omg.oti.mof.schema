@@ -39,7 +39,7 @@
 package org.omg.oti.mof.schema
 
 /**
-  * An OTI MOF Model is a resource whose extent is a set of:
+  * An [[OTIMOFModel]] is a resource whose [[OTIMOFModelResourceExtent]] is a set of [[OTIMOFModelItem]]s:
   *
   * Entities:
   *   - [[model.ModelElement]]
@@ -51,5 +51,6 @@ package org.omg.oti.mof.schema
   *   - [[model.AppliedStereotypePropertyReference]]
   *   - [[OTIMOFResourceInstantiatedMetamodel]]
   *   - [[OTIMOFResourceModelAppliedProfile]]
+  * @group model
   */
-package object model {}
+package object model

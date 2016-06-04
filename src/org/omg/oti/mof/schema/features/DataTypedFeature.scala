@@ -45,33 +45,64 @@ import org.omg.oti.mof.schema.common._
 
 import scala.Predef.String
 
-sealed trait DataTypedFeature {
-  val uuid: FeatureEntityUUID
-  val name: Name
-}
+/**
+  * A feature typed by a [[org.omg.oti.mof.schema.library.DatatypeClassifier]]
+  * @group Base
+  */
+sealed trait DataTypedFeature
+  extends Feature
 
+/**
+  * An enumeration literal feature
+  *
+  * @param uuid The primary key of the enumeration literal
+  * @param name The name of the enumeration literal
+  * @group EnumLit
+  */
 case class EnumerationLiteral
-( override val uuid: LibraryEnumerationLiteralUUID,
+( override val uuid: EntityUUID,
   override val name: Name )
   extends DataTypedFeature
 
+/**
+  * A datatyped attribute property
+  *
+  * @group Attribute
+  */
 sealed trait DataTypedAttributeProperty {
-  def uuid: DatatypedAttributePropertyUUID
+  def uuid: EntityUUID
   def name: Name
 }
 
+/**
+  * An unordered datatyped attribute property
+  *
+  * @param uuid The primary key of the property
+  * @param name The name of the property
+  * @group Attribute
+  */
 case class DataTypedAttributeUnorderedProperty
-( override val uuid: DatatypedAttributePropertyUUID,
+( override val uuid: EntityUUID,
   override val name: Name )
   extends DataTypedFeature
     with DataTypedAttributeProperty
 
+/**
+  * An ordered datatyped attribute property
+  *
+  * @param uuid The primary key of the property
+  * @param name The name of the property
+  * @group Attribute
+  */
 case class DataTypedAttributeOrderedProperty
-( override val uuid: DatatypedAttributePropertyUUID,
+( override val uuid: EntityUUID,
   override val name: Name )
   extends DataTypedFeature
     with DataTypedAttributeProperty
 
+/**
+  * @group Attribute
+  */
 object DataTypedAttributeProperty {
 
   implicit val formats
@@ -80,6 +111,9 @@ object DataTypedAttributeProperty {
 
 }
 
+/**
+  * @group Base
+  */
 object DataTypedFeature {
 
   implicit val formats

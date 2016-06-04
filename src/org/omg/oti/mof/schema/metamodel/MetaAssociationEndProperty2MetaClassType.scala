@@ -38,13 +38,18 @@
  */
 package org.omg.oti.mof.schema.metamodel
 
-import org.omg.oti.mof.schema.common.{AssociationEndUUID, MetaClassUUID}
+import org.omg.oti.mof.schema.common.EntityUUID
 
 import play.api.libs.json._
 
+/**
+  *
+  * @param associationEnd An [[org.omg.oti.mof.schema.features.AssociationEnd]]
+  * @param `type` A [[MetaClass]]
+  */
 case class MetaAssociationEndProperty2MetaClassType
-( associationEnd: AssociationEndUUID,
-  `type`: MetaClassUUID )
+( associationEnd: EntityUUID,
+  `type`: EntityUUID )
 
 object MetaAssociationEndProperty2MetaClassType {
 

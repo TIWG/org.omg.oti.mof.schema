@@ -38,7 +38,7 @@
  */
 package org.omg.oti.mof.schema.model
 
-import org.omg.oti.mof.schema.common.ModelElementUUID
+import org.omg.oti.mof.schema.common.EntityUUID
 import org.omg.oti.mof.schema.values.AttributeValue
 
 import play.json.extra._
@@ -53,18 +53,18 @@ import scala.Predef.String
   * or a [[org.omg.oti.mof.schema.profile.Stereotype]]
   */
 sealed trait ModelElementAttributeValue {
-  val modelElement: ModelElementUUID
+  val modelElement: EntityUUID
   val attributeValue: AttributeValue
 }
 
 case class ModelElementUnorderedAttributeValue
-( override val modelElement: ModelElementUUID,
+( override val modelElement: EntityUUID,
   override val attributeValue: AttributeValue )
   extends ModelElementAttributeValue
 
 
 case class ModelElementOrderedAttributeValue
-( override val modelElement: ModelElementUUID,
+( override val modelElement: EntityUUID,
   override val attributeValue: AttributeValue,
   index: Int )
   extends ModelElementAttributeValue

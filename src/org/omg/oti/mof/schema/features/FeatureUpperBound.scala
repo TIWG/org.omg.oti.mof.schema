@@ -41,10 +41,20 @@ package org.omg.oti.mof.schema.features
 import play.api.libs.json._
 import org.omg.oti.mof.schema.common._
 
+/**
+  * The upper bound characteristic of a [[Feature]]
+  *
+  * @param feature A [[Feature]]
+  * @param upper An unlimited natural upper bound
+  * @group Base
+  */
 case class FeatureUpperBound
-(feature: FeatureEntityUUID,
+(feature: EntityUUID,
  upper: UnlimitedNatural )
 
+/**
+  * @group Base
+  */
 object FeatureUpperBound {
 
   implicit val formats

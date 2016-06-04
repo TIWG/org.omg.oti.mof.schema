@@ -38,13 +38,18 @@
  */
 package org.omg.oti.mof.schema.model
 
-import org.omg.oti.mof.schema.common.{MetaClassUUID, ModelElementUUID}
+import org.omg.oti.mof.schema.common.EntityUUID
 
 import play.api.libs.json._
 
+/**
+  *
+  * @param uuid primary key
+  * @param metaClass foreign key of a [[org.omg.oti.mof.schema.metamodel.MetaClass]]
+  */
 case class ModelElement
-( uuid: ModelElementUUID,
-  metaClass: MetaClassUUID )
+( uuid: EntityUUID,
+  metaClass: EntityUUID )
 
 object ModelElement {
 

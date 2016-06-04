@@ -38,25 +38,27 @@
  */
 package org.omg.oti.mof.schema.library
 
-import org.omg.oti.mof.schema.common.{LibraryEnumerationLiteralUUID, LibraryEnumerationUUID}
+import org.omg.oti.mof.schema.common.EntityUUID
 import play.api.libs.json._
 
 import scala.Int
 
+/**
+  *
+  * @param enumeration An [[EnumerationDataType]]
+  * @param literal An [[org.omg.oti.mof.schema.features.EnumerationLiteral]]
+  * @param index
+  * @group relation
+  */
 case class Enumeration2Literal
-( enumeration: LibraryEnumerationUUID,
-  literal: LibraryEnumerationLiteralUUID,
+( enumeration: EntityUUID,
+  literal: EntityUUID,
   index: Int)
 
+/**
+  * @group relation
+  */
 object Enumeration2Literal {
-
-  implicit val writes
-  : Writes[Enumeration2Literal]
-  = Json.writes[Enumeration2Literal]
-
-  implicit val reads
-  : Reads[Enumeration2Literal]
-  = Json.reads[Enumeration2Literal]
 
   implicit val formats
   : Format[Enumeration2Literal]

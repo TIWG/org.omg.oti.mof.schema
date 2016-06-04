@@ -39,19 +39,23 @@
 package org.omg.oti.mof.schema
 
 import play.api.libs.json._
-import org.omg.oti.mof.schema.common.{LibraryIRI, ResourceIRI}
+import org.omg.oti.mof.schema.common.ResourceIRI
 
 /**
   * OTIMOFResourceLibraryImport corresponds to a UML PackageImport relationship to
   * the imported UML Package of an OTI MOF Library resource.
   *
-  * @param importingResourceIRI The importing OTI MOF resource IRI
-  * @param importedLibrary The imported OTI MOF Library resource IRI
+  * @param importingResource The importing [[OTIMOFResource]]
+  * @param importedLibrary The imported [[OTIMOFLibrary]]
+  * @group resources
   */
 case class OTIMOFResourceLibraryImport
-( importingResourceIRI: ResourceIRI,
-  importedLibrary: LibraryIRI )
+( importingResource: ResourceIRI,
+  importedLibrary: ResourceIRI )
 
+/**
+  * @group resources
+  */
 object OTIMOFResourceLibraryImport {
 
   implicit val formats

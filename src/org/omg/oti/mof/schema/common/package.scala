@@ -38,30 +38,9 @@
  */
 package org.omg.oti.mof.schema
 
-import org.omg.oti.mof.schema.common.ResourceIRI
-
-import play.api.libs.json._
-
 /**
-  * OTIMOFResourceModelAppliedProfile corresponds to a UML ProfileApplication relationship from
-  * the applying model UML Package of an OTI Model resource
-  * to the applied UML Profile of an OTI Profile resource.
-  *
-  * @param applyingModel The applying [[OTIMOFModel]]
-  * @param appliedProfile The applied [[OTIMOFProfile]]
-  * @group model
+  * Types for representing identifiers and values
+  * 
+  * @group common
   */
-case class OTIMOFResourceModelAppliedProfile
-( applyingModel: ResourceIRI,
-  appliedProfile: ResourceIRI )
-
-/**
-  * @group model
-  */
-object OTIMOFResourceModelAppliedProfile {
-
-  implicit val formats
-  : Format[OTIMOFResourceModelAppliedProfile]
-  = Json.format[OTIMOFResourceModelAppliedProfile]
-
-}
+package object common

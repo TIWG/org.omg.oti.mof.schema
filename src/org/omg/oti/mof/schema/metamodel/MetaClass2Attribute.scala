@@ -38,15 +38,21 @@
  */
 package org.omg.oti.mof.schema.metamodel
 
-import org.omg.oti.mof.schema.common.{DatatypedAttributePropertyUUID, MetaClassUUID}
+import org.omg.oti.mof.schema.common.EntityUUID
 
 import play.api.libs.json._
 
 import scala.Int
 
+/**
+  *
+  * @param metaClass A [[MetaClass]]
+  * @param attribute A [[org.omg.oti.mof.schema.features.DataTypedAttributeProperty]]
+  * @param index
+  */
 case class MetaClass2Attribute
-(metaClass: MetaClassUUID,
- attribute: DatatypedAttributePropertyUUID,
+(metaClass: EntityUUID,
+ attribute: EntityUUID,
  index: Int )
 
 object MetaClass2Attribute {

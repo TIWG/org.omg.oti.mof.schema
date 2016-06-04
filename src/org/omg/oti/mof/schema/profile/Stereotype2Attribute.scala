@@ -38,15 +38,15 @@
  */
 package org.omg.oti.mof.schema.profile
 
-import org.omg.oti.mof.schema.common.{DatatypedAttributePropertyUUID, StereotypeUUID}
+import org.omg.oti.mof.schema.common.EntityUUID
 
 import play.api.libs.json._
 
 import scala.Int
 
 case class Stereotype2Attribute
-(stereotype: StereotypeUUID,
- attribute: DatatypedAttributePropertyUUID,
+(stereotype: EntityUUID,
+ attribute: EntityUUID,
  index: Int )
 
 object Stereotype2Attribute {

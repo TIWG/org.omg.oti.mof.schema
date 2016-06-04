@@ -38,13 +38,13 @@
  */
 package org.omg.oti.mof.schema.metamodel
 
-import org.omg.oti.mof.schema.common.{AssociationSourceEndUUID, MetaAssociationUUID}
+import org.omg.oti.mof.schema.common.EntityUUID
 
 import play.api.libs.json._
 
 case class MetaAssociation2SourceEndProperty
-( association: MetaAssociationUUID,
-  sourceEnd: AssociationSourceEndUUID )
+( association: EntityUUID,
+  sourceEnd: EntityUUID )
 
 object MetaAssociation2SourceEndProperty {
 

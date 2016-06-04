@@ -46,6 +46,9 @@ import org.omg.oti.mof.schema.metamodel.{MetaAssociationEndProperty2MetaClassTyp
 import org.omg.oti.mof.schema.model.ModelLink
 import org.omg.oti.mof.schema.profile.{StereotypeAssociationTargetEndMetaClassProperty, StereotypeAssociationTargetEndStereotypeProperty}
 
+/**
+  * @group resources
+  */
 sealed trait OTIMOFResourceItem {
   val resourceIRI: ResourceIRI
 }
@@ -54,49 +57,104 @@ sealed trait OTIMOFResourceItem {
   * OTIMOFLibraryItem is an abstract type for the database table relationships
   * that specify the extent of an OTI MOF Library resource.
   *
-  * The `resourceIRI` is a foreign key identifying an [[OTIMOFLibrary]] resource.
+  * @group library
+  * @define declared entity declared in an [[OTIMOFLibrary]]
+  * @define relation relation declared in an [[OTIMOFLibrary]]
+  * @define primary The primary key identifying
+  * @define resourceIRI The foreign key identifying an [[OTIMOFLibrary]] resource
   */
 sealed trait OTIMOFLibraryItem extends OTIMOFResourceItem {
-  override val resourceIRI: LibraryIRI
+  override val resourceIRI: ResourceIRI
 }
 
+/**
+  * A [[library.DatatypeClassifier]] $declared
+  *
+  * @param resourceIRI $resourceIRI
+  * @param classifier $primary [[library.DatatypeClassifier]]
+  * @group library
+  */
 case class OTIMOFLibraryClassifierItem
-( override val resourceIRI: LibraryIRI,
-  classifier: LibraryClassifierUUID )
+( override val resourceIRI: ResourceIRI,
+  classifier: EntityUUID )
   extends OTIMOFLibraryItem
 
+/**
+  * A [[features.EnumerationLiteral]] $declared
+  *
+  * @param resourceIRI $resourceIRI
+  * @param enumerationliteral $primary an [[features.EnumerationLiteral]]
+  * @group library
+  */
 case class OTIMOFLibraryEnumerationLiteralItem
-( override val resourceIRI: LibraryIRI,
-  enumerationliteral: LibraryEnumerationLiteralUUID )
+( override val resourceIRI: ResourceIRI,
+  enumerationliteral: EntityUUID )
   extends OTIMOFLibraryItem
 
+/**
+  * A [[library.Enumeration2Literal]] $relation
+  *
+  * @param resourceIRI $resourceIRI
+  * @param enumeration2literal [[library.Enumeration2Literal]]
+  * @group library
+  */
 case class OTIMOFLibraryEnumeration2LiteralItem
-( override val resourceIRI: LibraryIRI,
+( override val resourceIRI: ResourceIRI,
   enumeration2literal: Enumeration2Literal )
   extends OTIMOFLibraryItem
 
+/**
+  * A [[features.DataTypedAttributeProperty]] $declared
+  * @param resourceIRI $resourceIRI
+  * @param attributeProperty $primary a [[features.DataTypedAttributeProperty]]
+  * @group library
+  */
 case class OTIMOFLibraryStructuredAttributeItem
-( override val resourceIRI: LibraryIRI,
-  attributeProperty: DatatypedAttributePropertyUUID )
+( override val resourceIRI: ResourceIRI,
+  attributeProperty: EntityUUID )
   extends OTIMOFLibraryItem
 
+/**
+  * A [[features.FeatureLowerBound]] for a [[features.DataTypedAttributeProperty]] $relation
+  * @param resourceIRI $resourceIRI
+  * @param attributeLowerBound [[features.FeatureLowerBound]]
+  * @group library
+  */
 case class OTIMOFLibraryStructuredAttributeLowerBoundItem
-( override val resourceIRI: LibraryIRI,
+( override val resourceIRI: ResourceIRI,
   attributeLowerBound: FeatureLowerBound )
   extends OTIMOFLibraryItem
 
+/**
+  * A [[features.FeatureLowerBound]] for a [[features.DataTypedAttributeProperty]] $relation
+  * @param resourceIRI $resourceIRI
+  * @param attributeUpperBound [[features.FeatureLowerBound]]
+  * @group library
+  */
 case class OTIMOFLibraryStructuredAttributeUpperBoundItem
-( override val resourceIRI: LibraryIRI,
+( override val resourceIRI: ResourceIRI,
   attributeUpperBound: FeatureUpperBound )
   extends OTIMOFLibraryItem
 
+/**
+  * A [[features.FeatureOrdering]] for a [[features.DataTypedAttributeProperty]] $relation
+  * @param resourceIRI $resourceIRI
+  * @param attributeOrdering [[features.FeatureOrdering]]
+  * @group library
+  */
 case class OTIMOFLibraryStructuredAttributeOrderingItem
-( override val resourceIRI: LibraryIRI,
+( override val resourceIRI: ResourceIRI,
   attributeOrdering: FeatureOrdering )
   extends OTIMOFLibraryItem
 
+/**
+  * A [[library.StructuredDatatype2Attribute]] $relation
+  * @param resourceIRI $resourceIRI
+  * @param structuredDatatype2attribute [[library.StructuredDatatype2Attribute]]
+  * @group library
+  */
 case class OTIMOFLibraryStructuredDatatype2AttributeItem
-( override val resourceIRI: LibraryIRI,
+( override val resourceIRI: ResourceIRI,
   structuredDatatype2attribute: StructuredDatatype2Attribute )
   extends OTIMOFLibraryItem
 
@@ -104,59 +162,123 @@ case class OTIMOFLibraryStructuredDatatype2AttributeItem
   * OTIMOFMetamodelItem is an abstract type for the database table relationships
   * that specify the extent of an OTI MOF Metamodel resource.
   *
-  * The `resourceIRI` is a foreign key identifying an [[OTIMOFMetamodel]] resource.
+  * @group metamodel
+  * @define declared entity declared in an [[OTIMOFMetamodel]]
+  * @define relation relation declared in an [[OTIMOFMetamodel]]
+  * @define primary The primary key identifying
+  * @define resourceIRI The foreign key identifying an [[OTIMOFMetamodel]] resource
   */
 sealed trait OTIMOFMetamodelItem extends OTIMOFResourceItem {
-  override val resourceIRI: MetamodelIRI
+  override val resourceIRI: ResourceIRI
 }
 
+/**
+  * A [[metamodel.MetamodelClassifier]] $declared
+  * @param resourceIRI $resourceIRI
+  * @param classifier $primary a [[metamodel.MetamodelClassifier]]
+  * @group metamodel
+  */
 case class OTIMOFMetamodelClassifierItem
-( override val resourceIRI: MetamodelIRI,
-  classifier: MetamodelClassifierUUID )
+( override val resourceIRI: ResourceIRI,
+  classifier: EntityUUID )
   extends OTIMOFMetamodelItem
 
+/**
+  * A [[features.DataTypedAttributeProperty]] $declared
+  * @param resourceIRI $resourceIRI
+  * @param attributeProperty $primary a [[features.DataTypedAttributeProperty]]
+  * @group metamodel
+  */
 case class OTIMOFMetamodelAttributeItem
-( override val resourceIRI: MetamodelIRI,
-  attributeProperty: DatatypedAttributePropertyUUID )
+( override val resourceIRI: ResourceIRI,
+  attributeProperty: EntityUUID )
   extends OTIMOFMetamodelItem
 
+/**
+  * A [[metamodel.MetaClass2Attribute]] $relation
+  * @param resourceIRI $resourceIRI
+  * @param metaClass2attribute [[metamodel.MetaClass2Attribute]]
+  * @group metamodel
+  */
 case class OTIMOFMetamodelMetaClass2AttributeItem
-( override val resourceIRI: MetamodelIRI,
+( override val resourceIRI: ResourceIRI,
   metaClass2attribute: MetaClass2Attribute )
   extends OTIMOFMetamodelItem
 
+/**
+  * A [[metamodel.MetaAssociationEndProperty2MetaClassType]] $relation
+  * @param resourceIRI $resourceIRI
+  * @param associationEndType [[metamodel.MetaAssociationEndProperty2MetaClassType]]
+  * @group metamodel
+  */
 case class OTIMOFMetamodelAssociationEndProperty2MetaClassTypeItem
-( override val resourceIRI: MetamodelIRI,
+( override val resourceIRI: ResourceIRI,
   associationEndType: MetaAssociationEndProperty2MetaClassType )
   extends OTIMOFMetamodelItem
 
+/**
+  * A [[features.AssociationEnd]] $declared
+  * @param resourceIRI $resourceIRI
+  * @param associationEnd [[features.AssociationEnd]]
+  * @group metamodel
+  */
 case class OTIMOFMetamodelAssociationEndPropertyItem
-( override val resourceIRI: MetamodelIRI,
-  associationEnd: AssociationEndUUID )
+( override val resourceIRI: ResourceIRI,
+  associationEnd: EntityUUID )
   extends OTIMOFMetamodelItem
 
+/**
+  * A [[features.FeatureLowerBound]] for a [[features.Feature]] $relation
+  * @param resourceIRI $resourceIRI
+  * @param lowerBound [[features.FeatureLowerBound]]
+  * @group metamodel
+  */
 case class OTIMOFMetamodelFeatureLowerBoundItem
-( override val resourceIRI: MetamodelIRI,
+( override val resourceIRI: ResourceIRI,
   lowerBound: FeatureLowerBound )
   extends OTIMOFMetamodelItem
 
+/**
+  * A [[features.FeatureUpperBound]] for a [[features.Feature]] $relation
+  * @param resourceIRI $resourceIRI
+  * @param upperBound [[features.FeatureUpperBound]]
+  * @group metamodel
+  */
 case class OTIMOFMetamodelFeatureUpperBoundItem
-( override val resourceIRI: MetamodelIRI,
+( override val resourceIRI: ResourceIRI,
   upperBound: FeatureUpperBound )
   extends OTIMOFMetamodelItem
 
+/**
+  * A [[features.FeatureOrdering]] for a [[features.Feature]] $relation
+  * @param resourceIRI $resourceIRI
+  * @param ordering [[features.FeatureOrdering]]
+  * @group metamodel
+  */
 case class OTIMOFMetamodelFeatureOrderingItem
-( override val resourceIRI: MetamodelIRI,
+( override val resourceIRI: ResourceIRI,
   ordering: FeatureOrdering )
   extends OTIMOFMetamodelItem
 
+/**
+  * A [[features.AssociationSourceEnd]] for a [[metamodel.MetaAssociation]] $relation
+  * @param resourceIRI $resourceIRI
+  * @param association2sourceEnd [[metamodel.MetaAssociation2SourceEndProperty]]
+  * @group metamodel
+  */
 case class OTIMOFMetamodelAssociation2SourceEndPropertyItem
-( override val resourceIRI: MetamodelIRI,
+( override val resourceIRI: ResourceIRI,
   association2sourceEnd: MetaAssociation2SourceEndProperty )
   extends OTIMOFMetamodelItem
 
+/**
+  * A [[features.AssociationTargetEnd]] for a [[metamodel.MetaAssociation]] $relation
+  * @param resourceIRI $resourceIRI
+  * @param association2targetEnd [[metamodel.MetaAssociation2TargetEndProperty]]
+  * @group metamodel
+  */
 case class OTIMOFMetamodelAssociation2TargetEndPropertyItem
-( override val resourceIRI: MetamodelIRI,
+( override val resourceIRI: ResourceIRI,
   association2targetEnd: MetaAssociation2TargetEndProperty )
   extends OTIMOFMetamodelItem
 
@@ -164,58 +286,113 @@ case class OTIMOFMetamodelAssociation2TargetEndPropertyItem
   * OTIMOFProfileItem is an abstract type for the database table relationships
   * that specify the extent of an OTI MOF Profile resource.
   *
-  * The `resourceIRI` is a foreign key identifying an [[OTIMOFProfile]] resource.
+  * @group profile
+  * @define declared entity declared in an [[OTIMOFProfile]]
+  * @define relation relation declared in an [[OTIMOFProfile]]
+  * @define primary The primary key identifying
+  * @define resourceIRI The foreign key identifying an [[OTIMOFProfile]] resource
   */
 sealed trait OTIMOFProfileItem extends OTIMOFResourceItem {
-  override val resourceIRI: ProfileIRI
+  override val resourceIRI: ResourceIRI
 }
 
+/**
+  * A [[profile.Stereotype]] $declared
+  * @param resourceIRI $resourceIRI
+  * @param stereotype $primary [[profile.Stereotype]]
+  * @group profile
+  */
 case class OTIMOFProfileStereotypeItem
-( override val resourceIRI: ProfileIRI,
-  stereotype: StereotypeUUID )
+( override val resourceIRI: ResourceIRI,
+  stereotype: EntityUUID )
   extends OTIMOFProfileItem
 
+/**
+  * @param resourceIRI
+  * @param metaClassProperty
+  * @group profile
+  */
 case class OTIMOFProfileStereotypeAssociationTargetEndMetaClassPropertyItem
-( override val resourceIRI: ProfileIRI,
+( override val resourceIRI: ResourceIRI,
   metaClassProperty: StereotypeAssociationTargetEndMetaClassProperty )
   extends OTIMOFProfileItem
 
+/**
+  *
+  * @param resourceIRI
+  * @param stereotypeProperty
+  * @group profile
+  */
 case class OTIMOFProfileStereotypeAssociationTargetEndStereotypePropertyItem
-( override val resourceIRI: ProfileIRI,
+( override val resourceIRI: ResourceIRI,
   stereotypeProperty: StereotypeAssociationTargetEndStereotypeProperty )
   extends OTIMOFProfileItem
 
+/**
+  *
+  * @param resourceIRI
+  * @param attributeLowerBound
+  * @group profile
+  */
 case class OTIMOFProfileStereotypeAssociationTargetEndLowerBoundItem
-( override val resourceIRI: ProfileIRI,
+( override val resourceIRI: ResourceIRI,
   attributeLowerBound: FeatureLowerBound )
   extends OTIMOFProfileItem
 
+/**
+  *
+  * @param resourceIRI
+  * @param attributeUpperBound
+  * @group profile
+  */
 case class OTIMOFProfileStereotypeAssociationTargetEndUpperBoundItem
-( override val resourceIRI: ProfileIRI,
+( override val resourceIRI: ResourceIRI,
   attributeUpperBound: FeatureUpperBound )
   extends OTIMOFProfileItem
 
+/**
+  *
+  * @param resourceIRI
+  * @param attributeOrdering
+  * @group profile
+  */
 case class OTIMOFProfileStereotypeAssociationTargetEndOrderingItem
-( override val resourceIRI: ProfileIRI,
+( override val resourceIRI: ResourceIRI,
   attributeOrdering: FeatureOrdering )
   extends OTIMOFProfileItem
 
 /**
-  * OTIMOFModelItem is an abstract type for the database table relationships
+  * OTIMOFProfileItem is an abstract type for the database table relationships
   * that specify the extent of an OTI MOF Model resource.
   *
-  * The `resourceIRI` is a foreign key identifying an [[OTIMOFModel]] resource.
+  * @group model
+  * @define declared entity declared in an [[OTIMOFModel]]
+  * @define relation relation declared in an [[OTIMOFModel]]
+  * @define primary The primary key identifying
+  * @define resourceIRI The foreign key identifying an [[OTIMOFModel]] resource
   */
 sealed trait OTIMOFModelItem extends OTIMOFResourceItem {
-  override val resourceIRI: ModelIRI
+  override val resourceIRI: ResourceIRI
 }
 
+/**
+  * A [[model.ModelElement]] $declared
+  * @param resourceIRI $resourceIRI
+  * @param element $primary [[model.ModelElement]]
+  * @group model
+  */
 case class OTIMOFModelElementItem
-( override val resourceIRI: ModelIRI,
-  element: ModelElementUUID )
+( override val resourceIRI: ResourceIRI,
+  element: EntityUUID )
   extends OTIMOFModelItem
 
+/**
+  * A [[model.ModelLink]] $relation
+  * @param resourceIRI $resourceIRI
+  * @param link [[model.ModelLink]]
+  * @group model
+  */
 case class OTIMOFModelLinkItem
-( override val resourceIRI: ModelIRI,
+( override val resourceIRI: ResourceIRI,
   link: ModelLink )
   extends OTIMOFModelItem

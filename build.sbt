@@ -44,13 +44,14 @@ def docSettings(diagrams:Boolean): Seq[Setting[_]] =
 
     scalacOptions in (Compile,doc) ++=
       (if (diagrams)
-        Seq("-diagrams", "-diagrams-dot-path", "/usr/bin/dot", "-verbose", "-diagrams-debug")
+        Seq("-diagrams", "-diagrams-dot-path", "/usr/bin/dot", "-diagrams-debug")
       else
         Seq()
         ) ++
         Seq(
           "-doc-title", name.value,
-          "-doc-root-content", baseDirectory.value + "/rootdoc.txt"
+          "-doc-root-content", baseDirectory.value + "/rootdoc.txt",
+          "-groups"
         ),
     autoAPIMappings := ! git.gitUncommittedChanges.value
 //    apiMappings <++=

@@ -38,7 +38,7 @@
  */
 package org.omg.oti.mof.schema
 
-import org.omg.oti.mof.schema.common.{ModelIRI, ProfileIRI}
+import org.omg.oti.mof.schema.common.ResourceIRI
 
 import play.api.libs.json._
 
@@ -49,11 +49,15 @@ import play.api.libs.json._
   *
   * @param applyingModel The applying OTI MOF Model IRI
   * @param appliedProfile The applied OTI MOF Profile IRI
+  * @group model
   */
 case class OTIMOFResourceAppliedProfile
-( applyingModel: ModelIRI,
-  appliedProfile: ProfileIRI )
+( applyingModel: ResourceIRI,
+  appliedProfile: ResourceIRI )
 
+/**
+  * @group model
+  */
 object OTIMOFResourceAppliedProfile {
 
   implicit val formats

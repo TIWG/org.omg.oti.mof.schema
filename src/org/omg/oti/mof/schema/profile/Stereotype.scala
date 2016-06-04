@@ -39,12 +39,11 @@
 package org.omg.oti.mof.schema.profile
 
 import org.omg.oti.mof.schema.common._
-import org.omg.oti.mof.schema.common.StereotypeUUID
 
 import play.api.libs.json._
 
 case class Stereotype
-( uuid: StereotypeUUID,
+( uuid: EntityUUID,
   name: Name )
 
 object Stereotype {

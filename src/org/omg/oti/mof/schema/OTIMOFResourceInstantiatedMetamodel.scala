@@ -38,7 +38,7 @@
  */
 package org.omg.oti.mof.schema
 
-import org.omg.oti.mof.schema.common.{MetamodelIRI, ModelIRI}
+import org.omg.oti.mof.schema.common.ResourceIRI
 
 import play.api.libs.json._
 
@@ -50,11 +50,15 @@ import play.api.libs.json._
   *
   * @param instantiatingModel The instantiating OTI MOF Model IRI
   * @param instantiatedMetamodel The instantiated OTI MOF Metamodel IRI
+  * @group model
   */
 case class OTIMOFResourceInstantiatedMetamodel
-( instantiatingModel: ModelIRI,
-  instantiatedMetamodel: MetamodelIRI )
+( instantiatingModel: ResourceIRI,
+  instantiatedMetamodel: ResourceIRI )
 
+/**
+  * @group model
+  */
 object OTIMOFResourceInstantiatedMetamodel {
 
   implicit val formats

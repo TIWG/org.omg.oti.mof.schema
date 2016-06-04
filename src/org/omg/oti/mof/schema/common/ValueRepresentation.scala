@@ -38,4 +38,7 @@
  */
 package org.omg.oti.mof.schema.common
 
+/**
+  * @group value
+  */
 trait ValueRepresentation

@@ -40,16 +40,34 @@ package org.omg.oti.mof.schema.common
 
 import play.api.libs.json._
 
+import scala.StringContext
 import scala.Predef.String
 
+/**
+  *
+  * @param value The lexical representation of an atomic value
+  * @group value
+  */
 case class AtomicValueRepresentation
 (value: String)
   extends ValueRepresentation
 
+/**
+  * @group value
+  */
 object AtomicValueRepresentation {
 
   implicit val formats
   : Format[AtomicValueRepresentation]
-  = Json.format[AtomicValueRepresentation]
+  = new Format[AtomicValueRepresentation] {
+
+    def reads(json: JsValue): JsResult[AtomicValueRepresentation] = json match {
+      case JsString(v) => JsSuccess(AtomicValueRepresentation(v))
+      case unknown => JsError(s"AtomicValueRepresentation: String value expected, got: $unknown")
+    }
+
+    def writes(v: AtomicValueRepresentation): JsValue = JsString(v.value)
+
+  }
 
 }

@@ -38,6 +38,38 @@
  */
 package org.omg.oti.mof
 
-package object schema {
-
-}
+/**
+  * @groupname resources OTI MOF Resources
+  * @groupprio resources 5
+  *
+  * @groupname library OTI MOF Library Resources
+  * @groupprio library 10
+  *
+  * @groupname metamodel OTI MOF Metamodel Resources
+  * @groupprio metamodel 20
+  *
+  * @groupname profile OTI MOF Profile Resources
+  * @groupprio profile 30
+  *
+  * @groupname model OTI MOF Model Resources
+  * @groupprio model 40
+  *
+  * @groupname common Common Definitions
+  * @groupprio common 0
+  *
+  * @groupname id Identifier Types
+  * @groupprio id 0
+  *
+  * @groupname feature Features
+  * @groupprio feature 1
+  *
+  * @groupname entity Normalized Entity Types
+  * @groupprio entity 2
+  *
+  * @groupname relation Normalized Relationship Types
+  * @groupprio relation 3
+  *
+  * @groupname value Value Types
+  * @groupprio value 4
+  */
+package object schema

@@ -55,10 +55,14 @@ import scala.Predef.String
   * identifying characteristic of OTI MOF entities and the basis for referencing them.
   * Therefore, it is necessary to further partition the space of all OTI MOF entity UUIDs according
   * to the OTI MOF entity kind to capture the intended type of OTI MOF entity reference.
+  * @group id
   */
 case class Name
 (value: String)
 
+/**
+  * @group id
+  */
 object Name {
 
   implicit val ordering

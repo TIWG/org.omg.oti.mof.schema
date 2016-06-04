@@ -45,32 +45,63 @@ import org.omg.oti.mof.schema.common._
 
 import scala.Predef.String
 
-sealed trait AssociationEnd {
-  val uuid: AssociationEndUUID
-  val name: Name
-}
+/**
+  * An AssociationEnd property that is either the source or target
+  * of a [[org.omg.oti.mof.schema.metamodel.MetaAssociation]]
+  *
+  * @group AssociationEnd
+  */
+sealed trait AssociationEnd
+  extends Feature
 
+/**
+  * An AssociationEnd that is the source of a [[org.omg.oti.mof.schema.metamodel.MetaAssociation]]
+  * @param uuid The primary key of the association end source property
+  * @param name The name of the association end source property
+  * @group AssociationEnd
+  */
 case class AssociationSourceEnd
-( override val uuid: AssociationSourceEndUUID,
+( override val uuid: EntityUUID,
   override val name: Name )
   extends AssociationEnd
 
+/**
+  * An AssociationEnd property that is the target
+  * of a [[org.omg.oti.mof.schema.metamodel.MetaAssociation]]
+  *
+  * @group AssociationEnd
+  */
 sealed trait AssociationTargetEnd {
-  def uuid: AssociationTargetEndUUID
+  def uuid: EntityUUID
 }
 
+/**
+  * An Association target end property with non-composite aggregation
+  * @param uuid The primary key of the association end target property
+  * @param name The name of the association end target property
+  * @group AssociationEnd
+  */
 case class AssociationTargetReferenceEnd
-( override val uuid: AssociationTargetEndUUID,
+( override val uuid: EntityUUID,
   override val name: Name )
   extends AssociationEnd
   with AssociationTargetEnd
 
+/**
+  * An Association target end property with composite aggregation
+  * @param uuid The primary key of the association end target property
+  * @param name The name of the association end target property
+  * @group AssociationEnd
+  */
 case class AssociationTargetCompositeEnd
-( override val uuid: AssociationTargetEndUUID,
+( override val uuid: EntityUUID,
   override val name: Name )
   extends AssociationEnd
   with AssociationTargetEnd
 
+/**
+  * @group AssociationEnd
+  */
 object AssociationTargetEnd {
 
   implicit val formats
@@ -79,6 +110,9 @@ object AssociationTargetEnd {
 
 }
 
+/**
+  * @group AssociationEnd
+  */
 object AssociationEnd {
 
   implicit val formats

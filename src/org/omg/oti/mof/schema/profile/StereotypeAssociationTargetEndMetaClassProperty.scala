@@ -38,14 +38,14 @@
  */
 package org.omg.oti.mof.schema.profile
 
-import org.omg.oti.mof.schema.common.{AssociationTargetEndUUID, MetaClassUUID, StereotypeUUID}
+import org.omg.oti.mof.schema.common.EntityUUID
 
 import play.api.libs.json._
 
 case class StereotypeAssociationTargetEndMetaClassProperty
-( sourceStereotype: StereotypeUUID,
-  associationTargetEnd: AssociationTargetEndUUID,
-  targetMetaClass: MetaClassUUID )
+( sourceStereotype: EntityUUID,
+  associationTargetEnd: EntityUUID,
+  targetMetaClass: EntityUUID )
 
 object StereotypeAssociationTargetEndMetaClassProperty {
 

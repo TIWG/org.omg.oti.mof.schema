@@ -38,6 +38,9 @@
  */
 package org.omg.oti.mof.schema.common
 
+import play.api.libs.json._
+
+import scala.{Int,Ordering,StringContext}
 import scala.Predef.String
 
 /**
@@ -52,7 +55,37 @@ import scala.Predef.String
   * of all possible OTI MOF entity UUIDs according to the OTI MOF entity kind,
   * the OTI MOF schema captures important type-level information about
   * well-formed references to OTI MOF entities of a particular kind.
+  * @group id
   */
-trait EntityUUID {
-  val value: String
+case class EntityUUID
+(value: String)
+
+/**
+  * @group id
+  */
+object EntityUUID {
+
+  implicit val ordering
+  : Ordering[EntityUUID]
+  = new Ordering[EntityUUID] {
+
+    def compare(x: EntityUUID, y: EntityUUID)
+    : Int
+    = x.value.compareTo(y.value)
+
+  }
+
+  implicit val formats
+  : Format[EntityUUID]
+  = new Format[EntityUUID] {
+
+    def reads(json: JsValue): JsResult[EntityUUID] = json match {
+      case JsString(v) => JsSuccess(EntityUUID(v))
+      case unknown => JsError(s"EntityUUID: String value expected, got: $unknown")
+    }
+
+    def writes(uuid: EntityUUID): JsValue = JsString(uuid.value)
+
+  }
+
 }

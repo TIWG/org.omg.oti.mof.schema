@@ -38,13 +38,19 @@
  */
 package org.omg.oti.mof.schema.metamodel
 
-import org.omg.oti.mof.schema.common.MetamodelClassifierUUID
+import org.omg.oti.mof.schema.common.EntityUUID
 
 import play.api.libs.json._
 
+/**
+  * Homogeneous taxonomic relationship between meta classifiers
+  *
+  * @param specific A [[MetamodelClassifier]]
+  * @param general A [[MetamodelClassifier]]
+  */
 case class MetaClassifierGeneralization
-( specific: MetamodelClassifierUUID,
-  general: MetamodelClassifierUUID )
+( specific: EntityUUID,
+  general: EntityUUID )
 
 object MetaClassifierGeneralization {
 

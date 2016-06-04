@@ -38,7 +38,7 @@
  */
 package org.omg.oti.mof.schema
 
-import org.omg.oti.mof.schema.common.MetamodelIRI
+import org.omg.oti.mof.schema.common.ResourceIRI
 
 import play.api.libs.json._
 
@@ -47,13 +47,17 @@ import play.api.libs.json._
   * an importing UML Package of an OTI MOF Metamodel resource
   * to the imported UML Package of an OTI Metamodel resource.
   *
-  * @param importingMetamodel The importing OTI MOF Metamodel IRI
-  * @param importedMetamodel The imported OTI MOF Metamodel IRI
+  * @param importingMetamodel The importing [[OTIMOFMetamodel]]
+  * @param importedMetamodel The imported [[OTIMOFMetamodel]]
+  * @group metamodel
   */
 case class OTIMOFResourceMetamodelImport
-( importingMetamodel: MetamodelIRI,
-  importedMetamodel: MetamodelIRI )
+( importingMetamodel: ResourceIRI,
+  importedMetamodel: ResourceIRI )
 
+/**
+  * @group metamodel
+  */
 object OTIMOFResourceMetamodelImport {
 
   implicit val formats

@@ -38,13 +38,18 @@
  */
 package org.omg.oti.mof.schema.model
 
-import org.omg.oti.mof.schema.common.{ModelElementUUID, StereotypeUUID}
+import org.omg.oti.mof.schema.common.EntityUUID
 
 import play.api.libs.json._
 
+/**
+  *
+  * @param modelElement [[ModelElement]]
+  * @param appliedStereotype [[org.omg.oti.mof.schema.profile.Stereotype]]
+  */
 case class AppliedStereotype
-( modelElement: ModelElementUUID,
-  appliedStereotype: StereotypeUUID )
+( modelElement: EntityUUID,
+  appliedStereotype: EntityUUID )
 
 object AppliedStereotype {
 

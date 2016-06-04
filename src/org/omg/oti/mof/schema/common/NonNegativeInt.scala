@@ -43,10 +43,14 @@ import scala.{Int,StringContext}
 
 /**
   * Represents the subset of positive Int values including 0
+  * @group value
   */
 case class NonNegativeInt
 (value: Int)
 
+/**
+  * @group value
+  */
 object NonNegativeInt {
 
   implicit val formats
