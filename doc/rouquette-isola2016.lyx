@@ -1911,51 +1911,6 @@ key "RTED"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Tools.svg
-	width 12cm
-	height 15cm
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Tools"
-
-\end_inset
-
-Modeling Tools and Model Representations: Legacy & Normalized.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Switching to a serialization paradigm based on the normalized schemas described
  in Sec.
 \begin_inset space \thinspace{}
@@ -2162,9 +2117,13 @@ t API-level interoperability problems when working with EMF-based technologies
 \begin_layout Itemize
 The EMF EModelElement API is important to enable EMF's powerful annotation
  mechanism
+\begin_inset space \textvisiblespace{}
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
-after "Sec. 5.[67]"
+after "Sec. 5.6-7"
 key "EMF"
 
 \end_inset
@@ -2204,98 +2163,29 @@ tion in terms of EReferences and/or EOperations in the generated tool-specific
 \end_layout
 
 \begin_layout Standard
-The problems described above are not unique to Eclipse UML and MagicDraw;
- on the contrary, expanding the comparison to non-EMF based implementations
- like Rhapsody and Oracle's JDeveloper would only reveal more challenges
- for API-level model interoperability.
- The root cause of non-existent API-level model interoperability stems from
- the failure to distinguish between two kinds of API needs:
+The root cause of non-existent API-level model interoperability stems from
+ the lack of distinction between two different kinds of APIs: abstract syntax
+ vs.
+ information content schema:
 \end_layout
 
 \begin_layout Itemize
-An abstract syntax API providing support for creating, deleting, updating
+An abstract syntax API provides support for creating, deleting, updating
  and navigating across model elements and data according to metaclasses,
  stereotypes, associations and datatypes defined in metamodels, profiles
  and libraries.
+ Such APIs are particularly important for model query (e.g.
+ OCL) and transformation (e.g QVT) because they enable expressing queries
+ and transformations in terms of the entities (metaclasses), relationships
+ (associations, properties) and operations defined in the abstract syntax.
 \end_layout
 
-\begin_layout Standard
-This paper proposes to shift the paradigm of API-level model interoperability
- from 
-\end_layout
-
-\begin_layout Standard
-Many open source and commercial momodeling tools use code 
-\end_layout
-
-\begin_layout Standard
-The notion of an API for the abstract syntax of a modeling specification
- is nothing new: several open-source and commercial modeling tools use code
- generation techniques that generate a tool-specific abstract syntax API
- from a 
-\end_layout
-
-\begin_layout Standard
-This strategy is different than current implementation practices: Currently,
- most open-source and commercial modeling tools based on OMG's modeling
- specifications (e.g.
- UML, SysML) have been designed around a tool-specific syntax API generated
- from a tool-specific adaptation of the OMG normative abstract syntax (e.g.
- UML metamodel, SysML profile).
- Since the OMG MOF architecture does not provide any notion of specification
- refiment, all tool-specific adaptations of the same OMG specification become
- de-facto tool-specific implementations without any useful notion of specificati
-on-based syntax API interoperatibility or of serialization-based model interchan
-ge.
- 
-\end_layout
-
-\begin_layout Standard
-1) a generic M2-level CMOF transformation for producing the normalized schema
- for libraries, metamodels and profiles from UML2.5 models of these and 2)
- an M1-level converter for a tool-specific API to load/save resources from/to
- the normalized representation and 3) a tool-specific API generated from
- the normalized schema produced by (1) as an adapter of the tool-specific
- M2 libraries, metamodels & profiles as shown in Fig.
-\begin_inset space \textvisiblespace{}
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Tools"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-As a proof-of-concept, (1) and (2) have been implemented for a 3rd normal
- form relational schema generated from the tool-specific M2 PrimitiveTypes
- library and UML metamodel for MagicDraw 18.
- With Scala's concurrent library, it is possible to serialize a 3rd normal
- form representation of about .5 million elements and links in about twice
- as fast as MagicDraw's XMI-based serialization.
- Insights gained from this prototype led to an even better representation
- in 4th normal form, which is irreducible in the sense that every column
- of a relation table carries essential information for the relation itself.
- That is, every row data in a relation table with N columns is always an
- N tuple of values; consequently, there are no optional values because an
- optional attribute is a separate relation table.
- Fourth normal form relational data is particularly well-suited for modern
- high-performance data analysis frameworks like Apache Spark that can exploit
- the normal form of the relational data schema for query optimization
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Spark SQL"
-
-\end_inset
-
-.
- Representing models in terms of the fourth normal form relational schemas
- described in Sec.
+\begin_layout Itemize
+A normalized schema data API provide support for internally representing
+ the information content of a model at an API level independently of its
+ external representation in one of possibly multiple serializations (e.g.
+ XMI, RDF, OWL, Json, CSV, ...).
+ The schemas described in Sec.
 \begin_inset space \thinspace{}
 \end_inset
 
@@ -2306,10 +2196,69 @@ reference "sec:NormalizedRelationalSchema"
 
 \end_inset
 
- is even more compelling for high-performance data analysis because the
- normalization exposes the inherent topology of models as graphs (model
- elements and links); which is in turn particularly well-suited for the
- GraphX extensions on top of Spark
+ correspond to a 4th normal form normalization of a database schema
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NFGuide"
+
+\end_inset
+
+.
+ Normalized schemas for the information content of libraries, metamodels,
+ profiles and models enables separating the functional concerns of modeling
+ (via abstract syntax APIs) from the information content concerns of model
+ interchange via serialization to/from external representations such as
+ XML, XMI, RDF, OWL, Json, CSV, etc.
+ Normalization yields tables where each column corresponds to an essential
+ characteristic (a primary key, a foreign key, an attribute); which in turns
+ simplifies serialization matters because there are no optional values and
+ no nulls.
+ 
+\end_layout
+
+\begin_layout Standard
+Metamodeling frameworks like EMF provide supprot for generating abstract
+ syntax APIs (and implementations) from metamodels and profiles (e.g., the
+ Eclipse UML tooling).
+ It is likely that OMG's emphasis on XMI Schemas in the major 2.0 revision
+ of MOF, UML and XMI is responsible for demphasizing the importance of specifyin
+g the information content of models explicitly as is done in this paper.
+ A significant advantage of the normalized schema APIs described in this
+ paper stems from the possibility of leveraging modern data processing framework
+s like Apache Spark for scaling up complex model transformation workflows
+ as described in Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Tools"
+
+\end_inset
+
+ taking advantage of the relational form of the normalized schemas for query
+ optimization
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Spark SQL"
+
+\end_inset
+
+ and of the support for specifying complex model query and transformations
+ in terms of graphs of relational data
+\begin_inset space \thinspace{}
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "GraphX"
@@ -2317,6 +2266,53 @@ key "GraphX"
 \end_inset
 
 .
+ In contrast to the affinity of the normalized schemas for optimization
+ and parallelization, a conventional approach with an XMI-based or API-based
+ containment tree representation of models would be technically much more
+ difficult to optimize or parallelize.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename DataAndModelingAPIs.png
+	width 12cm
+	height 15cm
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Tools"
+
+\end_inset
+
+Proposed architecture to work with existing modeling tools using normalized
+ serialization.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2325,132 +2321,27 @@ Summary
 
 \begin_layout Standard
 This paper makes three significant contributions towards addressing significant
- issues with the OMG UML 2.5 specification:
-\end_layout
-
-\begin_layout Enumerate
-Define a tool-neutral Application Program Interface (API) adaptable to tools
- claiming abstract syntax conformance to OMG UML 2.5.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Unfortunately, the OMG stopped the UML 1.x practice of publishing revisions
- of UML 2 with an 
-\begin_inset Quotes eld
-\end_inset
-
-Interface Definition Language
-\begin_inset Quotes erd
-\end_inset
-
- (IDL) API.
- Consequently, the OMG UML 2.5 specification lacks an objective basis for
- assessing whether 
-\begin_inset Quotes eld
-\end_inset
-
-a tool demonstrating abstract syntax conformance provides a user interface
- and/or API that enables instances of concrete UML metaclasses to be created,
- read, updated, and deleted.
-\begin_inset Quotes erd
-\end_inset
-
+ issues with the current paradigm for developing modeling specifications
+ at the OMG.
+ First, this paper carefully explained the intrinsic sources of complexity
+ in OMG's reflexive metamodeling architecture (MOF) where the notion of
+ a profile does not cleanly fit the multi-layered modeling architecture.
+ It is noteworthy that most of the complexity stems from the multiple roles
+ that the concept of property plays in specifying libraries (datatype attributes
+), metamodels (association ends) and profiles (stereotype association ends).
+ Second, this paper reconstructs a considerably simpler set of schemas for
+ specifying the information content of all modeling artifacts including
+ models that instantiate metamodels with optionally applied profiles.
+ Focusing on the information content instead of the abstract syntax API
+ is key to a significant simplification compared to the current specification
+ practices where a single abstract syntax is used for both generating an
+ API and for tree-based serialization.
+ Third, the paper only sketched a promising area for future work: leveraging
+ powerful data analytics platforms for scaling up complex modeling workflows
+ thanks to the affinity of normalized schemas for optimization and concurrency.
  
 \end_layout
 
-\begin_layout Standard
-This paper contributes a novel approach for generating and specifying a
- strongly type-safe abstract syntax API for OMG UML 2.5 parameterized by
- a tool-specific adapter for an existing implementation of UML 2.5.
- This API has been adapted for two existing UML 2.5 tools: NoMagic's MagicDraw
- version 18.0 and Eclipse UML version 5.0.
- The paper describes an approach for generating a suite of abstract syntax
- conformance tests that cold be used for objectively assessing the compliance
- of OMG UML 2.5 tool implementations and for objectively assessing model
- interchange via tool-specific API adapters instead of via external serializatio
-n as done before.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Define a set of 4th normal form database tables and relationships enabling
- a radically simpler tabular serialization of UML models compared to the
- complex tree serialization of UML models based on OMG's XMI 2.5 specification.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-For serialization, the OMG chose to represent the abstract syntax containment
- organization of a UML model as an XML tree.
- This seems a sensible choice given that a tree precisely captures the key
- architecture principle of single element ownership that applies to all
- OMG modeling languages, including UML.
- The complexity arises from two factors: 1) logically, a given tuple of
- owning element and owned element can be a link instance of multiple composite
- associations defined in the UML metamodel and 2) logically, the lack of
- clarity in the criteria for determining which composite association requires
- a serialization as an XML nested element from others requring serialization
- as an XML element reference.
- 
-\end_layout
-
-\begin_layout Standard
-From a database perspective, the abstract syntax containment organization
- of a UML model is a materialized view of the information.
- The UML metamodel (a materialized view) has information redundancy that
- induces serialization redundancy: for example, every class-owned association
- end in the UML metamodel is both an attribute of its owning class and a
- member end of its association.
- Much of the complexity in OMG's XMI specification is an accidental consequence
- of trying to avoid unecessary redundant serialization.
- Normalizing the UML metamodel removes all information redundancy: for example,
- every association owns both ends.
- This paper presents a 4th-normal form of a UML metamodel where every metaclass
- is reduced to a table with only data property attributes and every association
- is reduced to a relationship table with an ordering data property attribute
- if one association end property is ordered.
- For a large model of a space mission (over 0.5 million UML elements), normal
- form serialization is considerably faster than the native tool-specific
- XMI tree serialization.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Define a description logic formalization of UML's abstract syntax for reasoning
- about UML syntax precisely instead of informally per the UML specification.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-UML provides a rich vocabulary for describing the structure and behavior
- of arbitrary systems.
- The UML vocabulary is extensible to accomodate domain-specific language
- modeling needs with the concept of UML profile extensions of the UML metamodel
- such as the Systems Modeling Language (SysML) for the domain of systems
- engineering.
- A typical concern in the development of a UML profile extension of UML/SysML
- for a domain-specific Model-Based Systems Engineering (MBSE) methodology
- is whether the intended expressiveness of the extended vocabulary in the
- specific domain can be represented as a well-formed UML/SysML model with
- the domain-specific profile applied.
- A serious concern is the limitations from the UML abstract syntax that
- prevent using the UML vocabulary for reasonable domain-specific modeling
- purposes.
- For example, the 6 of the 12 significant issues fixed in the OMG SysML
- 1.4 revision provide support for explicitly representing in the abstract
- syntax notions of scope and context that are currently implicit in the
- UML 2.5 abstract syntax.
- Unfortunately, the SysML 1.4 specification does not address the logical
- implications for managing the SysML extensions when the underlying UML
- elements are created, read, updated or deleted.
- This paper presents a simple strategy for leveraging a 4th normal form
- definition of the abstract syntax of UML and profile extensions such as
- SysML as the basis for ontological reasoning about extended UML models.
-\end_layout
-
-\end_deeper
 \begin_layout Section*
 Acknowledgements
 \end_layout
@@ -2704,6 +2595,20 @@ target "http://www.w3.org/TR/2004/REC-xmlschema-2-20041028/"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "NFGuide"
+
+\end_inset
+
+William Kent.
+ A Simple Guide to Five Normal Forms in Relational Database Theory.
+ Communications of the ACM 26(2), p.
+ 120-125, Feb 1983.
+ 
 \end_layout
 
 \begin_layout Bibliography
