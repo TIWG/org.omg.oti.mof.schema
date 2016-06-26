@@ -118,7 +118,7 @@ object OTIMOFLibraryResourceExtent {
   * @param attribute2type            Relation Schema::Features::AttributeProperty2DataType
   * @param importedLibraries         Relation Schema::Resources::A_library_imports
   * @param association2source        Relation Schema::Metamodel::MetaAssociation2SourceEndProperty
-  * @param association2Target        Relation Schema::Metamodel::MetaAssociation2TargetEndProperty
+  * @param association2target        Relation Schema::Metamodel::MetaAssociation2TargetEndProperty
   * @param associationEnd2Metaclass  Relation Schema::Metamodel::MetaAssociationEndProperty2MetaClass
   * @param metaclass2attribute       Relation Schema::Metamodel::MetaClass2Attribute
   * @param generalizations           Relation Schema::Metamodel::MetaClassifierGeneralization
@@ -139,7 +139,7 @@ case class OTIMOFMetamodelResourceExtent
  attribute2type: Vector[features.AttributeProperty2DataType] = Vector(),
  importedLibraries: Vector[OTIMOFResourceLibraryImport] = Vector(),
  association2source: Vector[metamodel.MetaAssociation2SourceEndProperty] = Vector(),
- association2Target: Vector[metamodel.MetaAssociation2TargetEndProperty] = Vector(),
+ association2target: Vector[metamodel.MetaAssociation2TargetEndProperty] = Vector(),
  associationEnd2Metaclass: Vector[metamodel.MetaAssociationEndProperty2MetaClassType] = Vector(),
  metaclass2attribute: Vector[metamodel.MetaClass2Attribute] = Vector(),
  generalizations: Vector[metamodel.MetaClassifierGeneralization] = Vector(),
