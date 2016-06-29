@@ -67,47 +67,20 @@ case class EnumerationLiteral
 /**
   * A datatyped attribute property
   *
-  * @group Attribute
-  */
-sealed trait DataTypedAttributeProperty {
-  def uuid: EntityUUID
-  def name: Name
-}
-
-/**
-  * An unordered datatyped attribute property
-  *
   * @param uuid The primary key of the property
   * @param name The name of the property
   * @group Attribute
   */
-case class DataTypedAttributeUnorderedProperty
+case class DataTypedAttributeProperty
 ( override val uuid: EntityUUID,
   override val name: Name )
   extends DataTypedFeature
-    with DataTypedAttributeProperty
 
-/**
-  * An ordered datatyped attribute property
-  *
-  * @param uuid The primary key of the property
-  * @param name The name of the property
-  * @group Attribute
-  */
-case class DataTypedAttributeOrderedProperty
-( override val uuid: EntityUUID,
-  override val name: Name )
-  extends DataTypedFeature
-    with DataTypedAttributeProperty
-
-/**
-  * @group Attribute
-  */
 object DataTypedAttributeProperty {
 
   implicit val formats
   : Format[DataTypedAttributeProperty]
-  = Variants.format[DataTypedAttributeProperty]((__ \ "type").format[String])
+  = Json.format[DataTypedAttributeProperty]
 
 }
 

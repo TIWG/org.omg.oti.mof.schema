@@ -36,33 +36,26 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.features
+package org.omg.oti.mof.schema.views
 
 import play.api.libs.json._
-
-import org.omg.oti.mof.schema.common.EntityUUID
+import org.omg.oti.mof.schema._
+import org.omg.oti.mof.schema.common._
 
 import scala.Boolean
 
-/**
-  * The ordering characteristic of a [[Feature]]
-  *
-  * @param feature A [[Feature]]
-  * @param isOrdered true if the feature is ordered
-  * @group Base
-  */
-case class FeatureOrdering
-( override val feature: EntityUUID,
-  isOrdered: Boolean )
-extends FeatureInfo
+case class AssociationEndInfo
+( uuid: EntityUUID,
+  name: Name,
+  lower: NonNegativeInt,
+  upper: UnlimitedNatural,
+  isOrdered: Boolean,
+  metaclassType: metamodel.MetaClass )
 
-/**
-  * @group Base
-  */
-object FeatureOrdering {
+object AssociationEndInfo {
 
   implicit val formats
-  : Format[FeatureOrdering]
-  = Json.format[FeatureOrdering]
+  : Format[AssociationEndInfo]
+  = Json.format[AssociationEndInfo]
 
 }

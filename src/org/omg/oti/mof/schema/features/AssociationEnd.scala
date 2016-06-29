@@ -43,6 +43,7 @@ import play.api.libs.json._
 
 import org.omg.oti.mof.schema.common._
 
+import scala.Boolean
 import scala.Predef.String
 
 /**
@@ -52,7 +53,13 @@ import scala.Predef.String
   * @group AssociationEnd
   */
 sealed trait AssociationEnd
-  extends Feature
+  extends Feature {
+
+  def isSource: Boolean
+  def isTarget: Boolean
+  def isCompositeTarget: Boolean
+  def isReferenceTarget: Boolean
+}
 
 /**
   * An AssociationEnd that is the source of a [[org.omg.oti.mof.schema.metamodel.MetaAssociation]]
@@ -63,7 +70,13 @@ sealed trait AssociationEnd
 case class AssociationSourceEnd
 ( override val uuid: EntityUUID,
   override val name: Name )
-  extends AssociationEnd
+  extends AssociationEnd {
+
+  override def isSource: Boolean = true
+  override def isTarget: Boolean = false
+  override def isCompositeTarget: Boolean = false
+  override def isReferenceTarget: Boolean = false
+}
 
 /**
   * An AssociationEnd property that is the target
@@ -85,7 +98,13 @@ case class AssociationTargetReferenceEnd
 ( override val uuid: EntityUUID,
   override val name: Name )
   extends AssociationEnd
-  with AssociationTargetEnd
+  with AssociationTargetEnd {
+
+  override def isSource: Boolean = false
+  override def isTarget: Boolean = true
+  override def isCompositeTarget: Boolean = false
+  override def isReferenceTarget: Boolean = true
+}
 
 /**
   * An Association target end property with composite aggregation
@@ -97,7 +116,13 @@ case class AssociationTargetCompositeEnd
 ( override val uuid: EntityUUID,
   override val name: Name )
   extends AssociationEnd
-  with AssociationTargetEnd
+  with AssociationTargetEnd {
+
+  override def isSource: Boolean = false
+  override def isTarget: Boolean = true
+  override def isCompositeTarget: Boolean = true
+  override def isReferenceTarget: Boolean = false
+}
 
 /**
   * @group AssociationEnd

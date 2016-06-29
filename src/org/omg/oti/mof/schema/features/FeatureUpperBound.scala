@@ -49,8 +49,9 @@ import org.omg.oti.mof.schema.common._
   * @group Base
   */
 case class FeatureUpperBound
-(feature: EntityUUID,
- upper: UnlimitedNatural )
+( override val feature: EntityUUID,
+  upper: UnlimitedNatural )
+extends FeatureInfo
 
 /**
   * @group Base
@@ -60,4 +61,5 @@ object FeatureUpperBound {
   implicit val formats
   : Format[FeatureUpperBound]
   = Json.format[FeatureUpperBound]
+
 }
