@@ -125,7 +125,7 @@ val duplicatedFiles = Set(
 lazy val core = Project("org-omg-oti-mof-schema", file("."))
   .enablePlugins(IMCEGitPlugin)
   .enablePlugins(IMCEReleasePlugin)
-  .settings(dynamicScriptsResourceSettings(Some("org.omg.oti.mof.schema")))
+  .settings(dynamicScriptsResourceSettings("org.omg.oti.mof.schema"))
   .settings(IMCEPlugin.strictScalacFatalWarningsSettings)
   .settings(docSettings(diagrams=true))
   .settings(IMCEReleasePlugin.packageReleaseProcessSettings)
@@ -242,7 +242,7 @@ lazy val core = Project("org-omg-oti-mof-schema", file("."))
     addArtifact(artifact in (Compile, assembly), assembly)
   )
 
-def dynamicScriptsResourceSettings(dynamicScriptsProjectName: Option[String] = None): Seq[Setting[_]] = {
+def dynamicScriptsResourceSettings(projectName: String): Seq[Setting[_]] = {
 
   import com.typesafe.sbt.packager.universal.UniversalPlugin.autoImport._
 
@@ -252,15 +252,11 @@ def dynamicScriptsResourceSettings(dynamicScriptsProjectName: Option[String] = N
 
   val QUALIFIED_NAME = "^[a-zA-Z][\\w_]*(\\.[a-zA-Z][\\w_]*)*$".r
 
+  val dsInstallPrefix = "dynamicScripts/" + projectName
+
   Seq(
-    // the '*-resource.zip' archive will start from: 'dynamicScripts/<dynamicScriptsProjectName>'
-    com.typesafe.sbt.packager.Keys.topLevelDirectory in Universal := {
-      val projectName = dynamicScriptsProjectName.getOrElse(baseDirectory.value.getName)
-      require(
-        QUALIFIED_NAME.pattern.matcher(projectName).matches,
-        s"The project name, '$projectName` is not a valid Java qualified name")
-      Some(projectName)
-    },
+    // the '*-resource.zip' archive will start from: 'dynamicScripts/<projectName>'
+    com.typesafe.sbt.packager.Keys.topLevelDirectory in Universal := Some(projectName),
 
     // name the '*-resource.zip' in the same way as other artifacts
     com.typesafe.sbt.packager.Keys.packageName in Universal :=
@@ -278,12 +274,12 @@ def dynamicScriptsResourceSettings(dynamicScriptsProjectName: Option[String] = N
       streams) map {
       (base, bin, src, doc, binT, srcT, docT, s) =>
         val file2name =
-          addIfExists(bin, "lib/" + bin.name) ++
-          addIfExists(binT, "lib/" + binT.name) ++
-          addIfExists(src, "lib.sources/" + src.name) ++
-          addIfExists(srcT, "lib.sources/" + srcT.name) ++
-          addIfExists(doc, "lib.javadoc/" + doc.name) ++
-          addIfExists(docT, "lib.javadoc/" + docT.name)
+          addIfExists(bin, dsInstallPrefix + "/lib/" + bin.name) ++
+          addIfExists(binT, dsInstallPrefix + "/lib/" + binT.name) ++
+          addIfExists(src, dsInstallPrefix + "/lib.sources/" + src.name) ++
+          addIfExists(srcT, dsInstallPrefix + "/lib.sources/" + srcT.name) ++
+          addIfExists(doc, dsInstallPrefix + "/lib.javadoc/" + doc.name) ++
+          addIfExists(docT, dsInstallPrefix + "/lib.javadoc/" + docT.name)
 
         s.log.info(s"file2name entries: ${file2name.size}")
         s.log.info(file2name.mkString("\n"))
