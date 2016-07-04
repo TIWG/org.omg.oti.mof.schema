@@ -252,11 +252,9 @@ def dynamicScriptsResourceSettings(projectName: String): Seq[Setting[_]] = {
 
   val QUALIFIED_NAME = "^[a-zA-Z][\\w_]*(\\.[a-zA-Z][\\w_]*)*$".r
 
-  val dsInstallPrefix = "dynamicScripts/" + projectName
-
   Seq(
-    // the '*-resource.zip' archive will start from: 'dynamicScripts/<projectName>'
-    com.typesafe.sbt.packager.Keys.topLevelDirectory in Universal := Some(projectName),
+    // the '*-resource.zip' archive will start from: 'dynamicScripts'
+    com.typesafe.sbt.packager.Keys.topLevelDirectory in Universal := None,
 
     // name the '*-resource.zip' in the same way as other artifacts
     com.typesafe.sbt.packager.Keys.packageName in Universal :=
@@ -274,12 +272,12 @@ def dynamicScriptsResourceSettings(projectName: String): Seq[Setting[_]] = {
       streams) map {
       (base, bin, src, doc, binT, srcT, docT, s) =>
         val file2name =
-          addIfExists(bin, dsInstallPrefix + "/lib/" + bin.name) ++
-          addIfExists(binT, dsInstallPrefix + "/lib/" + binT.name) ++
-          addIfExists(src, dsInstallPrefix + "/lib.sources/" + src.name) ++
-          addIfExists(srcT, dsInstallPrefix + "/lib.sources/" + srcT.name) ++
-          addIfExists(doc, dsInstallPrefix + "/lib.javadoc/" + doc.name) ++
-          addIfExists(docT, dsInstallPrefix + "/lib.javadoc/" + docT.name)
+          addIfExists(bin, projectName + "/lib/" + bin.name) ++
+          addIfExists(binT, projectName + "/lib/" + binT.name) ++
+          addIfExists(src, projectName + "/lib.sources/" + src.name) ++
+          addIfExists(srcT, projectName + "/lib.sources/" + srcT.name) ++
+          addIfExists(doc, projectName + "/lib.javadoc/" + doc.name) ++
+          addIfExists(docT, projectName + "/lib.javadoc/" + docT.name)
 
         s.log.info(s"file2name entries: ${file2name.size}")
         s.log.info(file2name.mkString("\n"))
