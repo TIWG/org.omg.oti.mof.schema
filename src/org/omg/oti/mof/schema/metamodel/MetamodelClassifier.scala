@@ -60,6 +60,21 @@ case class MetaAssociation
   override val name: Name )
   extends MetamodelClassifier
 
+object MetaClass {
+
+  implicit val formats
+  : Format[MetaClass]
+  = Json.format[MetaClass]
+}
+
+object MetaAssociation {
+
+  implicit val formats
+  : Format[MetaAssociation]
+  = Json.format[MetaAssociation]
+
+}
+
 object MetamodelClassifier {
 
   implicit val formats
