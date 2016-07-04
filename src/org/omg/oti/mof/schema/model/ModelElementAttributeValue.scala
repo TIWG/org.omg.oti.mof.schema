@@ -48,7 +48,7 @@ import scala.Int
 import scala.Predef.String
 
 /**
-  * ModelElementAttributeValue represents the value of a [[org.omg.oti.mof.schema.features.DataTypedAttributeUnorderedProperty]]
+  * ModelElementAttributeValue represents the value of a [[org.omg.oti.mof.schema.features.DataTypedAttributeProperty]]
   * that is defined either in a [[org.omg.oti.mof.schema.metamodel.MetaClass]]
   * or a [[org.omg.oti.mof.schema.profile.Stereotype]]
   */

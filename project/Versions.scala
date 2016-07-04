@@ -1,7 +1,7 @@
 object Versions {
 
   // this project
-  val version = "3.0.1"
+  val version = "3.0.2"
 
 
   // http://mvnrepository.com/artifact/com.typesafe.play/play_2.11
