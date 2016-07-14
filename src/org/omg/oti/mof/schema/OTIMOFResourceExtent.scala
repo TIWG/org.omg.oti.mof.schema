@@ -169,7 +169,7 @@ object OTIMOFMetamodelResourceExtent {
   * @param featureOrdering       Characteristic
   * @param attribute2type        Relation
   * @param importedLibraries     Relation
-  * @param exendedMetamodels     Relation
+  * @param extendedMetamodels     Relation
   * @param generalizations       Relation
   * @param extendedMetaclass     Relation
   * @param stereotype2attribute  Relation
@@ -190,7 +190,7 @@ case class OTIMOFProfileResourceExtent
  featureOrdering: Vector[features.FeatureOrdering] = Vector(),
 
  importedLibraries: Vector[OTIMOFResourceLibraryImport] = Vector(),
- exendedMetamodels: Vector[profile.Profile2ExtendedMetamodel] = Vector(),
+ extendedMetamodels: Vector[profile.Profile2ExtendedMetamodel] = Vector(),
  importedProfiles: Vector[OTIMOFResourceProfileImport] = Vector(),
  generalizations: Vector[profile.StereotypeGeneralization] = Vector(),
  extendedMetaclass: Vector[profile.Stereotype2ExtendedMetaclass] = Vector(),
