@@ -386,7 +386,13 @@ The first step towards bridging the gap between the OMG and computer science
 \end_layout
 
 \begin_layout Section
-An ontological normal form of a MOF
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Simplifying-MOF"
+
+\end_inset
+
+Simplifying MOF
 \end_layout
 
 \begin_layout Standard
@@ -415,7 +421,7 @@ Having established the redundancy of MOF Class, MOF Association and MOF
  2) one association-owned end and one metaclass-owned end; 3) association-owned
  ends.
  EMF directly supports case (1) only: metaclass-owned association end properties
- are represented as opposite EMF 
+ are represented as opposite EMF
 \family typewriter
 EReferences
 \family default
@@ -426,11 +432,11 @@ EReferences
  effectively acts as if the association-owned end property were instead
  owned by that metaclass.
  Since full association support depends on EMF code generation techniques,
- navigating models using the EMF 
+ navigating models using the EMF
 \family typewriter
 EObject
 \family default
- and 
+ and
 \family typewriter
 EReference
 \family default
@@ -494,7 +500,7 @@ name "enu:attribute"
 
 \end_inset
 
-A metaclass or datatype 
+A metaclass or datatype
 \bar under
 attribute
 \bar default
@@ -518,7 +524,7 @@ name "enu:associationEnd"
 
 \end_inset
 
-A binary association 
+A binary association
 \bar under
 end
 \bar default
@@ -531,11 +537,11 @@ end
 \family typewriter
 type
 \family default
- is a metaclass; 
+ is a metaclass;
 \family typewriter
 aggregation=none|composite
 \family default
-; 
+;
 \family typewriter
 isID=false
 \family default
@@ -545,23 +551,23 @@ isID=false
 \begin_layout Standard
 Since ends are an essential part of the definition of an association, the
  concept of MOF binary association is augmented to include the relevant
- characteristics of both ends (i.e., 
+ characteristics of both ends (i.e.,
 \family typewriter
 type
 \family default
-, 
+,
 \family typewriter
 lowerValue
 \family default
-, 
+,
 \family typewriter
 upperValue
 \family default
-, 
+,
 \family typewriter
 isOrdered
 \family default
-, 
+,
 \family typewriter
 isUnique
 \family default
@@ -569,11 +575,11 @@ isUnique
 \family typewriter
  isDerived
 \family default
-, 
+,
 \family typewriter
 isDerivedUnion
 \family default
-, 
+,
 \family typewriter
 isReadOnly
 \family default
@@ -585,7 +591,7 @@ isReadOnly
 \family typewriter
  subsettedProperty
 \family default
-, and 
+, and
 \family typewriter
 redefinedProperty
 \family default
@@ -603,7 +609,7 @@ key "UML 2.4.1 Report"
 \end_inset
 
  for the last two.
- 
+
 \end_layout
 
 \end_inset
@@ -616,7 +622,7 @@ key "UML 2.4.1 Report"
 \family typewriter
 aggregation
 \family default
-: Only one end may be 
+: Only one end may be
 \family typewriter
 composite
 \family default
@@ -656,7 +662,7 @@ Symmetric subsetting means that link instances of an association with subsetting
 
 \end_deeper
 \begin_layout Enumerate
-A metaclass 
+A metaclass
 \bar under
 property
 \bar default
@@ -687,7 +693,6 @@ Simplifying non-union derived association end properties
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -750,7 +755,7 @@ key "UML 2.5"
  to treat such associations as if both ends are metaclass-owned and derived.
  Then, instead of duplicating each derived end with a corresponding operation
  query, it makes sense to delete the association altogether.
- Figure 
+ Figure
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Simplified CMOF metamodel"
@@ -759,7 +764,7 @@ reference "fig:Simplified CMOF metamodel"
 
  shows the result of carrying out these simplification steps to the fundamental
  constructs including the two variants of properties described previously.
- 
+
 \end_layout
 
 \begin_layout Standard
@@ -829,14 +834,14 @@ Although the concept of association is a first-class construct for defining
  end property.
  The UML 1.x and MOF 1.x specifications used the term 'property' in a general
  sense for any of three distinct kinds of metaclasses: AssociationEnd (i.e.,
- 
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "enu:associationEnd"
 
 \end_inset
 
-), Attribute (i.e., 
+), Attribute (i.e.,
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "enu:attribute"
@@ -852,7 +857,7 @@ reference "enu:attribute"
  association end Property can be owned by a Class or by an Association.
  Class-owned association end Properties enabled support for Essential MOF
  metamodels where the semantics of a binary Association is defined in terms
- of its Class-owned Properties only 
+ of its Class-owned Properties only
 \begin_inset CommandInset citation
 LatexCommand cite
 after "See section 6.4"
@@ -887,7 +892,7 @@ ons in terms of the three aspects of association end properties that have
  OMG specifications: aggregation, ordering and subsetting/redefinition.
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsubsection
 Simplifying and promoting aggregation
 \end_layout
 
@@ -897,7 +902,8 @@ Since Property::aggregation has a significant effect on the semantics of
  level instead of being represented in terms of the Property::aggregation
  attribute as in current MOF, UML and FUML.
  Hence, the refactoring of the relevant subset of the CMOF abstract syntax
- metamodel shown in Fig 
+ metamodel shown in Fig.
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:RefactoredCMOF"
@@ -905,14 +911,14 @@ reference "fig:RefactoredCMOF"
 \end_inset
 
  distinguishes the roles of a CMOF property with respect to typing like
- UML 1.x and MOF 1.x did (DataProperty corresponds to case 
+ UML 1.x and MOF 1.x did (DataProperty corresponds to case
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "enu:attribute"
 
 \end_inset
 
- and AssociationEnd to case 
+ and AssociationEnd to case
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "enu:associationEnd"
@@ -926,7 +932,13 @@ on and of MetaAssociationEnd with respect to aggregation (this distinction
  of their association.
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Simplifying-association-end"
+
+\end_inset
+
 Simplifying association end ordering
 \end_layout
 
@@ -936,7 +948,7 @@ Although association ends have always been ordered in UML 1.x and 2.x, this
  association ends (aggregation, ownership, navigability and multiplicity).
  In practice, such characteristics are typically used to explain the intended
  ordering instead of using the notation for the association end ordering
- (see 
+ (see
 \begin_inset CommandInset citation
 LatexCommand cite
 after "Section 11.5.4"
@@ -988,18 +1000,17 @@ Instead of carrying such complex criteria, the refactored CMOF metamodel
  That is, the ordering of the association ends for a current MOF 2.5 binary
  association must be determined according to the six criteria above whereas
  in the refactored CMOF metamodel, the ordering is explicitly represented
- in differentiated metaclasses , i.e.
+ in differentiated metaclasses, i.e.
  MetaAssociationSourceEnd and MetaAssociationTargetEnd.
  Additional simplifications were possible thanks to the asymmetry of aggregation
 , which is only relevant for an association target end.
  Since aggregation has profound semantic implications for the lifecycle
- semantics of classifiers and their instances, this important distinction
- is elevated to a first-class status in the symmetric distinction between
- Composite and Reference for both MetaAssociation and MetaAssociationTarget.
- 
+ semantics of classifiers and their instances, it is an essential characteritic
+ distinguishing MetaAssociationTarget{Composite,Reference}End.
+
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsubsection
 Simplifying subsetting and redefinition
 \end_layout
 
@@ -1027,11 +1038,657 @@ lse corresponds to existential subsetting; that is, the weak restriction
  with the redefining source and/or target end.)
 \end_layout
 
-\begin_layout Subsection
-Models instantiate metamodels
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:NormalizedRelationalSchema"
+
+\end_inset
+
+A normalized relational schema for ontological resources
 \end_layout
 
 \begin_layout Standard
+\begin_inset Wrap figure
+lines 0
+placement l
+overhang 0in
+width "50col%"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Resources.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Resources"
+
+\end_inset
+
+Ontological Resources
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+From a relational modeling perspective, the refactored CMOF metamodel shown
+ in Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:RefactoredCMOF"
+
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+would be a materialized view a normalized relational model for metamodeling
+ that has never been defined at the OMG.
+ This section describes normalized relational models for four semantically
+ disjoint categories of resources shown in Fig.
+\begin_inset space \textvisiblespace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Resources"
+
+\end_inset
+
+: libraries (Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Library"
+
+\end_inset
+
+), metamodels (Fig
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Metamodel"
+
+\end_inset
+
+), profiles (Fig
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Profile"
+
+\end_inset
+
+) and models (Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Model"
+
+\end_inset
+
+).
+ An explicit concept of Resource is missing from the OMG specifications:
+ Indeed, although MOF defines the concept of Extent (see
+\begin_inset CommandInset citation
+LatexCommand cite
+after "section 10.2"
+key "MOF 2.5"
+
+\end_inset
+
+) and XMI defines the scope of XMI document serialization and deserialization
+ in terms of the unspecified concept of
+\begin_inset Quotes eld
+\end_inset
+
+model or model fragment
+\begin_inset Quotes erd
+\end_inset
+
+ (see
+\begin_inset CommandInset citation
+LatexCommand cite
+after "section 9.2"
+key "MOF 2.5"
+
+\end_inset
+
+), the two notions are unrelated.
+ Import relationships shown in Fig.
+\begin_inset space \textvisiblespace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Resources"
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+correspond to UML PackageImport and ProfileApplication augmented with programmin
+g language-like semantics (cross-references from one resource to another
+ are well-formed if and only if there is a corresponding import relationship)
+ and kinding restrictions (e.g., importation is homogeneous for libraries,
+ models and metamodels; profiles can import either profiles or metamodels).
+ The kinding restrictions induce three layers of resources: 1) libraries
+ that can acyclically import each other; 2) metamodels and profiles that
+ can acyclically import each other and use libraries and 3) models that
+ can acyclically import each other and that must conform to at least one
+ metamodel or profile (ProfileApplication-like semantics) and transitively
+ to any other resource directly or indirectly imported or used.
+ Conformance for a model means that all of the elements, links and values
+ in the model extent must be conforming instances of meta classes, meta
+ associations, stereotypes and datatypes defined in the defined in the metamodel
+s, profiles and libraries that the model directly or indirectly conforms
+ to.
+\end_layout
+
+\begin_layout Standard
+The following explains the notation used for the different kinds of tables
+ in the normalized relational model shown in Figs.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Library"
+
+\end_inset
+
+,
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Metamodel"
+
+\end_inset
+
+,
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Profile"
+
+\end_inset
+
+ and
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Model"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+An entity table shown in white carries identity criteria, at minimum, a
+ primary key (uuid).
+ Some entities have a name property as a secondary key in accordance to
+ the UML namespace distinguishability contains.
+ AssociationEnd also includes a ternary key, isOrdered, because it is an
+ essential characteristic of the entity.
+ An entity corresponds to a Sortal in OntoClean
+\begin_inset space \textvisiblespace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OntoClean"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+An attribute table shown in yellow class defines a single attribute property
+ typed by a primitive type and relates to a single entity.
+ An attribute table corresponds to an Attribution in OntoClean
+\begin_inset space \textvisiblespace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OntoClean"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+A relation table shown in bold gray has at least one foreign key.
+ Some have an additional property typed by a primitive type (e.g., index,
+ value).
+ Together, the values of all foreign keys and attributes uniquely identify
+ an instance of a relation table.
+ Such a relation table corresponds to an optional MaterialRole in OntoClean
+\begin_inset space \textvisiblespace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OntoClean"
+
+\end_inset
+
+ of the S
+\end_layout
+
+\begin_layout Itemize
+A relation table shown in plain gray has at least two foreign keys.
+ Some have an additional property typed by a primitive type (e.g., index).
+ Together, the values of all foreign keys and attributes uniquely identify
+ an instance of a relation table.
+ Such a relation table corresponds to an essential FormalRole in OntoClean
+\begin_inset space \textvisiblespace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OntoClean"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Note that compared with CMOF
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MOF 2.5"
+
+\end_inset
+
+, the normalized relational model provides no support at all for any behavioral
+ feature of any kind.
+ This a deliberate design decision to separate the concerns of managing
+ modeling resources in terms of relational data from the concerns of querying,
+ transforming and reasoning about such resources in terms of functional
+ programs operating on such resources.
+
+\end_layout
+
+\begin_layout Subsection
+A library is a resource of datatype classifiers
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Library.svg
+	width 12cm
+	height 16cm
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Library"
+
+\end_inset
+
+Libraries
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+The MOF extent of a Library resource is exclusively the set of normalized
+ entities, attributes and relationship tables defined in the Library package
+ and those related to the DataTypedFeatures used from the Features package
+ as shown Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Library"
+
+\end_inset
+
+.
+ In contrast to OMG modeling specifications, including variants of MOF and
+ UML, that allow defining datatypes anywhere and that result in significant
+ duplication, the approach described here promotes a clean separation of
+ concerns for entities and relationships pertaining to the definition of
+ conceptual vs.
+ data vocabularies.
+ Conceptual vocabularies are the exclusive province of metamodels and profiles.
+ Data vocabularies are the exclusive province of libraries.
+ These two categories of vocabularies are seldom separated despite having
+ fundamentally very different kinds of semantics: the semantics of conceptual
+ vocabularies is about identified instances of sortal entities and of their
+ relationships via formal roles whereas the semantics of data vocabularies
+ is based on structural equivalence of structured datatype values and equality
+ of atomic datatype values.
+ Note that a StructuredValue carries an identity criteria, uuid.
+ This is a deliberate choice for simplifying change management from the
+ complexity of OMG's XMI tree-based serialization to the simplicity of adding/de
+leting rows for entity, attribute or relationship tables where a row is
+ comprised of a tuple of key values (uuids) or lexical representations of
+ values of atomic datatypes
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Section 2.3"
+key "XML Schema Datatypes"
+
+\end_inset
+
+.
+ For example, the values of the attributes of a StructuredValue entity are
+ specified via separate, essential formal role relations: StructuredValue2{Struc
+turedValueLink, AtomicValue, EnumerationLiteralValue}.
+\end_layout
+
+\begin_layout Subsection
+A metamodel is a resource of meta-classes and associations
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Metamodel.svg
+	width 12cm
+	height 16cm
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Metamodel"
+
+\end_inset
+
+Normalized Relational Schema for Metamodels
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The MOF extent of a Metamodel resource is exclusively the set of normalized
+ entities, attributes and relationship tables defined in the Metamodel package
+ and those used from the Features package as shown in Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Metamodel"
+
+\end_inset
+
+, which is considerably simpler than current CMOF and even the refactored
+ CMOF shown in Fig.
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:RefactoredCMOF"
+
+\end_inset
+
+.
+ Note that the extent of a Metamodel resource also includes all of the Features-
+based entities, attributes and relations involved in specifying the optional
+ and essential roles of metaclasses and associations.
+ However, the DataTypeClassifiers that are the dataTypes of MetaClass attributes
+ must be directly or indirectly imported from libraries.
+\end_layout
+
+\begin_layout Subsection
+A profile is a resource of stereotypes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Profile.svg
+	width 12cm
+	height 16cm
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Profile"
+
+\end_inset
+
+Normalized Relational Schema for Profiles
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The MOF extent of a Profile resource is exclusively the set of normalized
+ entities, attributes and relationship tables defined in the Profile package
+ and those used from the Features package as shown in Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Profile"
+
+\end_inset
+
+, which is considerably simpler than current UML Profiles (See
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Section 12.3"
+key "UML 2.5"
+
+\end_inset
+
+).
+ The simplification stems from eliminating associations among stereotypes
+ because these add significant complexity for no demontrated practical value
+ (See the example in UML 2.5
+\begin_inset CommandInset citation
+LatexCommand cite
+after "section 12.3.5"
+key "UML 2.5"
+
+\end_inset
+
+), retaining only the AssociationEnds corresponding to the so-called stereotype
+ tag properties.
+ Such AssociationEnds can play two distinct roles according to their type
+ (MetaClass vs.
+ Stereotype).
+ Note that the extent of a Profile resource also includes all of the Features-ba
+sed entities, attributes and relations involved in specifying the optional
+ and essential roles of stereotypes.
+ The meta classes referenced as targets of Stereotype2ExtendedMetaClass
+ must be directly or indirectly imported.
+ The stereotypes referenced as targets of StereotypeAssociationTargetEndStereoty
+peProperty or as general/specific of StereotypeGeneralization must be defined
+ in the same resource or must be directly or indirectly imported.
+ Similar to metamodels, the DataTypeClassifiers that are the dataTypes of
+ Stereotype attributes must be directly or indirectly imported from libraries.
+\end_layout
+
+\begin_layout Subsection
+A model is a resource of model elements and links
+\end_layout
+
+\begin_layout Standard
+The MOF extent of a Model resource is exclusively the set of normalized
+ entities, attributes and relationship tables defined in the Model package
+ and those used from the Values package as shown in Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Model"
+
+\end_inset
+
+, which is substantially simpler and more comprehensive than in current
+ OMG specifications.
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Model.svg
+	width 12cm
+	height 16cm
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Model"
+
+\end_inset
+
+Normalized Relational Schema for Models
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
 As explained in CMOF Reflection
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1041,7 +1698,7 @@ key "MOF 2.5"
 \end_inset
 
 , class and association classify model elements and links respectively.
- In contrast to the subjective rationale in CMOF Instances Model 
+ In contrast to the subjective rationale in CMOF Instances Model
 \begin_inset CommandInset citation
 LatexCommand cite
 after "Section 15.3"
@@ -1052,150 +1709,639 @@ key "MOF 2.5"
  for a redundant representation of links via CMOF AssociationInstances and
  CMOF Slots on linked CMOF ElementInstances for metaclass-owned association
  ends, this paper follows on the footsteps of FUML to unify and simplify
- CMOF abstract syntax and semantics: the first-class classifier-level concepts
- of metaclass and meta associations have corresponding first-class instance-leve
-l concepts as model element and link respectively.
- This uniformity makes metaclasses and model elements akin to entity tables
- in a normalized relational schema and makes meta associations and model
- links akin to normalized relationship tables.the objective principles of
- relational schema normalization to simplify the instances model, replacing
- eliminated redundancy (i.e.
- CMOF Slots) with queries.
- 
+ CMOF abstract syntax and semantics: first-class classifiers (MetaClass
+ and MetaAssociation) have corresponding first-class instances (ModelElement
+ and ModelLink respectively).
+\end_layout
+
+\begin_layout Standard
+In contrast to the UML 2.x specification which defines the abstract syntax
+ for Profiles but not for their application, which is instead described
+ via examples of XMI serialization, this paper defines an abstract syntax
+ for stereotypes applied to elements and their so-called tag property values
+ as shown in Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Model"
+
+\end_inset
+
+ based on a simplification of profile semantics compared to the CMOF-equivalent
+ semantics described in UML 2.5
+\begin_inset CommandInset citation
+LatexCommand cite
+after "section 12.3.3"
+key "UML 2.5"
+
+\end_inset
+
+: AppliedStereotype is an optional classification of a ModelElement as an
+ instance of the Stereotype applied; that is, values of Stereotype attributes
+ are represented with the same mechanism as are values of MetaClass attributes
+ (i.e., ModelElementAttributeValue).
+ This avoids the complexity of the CMOF-equivalent semantics of Extensions
+ as Associations while retaining the intent of the CMOF-equivalent semantics
+ of a Stereotype as a CMOF class that can be optionally applied to an element
+ via the AppliedStereotype optional role.
+
+\end_layout
+
+\begin_layout Standard
+ModelLink corresponds to the concept of link in OMG specifications even
+ though this concept is only partially specified in UML, FUML, MOF and SMOF.
+ MOF 2.5 and UML 2.5 state that for ordered association ends, links
+\begin_inset Quotes eld
+\end_inset
+
+carry ordering information in addition to their end values
+\begin_inset Quotes erd
+\end_inset
+
+ (see
+\begin_inset CommandInset citation
+LatexCommand cite
+after "13.2"
+key "MOF 2.5"
+
+\end_inset
+
+ and
+\begin_inset CommandInset citation
+LatexCommand cite
+after "11.5.3.1"
+key "UML 2.5"
+
+\end_inset
+
+); however, UML does not explicitly define any abstract syntax for links
+ and although such syntax is defined in MOF, ordering isn't.
+ FUML excludes associations with ordered ends (see
+\begin_inset CommandInset citation
+LatexCommand cite
+after "section 7.2.2.2.22"
+key "FUML 1.2.1"
+
+\end_inset
+
+).
+ SMOF does not define any syntax or semantics for associations with ordered
+ ends (see
+\begin_inset CommandInset citation
+LatexCommand cite
+after "sections 10.1.[56]"
+key "SMOF 1.0 FTF beta2"
+
+\end_inset
+
+).
+ Here, support for ordering reflects an implicit assumption in OMG's practice
+ of metamodeling & profiling that at most one association end is ordered.
+\end_layout
+
+\begin_layout Standard
+ModelElement corresponds to the concept of element in FUML
+\begin_inset CommandInset citation
+LatexCommand cite
+after "section 8.3.2.2.19"
+key "FUML 1.2.1"
+
+\end_inset
+
+, MOF
+\begin_inset CommandInset citation
+LatexCommand cite
+after "sections 9.2, 13.5"
+key "MOF 2.5"
+
+\end_inset
+
+ and SMOF
+\begin_inset CommandInset citation
+LatexCommand cite
+after "section 9.1.2.3"
+key "SMOF 1.0 FTF beta2"
+
+\end_inset
+
+.
+ SMOF-like multiple classification is supported with multiple ModelElements
+ for the same uuid, one for each classifying metaclass.
 \end_layout
 
 \begin_layout Section
-Contributions
+Serialization and API
+\end_layout
+
+\begin_layout Standard
+UML 1.x revisions were published with an API specification in terms of OMG's
+ Interface Description Language (IDL)
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+For UML 1.5's IDL, see
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.omg.org/spec/UML/1.5"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ The OMG stopped this practice based on the recommendation from the UML
+ 2.0 finalization task force to
+\begin_inset Quotes eld
+\end_inset
+
+retire 'Model Interchange Using CORBA IDL' as an adopted technology because
+ of lack of vendor and user interest.
+\begin_inset Quotes erd
+\end_inset
+
+ As part of the 2.0 major revision, the OMG also switched from XML DTDs to
+ XML Schema to support validating models serialized as XML Documents against
+ their metamodel XML Schemas.
+ Several factors contribute to persistent probems of poor model interchange
+ with XMI: the document production rules specified in English and BNF allowed
+ for many serialization options that increased the complexity of XMI implementat
+ions to recognize them when loading XMI documents produced from other tools;
+ since the schema production rules have yet to be applied to UML2.x, tool
+ vendors and user continue to accrue missed opportunity costs due to the
+ inability to validate XMI documents against official XMI schemas.
+ The OMG is keenly aware of these issues.
+ Recent improvements made in Canonical XMI 2.5 minimize but do not eliminate
+ serialization variability and promote but do not ensure serialization reproduci
+bility.
+
+\end_layout
+
+\begin_layout Subsection
+Normalization yields simpler tabular serialization
+\end_layout
+
+\begin_layout Standard
+The fundamental source of complexity and poor interchange stems from a design
+ decision in the XMI 2.x specification to represent MOF's exclusive ownership
+ principle in terms of nested XML elements: The resulting tree serialization
+ of a model is a materialized view of the model's ownership structure.
+ XML trees are inherently ill-suited for large-scale model management because
+ comparing trees is computationally expensive even with the state-of-the-art
+ Robust Tree Edit Distance (RTED) algorithm whose cubic worst-case runtime
+ complexity is optimal
+\begin_inset space \textvisiblespace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RTED"
+
+\end_inset
+
+.
+ This means that comparing serialized models becomes practically unreasonable
+ for models with millions of elements.
+\end_layout
+
+\begin_layout Standard
+Switching to a serialization paradigm based on the normalized schemas described
+ in Sec.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:NormalizedRelationalSchema"
+
+\end_inset
+
+ will provide tangible model interchange benefits for end users compared
+ to the current serialization paradigm based on XMI trees due to the improved
+ efficiency of comparing models serialized as normalized tables vs.
+ trees.
+ Comparing trees is computationally expensive: the Robust Tree Edit Distance
+ (RTED) algorithm has a worst-case cubic runtime complexity
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RTED"
+
+\end_inset
+
+ that is impractical for large models with millions of elements.
+ Comparing normalized tables reduces is computationally reasonable thanks
+ to a worst-case superlinear runtime complexity that should remain practical
+ even for models with billions of elements (rows)
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AlgorithmDesignManual"
+
+\end_inset
+
+ with the added benefit that distributed version control systems like GIT
+ should report precise and accurate changes since differences reduce to
+ additions and deletions of table rows.
+\end_layout
+
+\begin_layout Standard
+This switch has a subtle but important implication on the representation
+ of cross references.
+ Since the 2.0 major revision, the OMG XMI specification has distinguished
+ cross-references within a document vs.
+ across documents.
+ In the former case, a cross reference is represented as an XML idref for
+ the XML id of the locally referenced element.
+ In the latter case, the XMI specification allows for five different representat
+ions for a cross reference in terms of XML id, XMI uuid, label or potentially
+ arbitrary XLink and XPointer expressions.
+ Most tools follow OMG's serialization practices that rely on XML idref
+ for local and cross references (the XML idref becomes a fragment for an
+ href).
+ Historically, the multitude of options and technologies involved for representi
+ng basic element cross references has been a significant source of poor
+ model interchange across tools.
+ Switching to a normalized serialization strategy eliminates altogether
+ the distinction for local vs.
+ cross references and the options for representing them because all elements
+ are referenced, locally or externally, via their uuid.
+ The fact that cross references are represented uniformely regardless of
+ whether they are local or not means that the representation of the normalized
+ serialization is independent of its organization in one or multiple documents.
+ The fact that the normalized serialization produces tabular data without
+ empty columns means that it is possible to take advantage of modern data
+ analytics frameworks for processing model data because the form and content
+ of normalized tabular data is indepedent of how it is organized in terms
+ of documents.
+ This is a significant advantage compared to OMG's XMI tree-based serialization
+ where the form and content of the serialized representation depends on
+ its organization in terms of one or more documents and on their location
+ and vice-versa.
+
+\end_layout
+
+\begin_layout Subsection
+Separating Modeling and Data APIs
+\end_layout
+
+\begin_layout Standard
+The Eclipse Modeling Framework (EMF) established a model-driven development
+ culture for generating the API of a modeling tool from its abstract syntax
+ metamodel
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EMF"
+
+\end_inset
+
+, that is, a modeling API is generated from a metamodel.
+ Despite its widespread adoption, the EMF-based modeling API generation
+ paradigm does not address the users needs for interoperability of modeling
+ APIs or interchange of model serializations across different tools.
+ For example, Eclipse UML 5.0.0
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+See
+\begin_inset CommandInset href
+LatexCommand href
+name "https://wiki.eclipse.org/MDT/UML2/UML2_5.0_Migration_Guide"
+target "https://wiki.eclipse.org/MDT/UML2/UML2_5.0_Migration_Guide"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ and MagicDraw UML 18.0
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+See
+\begin_inset CommandInset href
+LatexCommand href
+name "http://docs.nomagic.com/display/MD184/UML+2.5+Meta+Model"
+target "http://docs.nomagic.com/display/MD184/UML+2.5+Meta+Model"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ implement the same OMG UML 2.5 metamodel
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+See
+\begin_inset CommandInset href
+LatexCommand href
+name "http://www.omg.org/spec/UML/20131001/UML.xmi"
+target "http://www.omg.org/spec/UML/20131001/UML.xmi"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ However, their modeling APIs are incompatible, not only because of differences
+ in EMF code generation techniques used but primarily because these generated
+ modeling APIs are tightly coupled with their generated implementation.
+ This means that for a given OMG UML 2.5 metaclass (e.g., Namespace), there
+ is a corresponding modeling API EClass defined in Eclipse UML 5.0
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+See
+\begin_inset CommandInset href
+LatexCommand href
+name "http://download.eclipse.org/modeling/mdt/uml2/javadoc/5.0.0/org/eclipse/uml2/uml/Namespace.html"
+target "http://download.eclipse.org/modeling/mdt/uml2/javadoc/5.0.0/org/eclipse/uml2/uml/Namespace.html"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ and MagicDraw 18.0
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+See
+\begin_inset CommandInset href
+LatexCommand href
+name "http://jdocs.nomagic.com/183/com/nomagic/uml2/ext/magicdraw/classes/mdkernel/Namespace.html"
+target "http://jdocs.nomagic.com/183/com/nomagic/uml2/ext/magicdraw/classes/mdkernel/Namespace.html"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+; however these have nothing in common except for EMF's EObject and Notifier
+ interfaces.
+ In fact, this example illustrates some subtle differences that cause significan
+t API-level interoperability problems when working with EMF-based technologies
+ with these two modeling tools:
+\end_layout
+
+\begin_layout Itemize
+The EMF EModelElement API is important to enable EMF's powerful annotation
+ mechanism
+\begin_inset space \textvisiblespace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec. 5.6-7"
+key "EMF"
+
+\end_inset
+
+.
+ However, only the generated Eclipse UML metaclasses inherit from EModelElement,
+ the generated MagicDraw UML metaclasses don't.
+ This difference means that many EMF-based techniques that assume that every
+ model element can be annotated will not work as intended when operating
+ on MagicDraw UML models unlike their Eclipse UML counterparts.
+\end_layout
+
+\begin_layout Itemize
+The MagicDraw UML Namespace metaclass shows that it can own MagicDraw UML
+ Diagrams.
+ This is a MagicDraw-specific implementation of the OMG UML 2.5 metamodel
+ that substantially different than the OMG UML 2.5 Diagram Interchange annex
+\begin_inset CommandInset citation
+LatexCommand cite
+after "B.2.2"
+key "UML 2.5"
+
+\end_inset
+
+.
+
+\end_layout
+
+\begin_layout Itemize
+Comparing class attributes corresponding to association ends in the Eclipse
+ UML and MagicDraw UML APIs can be difficult; it is particularly helpful
+ to have knowledge of the particular EMF code generation techniques involved
+ to recognize the tool-specific correspondences between CMOF association
+ ends defined in the OMG UML 2.5 metamodel and their corresponding EMF representa
+tion in terms of EReferences and/or EOperations in the generated tool-specific
+ APIs.
+\end_layout
+
+\begin_layout Standard
+The root cause of non-existent API-level model interoperability stems from
+ the lack of distinction between two different kinds of APIs: abstract syntax
+ vs.
+ information content schema:
+\end_layout
+
+\begin_layout Itemize
+An abstract syntax API provides support for creating, deleting, updating
+ and navigating across model elements and data according to metaclasses,
+ stereotypes, associations and datatypes defined in metamodels, profiles
+ and libraries.
+ Such APIs are particularly important for model query (e.g.
+ OCL) and transformation (e.g QVT) because they enable expressing queries
+ and transformations in terms of the entities (metaclasses), relationships
+ (associations, properties) and operations defined in the abstract syntax.
+\end_layout
+
+\begin_layout Itemize
+A normalized schema data API provide support for internally representing
+ the information content of a model at an API level independently of its
+ external representation in one of possibly multiple serializations (e.g.
+ XMI, RDF, OWL, Json, CSV, ...).
+ The schemas described in Sec.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:NormalizedRelationalSchema"
+
+\end_inset
+
+ correspond to a 4th normal form normalization of a database schema
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NFGuide"
+
+\end_inset
+
+.
+ Normalized schemas for the information content of libraries, metamodels,
+ profiles and models enables separating the functional concerns of modeling
+ (via abstract syntax APIs) from the information content concerns of model
+ interchange via serialization to/from external representations such as
+ XML, XMI, RDF, OWL, Json, CSV, etc.
+ Normalization yields tables where each column corresponds to an essential
+ characteristic (a primary key, a foreign key, an attribute); which in turns
+ simplifies serialization matters because there are no optional values and
+ no nulls.
+
+\end_layout
+
+\begin_layout Standard
+Metamodeling frameworks like EMF provide supprot for generating abstract
+ syntax APIs (and implementations) from metamodels and profiles (e.g., the
+ Eclipse UML tooling).
+ It is likely that OMG's emphasis on XMI Schemas in the major 2.0 revision
+ of MOF, UML and XMI is responsible for demphasizing the importance of specifyin
+g the information content of models explicitly as is done in this paper.
+ A significant advantage of the normalized schema APIs described in this
+ paper stems from the possibility of leveraging modern data processing framework
+s like Apache Spark for scaling up complex model transformation workflows
+ as described in Fig.
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Tools"
+
+\end_inset
+
+ taking advantage of the relational form of the normalized schemas for query
+ optimization
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Spark SQL"
+
+\end_inset
+
+ and of the support for specifying complex model query and transformations
+ in terms of graphs of relational data
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GraphX"
+
+\end_inset
+
+.
+ In contrast to the affinity of the normalized schemas for optimization
+ and parallelization, a conventional approach with an XMI-based or API-based
+ containment tree representation of models would be technically much more
+ difficult to optimize or parallelize.
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename DataAndModelingAPIs.png
+	width 12cm
+	height 15cm
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Tools"
+
+\end_inset
+
+Proposed architecture to work with existing modeling tools using normalized
+ serialization.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Summary
 \end_layout
 
 \begin_layout Standard
 This paper makes three significant contributions towards addressing significant
- issues with the OMG UML 2.5 specification:
+ issues with the current paradigm for developing modeling specifications
+ at the OMG.
+ First, this paper carefully explained the intrinsic sources of complexity
+ in OMG's reflexive metamodeling architecture (MOF) where the notion of
+ a profile does not cleanly fit the multi-layered modeling architecture.
+ It is noteworthy that most of the complexity stems from the multiple roles
+ that the concept of property plays in specifying libraries (datatype attributes
+), metamodels (association ends) and profiles (stereotype association ends).
+ Second, this paper reconstructs a considerably simpler set of schemas for
+ specifying the information content of all modeling artifacts including
+ models that instantiate metamodels with optionally applied profiles.
+ Focusing on the information content instead of the abstract syntax API
+ is key to a significant simplification compared to the current specification
+ practices where a single abstract syntax is used for both generating an
+ API and for tree-based serialization.
+ Third, the paper only sketched a promising area for future work: leveraging
+ powerful data analytics platforms for scaling up complex modeling workflows
+ thanks to the affinity of normalized schemas for optimization and concurrency.
+
 \end_layout
 
-\begin_layout Enumerate
-Define a tool-neutral Application Program Interface (API) adaptable to tools
- claiming abstract syntax conformance to OMG UML 2.5.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Unfortunately, the OMG stopped the UML 1.x practice of publishing revisions
- of UML 2 with an 
-\begin_inset Quotes eld
-\end_inset
-
-Interface Definition Language
-\begin_inset Quotes erd
-\end_inset
-
- (IDL) API.
- Consequently, the OMG UML 2.5 specification lacks an objective basis for
- assessing whether 
-\begin_inset Quotes eld
-\end_inset
-
-a tool demonstrating abstract syntax conformance provides a user interface
- and/or API that enables instances of concrete UML metaclasses to be created,
- read, updated, and deleted.
-\begin_inset Quotes erd
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-This paper contributes a novel approach for generating and specifying a
- strongly type-safe abstract syntax API for OMG UML 2.5 parameterized by
- a tool-specific adapter for an existing implementation of UML 2.5.
- This API has been adapted for two existing UML 2.5 tools: NoMagic's MagicDraw
- version 18.0 and Eclipse UML version 5.0.
- The paper describes an approach for generating a suite of abstract syntax
- conformance tests that cold be used for objectively assessing the compliance
- of OMG UML 2.5 tool implementations and for objectively assessing model
- interchange via tool-specific API adapters instead of via external serializatio
-n as done before.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Define a set of 4th normal form database tables and relationships enabling
- a radically simpler tabular serialization of UML models compared to the
- complex tree serialization of UML models based on OMG's XMI 2.5 specification.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-For serialization, the OMG chose to represent the abstract syntax containment
- organization of a UML model as an XML tree.
- This seems a sensible choice given that a tree precisely captures the key
- architecture principle of single element ownership that applies to all
- OMG modeling languages, including UML.
- The complexity arises from two factors: 1) logically, a given tuple of
- owning element and owned element can be a link instance of multiple composite
- associations defined in the UML metamodel and 2) logically, the lack of
- clarity in the criteria for determining which composite association requires
- a serialization as an XML nested element from others requring serialization
- as an XML element reference.
- 
-\end_layout
-
-\begin_layout Standard
-From a database perspective, the abstract syntax containment organization
- of a UML model is a materialized view of the information.
- The UML metamodel (a materialized view) has information redundancy that
- induces serialization redundancy: for example, every class-owned association
- end in the UML metamodel is both an attribute of its owning class and a
- member end of its association.
- Much of the complexity in OMG's XMI specification is an accidental consequence
- of trying to avoid unecessary redundant serialization.
- Normalizing the UML metamodel removes all information redundancy: for example,
- every association owns both ends.
- This paper presents a 4th-normal form of a UML metamodel where every metaclass
- is reduced to a table with only data property attributes and every association
- is reduced to a relationship table with an ordering data property attribute
- if one association end property is ordered.
- For a large model of a space mission (over 0.5 million UML elements), normal
- form serialization is considerably faster than the native tool-specific
- XMI tree serialization.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Define a description logic formalization of UML's abstract syntax for reasoning
- about UML syntax precisely instead of informally per the UML specification.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-UML provides a rich vocabulary for describing the structure and behavior
- of arbitrary systems.
- The UML vocabulary is extensible to accomodate domain-specific language
- modeling needs with the concept of UML profile extensions of the UML metamodel
- such as the Systems Modeling Language (SysML) for the domain of systems
- engineering.
- A typical concern in the development of a UML profile extension of UML/SysML
- for a domain-specific Model-Based Systems Engineering (MBSE) methodology
- is whether the intended expressiveness of the extended vocabulary in the
- specific domain can be represented as a well-formed UML/SysML model with
- the domain-specific profile applied.
- A serious concern is the limitations from the UML abstract syntax that
- prevent using the UML vocabulary for reasonable domain-specific modeling
- purposes.
- For example, the 6 of the 12 significant issues fixed in the OMG SysML
- 1.4 revision provide support for explicitly representing in the abstract
- syntax notions of scope and context that are currently implicit in the
- UML 2.5 abstract syntax.
- Unfortunately, the SysML 1.4 specification does not address the logical
- implications for managing the SysML extensions when the underlying UML
- elements are created, read, updated or deleted.
- This paper presents a simple strategy for leveraging a 4th normal form
- definition of the abstract syntax of UML and profile extensions such as
- SysML as the basis for ontological reasoning about extended UML models.
-\end_layout
-
-\end_deeper
 \begin_layout Section*
 Acknowledgements
 \end_layout
@@ -1238,13 +2384,41 @@ The author expresses gratitude to many colleagues at the Jet Propulsion
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "AlgorithmDesignManual"
+
+\end_inset
+
+Steven S.
+ SKiena.
+ The Algorithm Design Manual, second edition.
+ Springer, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "RTED"
+
+\end_inset
+
+Mateusz Pawlik and Nikolaus Augsten.
+ Efficient computation of the tree edit distance.
+ ACM Trans.
+ Datab.
+ Syst.
+ 40, 1, Article 3 (March 2015).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "TypesAndProgrammingLanguages"
 
 \end_inset
 
 B.
  C.
- Pierce, 
+ Pierce,
 \begin_inset Quotes eld
 \end_inset
 
@@ -1266,7 +2440,7 @@ D.
  Steinberg, F.
  Budinsky, M.
  Paternostro, E.
- Merks, 
+ Merks,
 \begin_inset Quotes eld
 \end_inset
 
@@ -1280,11 +2454,30 @@ EMF Eclipse Modeling Framework
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "FUML 1.2.1"
+
+\end_inset
+
+Object Management Group,
+\begin_inset Quotes eld
+\end_inset
+
+Semantics of a Foundational Subset for Executable UML Models (fUML)
+\begin_inset Quotes erd
+\end_inset
+
+, version 1.2.1, formal/2016-01-05, 2016.
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "MOF 2.5"
 
 \end_inset
 
-Object Management Group, 
+Object Management Group,
 \begin_inset Quotes eld
 \end_inset
 
@@ -1298,11 +2491,29 @@ Meta-Object Facility Core Specification
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "SMOF 1.0 FTF beta2"
+
+\end_inset
+
+Object Management Group,
+\begin_inset Quotes eld
+\end_inset
+
+MOF Support for Semantic Structures
+\begin_inset Quotes erd
+\end_inset
+
+, version 1.0 FTF beta 2, ptc/2011-08-22, 2011.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "UML 2.4.1 Report"
 
 \end_inset
 
-Object Management Group, 
+Object Management Group,
 \begin_inset Quotes eld
 \end_inset
 
@@ -1320,7 +2531,7 @@ key "UML 2.5"
 
 \end_inset
 
-Object Management Group, 
+Object Management Group,
 \begin_inset Quotes eld
 \end_inset
 
@@ -1329,6 +2540,108 @@ Unified Modeling Language version 2.5
 \end_inset
 
 , formal/2015-03-01, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "OntoClean"
+
+\end_inset
+
+Guarino, Nicola and Chris Welty.
+ 2004.
+ An Overview of OntoClean.
+ In Steffen Staab and Rudi Studer, eds., The Handbook on Ontologies.
+ Pp.
+ 151-172.
+ Berlin:Springer-Verlag
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "PropertyReificationVocabulary"
+
+\end_inset
+
+Jiří Procházka, Richard Cyganiak, Toby Inkster, Bob Ferris.
+ The Property Reification Vocabulary 0.11,
+\begin_inset CommandInset href
+LatexCommand href
+target "http://smiy.sourceforge.net/prv/spec/propertyreification.html"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "XML Schema Datatypes"
+
+\end_inset
+
+Paul V.
+ Biron, Ashok Malhotra.
+ XML Schema Part 2: Datatypes Second Edition.
+ W3C Recommendation 28 October 2004.
+
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.w3.org/TR/2004/REC-xmlschema-2-20041028/"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "NFGuide"
+
+\end_inset
+
+William Kent.
+ A Simple Guide to Five Normal Forms in Relational Database Theory.
+ Communications of the ACM 26(2), p.
+ 120-125, Feb 1983.
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Spark SQL"
+
+\end_inset
+
+Michael Armbrust
+\shape slanted
+et al
+\shape default
+.
+ Spark SQL: Relational Data Processing in Spark.
+ SIGMOD'15, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "GraphX"
+
+\end_inset
+
+Joseph E.
+ Gonzalez
+\shape slanted
+et al
+\shape default
+.
+ GraphX: Graph Processing in a Distributed Dataflow Framework.
+ OSDI;14, 2014.
 \end_layout
 
 \end_body
