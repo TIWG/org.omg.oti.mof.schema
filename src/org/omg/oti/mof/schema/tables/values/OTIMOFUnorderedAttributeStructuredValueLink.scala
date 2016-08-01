@@ -36,25 +36,31 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.model
+package org.omg.oti.mof.schema.tables.values
 
-import org.omg.oti.mof.schema.common.EntityUUID
-
+import org.omg.oti.mof.schema.common._
 import play.api.libs.json._
+import scala.{Int,Option,Some}
 
-/**
-  *
-  * @param modelElement [[ModelElement]]
-  * @param appliedStereotype [[org.omg.oti.mof.schema.profile.Stereotype]]
-  */
-case class AppliedStereotype
-( modelElement: EntityUUID,
-  appliedStereotype: EntityUUID )
+case class OTIMOFUnorderedAttributeStructuredValueLink
+(override val resource: ResourceIRI,
+ override val entity: EntityUUID,
+ override val attribute: EntityUUID,
+ value: EntityUUID) extends OTIMOFEntityAttributeValue {
 
-object AppliedStereotype {
+  override def getIndex = Option.empty[Int]
+
+  override def getAtomicValue = Option.empty[AtomicValueRepresentation]
+
+  override def getEnumerationLiteralValue = Option.empty[EntityUUID]
+
+  override def getStructuredValue = Some(value)
+}
+
+object OTIMOFUnorderedAttributeStructuredValueLink {
 
   implicit val formats
-  : Format[AppliedStereotype]
-  = Json.format[AppliedStereotype]
+  : Format[OTIMOFUnorderedAttributeStructuredValueLink]
+  = Json.format[OTIMOFUnorderedAttributeStructuredValueLink]
 
 }

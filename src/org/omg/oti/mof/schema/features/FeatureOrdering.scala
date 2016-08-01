@@ -40,7 +40,7 @@ package org.omg.oti.mof.schema.features
 
 import play.api.libs.json._
 
-import org.omg.oti.mof.schema.common.EntityUUID
+import org.omg.oti.mof.schema.common.{EntityUUID,ResourceIRI}
 
 import scala.Boolean
 
@@ -52,7 +52,8 @@ import scala.Boolean
   * @group Base
   */
 case class FeatureOrdering
-( override val feature: EntityUUID,
+( override val resource: ResourceIRI,
+  override val feature: EntityUUID,
   isOrdered: Boolean )
 extends FeatureInfo
 

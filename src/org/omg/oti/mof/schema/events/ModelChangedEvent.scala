@@ -49,18 +49,48 @@ sealed trait ModelChangedEvent {
 
 case class ModelElementChangedEvent
 ( override val changeKind: ChangeKind,
-  element: model.ModelElement )
+  element: tables.model.OTMOFModelElement )
 extends ModelChangedEvent
 
-case class ModelLinkChangedEvent
+case class ModelOrderedLinkChangedEvent
 ( override val changeKind: ChangeKind,
-  link: model.ModelLink )
+  link: tables.model.OTIMOFModelOrderedLink )
 extends ModelChangedEvent
 
-case class ModelElementAttributeValueChangedEvent
+case class ModelUnorderedLinkChangedEvent
 ( override val changeKind: ChangeKind,
-  elementAttributeValue: model.ModelElementAttributeValue )
+  link: tables.model.OTIMOFModelUnorderedLink )
+  extends ModelChangedEvent
+
+case class ModelOrderedAttributeAtomicValueChangedEvent
+( override val changeKind: ChangeKind,
+  attributeValue: tables.values.OTIMOFOrderedAttributeAtomicValue )
 extends ModelChangedEvent
+
+case class ModelOrderedAttributeEnumerationLiteralValueChangedEvent
+( override val changeKind: ChangeKind,
+  attributeValue: tables.values.OTIMOFOrderedAttributeEnumerationLiteralValue )
+  extends ModelChangedEvent
+
+case class ModelOrderedAttributeStructuredValueChangedEvent
+( override val changeKind: ChangeKind,
+  attributeValue: tables.values.OTIMOFOrderedAttributeStructuredValueLink )
+  extends ModelChangedEvent
+
+case class ModelUnorderedAttributeAtomicValueChangedEvent
+( override val changeKind: ChangeKind,
+  attributeValue: tables.values.OTIMOFUnorderedAttributeAtomicValue )
+  extends ModelChangedEvent
+
+case class ModelUnorderedAttributeEnumerationLiteralValueChangedEvent
+( override val changeKind: ChangeKind,
+  attributeValue: tables.values.OTIMOFUnorderedAttributeEnumerationLiteralValue )
+  extends ModelChangedEvent
+
+case class ModelUnorderedAttributeStructuredValueChangedEvent
+( override val changeKind: ChangeKind,
+  attributeValue: tables.values.OTIMOFUnorderedAttributeStructuredValueLink )
+  extends ModelChangedEvent
 
 object ModelChangedEvent {
 

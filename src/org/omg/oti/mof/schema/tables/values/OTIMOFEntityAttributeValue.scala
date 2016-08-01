@@ -36,39 +36,25 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.model
+package org.omg.oti.mof.schema.tables.values
 
-import org.omg.oti.mof.schema.common.EntityUUID
+import org.omg.oti.mof.schema.common._
+import scala.{Int,Option}
 
-import play.json.extra._
-import play.api.libs.json._
+/**
+  * Represents the value of an attribute defined in the context of an entity classifier.
+  * The entity can be one of 3 kinds:
+  * - A model element that is an instance of a metaclass; the metaclass is the classifier context of the attribute.
+  * - A model element that with a stereotype applied; the stereotype is the classifier context of the attribute.
+  * - A structured value that is an instance of a structured datatype that is the classifier context of the attribute.
+  */
+trait OTIMOFEntityAttributeValue {
+  val resource: ResourceIRI
+  val entity: EntityUUID
+  val attribute: EntityUUID
 
-import scala.Int
-import scala.Predef.String
-
-sealed trait ModelLink {
-  val sourceElement: EntityUUID
-  val targetElement: EntityUUID
-  val metaAssociation: EntityUUID
-}
-
-case class ModelUnorderedLink
-( override val sourceElement: EntityUUID,
-  override val targetElement: EntityUUID,
-  override val metaAssociation: EntityUUID )
-  extends ModelLink
-
-case class ModelOrderedLink
-( override val sourceElement: EntityUUID,
-  override val targetElement: EntityUUID,
-  override val metaAssociation: EntityUUID,
-  index: Int )
-  extends ModelLink
-
-object ModelLink {
-
-  implicit val formats
-  : Format[ModelLink]
-  = Variants.format[ModelLink]((__ \ "type").format[String])
-
+  def getIndex: Option[Int]
+  def getAtomicValue: Option[AtomicValueRepresentation]
+  def getEnumerationLiteralValue: Option[EntityUUID]
+  def getStructuredValue: Option[EntityUUID]
 }

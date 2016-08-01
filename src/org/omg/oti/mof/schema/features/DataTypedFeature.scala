@@ -60,7 +60,8 @@ sealed trait DataTypedFeature
   * @group EnumLit
   */
 case class EnumerationLiteral
-( override val uuid: EntityUUID,
+( override val resource: ResourceIRI,
+  override val uuid: EntityUUID,
   override val name: Name )
   extends DataTypedFeature
 
@@ -72,7 +73,8 @@ case class EnumerationLiteral
   * @group Attribute
   */
 case class DataTypedAttributeProperty
-( override val uuid: EntityUUID,
+( override val resource: ResourceIRI,
+  override val uuid: EntityUUID,
   override val name: Name )
   extends DataTypedFeature
 

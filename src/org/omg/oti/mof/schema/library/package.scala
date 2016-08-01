@@ -39,6 +39,12 @@
 package org.omg.oti.mof.schema
 
 /**
+  * TODO: To be replaced by tables.library
+  * These structures require a tree representation to specify the library resource IRI
+  * for all entities, characteristics & relations.
+  * The structures in tables.library all include the library resource IRI; therefore they are independent of each
+  * other and have a flat, columnar representation.
+  *
   * An [[OTIMOFLibrary]] is a resource whose [[OTIMOFLibraryResourceExtent]] is a set of [[OTIMOFLibraryItem]]s:
   *
   * Entities:

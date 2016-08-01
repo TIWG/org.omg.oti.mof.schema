@@ -46,6 +46,9 @@ import org.omg.oti.mof.schema.common._
   * @group Base
   */
 trait Feature {
+
+  val resource: ResourceIRI
+
   /**
     * The primary key identifying the feature
     */

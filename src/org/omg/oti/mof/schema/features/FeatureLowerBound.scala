@@ -49,7 +49,8 @@ import org.omg.oti.mof.schema.common._
   * @group Base
   */
 case class FeatureLowerBound
-( override val feature: EntityUUID,
+( override val resource: ResourceIRI,
+  override val feature: EntityUUID,
   lower: NonNegativeInt )
 extends FeatureInfo
 

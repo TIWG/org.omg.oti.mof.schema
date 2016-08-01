@@ -39,7 +39,7 @@
 package org.omg.oti.mof.schema.features
 
 import play.api.libs.json._
-import org.omg.oti.mof.schema.common.EntityUUID
+import org.omg.oti.mof.schema.common.{EntityUUID,ResourceIRI}
 
 /**
   * A relation specifying the [[org.omg.oti.mof.schema.library.DatatypeClassifier]] typing
@@ -50,7 +50,8 @@ import org.omg.oti.mof.schema.common.EntityUUID
   * @group Attribute
   */
 case class AttributeProperty2DataType
-( attribute: EntityUUID,
+( resource: ResourceIRI,
+  attribute: EntityUUID,
   `type`: EntityUUID )
 
 /**

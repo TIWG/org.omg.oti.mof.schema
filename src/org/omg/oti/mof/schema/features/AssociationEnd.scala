@@ -68,7 +68,8 @@ sealed trait AssociationEnd
   * @group AssociationEnd
   */
 case class AssociationSourceEnd
-( override val uuid: EntityUUID,
+( override val resource: ResourceIRI,
+  override val uuid: EntityUUID,
   override val name: Name )
   extends AssociationEnd {
 
@@ -95,7 +96,8 @@ sealed trait AssociationTargetEnd {
   * @group AssociationEnd
   */
 case class AssociationTargetReferenceEnd
-( override val uuid: EntityUUID,
+( override val resource: ResourceIRI,
+  override val uuid: EntityUUID,
   override val name: Name )
   extends AssociationEnd
   with AssociationTargetEnd {
@@ -113,7 +115,8 @@ case class AssociationTargetReferenceEnd
   * @group AssociationEnd
   */
 case class AssociationTargetCompositeEnd
-( override val uuid: EntityUUID,
+( override val resource: ResourceIRI,
+  override val uuid: EntityUUID,
   override val name: Name )
   extends AssociationEnd
   with AssociationTargetEnd {

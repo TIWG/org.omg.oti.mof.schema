@@ -36,20 +36,37 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.profile
+package org.omg.oti.mof.schema.tables
 
 import org.omg.oti.mof.schema.common._
-
 import play.api.libs.json._
+import scala.Predef.String
 
-case class Stereotype
-( uuid: EntityUUID,
-  name: Name )
+/**
+  * Information about a tool-specific identifier for a MOF entity that has a primary key (EntityUUID)
+  * (e.g., metaclass, metaassociation, model element, profile stereotype, library datatype/attribute)
+  * Note that this is not applicable to MOF relation tables (e.g. ModelOrderedLink, AppliedStereotype)
+  *
+  * A given entity(as globally identified via its EntityUUID primary key)
+  * may have zero or more tool-specific IDs.
+  * That is, for a given uuid, there can be multiple pairs of (toolVendorID, toolElementID).
+  * This table provides information about a single pair (toolVendorID, toolElementID) for a given uuid.
+  *
+  * @param resource The resource containing a representation of an entity.
+  * @param uuid The global UUID primary key identifying an entity.
+  * @param toolVendorID The vendor ID of the tool that has a tool-specific representation of this entity.
+  * @param toolElementID The tool-specific ID of this entity's representation.
+  */
+case class OTIMOFToolSpecificID
+( resource: ResourceIRI,
+  uuid: EntityUUID,
+  toolVendorID: String,
+  toolElementID: String)
 
-object Stereotype {
+object OTIMOFToolSpecificID {
 
   implicit val formats
-  : Format[Stereotype]
-  = Json.format[Stereotype]
+  : Format[OTIMOFToolSpecificID]
+  = Json.format[OTIMOFToolSpecificID]
 
 }

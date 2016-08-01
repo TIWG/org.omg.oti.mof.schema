@@ -36,43 +36,31 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.model
+package org.omg.oti.mof.schema.tables.values
 
-import org.omg.oti.mof.schema.common.EntityUUID
-import org.omg.oti.mof.schema.values.AttributeValue
-
-import play.json.extra._
+import org.omg.oti.mof.schema.common._
 import play.api.libs.json._
+import scala.{Int,Option,Some}
 
-import scala.Int
-import scala.Predef.String
+case class OTIMOFUnorderedAttributeAtomicValue
+(override val resource: ResourceIRI,
+ override val entity: EntityUUID,
+ override val attribute: EntityUUID,
+ value: AtomicValueRepresentation) extends OTIMOFEntityAttributeValue {
 
-/**
-  * ModelElementAttributeValue represents the value of a [[org.omg.oti.mof.schema.features.DataTypedAttributeProperty]]
-  * that is defined either in a [[org.omg.oti.mof.schema.metamodel.MetaClass]]
-  * or a [[org.omg.oti.mof.schema.profile.Stereotype]]
-  */
-sealed trait ModelElementAttributeValue {
-  val modelElement: EntityUUID
-  val attributeValue: AttributeValue
+  override def getIndex = Option.empty[Int]
+
+  override def getAtomicValue = Some(value)
+
+  override def getEnumerationLiteralValue = Option.empty[EntityUUID]
+
+  override def getStructuredValue = Option.empty[EntityUUID]
 }
 
-case class ModelElementUnorderedAttributeValue
-( override val modelElement: EntityUUID,
-  override val attributeValue: AttributeValue )
-  extends ModelElementAttributeValue
-
-
-case class ModelElementOrderedAttributeValue
-( override val modelElement: EntityUUID,
-  override val attributeValue: AttributeValue,
-  index: Int )
-  extends ModelElementAttributeValue
-
-object ModelElementAttributeValue {
+object OTIMOFUnorderedAttributeAtomicValue {
 
   implicit val formats
-  : Format[ModelElementAttributeValue]
-  = Variants.format[ModelElementAttributeValue]((__ \ "type").format[String])
+  : Format[OTIMOFUnorderedAttributeAtomicValue]
+  = Json.format[OTIMOFUnorderedAttributeAtomicValue]
 
 }

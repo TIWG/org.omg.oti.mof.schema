@@ -115,15 +115,6 @@ val duplicatedFiles = Set(
   "scalac-plugin.xml"
 )
 
-/*
- * For now, we can't compile in strict mode because the Scala macros used for generating the JSon adapters
- * results in a compilation warning:
- *
- * Warning:(1, 0) Unused import
- * / *
- * ^
- *
- */
 lazy val core = Project("org-omg-oti-mof-schema", file("."))
   .enablePlugins(IMCEGitPlugin)
   .enablePlugins(IMCEReleasePlugin)

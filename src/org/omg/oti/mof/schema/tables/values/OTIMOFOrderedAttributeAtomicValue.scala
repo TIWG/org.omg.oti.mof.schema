@@ -36,23 +36,32 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.profile
+package org.omg.oti.mof.schema.tables.values
 
-import org.omg.oti.mof.schema.common.EntityUUID
-
+import org.omg.oti.mof.schema.common._
 import play.api.libs.json._
+import scala.{Int,Option,Some}
 
-import scala.Int
+case class OTIMOFOrderedAttributeAtomicValue
+(override val resource: ResourceIRI,
+ override val entity: EntityUUID,
+ override val attribute: EntityUUID,
+ value: AtomicValueRepresentation,
+ index: Int) extends OTIMOFEntityAttributeValue {
 
-case class Stereotype2Attribute
-(stereotype: EntityUUID,
- attribute: EntityUUID,
- index: Int )
+  override def getIndex = Some(index)
 
-object Stereotype2Attribute {
+  override def getAtomicValue = Some(value)
+
+  override def getEnumerationLiteralValue = Option.empty[EntityUUID]
+
+  override def getStructuredValue = Option.empty[EntityUUID]
+}
+
+object OTIMOFOrderedAttributeAtomicValue {
 
   implicit val formats
-  : Format[Stereotype2Attribute]
-  = Json.format[Stereotype2Attribute]
+  : Format[OTIMOFOrderedAttributeAtomicValue]
+  = Json.format[OTIMOFOrderedAttributeAtomicValue]
 
 }

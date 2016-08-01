@@ -39,6 +39,13 @@
 package org.omg.oti.mof.schema
 
 /**
+  * TODO: to be replaced with tables.metamodel
+  *
+  * These structures require a tree representation to specify the metamodel resource IRI
+  * for all entities, characteristics & relations.
+  * The structures in tables.metamodel all include the metamodel resource IRI; therefore they are independent of each
+  * other and have a flat, columnar representation.
+  *
   * An [[OTIMOFMetamodel]] is a resource whose [[OTIMOFMetamodelResourceExtent]] is a set of [[OTIMOFMetamodelItem]]s:
   *
   * Entities:

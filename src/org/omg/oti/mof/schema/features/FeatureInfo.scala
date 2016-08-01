@@ -38,8 +38,9 @@
  */
 package org.omg.oti.mof.schema.features
 
-import org.omg.oti.mof.schema.common.EntityUUID
+import org.omg.oti.mof.schema.common.{EntityUUID,ResourceIRI}
 
 trait FeatureInfo {
+  val resource: ResourceIRI
   val feature: EntityUUID
 }

@@ -36,33 +36,32 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package omgSpecifications
+package org.omg.oti.mof.schema.tables.values
 
 import org.omg.oti.mof.schema.common._
-import org.omg.oti.mof.schema._
-import org.omg.oti.mof.schema.library._
-import play.api.libs.json.Json
+import play.api.libs.json._
+import scala.{Int,Option,Some}
 
-import scala.collection.immutable._
+case class OTIMOFOrderedAttributeStructuredValueLink
+(override val resource: ResourceIRI,
+ override val entity: EntityUUID,
+ override val attribute: EntityUUID,
+ value: EntityUUID,
+ index: Int) extends OTIMOFEntityAttributeValue {
 
-object PrimitiveTypes {
+  override def getIndex = Some(index)
 
-  val primitiveTypesIRI = ResourceIRI("http://www.omg.org/spec/UML/20131001/PrimitiveTypes")
+  override def getAtomicValue = Option.empty[AtomicValueRepresentation]
 
-  val booleanPT = PrimitiveDataType(
-    EntityUUID("123"),
-    Name("Boolean"),
-    DatatypeAbbrevIRI("xsd:boolean") )
+  override def getEnumerationLiteralValue = Option.empty[EntityUUID]
 
-  val integerPT = PrimitiveDataType(
-    EntityUUID("456"),
-    Name("Integer"),
-    DatatypeAbbrevIRI("xsd:int") )
+  override def getStructuredValue = Some(value)
+}
 
+object OTIMOFOrderedAttributeStructuredValueLink {
 
-  val primitiveTypesExtent = OTIMOFLibraryResourceExtent(
-    resource = OTIMOFLibrary(primitiveTypesIRI),
-    classifiers = Vector(booleanPT, integerPT))
+  implicit val formats
+  : Format[OTIMOFOrderedAttributeStructuredValueLink]
+  = Json.format[OTIMOFOrderedAttributeStructuredValueLink]
 
-  val primitiveTypesJson = Json.toJson(primitiveTypesExtent)
 }

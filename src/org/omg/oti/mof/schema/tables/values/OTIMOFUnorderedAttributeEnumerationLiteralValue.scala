@@ -36,21 +36,31 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.tables.model
+package org.omg.oti.mof.schema.tables.values
 
 import org.omg.oti.mof.schema.common._
 import play.api.libs.json._
+import scala.{Int,Option,Some}
 
-case class OTIMOFModelElementUnorderedAttributeStructuredValueLink
-(resource: ResourceIRI,
- modelElement: EntityUUID,
- attribute: EntityUUID,
- value: EntityUUID)
+case class OTIMOFUnorderedAttributeEnumerationLiteralValue
+(override val resource: ResourceIRI,
+ override val entity: EntityUUID,
+ override val attribute: EntityUUID,
+ value: EntityUUID) extends OTIMOFEntityAttributeValue {
 
-object OTIMOFModelElementUnorderedAttributeStructuredValueLink {
+  override def getIndex = Option.empty[Int]
+
+  override def getAtomicValue = Option.empty[AtomicValueRepresentation]
+
+  override def getEnumerationLiteralValue = Some(value)
+
+  override def getStructuredValue = Option.empty[EntityUUID]
+}
+
+object OTIMOFUnorderedAttributeEnumerationLiteralValue {
 
   implicit val formats
-  : Format[OTIMOFModelElementUnorderedAttributeStructuredValueLink]
-  = Json.format[OTIMOFModelElementUnorderedAttributeStructuredValueLink]
+  : Format[OTIMOFUnorderedAttributeEnumerationLiteralValue]
+  = Json.format[OTIMOFUnorderedAttributeEnumerationLiteralValue]
 
 }
