@@ -121,7 +121,8 @@ Between 2010 and 2015, the value proposition of OMG's core modeling specificatio
 ns for the Model-Based Systems Engineering (MBSE) community of tool vendors
  and users improved dramatically from 2010 with MOF 2.0, UML 2.3, SysML 1.1
  and XMI 2.1.1 to 2015 with MOF 2.5, UML 2.5, SysML 1.4, XMI 2.5.1.
- Notable improvements include simplifying the reflective modeling architecture
+ As NASA's representative at the OMG, the author was a key contributor to
+ improvements made, including simplifying the reflective modeling architecture
  (UML is a metamodel defined in MOF, which is an extended subset of UML),
  mechanically verifying UML against MOF's well-formedness constraints, support
  for IEC/ISO 80000 metrology including dimensional analysis of quantity
@@ -301,18 +302,13 @@ s.
 \end_layout
 
 \begin_layout Enumerate
-In the graph of a UML Activity, the ActivityEdge metaclass represents a
- directed relationship from an ActivityNode to another.
-\end_layout
-
-\begin_layout Enumerate
 In the graph of a UML Interaction, the GeneralOrdering metaclass represents
  a directed relationship from an OccurrenceSpecification to another.
 \end_layout
 
 \begin_layout Enumerate
-In the graph of a UML Interaction, the Message metaclass represents a trace
- relationship between send and receive events.
+In the graph of a UML Activity, the ActivityEdge metaclass represents a
+ directed relationship from an ActivityNode to another.
 \end_layout
 
 \begin_layout Enumerate
@@ -322,126 +318,414 @@ In the graph of a UML StateMachine, the Transition metaclass represents
 \end_layout
 
 \begin_layout Enumerate
+In the graph of a UML Interaction, the Message metaclass represents a trace
+ relationship between send and receive events.
+\end_layout
+
+\begin_layout Enumerate
+In UML class diagrams, the Dependency metaclass represents a relationship
+ among client/supplier NamedElements.
+\end_layout
+
+\begin_layout Enumerate
 In the graph of a UML StructuredClassifier, the Connector metaclass represents
  a join relationship among ConnectorEnds.
 \end_layout
 
-\begin_layout Standard
-All five conceptual relationships are represented as a metaclasses with
- differerences in the way related entities are represented.
- For ActivityEdge (1) and GeneralOrdering (2), each related entity is represente
-d as an undirected association with non-derived class-owned association
- end properties.
- This is done differently for the other cases (3,4,5): The representation
- of the source and target vertices of a Transition (4) is closest to (1)
- and (2) except that the association end property typed by the relationship
- itself is derived in (4) compared to (1) and (2) where it isn't.
- The representation of the send and receive events of a Message (3) involves
- a directed association from the relationship metaclass (Message) to the
- related entity metaclass (MessageEnd).
- This is in contrast to (1,2,4) where the association is undirected.
- Finally, the representation of the related ConnectorEnds for a Connector
- (5) involves a single undiferentiated directed composite association unlike
- all other cases (1,2,3,4) where the relating association is non-composite.
- Although there are legitimate syntactic concerns behind the variability
- of these five cases, the lack of syntactic homogeneity in the way conceptual
- relationships are represented in the UML constitutes a significant source
- of metamodeling complexity.
+\begin_layout Enumerate
+In UML class diagrams, the Association metaclass represents an N-ary relationshi
+p among Classifiers.
 \end_layout
 
 \begin_layout Standard
-This paper argues that the root cause of metamodeling complexity stems from
- a design choice to provide support for syntactically representing characteristi
-cs of conceptual relationships that have subtle interdependencies:
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="3">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Metaclass
 \end_layout
 
-\begin_layout Itemize
-The syntactic variability of association end property ownership (association-own
-ed vs metaclass-owned) affects property subsetting and redefinition since
- the subsetting and redefinition contexts respectively are different in
- each case.
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Kind
 \end_layout
 
-\begin_layout Itemize
-Syntactically, property characteristics such as ownership, aggregation,
- derivation, subsetting and redefining are independent of each other.
- However, the syntactic coupling of properties as opposites of a binary
- association end forces subtle restrictions on well-formed syntactic variations.
- These subtilities were poorly understood from UML 2.0 until UML 2.3.
- A key goal of the MOF 2.4 and UML 2.4 revisions was to formalize the well-formedn
-ess constraints applicable to all MOF metamodels and to verify the well-formedne
-ss of UML 2.4.
- Achieving this goal involved hundreds of repairs; far too many to manually
- review so special tools were required to mechanically verify them.
- However, a subtle error slipped through all reviews that required an urgent
- fix and the publication of UML 2.4.1
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Conceptual Relationship Pattern
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gen.Ordering
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ne
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+D(before, after), -R, -B, +Op
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ActivityEdge
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Rf
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+D(source, target), -R, -B, +Op
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Transition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Rf, Ns
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+D(source, target), -R, -B, +Od
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Message
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ne
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+D(send/receiveEvent), +R(MessageEnd), -B, -O
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dependency
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ne, Rl
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+D(client, supplier), -R, -B, +Od, +Op
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Connector
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Rf, F
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S(end), +R(ConnectorEnd), +B(ConnectorEnd::role), +Od
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Association
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Rf, C, Rl
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S(memberEnd), +R(Property), +B(Property::type), -O
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Incoherent-modeling-of-relationships"
+
+\end_inset
+
+Incoherent modeling of conceptual relationships in the UML metamodel: kind
+ (Rf=Redefinable, Rl=Relationship, Ns=Namespace, Ne=NamedElement, F=Feature,
+ C=Classifier); relationship roles (D=distinct roles vs S=single ordered
+ role), +/-R=has role metaclass, +/-B=has role binding properties, +Op=related
+ metaclasses have opposite role properties, +Od=related metaclasses have
+ derived opposite roles, -O=related metaclasses do not have any opposite
+ role property
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Table
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Incoherent-modeling-of-relationships"
+
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+summarizes the characteristics of seven metaclasses intended to represent
+ conceptual relationships in UML.
+ Even though UML defines a Relationship metaclass, some conceptual relationships
+ are not a kind of UML Relationship! (cases 1-4, 6).
+ An intrinsic aspect of a conceptual relationship is to differentiate what
+ it relates; that is, the relationship roles
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-\begin_inset CommandInset href
-LatexCommand href
-target "https://blogs.msdn.microsoft.com/stevecook/2011/10/24/uml-2-4-1-now-released/"
-
-\end_inset
-
-
+Without roles, a conceptual relationship would degenerate to a conceptual
+ group of undifferentiated conceptual elements.
 \end_layout
 
 \end_inset
 
-:
-\end_layout
-
-\begin_deeper
-\begin_layout Quote
-When UML 2.4 was released we discovered an issue that meant it was impossible
- to interchange StructuredActivityNodes reliably.
- StructuredActivityNodes are executable nodes in an activity diagram that
- are also groups.
- UML 2.4 doesn’t specify clearly whether they should be serialized as nodes
- or as groups; as a consequence, different tools do different things.
- In UML 2.4.1 this ambiguity is remedied by serializing them in their own
- collection.
- UML 2.4.1 can be found at http://www.omg.org/spec/UML/2.4.1/ and all of the machine-r
-eadable files are at http://www.omg.org/spec/UML/20110701/.
-\end_layout
-
-\begin_layout Quote
-This is the first time in the history of UML that a complete machine-readable
- definition of the language is available online, defined as an instance
- of itself, and with no dangling references.
- Only of interest to UML aficionados maybe, but a milestone nonetheless.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-Surprisingly, although the OMG positioned MOF as an architecture for defining
- and managing metadata information, there is no evidence in the OMG specificatio
-ns to suggest that the proven principles of information modeling with the
- relational model were taken into consideration, if at all.
+.
+ Such roles are represented in two ways: as a combination of distinct role
+ properties (D) without role binding (-B) (see cases 1-5) or as a combination
+ of a single ordered role (S) with role metaclass (R) and role binding (B)
+ (see cases 6,7).
+ Additionally, there is considerable variation in the way opposite roles
+ are modeled (or not) (see +Op, Od, -O), even for a single conceptual relationsh
+ip! (see Dependency which has +Od, +Op).
  
 \end_layout
 
 \begin_layout Standard
-This paper departs from the traditional object-oriented modeling & programming
- perspective that influenced the original definition of UML1 and the major
- revision in UML2.
- Notwithstanding considerations of normalization in relational modeling
- as a pragmatic criteria for simplifying the current MOF paradigm, there
- is plenty of historical evidence in the records of OMG task forces about
- the difficulties encountered in understanding the particular patterns of
- fundamental constructs used in specifying a metamodel or a profile and
- in correcting errors due to differences between the intended and the actual
- meaning of the abstract syntax according to the OMG task force vs.
- the patterns of MOF fundamental constructs used.
- Historically, the cost of finding and correcting these discrepancies has
+This analysis of only 7 out of 242 metaclasses highlights significant problems
+ in UML: mismatch between intent and definition; hetereogeneous syntactic
+ pattern representations; and heterogeneous terminological descriptions
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+A GeneralOrdering represents a binary relation...; An ActivityEdge is an abstract
+ class for directed connections...; A Transition represents and arc....; A Message
+ defines a particular communication between...; A Dependency is a Relationship....;
+ A Connector specifies links...; An Association classifies a set of links...
+ A link is a tuple of values...
+\end_layout
+
+\end_inset
+
+.
+ Such problems are clearly undesirable characteristics of languages -- programmi
+ng or modeling -- because they increase the complexity of the language.
+ Defining programming languages in terms of grammars for their syntax and
+ of type systems for their semantics has been enormously helpful for improving
+ programming languages.
+ 
+\end_layout
+
+\begin_layout Standard
+Some problems of conceptual mismatches and syntactical heterogeneity date
+ back to UML 1.0 (e.g., Message, Transition) and persist two decades later
+ in UML 2.5; other problems were introduced in the major UML 2.0 revision
+ a decade ago (e.g.
+ Connector, GeneralOrdering).
+ The fact that these problems involve a relatively small set of syntactic
+ constructs for metamodeling (Class, Property, Association, Generalization)
+ indicates that MOF-based metamodeling (including OCL) has been and remains
+ ineffective for designing metamodels compared to the techniques used for
+ designing programming languages, in particular, language grammars and type
+ systems.
+ Poor choice of syntactic terminology in UML further exacerbates these problems.
+ For example, the conceptual relationship of 'typing' is well understood
+ in programming languages; however, in UML, type is a homonym for two different
+ kinds of relationships with different semantics: the 'type' of a TypedElement
+ (e.g.
+ Property) is a Type (e.g.
+ Class, Association) and the 'type' of a Connector is an Association; however,
+ a Connector is not a kind of TypedElement.
+ The root cause of these problems stems from a small set of metamodeling
+ constructs that can be combined into many syntactic patterns that in turn
+ have been used for similar yet subtly different conceptual or semantic
+ purposes; that is, excessive syntactic complexity.
+ Records of issue resolutions from OMG task forces provide ample historical
+ evidence about this complexity including difficulties encountered with
+ subtle variations in these patterns and with correcting mismatches between
+ intent and definition.
+ 
+\end_layout
+
+\begin_layout Standard
+Historically, the cost of finding and correcting these discrepancies has
  been very high in terms of the man/years of effort by OMG task forces and
  by tool vendors implementing revisions of OMG specifications.
  Experience suggests that the current OMG processes for revising OMG specificati
 ons incur significant missed opportunity costs because of the lack of pragmatic
  rigor in exploiting modern computer science techniques for rigorous specificati
-on development, for example:
+on development, in particular:
 \end_layout
 
 \begin_layout Itemize
@@ -451,9 +735,35 @@ Formal methods help ensure that a system behaves according to its specification.
 
 \begin_deeper
 \begin_layout Standard
-How about verifying that a system (e.g.
- an implementation of a modeling language like the UML) behaves according
- to its specification (e.g., the OMG UML abstract syntax metamodel)?
+OMG modeling specifications define conformance criteria that amount to well-form
+edness criteria; they do not define any kind of behavior that an implementation
+ must conform to such as parsing or serializing models to/from external
+ representations.
+ Programming languages typically have only one concrete syntax and the grammar
+ specifies the parsing from concrete to abstract syntax.
+ A modeling language can have multiple concrete syntaxes; consequently,
+ parsing & serialization should be specified and tested.
+ This has never been done at the OMG, not even for XMI! However, it has
+ been done for W3C's OWL2 Structural Specification, a descriptive modeling
+ language
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+See 
+\begin_inset CommandInset href
+LatexCommand href
+name "http://www.w3.org/TR/owl2-syntax/#Canonical_Parsing_of_OWL_2_Ontologies"
+target "http://www.w3.org/TR/owl2-syntax/#Canonical_Parsing_of_OWL_2_Ontologies"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \end_deeper
@@ -485,33 +795,20 @@ The OMG publishes several modeling specifications with executable semantics
 
 \end_deeper
 \begin_layout Standard
-In particular, it is noteworthy to emphasize that the OMG publication process
- requires every OMG modeling specification to specify criteria of conformance
- to the specification.
+The OMG publication process requires every OMG modeling specification to
+ specify criteria of conformance to the specification.
  Such criteria pertain to notions of abstract and concrete syntax, model
  interchange, diagram interchange and semantics.
- Historically, this process requirement has received very little attention
- from the computer science community.
- In particular, even though every OMG modeling specification includes some
- kind of abstract syntax conformance criteria, none do so in terms of a
- specification for the program interface of a system implemention.
- This paper contributes to bridging this gap on two levels:
-\end_layout
-
-\begin_layout Enumerate
-Defining an Application Program Interface (API) for a simplified OMG's MOF
- 2.5 based on a normalized relational model.
+ Historically, these process requirements have been poorly effective because
+ the OMG modeling architecture provides no standard interoperable way to
+ represent the syntax of an arbitrary model in an arbitrary modeling language
+ and consequently no implementation-neutral way to assess the conformance
+ an implementation to an OMG specification.
+ This paper proposes starting with breaking the reflective language definition
+ paradigm adopted for UML and MOF.
+ This requires a drastic simplification and refactoring of the fundamental
+ constructs for metamodeling.
  
-\end_layout
-
-\begin_layout Enumerate
-Generating an Application Program Interface (API) from the simplified MOF
- abstract syntax metamodel of OMG UML 2.5.
-\end_layout
-
-\begin_layout Standard
-The first step towards bridging the gap between the OMG and computer science
- culture is simplifying OMG's MOF 2.5
 \end_layout
 
 \begin_layout Section
@@ -534,13 +831,12 @@ Which of the three concepts is redundant?
 \end_layout
 
 \begin_layout Standard
-Having established the redundancy of MOF Class, MOF Association and MOF
- Property for defining metamodels, which of these three can be eliminated?
- MOF Class is a first-class concept in metamodels because every element
- in a model must be an instance of at least one (meta)class defined in the
- metamodel that the model conforms to.
- Historically, there's been much debated about which of MOF Property and
- of MOF Association needs first-class status.
+The MOF concepts of Class, Association and Property are redundant for defining
+ metamodels.
+ Which of these three can be eliminated? MOF Class is a first-class concept
+ in metamodels: every element in a model must be an instance of at least
+ one metaclass defined in a metamodel that the model conforms to.
+ It is debatable whether MOF Property or Association needs first-class status.
  MOF Property is a first-class concept in the Eclipse Modeling Framework
  (EMF).
  However, full support for binary MOF Associations requires a suitable EMF
@@ -552,6 +848,10 @@ Having established the redundancy of MOF Class, MOF Association and MOF
  EMF directly supports case (1) only: metaclass-owned association end properties
  are represented as opposite EMF
 \family typewriter
+
+\begin_inset space \space{}
+\end_inset
+
 EReferences
 \family default
  to update the opposite when one end is updated.
@@ -563,10 +863,18 @@ EReferences
  Since full association support depends on EMF code generation techniques,
  navigating models using the EMF
 \family typewriter
+
+\begin_inset space \space{}
+\end_inset
+
 EObject
 \family default
  and
 \family typewriter
+
+\begin_inset space \space{}
+\end_inset
+
 EReference
 \family default
  API is limited to the first case only.
@@ -601,8 +909,8 @@ key "EMF"
 , the above analysis should suffice to claim that EMF is insufficient for
  code-generation agnostic API-based navigation of models according to all
  three cases of Complete MOF (CMOF) binary associations.
- Therefore, one must conclude that class+association are first-class concepts
- and that property isn't.
+ Therefore, one must conclude that EMF's choice of class+property as first-class
+ concepts turns out to be insufficient for CMOF metamodeling.
 \end_layout
 
 \begin_layout Subsection
@@ -616,8 +924,8 @@ Deconstructing the concept of CMOF property
 \end_layout
 
 \begin_layout Standard
-MOF Property is not a first-class concept because it lacks conceptual unity.
- Indeed, a property can play different roles in a CMOF metamodel.
+MOF Property lacks conceptual unity: a property can play different roles
+ in a CMOF metamodel.
  In the absence of an official terminology, the terms used in this paper
  are underlined:
 \end_layout
@@ -629,20 +937,20 @@ name "enu:attribute"
 
 \end_inset
 
-A metaclass or datatype
+An 
 \bar under
 attribute
 \bar default
-.
+ of a metaclass or datatype.
 \end_layout
 
 \begin_deeper
 \begin_layout Standard
-An important simplification of current OMG practices is a clean separation
- of datatype libraries as a kind of model that can be used in other kinds
- of non-library models, i.e.
- metamodels, profiles and models that are instances of metamodels possibly
- extended with profiles.
+(
+\family typewriter
+type
+\family default
+ is a datatype)
 \end_layout
 
 \end_deeper
@@ -653,7 +961,7 @@ name "enu:associationEnd"
 
 \end_inset
 
-A binary association
+A binary association 
 \bar under
 end
 \bar default
@@ -668,7 +976,7 @@ type
 \family default
  is a metaclass;
 \family typewriter
-aggregation=none|composite
+ aggregation=none|composite
 \family default
 ;
 \family typewriter
@@ -680,25 +988,30 @@ isID=false
 \begin_layout Standard
 Since ends are an essential part of the definition of an association, the
  concept of MOF binary association is augmented to include the relevant
- characteristics of both ends (i.e.,
+ characteristics of both ends
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+(i.e.,
 \family typewriter
-type
+ type
 \family default
 ,
 \family typewriter
-lowerValue
+ lowerValue
 \family default
 ,
 \family typewriter
-upperValue
+ upperValue
 \family default
 ,
 \family typewriter
-isOrdered
+ isOrdered
 \family default
 ,
 \family typewriter
-isUnique
+ isUnique
 \family default
 ,
 \family typewriter
@@ -706,11 +1019,11 @@ isUnique
 \family default
 ,
 \family typewriter
-isDerivedUnion
+ isDerivedUnion
 \family default
 ,
 \family typewriter
-isReadOnly
+ isReadOnly
 \family default
 ,
 \family typewriter
@@ -722,9 +1035,14 @@ isReadOnly
 \family default
 , and
 \family typewriter
-redefinedProperty
+ redefinedProperty
 \family default
 ).
+\end_layout
+
+\end_inset
+
+.
  Note that the last three characteristics are coupled between the two ends
 \begin_inset Foot
 status open
@@ -752,6 +1070,10 @@ aggregation
 \family default
 : Only one end may be
 \family typewriter
+
+\begin_inset space \space{}
+\end_inset
+
 composite
 \family default
 .
@@ -790,7 +1112,7 @@ Symmetric subsetting means that link instances of an association with subsetting
 
 \end_deeper
 \begin_layout Enumerate
-A metaclass
+A metaclass 
 \bar under
 property
 \bar default
@@ -854,10 +1176,6 @@ Simplified CMOF metamodel.
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -875,14 +1193,22 @@ key "UML 2.5"
 
 .
  Historically, this redundancy was rationalized on the basis that the operation
- query enables specifying the OCL rule while the association end property
- enables specifying the availability of the derived property.
- This redundancy creates unecessary confusion where a derived association
- has a derived metaclass-owned but a non-derived association-owned end!
- Since nagivation is irrelevant for the purposes of OCL, it makes sense
- to treat such associations as if both ends are metaclass-owned and derived.
- Then, instead of duplicating each derived end with a corresponding operation
- query, it makes sense to delete the association altogether.
+ query enables specifying the derivation rule in OCL while the association
+ end property enables specifying the availability of the derived property.
+ This redundancy also creates confusion: a derived association has both
+ a derived metaclass-owned end (e.g.
+ 
+\family typewriter
+Classifier::/inheritedMember
+\family default
+) and a non-derived association-owned end! Since a derived association are
+ intended to provide notation for derived OCL queries, it makes sense to
+ eliminate the redundant derived associations (e.g.
+ 
+\family typewriter
+Classifier::/inheritedMember
+\family default
+) , keeping only the OCL derived queries.
  Figure
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1183,7 +1509,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename Resources.svg
-	width 7cm
+	width 5.5cm
 	height 10cm
 	keepAspectRatio
 
@@ -1949,6 +2275,15 @@ key "SMOF 1.0 FTF beta2"
 .
  SMOF-like multiple classification is supported with multiple ModelElements
  for the same uuid, one for each classifying metaclass.
+ A Scala implementation of the normalized schemas is available at 
+\begin_inset CommandInset href
+LatexCommand href
+name "https://github.com/TIWG/org.omg.oti.mof.schema"
+target "https://github.com/TIWG/org.omg.oti.mof.schema"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1987,7 +2322,7 @@ retire 'Model Interchange Using CORBA IDL' as an adopted technology because
  As part of the 2.0 major revision, the OMG also switched from XML DTDs to
  XML Schema to support validating models serialized as XML Documents against
  their metamodel XML Schemas.
- Several factors contribute to persistent probems of poor model interchange
+ Several factors contribute to persistent problems of poor model interchange
  with XMI: the document production rules specified in English and BNF allowed
  for many serialization options that increased the complexity of XMI implementat
 ions to recognize them when loading XMI documents produced from other tools;
@@ -2059,7 +2394,7 @@ key "RTED"
 
  that is impractical for large models with millions of elements.
  Comparing normalized tables reduces is computationally reasonable thanks
- to a worst-case superlinear runtime complexity that should remain practical
+ to a worst-case super-linear runtime complexity that should remain practical
  even for models with billions of elements (rows)
 \begin_inset space \thinspace{}
 \end_inset
@@ -2097,18 +2432,19 @@ ng basic element cross references has been a significant source of poor
  the distinction for local vs.
  cross references and the options for representing them because all elements
  are referenced, locally or externally, via their uuid.
- The fact that cross references are represented uniformely regardless of
+ The fact that cross references are represented uniformly regardless of
  whether they are local or not means that the representation of the normalized
  serialization is independent of its organization in one or multiple documents.
  The fact that the normalized serialization produces tabular data without
  empty columns means that it is possible to take advantage of modern data
  analytics frameworks for processing model data because the form and content
- of normalized tabular data is indepedent of how it is organized in terms
+ of normalized tabular data is independent of how it is organized in terms
  of documents.
  This is a significant advantage compared to OMG's XMI tree-based serialization
  where the form and content of the serialized representation depends on
  its organization in terms of one or more documents and on their location
  and vice-versa.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -2290,14 +2626,19 @@ An abstract syntax API provides support for creating, deleting, updating
  and navigating across model elements and data according to metaclasses,
  stereotypes, associations and datatypes defined in metamodels, profiles
  and libraries.
- Such APIs are particularly important for model query (e.g.
- OCL) and transformation (e.g QVT) because they enable expressing queries
- and transformations in terms of the entities (metaclasses), relationships
- (associations, properties) and operations defined in the abstract syntax.
+ The MOF Abstract Semantics chapter is the closest specification available
+ from the OMG for such APIs, which are the basis for higher-level APIs for
+ model query (e.g.
+ OCL) and transformation (e.g QVT).
+ The operational nature of MOF Abstract Semantics, OCL and QVT should enable
+ the OMG to modernize their specification with modern program development
+ techniques for library design, unit testing and integration.
+ Some of this is already underway thanks to the programming-language centric
+ development process used for the Eclipse OCL & QVT implementations.
 \end_layout
 
 \begin_layout Itemize
-A normalized schema data API provide support for internally representing
+A normalized schema data API provides support for internally representing
  the information content of a model at an API level independently of its
  external representation in one of possibly multiple serializations (e.g.
  XMI, RDF, OWL, Json, CSV, ...).
@@ -2324,24 +2665,21 @@ key "NFGuide"
 \end_inset
 
 .
- Normalized schemas for the information content of libraries, metamodels,
- profiles and models enables separating the functional concerns of modeling
- (via abstract syntax APIs) from the information content concerns of model
- interchange via serialization to/from external representations such as
- XML, XMI, RDF, OWL, Json, CSV, etc.
  Normalization yields tables where each column corresponds to an essential
  characteristic (a primary key, a foreign key, an attribute); which in turns
  simplifies serialization matters because there are no optional values and
  no nulls.
+ 
 \end_layout
 
 \begin_layout Standard
-Metamodeling frameworks like EMF provide supprot for generating abstract
+Metamodeling frameworks like EMF provide support for generating abstract
  syntax APIs (and implementations) from metamodels and profiles (e.g., the
  Eclipse UML tooling).
  It is likely that OMG's emphasis on XMI Schemas in the major 2.0 revision
- of MOF, UML and XMI is responsible for demphasizing the importance of specifyin
-g the information content of models explicitly as is done in this paper.
+ of MOF, UML and XMI is responsible for deemphasizing the importance of
+ specifying the information content of models explicitly as is done in this
+ paper.
  A significant advantage of the normalized schema APIs described in this
  paper stems from the possibility of leveraging modern data processing framework
 s like Apache Spark for scaling up complex model transformation workflows
@@ -2453,6 +2791,7 @@ This paper makes three significant contributions towards addressing significant
  Third, the paper only sketched a promising area for future work: leveraging
  powerful data analytics platforms for scaling up complex modeling workflows
  thanks to the affinity of normalized schemas for optimization and concurrency.
+ 
 \end_layout
 
 \begin_layout Section*
@@ -2477,7 +2816,7 @@ The author expresses gratitude to many colleagues at the Jet Propulsion
  Laboratory's Integrated Model-Centric Engineering project and the Laboratory
  for Reliable Software, in particular, M.
  Elaasar, K.
- Havelind, S.
+ Havelund, S.
  Herzig, S.
  Jenkins and R.
  Kumar, and to many current and past task force colleagues at the Object
