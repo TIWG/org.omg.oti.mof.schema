@@ -42,11 +42,15 @@ import play.api.libs.json._
 import org.omg.oti.mof.schema.common.{EntityUUID,ResourceIRI}
 
 /**
-  * A relation specifying the [[org.omg.oti.mof.schema.library.DatatypeClassifier]] typing
+  * A relation specifying the [[org.omg.oti.mof.schema.tables.library.OTIMOFEnumerationDataType]] or
+  * [[org.omg.oti.mof.schema.tables.library.OTIMOFPrimitiveDataType]] or
+  * [[org.omg.oti.mof.schema.tables.library.OTIMOFStructuredDataType]] typing
   * a [[DataTypedAttributeProperty]]
   *
   * @param attribute A [[DataTypedAttributeProperty]]
-  * @param `type` A [[org.omg.oti.mof.schema.library.DatatypeClassifier]]
+  * @param `type` A [[org.omg.oti.mof.schema.tables.library.OTIMOFEnumerationDataType]] or
+  *               [[org.omg.oti.mof.schema.tables.library.OTIMOFPrimitiveDataType]] or
+  *               [[org.omg.oti.mof.schema.tables.library.OTIMOFStructuredDataType]]
   * @group Attribute
   */
 case class AttributeProperty2DataType

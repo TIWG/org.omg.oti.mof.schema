@@ -47,8 +47,8 @@ import play.api.libs.json._
   * an importing UML Profile of an OTI Profile resource
   * to the imported UML Profile of an OTI Profile resource.
   *
-  * @param importingProfile The importing [[OTIMOFProfile]]
-  * @param importedProfile The imported [[OTIMOFProfile]]
+  * @param importingProfile The importing [[OTIMOFProfileTables]]
+  * @param importedProfile The imported [[OTIMOFProfileTables]]
   * @group profile
   */
 case class OTIMOFResourceProfileImport

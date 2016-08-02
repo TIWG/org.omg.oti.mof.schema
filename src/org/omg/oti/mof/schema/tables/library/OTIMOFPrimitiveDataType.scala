@@ -42,10 +42,11 @@ import org.omg.oti.mof.schema.common._
 import play.api.libs.json._
 
 case class OTIMOFPrimitiveDataType
-(resource: ResourceIRI,
- uuid: EntityUUID,
- name: Name,
+(override val resource: ResourceIRI,
+ override val uuid: EntityUUID,
+ override val name: Name,
  datatypeMapDefinition: DatatypeAbbrevIRI)
+  extends OTIMOFLibraryClassifier
 
 object OTIMOFPrimitiveDataType {
 

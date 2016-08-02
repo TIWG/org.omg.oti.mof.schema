@@ -50,7 +50,7 @@ case class AssociationEndInfo
   lower: NonNegativeInt,
   upper: UnlimitedNatural,
   isOrdered: Boolean,
-  metaclassType: metamodel.MetaClass )
+  metaclassType: tables.metamodel.OTIMOFMetaClass )
 
 object AssociationEndInfo {
 

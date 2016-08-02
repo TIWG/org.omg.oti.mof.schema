@@ -46,24 +46,14 @@ import org.omg.oti.mof.schema.common._
 import scala.Predef.String
 
 /**
-  * A feature typed by a [[org.omg.oti.mof.schema.library.DatatypeClassifier]]
+  * A feature typed by
+  * a [[org.omg.oti.mof.schema.tables.library.OTIMOFEnumerationDataType]] or
+  * [[org.omg.oti.mof.schema.tables.library.OTIMOFPrimitiveDataType]] or
+  * [[org.omg.oti.mof.schema.tables.library.OTIMOFStructuredDataType]]
   * @group Base
   */
 sealed trait DataTypedFeature
   extends Feature
-
-/**
-  * An enumeration literal feature
-  *
-  * @param uuid The primary key of the enumeration literal
-  * @param name The name of the enumeration literal
-  * @group EnumLit
-  */
-case class EnumerationLiteral
-( override val resource: ResourceIRI,
-  override val uuid: EntityUUID,
-  override val name: Name )
-  extends DataTypedFeature
 
 /**
   * A datatyped attribute property

@@ -38,7 +38,7 @@
  */
 package org.omg.oti.mof.schema
 
-import org.omg.oti.mof.schema.common.ResourceIRI
+import org.omg.oti.mof.schema.common.{EntityUUID,ResourceIRI}
 
 import play.api.libs.json._
 
@@ -47,13 +47,13 @@ import play.api.libs.json._
   * the applying model UML Package of an OTI Model resource
   * to the applied UML Profile of an OTI Profile resource.
   *
-  * @param applyingModel The applying [[OTIMOFModel]]
-  * @param appliedProfile The applied [[OTIMOFProfile]]
   * @group model
   */
 case class OTIMOFResourceModelAppliedProfile
-( applyingModel: ResourceIRI,
-  appliedProfile: ResourceIRI )
+( applyingResource: ResourceIRI,
+  applyingPackage: EntityUUID,
+  appliedResource: ResourceIRI,
+  appliedProfile: EntityUUID)
 
 /**
   * @group model

@@ -46,7 +46,7 @@ import org.omg.oti.mof.schema.common.ResourceIRI
   * the imported UML Package of an OTI MOF Library resource.
   *
   * @param importingResource The importing [[OTIMOFResource]]
-  * @param importedLibrary The imported [[OTIMOFLibrary]]
+  * @param importedLibrary The imported [[OTIMOFLibraryTables]]
   * @group resources
   */
 case class OTIMOFResourceLibraryImport

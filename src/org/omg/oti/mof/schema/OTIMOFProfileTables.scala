@@ -41,8 +41,49 @@ package org.omg.oti.mof.schema
 import org.omg.oti.mof.schema.tables.OTIMOFResourceType
 import scala.collection.immutable.Iterable
 
+
+/**
+  * A resource corresponding to a restricted OMG MOF profile.
+  * The restrictions are:
+  *   - An OTI MOF Profile can only define Stereotypes and Stereotype associations
+  *
+  *     In an OMG MOF Profile, it is possible to define datatypes and classes.
+  *     In OTI MOF, a profile-defined datatype must be defined in an OTI MOF Library instead.
+  *     OTI MOF does not support profile-defined classes because this capability is too under-specified in
+  *     OMG UML 2.5 and, in practice, very seldom used.
+  *
+  *   - An OTI MOF Profile can only be applied to an OTI MOF Model.
+  *
+  *     An OMG MOF Profile extension of the OMG UML metamodel can be applied to any UML "model",
+  *     including a "model" of the UML metamodel itself, of a profile or of a user-defined model.
+  *     Applying a profile to a metamodel or to a package library of datatype definitions does not have
+  *     any semantics that affects the models that instiate this metamodel or that have attrbute values
+  *     typed by such datatype definitions.
+  *
+  *     OTI MOF is only concerned with semantically-relevant profile application relationships.
+  *     There is only one such case: that of applying a profile to a model.
+  *
+  * @group profile
+  *
+  * @param resourceType Identifies one or more profile
+  * @param extendedMetamodels Extended metamodels
+  * @param importedProfiles Imported profiles
+  * @param importedLibraries Imported libraries
+  * @param stereotypes Stereotypes defined
+  * @param generalizations Generalizations among stereotypes
+  * @param extendedMetaclasses Metaclasses extended by stereotypes
+  * @param stereotypeAttributes Relates a stereotype to an attribute property
+  * @param stereotype2MetaClassProperty Relates a stereotype to a property typed by a metaclasses
+  * @param stereotype2StereotypeProperty Relates a stereotype to a property typed by stereotypes
+  * @param associationTargetEnds Defines an association target ends property of a stereotype
+  * @param attributes Defines a attribute of a stereotype
+  * @param featureLowerBounds The lower bound of a stereotype feature (attribute or property)
+  * @param featureUpperBounds The upper bound of a stereotype feature (attribute or property)
+  * @param featureOrdering The ordering a stereotype feature (attribute or property)
+  * @param attribute2type Relates a stereotype attribute to its type (a library datatype)
+  */
 case class OTIMOFProfileTables
-(resourceType: Iterable[OTIMOFResourceType],
+(override val resourceType: Iterable[OTIMOFResourceType],
  extendedMetamodels: Iterable[tables.profile.OTIMOFProfile2ExtendedMetamodel],
  importedProfiles: Iterable[OTIMOFResourceProfileImport],
  importedLibraries: Iterable[OTIMOFResourceLibraryImport],
@@ -59,7 +100,8 @@ case class OTIMOFProfileTables
  featureLowerBounds: Iterable[features.FeatureLowerBound],
  featureUpperBounds: Iterable[features.FeatureUpperBound],
  featureOrdering: Iterable[features.FeatureOrdering],
- attribute2type: Iterable[features.AttributeProperty2DataType]) {
+ attribute2type: Iterable[features.AttributeProperty2DataType])
+  extends OTIMOFResourceTables {
 
   def append(other: OTIMOFProfileTables)
   : OTIMOFProfileTables

@@ -42,9 +42,10 @@ import org.omg.oti.mof.schema.common._
 import play.api.libs.json._
 
 case class OTIMOFStructuredDataType
-(resource: ResourceIRI,
- uuid: EntityUUID,
- name: Name)
+(override val resource: ResourceIRI,
+ override val uuid: EntityUUID,
+ override val name: Name)
+  extends OTIMOFLibraryClassifier
 
 object OTIMOFStructuredDataType {
 

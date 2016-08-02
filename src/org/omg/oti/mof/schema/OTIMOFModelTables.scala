@@ -42,7 +42,7 @@ import org.omg.oti.mof.schema.tables.OTIMOFResourceType
 import scala.collection.immutable.Iterable
 
 case class OTIMOFModelTables
-(resourceType: Iterable[OTIMOFResourceType],
+(override val resourceType: Iterable[OTIMOFResourceType],
  instantiatedMetamodels: Iterable[OTIMOFResourceInstantiatedMetamodel],
  appliedProfiles: Iterable[OTIMOFResourceModelAppliedProfile],
  elements: Iterable[tables.model.OTMOFModelElement],
@@ -58,7 +58,8 @@ case class OTIMOFModelTables
  orderedStereotypeReferences: Iterable[tables.model.OTIMOFAppliedStereotypePropertyOrderedReference],
  unorderedStereotypeReferences: Iterable[tables.model.OTIMOFAppliedStereotypePropertyUnorderedReference],
  orderedLinks: Iterable[tables.model.OTIMOFModelOrderedLink],
- unorderedLinks: Iterable[tables.model.OTIMOFModelUnorderedLink]) {
+ unorderedLinks: Iterable[tables.model.OTIMOFModelUnorderedLink])
+  extends OTIMOFResourceTables {
 
   def append(other: OTIMOFModelTables)
   : OTIMOFModelTables
