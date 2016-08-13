@@ -36,16 +36,41 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema
+package org.omg.oti.mof.runtime.metamodel
 
-import play.api.libs.json._
-import scala.StringContext
-import scala.Predef.String
+import org.omg.oti.mof._
 
-case class TableLoadException(message: String, jsError: JsError)
-extends java.lang.IllegalArgumentException(message) {
+import scala.collection.immutable._
+import scala.collection.Iterable
+import scala.Int
 
-  override def getMessage: String =
-    s"TableLoadException:\n"+ message + Json.stringify(JsError.toJson(jsError))
+case class SourceOrderedReferenceAssociation[S <: runtime.model.ModelElement, US >: S, T <: runtime.model.ModelElement, UT >: T]
+( override val metaAssociation: runtime.metamodel.MetaAssociation[S, US, T, UT, runtime.model.ModelOrderedLink[S, T]] )
+  extends Association[S,US,T,UT, runtime.model.ModelOrderedLink[S, T]] {
+
+  override def hashCode(): Int
+  = metaAssociation.hashCode()
+
+  /**
+    * @usecase 1
+                MagicDrawUMLOccurrenceSpecification.scala  (1 usage found)
+                    F:A_covered_events.queryIterable
+
+    * @return
+    */
+  def queryIterable(source: S)
+  : Iterable[UT]
+  = scala.Predef.???
+
+  /**
+    * @usecase 1
+                MagicDrawUMLLifeline.scala  (1 usage found)
+                    R:A_covered_events.queryOppositeOrdered
+
+    * @return
+    */
+  def queryOppositeOrdered(target: T)
+  : Seq[US]
+  = scala.Predef.???
 
 }

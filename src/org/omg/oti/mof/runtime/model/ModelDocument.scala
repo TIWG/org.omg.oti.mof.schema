@@ -36,16 +36,54 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema
+package org.omg.oti.mof.runtime.model
 
-import play.api.libs.json._
-import scala.StringContext
-import scala.Predef.String
+import org.omg.oti.mof._
+import scala.collection._
+import scala.{Int,Option,Unit}
 
-case class TableLoadException(message: String, jsError: JsError)
-extends java.lang.IllegalArgumentException(message) {
+case class ModelDocument
+( resource: schema.common.ResourceIRI,
+  store: runtime.ResourceStore ) {
 
-  override def getMessage: String =
-    s"TableLoadException:\n"+ message + Json.stringify(JsError.toJson(jsError))
+  protected val elements = mutable.HashMap[schema.common.EntityUUID, ModelElement]()
+
+  def addElements(es: Iterable[(schema.common.EntityUUID, ModelElement)])
+  : Unit
+  = {
+    elements ++= es
+    store.addElements(es)
+    ()
+  }
+
+  def lookupElement(uuid: schema.common.EntityUUID)
+  : Option[ModelElement]
+  = elements.get(uuid)
+
+  def elementCount: Int = elements.size
+
+  protected val orderedLinks = mutable.ListBuffer[runtime.ResourceStore.AnyModelOrderedLink]()
+
+  def addOrderedLinks(os: Iterable[runtime.ResourceStore.AnyModelOrderedLink])
+  : Unit
+  = {
+    orderedLinks ++= os
+    store.addOrderedLinks(os)
+    ()
+  }
+
+  def orderedLinkCount: Int = orderedLinks.size
+
+  protected val unorderedLinks = mutable.ListBuffer[runtime.ResourceStore.AnyModelUnorderedLink]()
+
+  def addUnorderedLinks(os: Iterable[runtime.ResourceStore.AnyModelUnorderedLink])
+  : Unit
+  = {
+    unorderedLinks ++= os
+    store.addUnorderedLinks(os)
+    ()
+  }
+
+  def unorderedLinkCount: Int = unorderedLinks.size
 
 }

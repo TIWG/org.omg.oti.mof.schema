@@ -36,16 +36,20 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema
+package org.omg.oti.mof.schema.tables.model
 
+import org.omg.oti.mof.schema.common._
 import play.api.libs.json._
-import scala.StringContext
-import scala.Predef.String
 
-case class TableLoadException(message: String, jsError: JsError)
-extends java.lang.IllegalArgumentException(message) {
+case class OTIMOFModelElement
+(resource: ResourceIRI,
+ uuid: EntityUUID,
+ metaClass: EntityUUID)
 
-  override def getMessage: String =
-    s"TableLoadException:\n"+ message + Json.stringify(JsError.toJson(jsError))
+object OTIMOFModelElement {
+
+  implicit val formats
+  : Format[OTIMOFModelElement]
+  = Json.format[OTIMOFModelElement]
 
 }

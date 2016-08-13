@@ -36,16 +36,35 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema
+package org.omg.oti.mof.runtime.model
 
-import play.api.libs.json._
-import scala.StringContext
-import scala.Predef.String
+import org.omg.oti._
+import scala.collection.immutable._
+import scala.{Enumeration,Option,Unit}
 
-case class TableLoadException(message: String, jsError: JsError)
-extends java.lang.IllegalArgumentException(message) {
+case class UnorderedEnumerationAttribute[T <: Enumeration#Value]
+( f: mof.schema.views.DataTypedAttributeInfo ) {
 
-  override def getMessage: String =
-    s"TableLoadException:\n"+ message + Json.stringify(JsError.toJson(jsError))
+  def addValue
+  (value: mof.schema.tables.values.OTIMOFUnorderedAttributeEnumerationLiteralValue)
+  : Unit
+  = scala.Predef.???
+
+  def removeValue
+  (value: mof.schema.tables.values.OTIMOFUnorderedAttributeEnumerationLiteralValue)
+  : Unit
+  = scala.Predef.???
+
+  def queryOptional(e: ModelElement)
+  : Option[T]
+  = scala.Predef.???
+
+  def queryRequired(e: ModelElement)
+  : T
+  = scala.Predef.???
+
+  def queryUnordered(e: ModelElement)
+  : Set[T]
+  = scala.Predef.???
 
 }

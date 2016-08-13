@@ -36,20 +36,55 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.tables.model
+package org.omg.oti.mof.schema
 
-import org.omg.oti.mof.schema.common._
-import play.api.libs.json._
+import scala.collection.GenTraversable
+import scala.collection.generic.CanBuildFrom
+import scala.PartialFunction
 
-case class OTMOFModelElement
-(resource: ResourceIRI,
- uuid: EntityUUID,
- metaClass: EntityUUID)
+/**
+  * OCL-like select (filter) + collect (downcast)
+  *
+  * OCL:
+  * {{{
+  * s->select(oclIsKindOf(V))->collect(oclAsType(V))
+  * }}}
+  *
+  * Scala:
+  *
+  * {{{
+  * import Utils.selectable
+  *
+  * s.select { case v: V => v }
+  * }}}
+  *
+  * @param s A collection of type C[U]
+  * @tparam U A type of elements
+  * @tparam C A collection type
+  */
+class Selectable[U, C[X <: U] <: GenTraversable[X]](s: C[U]) {
 
-object OTMOFModelElement {
+  def select[V <: U]
+  (pf: PartialFunction[U, V])
+  (implicit bf: CanBuildFrom[C[U], V, C[V]])
+  : C[V]
+  = {
+    val b = bf(s)
+    s.foreach { u: U =>
+      if (pf.isDefinedAt(u)) {
+        b += pf(u)
+      }
+      ()
+    }
+    b.result
+  }
 
-  implicit val formats
-  : Format[OTMOFModelElement]
-  = Json.format[OTMOFModelElement]
+}
+
+object Selectable {
+
+  implicit def selectable[U, C[X <: U] <: GenTraversable[X]](s: C[U])
+  : Selectable[U, C]
+  = new Selectable[U, C](s)
 
 }

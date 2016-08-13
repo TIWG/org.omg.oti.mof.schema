@@ -36,16 +36,44 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema
+package org.omg.oti.mof.schema.tables.metamodel
 
+import org.omg.oti.mof.schema.common._
 import play.api.libs.json._
-import scala.StringContext
-import scala.Predef.String
+import scala.Boolean
 
-case class TableLoadException(message: String, jsError: JsError)
-extends java.lang.IllegalArgumentException(message) {
+sealed trait OTIMOFMetaClassifierGeneralization {
+  val resource: ResourceIRI
+  val specific: EntityUUID
+  val general: EntityUUID
+}
 
-  override def getMessage: String =
-    s"TableLoadException:\n"+ message + Json.stringify(JsError.toJson(jsError))
+case class OTIMOFMetaClassGeneralization
+( override val resource: ResourceIRI,
+  override val specific: EntityUUID,
+  override val general: EntityUUID)
+extends OTIMOFMetaClassifierGeneralization
+
+object OTIMOFMetaClassGeneralization {
+
+  implicit val formats
+  : Format[OTIMOFMetaClassGeneralization]
+  = Json.format[OTIMOFMetaClassGeneralization]
+
+}
+
+case class OTIMOFMetaAssociationGeneralization
+( override val resource: ResourceIRI,
+  override val specific: EntityUUID,
+  override val general: EntityUUID,
+  sourceRestriction: Boolean,
+  targetRestriction: Boolean)
+  extends OTIMOFMetaClassifierGeneralization
+
+object OTIMOFMetaAssociationGeneralization {
+
+  implicit val formats
+  : Format[OTIMOFMetaAssociationGeneralization]
+  = Json.format[OTIMOFMetaAssociationGeneralization]
 
 }

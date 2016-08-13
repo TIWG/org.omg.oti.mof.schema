@@ -42,10 +42,11 @@ import org.omg.oti.mof.schema.common._
 import play.api.libs.json._
 
 case class OTIMOFModelUnorderedLink
-(resource: ResourceIRI,
- sourceElement: EntityUUID,
- targetElement: EntityUUID,
- metaAssociation: EntityUUID)
+(override val resource: ResourceIRI,
+ override val sourceElement: EntityUUID,
+ override val targetElement: EntityUUID,
+ override val metaAssociation: EntityUUID)
+  extends OTIMOFModelLink
 
 object OTIMOFModelUnorderedLink {
 

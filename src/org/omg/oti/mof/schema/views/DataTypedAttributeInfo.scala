@@ -36,16 +36,21 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema
+package org.omg.oti.mof.schema.views
 
-import play.api.libs.json._
-import scala.StringContext
-import scala.Predef.String
+import org.omg.oti.mof.schema._
+import scala.Boolean
 
-case class TableLoadException(message: String, jsError: JsError)
-extends java.lang.IllegalArgumentException(message) {
+case class DataTypedAttributeInfo
+( resource: common.ResourceIRI,
+  uuid: common.EntityUUID,
+  name: common.Name,
+  lower: common.NonNegativeInt,
+  upper: common.UnlimitedNatural,
+  isOrdered: Boolean,
+  classifier: tables.library.OTIMOFLibraryClassifier) {
 
-  override def getMessage: String =
-    s"TableLoadException:\n"+ message + Json.stringify(JsError.toJson(jsError))
+  def toFeature: features.DataTypedAttributeProperty
+  = features.DataTypedAttributeProperty(resource, uuid, name)
 
 }

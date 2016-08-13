@@ -43,7 +43,6 @@ import java.lang.System
 import java.nio.file.Path
 
 import akka.NotUsed
-import akka.actor.ActorSystem
 import akka.stream._
 import akka.stream.scaladsl._
 import akka.util.ByteString
@@ -104,8 +103,6 @@ object Tables {
   (implicit mat: ActorMaterializer, ec: ExecutionContext)
   : Future[(JsError, OTIMOFLibraryTables)]
   = {
-    implicit val system = ActorSystem("OTIMOF-Import-Library")
-
     val resources =
       jsonFile2iterable[tables.OTIMOFResourceType](dir, "resources.json").run()
     val importedLibraries =
@@ -116,6 +113,8 @@ object Tables {
       jsonFile2iterable[tables.library.OTIMOFEnumerationDataType](dir, "enumerationDataTypes.json").run()
     val enumeration2literals =
       jsonFile2iterable[tables.library.OTIMOFEnumeration2Literal](dir, "enumeration2literals.json").run()
+    val enumerationLiterals =
+      jsonFile2iterable[common.EnumerationLiteralValue](dir, "enumerationLiterals.json").run()
     val structuredDataTypes =
       jsonFile2iterable[tables.library.OTIMOFStructuredDataType](dir, "structuredDataTypes.json").run()
     val generalizations =
@@ -139,6 +138,7 @@ object Tables {
       pd <- primitiveDataTypes
       e <- enumerationDataTypes
       e2l <- enumeration2literals
+      el <- enumerationLiterals
       s <- structuredDataTypes
       g <- generalizations
       s2a <- structure2attribute
@@ -158,6 +158,7 @@ object Tables {
           primitiveDataTypes = pd._2,
           enumerationDataTypes = e._2,
           enumeration2literals = e2l._2,
+          enumerationLiterals = el._2,
           structuredDataTypes = s._2,
           generalizations = g._2,
           structure2attribute = s2a._2,
@@ -174,10 +175,9 @@ object Tables {
   def exportLibraries
   (resultDir: Path,
    libs: Vector[OTIMOFLibraryTables])
+  ( implicit mat: ActorMaterializer)
   : Try[Unit]
     = {
-    implicit val system = ActorSystem("OTIMOF-Export-Library")
-
     val resourcesOut = Source(libs.flatMap(_.resourceType))
     val resourcesFile = resolveFile(resultDir, "resources.json")
     val resourcesIn = fileSink[tables.OTIMOFResourceType](resourcesFile)
@@ -198,6 +198,10 @@ object Tables {
     val enumeration2literalsFile = resolveFile(resultDir, "enumeration2literals.json")
     val enumeration2literalsIn = fileSink[tables.library.OTIMOFEnumeration2Literal](enumeration2literalsFile)
 
+    val enumerationLiteralsOut = Source(libs.flatMap(_.enumerationLiterals))
+    val enumerationLiteralsFile = resolveFile(resultDir, "enumerationLiterals.json")
+    val enumerationLiteralsIn = fileSink[common.EnumerationLiteralValue](enumerationLiteralsFile)
+
     val structuredDataTypesOut = Source(libs.flatMap(_.structuredDataTypes))
     val structuredDataTypesFile = resolveFile(resultDir, "structuredDataTypes.json")
     val structuredDataTypesIn = fileSink[tables.library.OTIMOFStructuredDataType](structuredDataTypesFile)
@@ -210,11 +214,9 @@ object Tables {
     val structure2attributeFile = resolveFile(resultDir, "structure2attribute.json")
     val structure2attributeIn = fileSink[tables.library.OTIMOFStructuredDatatype2Attribute](structure2attributeFile)
 
-
     val attributesOut = Source(libs.flatMap(_.attributes))
     val attributesFile = resolveFile(resultDir, "attributes.json")
     val attributesIn = fileSink[features.DataTypedAttributeProperty](attributesFile)
-
 
     val featureLowerBoundsOut = Source(libs.flatMap(_.featureLowerBounds))
     val featureLowerBoundsFile = resolveFile(resultDir, "featureLowerBounds.json")
@@ -249,6 +251,8 @@ object Tables {
 
       enumeration2literalsOut ~> enumeration2literalsIn
 
+      enumerationLiteralsOut ~> enumerationLiteralsIn
+
       structuredDataTypesOut ~> structuredDataTypesIn
 
       generalizationsOut ~> generalizationsIn
@@ -265,12 +269,9 @@ object Tables {
 
       attribute2typeOut ~> attribute2typeIn
 
-
-
       ClosedShape
     })
 
-    implicit val mat = ActorMaterializer()
     graph.run()
 
     Success(())
@@ -281,8 +282,6 @@ object Tables {
   (implicit mat: ActorMaterializer, ec: ExecutionContext)
   : Future[(JsError, OTIMOFMetamodelTables)]
   = {
-    implicit val system = ActorSystem("OTIMOF-Import-Metamodel")
-
     val resources =
       jsonFile2iterable[tables.OTIMOFResourceType](dir, "resources.json").run()
     val importedMetamodels =
@@ -291,10 +290,12 @@ object Tables {
       jsonFile2iterable[OTIMOFResourceLibraryImport](dir, "importedLibraries.json").run()
     val metaClasses =
       jsonFile2iterable[tables.metamodel.OTIMOFMetaClass](dir, "metaClasses.json").run()
+    val metaClassGeneralizations =
+      jsonFile2iterable[tables.metamodel.OTIMOFMetaClassGeneralization](dir, "metaClassGeneralizations.json").run()
     val metaAssociations =
       jsonFile2iterable[tables.metamodel.OTIMOFMetaAssociation](dir, "metaAssociations.json").run()
-    val generalizations =
-      jsonFile2iterable[tables.metamodel.OTIMOFMetaCLassifierGeneralization](dir, "generalizations.json").run()
+    val metaAssociationGeneralizations =
+      jsonFile2iterable[tables.metamodel.OTIMOFMetaAssociationGeneralization](dir, "metaAssociationGeneralizations.json").run()
 
     val metaClass2orderedAtomicAttribute =
       jsonFile2iterable[tables.metamodel.OTIMOFMetaClass2Attribute](dir, "metaClass2orderedAtomicAttribute.json").run()
@@ -312,7 +313,7 @@ object Tables {
     val metaAssociation2Source =
       jsonFile2iterable[tables.metamodel.OTIMOFMetaAssociation2SourceEndProperty](dir, "metaAssociation2Source.json").run()
     val metaAssociation2Target =
-      jsonFile2iterable[tables.metamodel.OTIMOFMetaAsslcoation2TargetEndProperty](dir, "metaAssociation2Target.json").run()
+      jsonFile2iterable[tables.metamodel.OTIMOFMetaAssociation2TargetEndProperty](dir, "metaAssociation2Target.json").run()
     val metaAssociationEnds =
       jsonFile2iterable[features.AssociationEnd](dir, "metaAssociationEnds.json").run()
     val metaAssociationEnd2MetaClass =
@@ -334,8 +335,9 @@ object Tables {
       im <- importedMetamodels
       il <- importedLibraries
       mc <- metaClasses
+      gc <- metaClassGeneralizations
       ma <- metaAssociations
-      g <- generalizations
+      ga <- metaAssociationGeneralizations
       mc2oa <- metaClass2orderedAtomicAttribute
       mc2oe <- metaClass2orderedEnumerationAttribute
       mc2os <- metaClass2orderedStructuredAttribute
@@ -353,15 +355,16 @@ object Tables {
       a2t <- attribute2type
     } yield
       (
-        Seq(r, im, il, mc, ma, g, mc2oa, mc2oe, mc2os, mc2ua, mc2ue, mc2us, ma2s, ma2t, mae, mae2mc, a, fl, fu, fo, a2t)
+        Seq(r, im, il, mc, gc, ma, ga, mc2oa, mc2oe, mc2os, mc2ua, mc2ue, mc2us, ma2s, ma2t, mae, mae2mc, a, fl, fu, fo, a2t)
           .foldLeft[JsError](JsError()) { case (e1, (e2, _)) => JsError.merge(e1, e2) },
         OTIMOFMetamodelTables(
           resourceType = r._2,
           importedMetamodels = im._2,
           importedLibraries = il._2,
           metaClasses = mc._2,
+          metaClassGeneralizations = gc._2,
           metaAssociations = ma._2,
-          generalizations = g._2,
+          metaAssociationGeneralizations = ga._2,
           metaClass2orderedAtomicAttribute = mc2oa._2,
           metaClass2orderedEnumerationAttribute = mc2oe._2,
           metaClass2orderedStructuredAttribute = mc2os._2,
@@ -384,10 +387,9 @@ object Tables {
   def exportMetamodels
   (resultDir: Path,
    mms: Vector[OTIMOFMetamodelTables])
+  (implicit mat: ActorMaterializer)
   : Try[Unit]
   = {
-    implicit val system = ActorSystem("OTIMOF-Export-Metamodel")
-
     val resourcesOut = Source(mms.flatMap(_.resourceType))
     val resourcesFile = resolveFile(resultDir, "resources.json")
     val resourcesIn = fileSink[tables.OTIMOFResourceType](resourcesFile)
@@ -400,19 +402,21 @@ object Tables {
     val importedLibrariesFile = resolveFile(resultDir, "importedLibraries.json")
     val importedLibrariesIn = fileSink[OTIMOFResourceLibraryImport](importedLibrariesFile)
 
-
     val metaClassesOut = Source(mms.flatMap(_.metaClasses))
     val metaClassesFile = resolveFile(resultDir, "metaClasses.json")
     val metaClassesIn = fileSink[tables.metamodel.OTIMOFMetaClass](metaClassesFile)
+
+    val metaClassGeneralizationsOut = Source(mms.flatMap(_.metaClassGeneralizations))
+    val metaClassGeneralizationsFile = resolveFile(resultDir, "metaClassGeneralizations.json")
+    val metaClassGeneralizationsIn = fileSink[tables.metamodel.OTIMOFMetaClassGeneralization](metaClassGeneralizationsFile)
 
     val metaAssociationsOut = Source(mms.flatMap(_.metaAssociations))
     val metaAssociationsFile = resolveFile(resultDir, "metaAssociations.json")
     val metaAssociationsIn = fileSink[tables.metamodel.OTIMOFMetaAssociation](metaAssociationsFile)
 
-    val generalizationsOut = Source(mms.flatMap(_.generalizations))
-    val generalizationsFile = resolveFile(resultDir, "generalizations.json")
-    val generalizationsIn = fileSink[tables.metamodel.OTIMOFMetaCLassifierGeneralization](generalizationsFile)
-
+    val metaAssociationGeneralizationsOut = Source(mms.flatMap(_.metaAssociationGeneralizations))
+    val metaAssociationGeneralizationsFile = resolveFile(resultDir, "metaAssociationGeneralizations.json")
+    val metaAssociationGeneralizationsIn = fileSink[tables.metamodel.OTIMOFMetaAssociationGeneralization](metaAssociationGeneralizationsFile)
 
     val metaClass2orderedAtomicAttributeOut = Source(mms.flatMap(_.metaClass2orderedAtomicAttribute))
     val metaClass2orderedAtomicAttributeFile = resolveFile(resultDir, "metaClass2orderedAtomicAttribute.json")
@@ -438,14 +442,13 @@ object Tables {
     val metaClass2unorderedStructuredAttributeFile = resolveFile(resultDir, "metaClass2unorderedStructuredAttribute.json")
     val metaClass2unorderedStructuredAttributeIn = fileSink[tables.metamodel.OTIMOFMetaClass2Attribute](metaClass2unorderedStructuredAttributeFile)
 
-
     val metaAssociation2SourceOut = Source(mms.flatMap(_.metaAssociation2Source))
     val metaAssociation2SourceFile = resolveFile(resultDir, "metaAssociation2Source.json")
     val metaAssociation2SourceIn = fileSink[tables.metamodel.OTIMOFMetaAssociation2SourceEndProperty](metaAssociation2SourceFile)
 
     val metaAssociation2TargetOut = Source(mms.flatMap(_.metaAssociation2Target))
     val metaAssociation2TargetFile = resolveFile(resultDir, "metaAssociation2Target.json")
-    val metaAssociation2TargetIn = fileSink[tables.metamodel.OTIMOFMetaAsslcoation2TargetEndProperty](metaAssociation2TargetFile)
+    val metaAssociation2TargetIn = fileSink[tables.metamodel.OTIMOFMetaAssociation2TargetEndProperty](metaAssociation2TargetFile)
 
     val metaAssociationEndsOut = Source(mms.flatMap(_.metaAssociationEnds))
     val metaAssociationEndsFile = resolveFile(resultDir, "metaAssociationEnds.json")
@@ -455,11 +458,9 @@ object Tables {
     val metaAssociationEnd2MetaClassFile = resolveFile(resultDir, "metaAssociationEnd2MetaClass.json")
     val metaAssociationEnd2MetaClassIn = fileSink[tables.metamodel.OTIMOFMetaAssociationEndProperty2MetaClassType](metaAssociationEnd2MetaClassFile)
 
-
     val attributesOut = Source(mms.flatMap(_.attributes))
     val attributesFile = resolveFile(resultDir, "attributes.json")
     val attributesIn = fileSink[features.DataTypedAttributeProperty](attributesFile)
-
 
     val featureLowerBoundsOut = Source(mms.flatMap(_.featureLowerBounds))
     val featureLowerBoundsFile = resolveFile(resultDir, "featureLowerBounds.json")
@@ -472,7 +473,6 @@ object Tables {
     val featureOrderingOut = Source(mms.flatMap(_.featureOrdering))
     val featureOrderingFile = resolveFile(resultDir, "featureOrdering.json")
     val featureOrderingIn = fileSink[features.FeatureOrdering](featureOrderingFile)
-
 
     val attribute2typeOut = Source(mms.flatMap(_.attribute2type))
     val attribute2typeFile = resolveFile(resultDir, "attribute2type.json")
@@ -492,9 +492,13 @@ object Tables {
 
       metaClassesOut ~> metaClassesIn
 
+      metaClassGeneralizationsOut ~> metaClassGeneralizationsIn
+
       metaAssociationsOut ~> metaAssociationsIn
 
-      generalizationsOut ~> generalizationsIn
+      metaAssociationGeneralizationsOut ~> metaAssociationGeneralizationsIn
+
+      metaClassGeneralizationsOut ~> metaClassGeneralizationsIn
 
       metaClass2orderedAtomicAttributeOut ~> metaClass2orderedAtomicAttributeIn
 
@@ -530,7 +534,6 @@ object Tables {
       ClosedShape
     })
 
-    implicit val mat = ActorMaterializer()
     graph.run()
 
     Success(())
@@ -540,10 +543,9 @@ object Tables {
   (resultDir: Path,
    pfs: Vector[OTIMOFProfileTables],
    pks: Vector[OTIMOFModelTables])
+  (implicit mat: ActorMaterializer)
   : Try[Unit]
   = {
-    implicit val system = ActorSystem("OTIMOF-Export-Profiles_Models")
-
     val resourcesOut = Source(pfs.flatMap(_.resourceType) ++ pks.flatMap(_.resourceType))
 
     val resourcesFile = resolveFile(resultDir, "resources.json")
@@ -584,7 +586,7 @@ object Tables {
 
     val elementsOut = Source(pks.flatMap(_.elements))
     val elementsFile = resolveFile(resultDir, "elements.json")
-    val elementsIn = fileSink[tables.model.OTMOFModelElement](elementsFile)
+    val elementsIn = fileSink[tables.model.OTIMOFModelElement](elementsFile)
 
     val toolSpecificElementIDsOut = Source(pks.flatMap(_.toolSpecificElementIDs))
     val toolSpecificElementIDsFile = resolveFile(resultDir, "toolSpecificElementIDs.json")
@@ -684,7 +686,6 @@ object Tables {
       ClosedShape
     })
 
-    implicit val mat = ActorMaterializer()
     graph.run()
 
     Success(())

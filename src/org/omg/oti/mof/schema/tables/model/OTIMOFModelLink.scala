@@ -36,20 +36,13 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema.tables.metamodel
+package org.omg.oti.mof.schema.tables.model
 
 import org.omg.oti.mof.schema.common._
-import play.api.libs.json._
 
-case class OTIMOFMetaAsslcoation2TargetEndProperty
-(resource: ResourceIRI,
- association: EntityUUID,
- targetEnd: EntityUUID)
-
-object OTIMOFMetaAsslcoation2TargetEndProperty {
-
-  implicit val formats
-  : Format[OTIMOFMetaAsslcoation2TargetEndProperty]
-  = Json.format[OTIMOFMetaAsslcoation2TargetEndProperty]
-
+trait OTIMOFModelLink {
+  val resource: ResourceIRI
+  val sourceElement: EntityUUID
+  val targetElement: EntityUUID
+  val metaAssociation: EntityUUID
 }

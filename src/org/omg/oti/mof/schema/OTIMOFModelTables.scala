@@ -45,7 +45,7 @@ case class OTIMOFModelTables
 (override val resourceType: Iterable[OTIMOFResourceType],
  instantiatedMetamodels: Iterable[OTIMOFResourceInstantiatedMetamodel],
  appliedProfiles: Iterable[OTIMOFResourceModelAppliedProfile],
- elements: Iterable[tables.model.OTMOFModelElement],
+ elements: Iterable[tables.model.OTIMOFModelElement],
  toolSpecificElementIDs: Iterable[tables.OTIMOFToolSpecificID],
  toolSpecificElementURLs: Iterable[tables.OTIMOFToolSpecificURL],
  orderedAtomicValues: Iterable[tables.values.OTIMOFOrderedAttributeAtomicValue],

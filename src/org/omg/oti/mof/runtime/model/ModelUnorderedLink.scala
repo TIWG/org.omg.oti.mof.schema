@@ -36,16 +36,12 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema
+package org.omg.oti.mof.runtime.model
 
-import play.api.libs.json._
-import scala.StringContext
-import scala.Predef.String
+import org.omg.oti.mof._
 
-case class TableLoadException(message: String, jsError: JsError)
-extends java.lang.IllegalArgumentException(message) {
-
-  override def getMessage: String =
-    s"TableLoadException:\n"+ message + Json.stringify(JsError.toJson(jsError))
-
-}
+case class ModelUnorderedLink[S <: ModelElement, T <: ModelElement]
+( override val data: schema.tables.model.OTIMOFModelUnorderedLink,
+  override val source: S,
+  override val target: T )
+  extends ModelLink[S, T]

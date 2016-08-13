@@ -36,16 +36,15 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema
+package org.omg.oti.mof.runtime.model
 
-import play.api.libs.json._
-import scala.StringContext
+import org.omg.oti._
 import scala.Predef.String
 
-case class TableLoadException(message: String, jsError: JsError)
-extends java.lang.IllegalArgumentException(message) {
+trait ModelElement {
 
-  override def getMessage: String =
-    s"TableLoadException:\n"+ message + Json.stringify(JsError.toJson(jsError))
+  var dataModelElement: mof.schema.tables.model.OTIMOFModelElement
+  var dataToolSpecificID: String
+  var dataToolSpecificURL: String
 
 }

@@ -49,7 +49,7 @@ sealed trait ModelChangedEvent {
 
 case class ModelElementChangedEvent
 ( override val changeKind: ChangeKind,
-  element: tables.model.OTMOFModelElement )
+  element: tables.model.OTIMOFModelElement )
 extends ModelChangedEvent
 
 case class ModelOrderedLinkChangedEvent

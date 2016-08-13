@@ -43,11 +43,12 @@ import play.api.libs.json._
 import scala.Int
 
 case class OTIMOFModelOrderedLink
-(resource: ResourceIRI,
- sourceElement: EntityUUID,
- targetElement: EntityUUID,
- metaAssociation: EntityUUID,
+(override val resource: ResourceIRI,
+ override val sourceElement: EntityUUID,
+ override val targetElement: EntityUUID,
+ override val metaAssociation: EntityUUID,
  index: Int)
+extends OTIMOFModelLink
 
 object OTIMOFModelOrderedLink {
 

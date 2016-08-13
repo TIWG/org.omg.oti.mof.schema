@@ -36,16 +36,27 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.mof.schema
+package org.omg.oti.mof.schema.common
 
 import play.api.libs.json._
-import scala.StringContext
 import scala.Predef.String
 
-case class TableLoadException(message: String, jsError: JsError)
-extends java.lang.IllegalArgumentException(message) {
+/**
+  * @group value
+  */
+case class EnumerationLiteralValue
+( resource: ResourceIRI,
+  literal: EntityUUID,
+  name: String)
+  extends ValueRepresentation
 
-  override def getMessage: String =
-    s"TableLoadException:\n"+ message + Json.stringify(JsError.toJson(jsError))
 
+/**
+  * @group value
+  */
+object EnumerationLiteralValue {
+
+  implicit val formats
+  : Format[EnumerationLiteralValue]
+  = Json.format[EnumerationLiteralValue]
 }

@@ -41,15 +41,15 @@ package org.omg.oti.mof.schema.tables.metamodel
 import org.omg.oti.mof.schema.common._
 import play.api.libs.json._
 
-case class OTIMOFMetaCLassifierGeneralization
+case class OTIMOFMetaAssociation2TargetEndProperty
 (resource: ResourceIRI,
- specific: EntityUUID,
- general: EntityUUID)
+ association: EntityUUID,
+ targetEnd: EntityUUID)
 
-object OTIMOFMetaCLassifierGeneralization {
+object OTIMOFMetaAssociation2TargetEndProperty {
 
   implicit val formats
-  : Format[OTIMOFMetaCLassifierGeneralization]
-  = Json.format[OTIMOFMetaCLassifierGeneralization]
+  : Format[OTIMOFMetaAssociation2TargetEndProperty]
+  = Json.format[OTIMOFMetaAssociation2TargetEndProperty]
 
 }

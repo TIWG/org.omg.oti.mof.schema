@@ -40,11 +40,13 @@ package org.omg.oti.mof.schema.tables.profile
 
 import org.omg.oti.mof.schema.common._
 import play.api.libs.json._
+import scala.Boolean
 
 case class OTIMOFStereotype
 (resource: ResourceIRI,
  uuid: EntityUUID,
- name: Name)
+ name: Name,
+ isAbstract: Boolean)
 
 object OTIMOFStereotype {
 
