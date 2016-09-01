@@ -7,5 +7,5 @@ object Versions {
   val play = "2.5.4"
 
   // https://github.com/aparo/play-json-extra
-  val play_json_extra = "2.4.3"
+  val play_json_extra = "2.5.4"
 }

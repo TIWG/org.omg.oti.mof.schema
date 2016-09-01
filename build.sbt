@@ -7,21 +7,7 @@ import spray.json._, DefaultJsonProtocol._
 import gov.nasa.jpl.imce.sbt._
 import gov.nasa.jpl.imce.sbt.ProjectHelper._
 
-useGpg := true
-
 updateOptions := updateOptions.value.withCachedResolution(true)
-
-developers := List(
-  Developer(
-    id="rouquett",
-    name="Nicolas F. Rouquette",
-    email="nicolas.f.rouquette@jpl.nasa.gov",
-    url=url("https://gateway.jpl.nasa.gov/personal/rouquett/default.aspx")),
-  Developer(
-    id="sherzig",
-    name="Sebastian J. Herzig",
-    email="sebastian.j.herzig@jpl.nasa.gov",
-    url=url("https://gateway.jpl.nasa.gov/personal/sherzig/default.aspx")))
 
 import scala.io.Source
 import scala.util.control.Exception._
@@ -36,12 +22,6 @@ resolvers := {
 
 shellPrompt in ThisBuild := { state => Project.extract(state).currentRef.project + "> " }
 
-lazy val mdRoot = SettingKey[File]("md-root", "MagicDraw Installation Directory")
-
-lazy val specsRoot = SettingKey[File]("specs-root", "MagicDraw DynamicScripts Test Specification Directory")
-
-lazy val runMDTests = taskKey[Unit]("Run MagicDraw DynamicScripts Unit Tests")
-
 val duplicatedFiles = Set(
   // scalahost also provides `scalac-plugin.xml`, but we are only interested in ours.
   "scalac-plugin.xml"
@@ -54,15 +34,11 @@ lazy val core = Project("org-omg-oti-mof-schema", file("."))
   .settings(IMCEPlugin.strictScalacFatalWarningsSettings)
   .settings(IMCEReleasePlugin.packageReleaseProcessSettings)
   .settings(
-    IMCEKeys.licenseYearOrRange := "2014-2016",
+    IMCEKeys.licenseYearOrRange := "2016",
     IMCEKeys.organizationInfo := IMCEPlugin.Organizations.oti,
     IMCEKeys.targetJDK := IMCEKeys.jdk18.value,
 
     logLevel in assembly := Level.Info,
-
-    organization := "org.omg.tiwg",
-    organizationHomepage :=
-      Some(url("http://www.omg.org/members/sysml-rtf-wiki/doku.php?id=rtf5:groups:tools_infrastructure:index")),
 
     buildInfoPackage := "org.omg.oti.mof.schema",
     buildInfoKeys ++= Seq[BuildInfoKey](BuildInfoKey.action("buildDateUTC") { buildUTCDate.value }),
@@ -75,20 +51,8 @@ lazy val core = Project("org-omg-oti-mof-schema", file("."))
     },
 
     git.baseVersion := Versions.version,
-
-    scalaSource in Compile :=
-      baseDirectory.value / "src",
-      
-    unmanagedSourceDirectories in Compile +=
-      baseDirectory.value / "src-gen",
     
     resourceDirectory in Compile :=
-      baseDirectory.value / "resources",
-
-    scalaSource in Test :=
-      baseDirectory.value / "test",
-
-    resourceDirectory in Test :=
       baseDirectory.value / "resources",
 
     // disable publishing the jar produced by `test:package`
@@ -100,13 +64,16 @@ lazy val core = Project("org-omg-oti-mof-schema", file("."))
     // disable publishing the test sources jar
     publishArtifact in(Test, packageSrc) := false,
 
+    resolvers += Resolver.bintrayRepo("jpl-imce", "gov.nasa.jpl.imce"),
+    resolvers += Resolver.bintrayRepo("tiwg", "org.omg.tiwg"),
+
     unmanagedClasspath in Compile <++= unmanagedJars in Compile,
 
     libraryDependencies +=
-      "org.scala-lang" % "scala-library" % scalaVersion.value % "provided",
-
-    libraryDependencies +=
-      "org.scala-lang" % "scalap" % scalaVersion.value % "provided",
+      "gov.nasa.jpl.imce" %% "imce.third_party.other_scala_libraries" % Versions_other_scala_libraries.version
+        % "provided"
+        artifacts
+        Artifact("imce.third_party.other_scala_libraries", "zip", "zip", Some("resource"), Seq(), None, Map()),
 
     libraryDependencies ~= {
       _ map { m =>
@@ -121,22 +88,7 @@ lazy val core = Project("org-omg-oti-mof-schema", file("."))
       }
     },
 
-    libraryDependencies ++= Seq(
-      "com.typesafe.play" %% "play" % Versions.play % "compile" withSources(),
-      "com.typesafe.play" %% "play-iteratees" % Versions.play % "compile" withSources(),
-      "com.typesafe.play" %% "play-json" % Versions.play % "compile" withSources(),
-
-      "io.megl" %% "play-json-extra" % Versions.play_json_extra % "compile" withSources()
-    ),
-
     extractArchives := {},
-
-    IMCEKeys.nexusJavadocRepositoryRestAPIURL2RepositoryName := Map(
-      "https://oss.sonatype.org/service/local" -> "releases",
-      "https://cae-nexuspro.jpl.nasa.gov/nexus/service/local" -> "JPL",
-      "https://cae-nexuspro.jpl.nasa.gov/nexus/content/groups/jpl.beta.group" -> "JPL Beta Group",
-      "https://cae-nexuspro.jpl.nasa.gov/nexus/content/groups/jpl.public.group" -> "JPL Public Group"),
-    IMCEKeys.pomRepositoryPathRegex := """\<repositoryPath\>\s*([^\"]*)\s*\<\/repositoryPath\>""".r,
 
     // do not include the scala library
     assembleArtifact in assemblyPackageScala := false,
