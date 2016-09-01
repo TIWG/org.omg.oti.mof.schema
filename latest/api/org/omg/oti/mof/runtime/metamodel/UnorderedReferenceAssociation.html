@@ -1,0 +1,1331 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>UnorderedReferenceAssociation - org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation</title>
+          <meta name="description" content="UnorderedReferenceAssociation - org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation" />
+          <meta name="keywords" content="UnorderedReferenceAssociation org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../../index.html';
+            var hash = 'org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img alt="Class" src="../../../../../../lib/class_big.png" />
+        <p id="owner"><a href="../../../../../package.html" class="extype" name="org">org</a>.<a href="../../../../package.html" class="extype" name="org.omg">omg</a>.<a href="../../../package.html" class="extype" name="org.omg.oti">oti</a>.<a href="../../package.html" class="extype" name="org.omg.oti.mof">mof</a>.<a href="../package.html" class="extype" name="org.omg.oti.mof.runtime">runtime</a>.<a href="package.html" class="extype" name="org.omg.oti.mof.runtime.metamodel">metamodel</a></p>
+        <h1>UnorderedReferenceAssociation</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="org.omg.oti.mof.runtime.metamodel">package metamodel</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">UnorderedReferenceAssociation</span><span class="tparams">[<span name="S">S &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="US">US &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span></span>, <span name="T">T &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="UT">UT &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span></span>]</span><span class="params">(<span name="metaAssociation">metaAssociation: <a href="MetaAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation">MetaAssociation</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.UT">UT</span>, <a href="../model/ModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelUnorderedLink">ModelUnorderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>]]</span>)</span><span class="result"> extends <a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.UT">UT</span>, <a href="../model/ModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelUnorderedLink">ModelUnorderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.UT">UT</span>, <a href="../model/ModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelUnorderedLink">ModelUnorderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>]], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation"><span>UnorderedReferenceAssociation</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="org.omg.oti.mof.runtime.metamodel.Association"><span>Association</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(metaAssociation:org.omg.oti.mof.runtime.metamodel.MetaAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelUnorderedLink[S,T]]):org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation[S,US,T,UT]"></a>
+      <a id="&lt;init&gt;:UnorderedReferenceAssociation[S,US,T,UT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">UnorderedReferenceAssociation</span><span class="params">(<span name="metaAssociation">metaAssociation: <a href="MetaAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation">MetaAssociation</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.UT">UT</span>, <a href="../model/ModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelUnorderedLink">ModelUnorderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>]]</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@&lt;init&gt;(metaAssociation:org.omg.oti.mof.runtime.metamodel.MetaAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelUnorderedLink[S,T]]):org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation[S,US,T,UT]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.Association#addLink" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="addLink(link:L):Unit"></a>
+      <a id="addLink(ModelUnorderedLink[S,T]):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">addLink</span><span class="params">(<span name="link">link: <a href="../model/ModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelUnorderedLink">ModelUnorderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@addLink(link:L):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a></dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.Association#createOrderedLink" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createOrderedLink(o:org.omg.oti.mof.schema.tables.model.OTIMOFModelOrderedLink,s:org.omg.oti.mof.runtime.model.ModelElement,t:org.omg.oti.mof.runtime.model.ModelElement):org.omg.oti.mof.runtime.model.ModelOrderedLink[S,T]"></a>
+      <a id="createOrderedLink(OTIMOFModelOrderedLink,ModelElement,ModelElement):ModelOrderedLink[S,T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createOrderedLink</span><span class="params">(<span name="o">o: <a href="../../schema/tables/model/OTIMOFModelOrderedLink.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelOrderedLink">OTIMOFModelOrderedLink</a></span>, <span name="s">s: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="t">t: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>)</span><span class="result">: <a href="../model/ModelOrderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelOrderedLink">ModelOrderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@createOrderedLink(o:org.omg.oti.mof.schema.tables.model.OTIMOFModelOrderedLink,s:org.omg.oti.mof.runtime.model.ModelElement,t:org.omg.oti.mof.runtime.model.ModelElement):org.omg.oti.mof.runtime.model.ModelOrderedLink[S,T]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a></dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.Association#createUnorderedLink" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createUnorderedLink(u:org.omg.oti.mof.schema.tables.model.OTIMOFModelUnorderedLink,s:org.omg.oti.mof.runtime.model.ModelElement,t:org.omg.oti.mof.runtime.model.ModelElement):org.omg.oti.mof.runtime.model.ModelUnorderedLink[S,T]"></a>
+      <a id="createUnorderedLink(OTIMOFModelUnorderedLink,ModelElement,ModelElement):ModelUnorderedLink[S,T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createUnorderedLink</span><span class="params">(<span name="u">u: <a href="../../schema/tables/model/OTIMOFModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelUnorderedLink">OTIMOFModelUnorderedLink</a></span>, <span name="s">s: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="t">t: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>)</span><span class="result">: <a href="../model/ModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelUnorderedLink">ModelUnorderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@createUnorderedLink(u:org.omg.oti.mof.schema.tables.model.OTIMOFModelUnorderedLink,s:org.omg.oti.mof.runtime.model.ModelElement,t:org.omg.oti.mof.runtime.model.ModelElement):org.omg.oti.mof.runtime.model.ModelUnorderedLink[S,T]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a></dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.Association#describe" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="describe:String"></a>
+      <a id="describe:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">describe</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@describe:String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a></dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation">UnorderedReferenceAssociation</a> → AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.Association#linkCount" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="linkCount:Int"></a>
+      <a id="linkCount:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">linkCount</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@linkCount:Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a></dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.Association#links" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="links:scala.collection.mutable.ListBuffer[L]"></a>
+      <a id="links:ListBuffer[ModelUnorderedLink[S,T]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">links</span><span class="result">: <span class="extype" name="scala.collection.mutable.ListBuffer">ListBuffer</span>[<a href="../model/ModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelUnorderedLink">ModelUnorderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@links:scala.collection.mutable.ListBuffer[L]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a></dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation#metaAssociation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="metaAssociation:org.omg.oti.mof.runtime.metamodel.MetaAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelUnorderedLink[S,T]]"></a>
+      <a id="metaAssociation:MetaAssociation[S,US,T,UT,ModelUnorderedLink[S,T]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">metaAssociation</span><span class="result">: <a href="MetaAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation">MetaAssociation</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.UT">UT</span>, <a href="../model/ModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelUnorderedLink">ModelUnorderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@metaAssociation:org.omg.oti.mof.runtime.metamodel.MetaAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelUnorderedLink[S,T]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation">UnorderedReferenceAssociation</a> → <a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a></dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation#queryIterable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="queryIterable(source:S):Iterable[UT]"></a>
+      <a id="queryIterable(S):Iterable[UT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">queryIterable</span><span class="params">(<span name="source">source: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.Iterable">Iterable</span>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.UT">UT</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@queryIterable(source:S):Iterable[UT]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">examples 7
+                MagicDrawUMLEnumerationLiteral.scala  (1 usage found)
+                    F:A_classifier_enumerationLiteral.queryIterable
+                MagicDrawUMLInteractionFragment.scala  (1 usage found)
+                    F:A_covered_coveredBy.queryIterable
+                MagicDrawUMLRedefinableElement.scala  (1 usage found)
+                    F:A_redefinitionContext_redefinableElement.queryIterable
+                MagicDrawUMLRegion.scala  (1 usage found)
+                    F:A_redefinitionContext_region.queryIterable
+                MagicDrawUMLState.scala  (1 usage found)
+                    F:A_redefinitionContext_state.queryIterable
+                MagicDrawUMLStateInvariant.scala  (1 usage found)
+                    F:A_covered_stateInvariant.queryIterable
+                MagicDrawUMLTransition.scala  (1 usage found)
+                    F:A_redefinitionContext_transition.queryIterable
+</p>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation#queryOppositeOptional" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="queryOppositeOptional(target:T):Option[US]"></a>
+      <a id="queryOppositeOptional(T):Option[US]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">queryOppositeOptional</span><span class="params">(<span name="target">target: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.US">US</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@queryOppositeOptional(target:T):Option[US]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">examples 60
+                MagicDrawUMLActivityEdge.scala  (3 usages found)
+                    R:A_interruptingEdge_interrupts.queryOppositeOptional
+                    R:A_outgoing_source_node.queryOppositeOptional
+                    R:A_incoming_target_node.queryOppositeOptional
+                MagicDrawUMLActivityPartition.scala  (1 usage found)
+                    R:A_partition_activity.queryOppositeOptional
+                MagicDrawUMLAssociation.scala  (1 usage found)
+                    R:A_association_clearAssociationAction.queryOppositeOptional
+                MagicDrawUMLBehavior.scala  (2 usages found)
+                    R:A_classifierBehavior_behavioredClassifier.queryOppositeOptional
+                    R:A_method_specification.queryOppositeOptional
+                MagicDrawUMLClassifier.scala  (1 usage found)
+                    R:A_classifier_readExtentAction.queryOppositeOptional
+                MagicDrawUMLClassifierTemplateParameter.scala  (1 usage found)
+                    R:A_classifier_templateParameter_parameteredElement.queryOppositeOptional
+                MagicDrawUMLCollaborationUse.scala  (1 usage found)
+                    R:A_representation_classifier.queryOppositeOptional
+                MagicDrawUMLConnectableElementTemplateParameter.scala  (1 usage found)
+                    R:A_connectableElement_templateParameter_parameteredElement.queryOppositeOptional
+                MagicDrawUMLConnectorEnd.scala  (1 usage found)
+                    R:A_end_role.queryOppositeOptional
+                MagicDrawUMLConstraint.scala  (9 usages found)
+                    R:A_postcondition_behavior.queryOppositeOptional
+                    R:A_precondition_behavior.queryOppositeOptional
+                    R:A_preCondition_protocolTransition.queryOppositeOptional
+                    R:A_guard_transition.queryOppositeOptional
+                    R:A_bodyCondition_bodyContext.queryOppositeOptional
+                    R:A_stateInvariant_owningState.queryOppositeOptional
+                    R:A_postCondition_owningTransition.queryOppositeOptional
+                    R:A_postcondition_postContext.queryOppositeOptional
+                    R:A_precondition_preContext.queryOppositeOptional
+                MagicDrawUMLElementImport.scala  (1 usage found)
+                    R:A_metaclassReference_profile.queryOppositeOptional
+                MagicDrawUMLExecutableNode.scala  (5 usages found)
+                    R:A_body_clause.queryOppositeOptional
+                    R:A_test_clause.queryOppositeOptional
+                    R:A_bodyPart_loopNode.queryOppositeOptional
+                    R:A_setupPart_loopNode.queryOppositeOptional
+                    R:A_test_loopNode.queryOppositeOptional
+                MagicDrawUMLExpansionNode.scala  (2 usages found)
+                    R:A_inputElement_regionAsInput.queryOppositeOptional
+                    R:A_outputElement_regionAsOutput.queryOppositeOptional
+                MagicDrawUMLExtension.scala  (1 usage found)
+                    R:A_extension_metaclass.queryOppositeOptional
+                MagicDrawUMLFeature.scala  (1 usage found)
+                    R:A_feature_featuringClassifier.queryOppositeOptional
+                MagicDrawUMLGeneralizationSet.scala  (1 usage found)
+                    R:A_powertypeExtent_powertype.queryOppositeOptional
+                MagicDrawUMLGeneralOrdering.scala  (2 usages found)
+                    R:A_toBefore_after.queryOppositeOptional
+                    R:A_before_toAfter.queryOppositeOptional
+                MagicDrawUMLInputPin.scala  (4 usages found)
+                    R:A_insertAt_linkEndCreationData.queryOppositeOptional
+                    R:A_value_linkEndData.queryOppositeOptional
+                    R:A_destroyAt_linkEndDestructionData.queryOppositeOptional
+                    R:A_value_qualifierValue.queryOppositeOptional
+                MagicDrawUMLMessageEnd.scala  (2 usages found)
+                    R:A_receiveEvent_endMessage.queryOppositeOptional
+                    R:A_sendEvent_endMessage.queryOppositeOptional
+                MagicDrawUMLObjectFlow.scala  (1 usage found)
+                    R:A_decisionInputFlow_decisionNode.queryOppositeOptional
+                MagicDrawUMLObservation.scala  (2 usages found)
+                    R:A_observation_duration.queryOppositeOptional
+                    R:A_observation_timeExpression.queryOppositeOptional
+                MagicDrawUMLOperationTemplateParameter.scala  (1 usage found)
+                    R:A_operation_templateParameter_parameteredElement.queryOppositeOptional
+                MagicDrawUMLOutputPin.scala  (2 usages found)
+                    R:A_decider_clause.queryOppositeOptional
+                    R:A_decider_loopNode.queryOppositeOptional
+                MagicDrawUMLPackageImport.scala  (1 usage found)
+                    R:A_metamodelReference_profile.queryOppositeOptional
+                MagicDrawUMLParameterableElement.scala  (1 usage found)
+                    R:A_parameteredElement_templateParameter.queryOppositeOptional
+                MagicDrawUMLPartDecomposition.scala  (1 usage found)
+                    R:A_decomposedAs_lifeline.queryOppositeOptional
+                MagicDrawUMLProperty.scala  (5 usages found)
+                    R:A_navigableOwnedEnd_association.queryOppositeOptional
+                    R:A_opposite_property.queryOppositeOptional
+                    R:A_end_readLinkObjectEndAction.queryOppositeOptional
+                    R:A_qualifier_readLinkObjectEndQualifierAction.queryOppositeOptional
+                    R:A_part_structuredClassifier.queryOppositeOptional
+                MagicDrawUMLPseudostate.scala  (2 usages found)
+                    R:A_entry_connectionPointReference.queryOppositeOptional
+                    R:A_exit_connectionPointReference.queryOppositeOptional
+                MagicDrawUMLState.scala  (1 usage found)
+                    R:A_submachineState_submachine.queryOppositeOptional
+                MagicDrawUMLTransition.scala  (2 usages found)
+                    R:A_outgoing_source_vertex.queryOppositeOptional
+                    R:A_incoming_target_vertex.queryOppositeOptional
+                MagicDrawUMLTrigger.scala  (1 usage found)
+                    R:A_replyToCall_replyAction.queryOppositeOptional
+</p>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation#queryOppositeUnordered" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="queryOppositeUnordered(target:T):scala.collection.immutable.Set[US]"></a>
+      <a id="queryOppositeUnordered(T):Set[US]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">queryOppositeUnordered</span><span class="params">(<span name="target">target: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.US">US</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@queryOppositeUnordered(target:T):scala.collection.immutable.Set[US]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">examples 148
+                MagicDrawUMLAction.scala  (1 usage found)
+                    R:A_action_actionExecutionSpecification.queryOppositeUnordered
+                MagicDrawUMLActivityEdge.scala  (4 usages found)
+                    R:A_redefinedEdge_activityEdge.queryOppositeUnordered
+                    R:A_realizingActivityEdge_informationFlow.queryOppositeUnordered
+                    R:A_containedEdge_inGroup.queryOppositeUnordered
+                    R:A_edge_inPartition.queryOppositeUnordered
+                MagicDrawUMLActivityNode.scala  (2 usages found)
+                    R:A_redefinedNode_activityNode.queryOppositeUnordered
+                    R:A_containedNode_inGroup.queryOppositeUnordered
+                MagicDrawUMLActivityPartition.scala  (1 usage found)
+                    R:A_inPartition_node.queryOppositeUnordered
+                MagicDrawUMLAssociation.scala  (1 usage found)
+                    R:A_type_connector.queryOppositeUnordered
+                MagicDrawUMLBehavior.scala  (10 usages found)
+                    R:A_behavior_behaviorExecutionSpecification.queryOppositeUnordered
+                    R:A_redefinedBehavior_behavior.queryOppositeUnordered
+                    R:A_behavior_callBehaviorAction.queryOppositeUnordered
+                    R:A_contract_connector.queryOppositeUnordered
+                    R:A_decisionInput_decisionNode.queryOppositeUnordered
+                    R:A_selection_objectFlow.queryOppositeUnordered
+                    R:A_transformation_objectFlow.queryOppositeUnordered
+                    R:A_selection_objectNode.queryOppositeUnordered
+                    R:A_behavior_opaqueExpression.queryOppositeUnordered
+                    R:A_reducer_reduceAction.queryOppositeUnordered
+                MagicDrawUMLBehavioredClassifier.scala  (1 usage found)
+                    R:A_context_behavior.queryOppositeUnordered
+                MagicDrawUMLClass.scala  (1 usage found)
+                    R:A_superClass_class.queryOppositeUnordered
+                MagicDrawUMLClassifier.scala  (20 usages found)
+                    R:A_context_action.queryOppositeUnordered
+                    R:A_redefinedClassifier_classifier.queryOppositeUnordered
+                    R:A_constrainingClassifier_classifierTemplateParameter.queryOppositeUnordered
+                    R:A_realizingClassifier_componentRealization.queryOppositeUnordered
+                    R:A_classifier_createObjectAction.queryOppositeUnordered
+                    R:A_exceptionType_exceptionHandler.queryOppositeUnordered
+                    R:A_general_generalization.queryOppositeUnordered
+                    R:A_conveyed_conveyingFlow.queryOppositeUnordered
+                    R:A_represented_representation.queryOppositeUnordered
+                    R:A_classifier_readIsClassifiedObjectAction.queryOppositeUnordered
+                    R:A_newClassifier_reclassifyObjectAction.queryOppositeUnordered
+                    R:A_oldClassifier_reclassifyObjectAction.queryOppositeUnordered
+                    R:A_redefinitionContext_region.queryOppositeUnordered
+                    R:A_redefinitionContext_state.queryOppositeUnordered
+                    R:A_contract_substitution.queryOppositeUnordered
+                    R:A_redefinitionContext_transition.queryOppositeUnordered
+                    R:A_unmarshallType_unmarshallAction.queryOppositeUnordered
+                    R:A_general_classifier.queryOppositeUnordered
+                    R:A_redefinitionContext_redefinableElement.queryOppositeUnordered
+                    R:A_subject_useCase.queryOppositeUnordered
+                MagicDrawUMLClause.scala  (1 usage found)
+                    R:A_predecessorClause_successorClause.queryOppositeUnordered
+                MagicDrawUMLCollaboration.scala  (1 usage found)
+                    R:A_type_collaborationUse.queryOppositeUnordered
+                MagicDrawUMLConnectableElement.scala  (3 usages found)
+                    R:A_collaborationRole_collaboration.queryOppositeUnordered
+                    R:A_represents_lifeline.queryOppositeUnordered
+                    R:A_role_structuredClassifier.queryOppositeUnordered
+                MagicDrawUMLConnector.scala  (3 usages found)
+                    R:A_redefinedConnector_connector.queryOppositeUnordered
+                    R:A_realizingConnector_informationFlow.queryOppositeUnordered
+                    R:A_connector_message.queryOppositeUnordered
+                MagicDrawUMLDeployedArtifact.scala  (1 usage found)
+                    R:A_deployedArtifact_deploymentForArtifact.queryOppositeUnordered
+                MagicDrawUMLDuration.scala  (2 usages found)
+                    R:A_max_durationInterval.queryOppositeUnordered
+                    R:A_min_durationInterval.queryOppositeUnordered
+                MagicDrawUMLElement.scala  (7 usages found)
+                    R:A_represents_activityPartition.queryOppositeUnordered
+                    R:A_annotatedElement_comment.queryOppositeUnordered
+                    R:MD_diagramOfContext_context.queryOppositeUnordered
+                    R:MD_elementValueOfElement_element.queryOppositeUnordered
+                    R:A_source_directedRelationship.queryOppositeUnordered
+                    R:A_target_directedRelationship.queryOppositeUnordered
+                    R:A_relatedElement_relationship.queryOppositeUnordered
+                MagicDrawUMLEnumeration.scala  (1 usage found)
+                    R:A_classifier_enumerationLiteral.queryOppositeUnordered
+                MagicDrawUMLEvent.scala  (1 usage found)
+                    R:A_event_trigger.queryOppositeUnordered
+                MagicDrawUMLExecutableNode.scala  (1 usage found)
+                    R:A_handlerBody_exceptionHandler.queryOppositeUnordered
+                MagicDrawUMLExecutionSpecification.scala  (1 usage found)
+                    R:A_execution_executionOccurrenceSpecification.queryOppositeUnordered
+                MagicDrawUMLGeneralizationSet.scala  (1 usage found)
+                    R:A_generalizationSet_generalization.queryOppositeUnordered
+                MagicDrawUMLInstanceSpecification.scala  (1 usage found)
+                    R:A_instance_instanceValue.queryOppositeUnordered
+                MagicDrawUMLInteraction.scala  (1 usage found)
+                    R:A_refersTo_interactionUse.queryOppositeUnordered
+                MagicDrawUMLInterface.scala  (6 usages found)
+                    R:A_provided_component.queryOppositeUnordered
+                    R:A_required_component.queryOppositeUnordered
+                    R:A_redefinedInterface_interface.queryOppositeUnordered
+                    R:A_contract_interfaceRealization.queryOppositeUnordered
+                    R:A_provided_port.queryOppositeUnordered
+                    R:A_required_port.queryOppositeUnordered
+                MagicDrawUMLInterruptibleActivityRegion.scala  (1 usage found)
+                    R:A_inInterruptibleRegion_node.queryOppositeUnordered
+                MagicDrawUMLLifeline.scala  (2 usages found)
+                    R:A_covered_stateInvariant.queryOppositeUnordered
+                    R:A_covered_coveredBy.queryOppositeUnordered
+                MagicDrawUMLMessage.scala  (2 usages found)
+                    R:A_realizingMessage_informationFlow.queryOppositeUnordered
+                    R:A_message_messageEnd.queryOppositeUnordered
+                MagicDrawUMLNamedElement.scala  (9 usages found)
+                    R:A_message_considerIgnoreFragment.queryOppositeUnordered
+                    R:A_informationSource_informationFlow.queryOppositeUnordered
+                    R:A_informationTarget_informationFlow.queryOppositeUnordered
+                    R:A_signature_message.queryOppositeUnordered
+                    R:A_event_timeObservation.queryOppositeUnordered
+                    R:A_clientDependency_client.queryOppositeUnordered
+                    R:A_inheritedMember_inheritingClassifier.queryOppositeUnordered
+                    R:A_member_memberNamespace.queryOppositeUnordered
+                    R:A_supplier_supplierDependency.queryOppositeUnordered
+                MagicDrawUMLObjectNode.scala  (1 usage found)
+                    R:A_exceptionInput_exceptionHandler.queryOppositeUnordered
+                MagicDrawUMLOccurrenceSpecification.scala  (2 usages found)
+                    R:A_finish_executionSpecification.queryOppositeUnordered
+                    R:A_start_executionSpecification.queryOppositeUnordered
+                MagicDrawUMLOperation.scala  (4 usages found)
+                    R:A_operation_callEvent.queryOppositeUnordered
+                    R:A_operation_callOperationAction.queryOppositeUnordered
+                    R:A_redefinedOperation_operation.queryOppositeUnordered
+                    R:A_referred_protocolTransition.queryOppositeUnordered
+                MagicDrawUMLPackage.scala  (2 usages found)
+                    R:A_importedPackage_packageImport.queryOppositeUnordered
+                    R:A_mergedPackage_packageMerge.queryOppositeUnordered
+                MagicDrawUMLPackageableElement.scala  (4 usages found)
+                    R:A_deployedElement_deploymentTarget.queryOppositeUnordered
+                    R:A_importedElement_import.queryOppositeUnordered
+                    R:A_utilizedElement_manifestation.queryOppositeUnordered
+                    R:A_importedMember_namespace.queryOppositeUnordered
+                MagicDrawUMLParameter.scala  (2 usages found)
+                    R:A_parameter_activityParameterNode.queryOppositeUnordered
+                    R:A_result_opaqueExpression.queryOppositeUnordered
+                MagicDrawUMLParameterableElement.scala  (2 usages found)
+                    R:A_default_templateParameter.queryOppositeUnordered
+                    R:A_actual_templateParameterSubstitution.queryOppositeUnordered
+                MagicDrawUMLParameterSet.scala  (1 usage found)
+                    R:A_parameterSet_parameter.queryOppositeUnordered
+                MagicDrawUMLPort.scala  (3 usages found)
+                    R:A_onPort_invocationAction.queryOppositeUnordered
+                    R:A_redefinedPort_port.queryOppositeUnordered
+                    R:A_port_trigger.queryOppositeUnordered
+                MagicDrawUMLProfile.scala  (2 usages found)
+                    R:A_appliedProfile_profileApplication.queryOppositeUnordered
+                    R:A_profile_stereotype.queryOppositeUnordered
+                MagicDrawUMLProperty.scala  (7 usages found)
+                    R:A_definingEnd_connectorEnd.queryOppositeUnordered
+                    R:A_partWithPort_connectorEnd.queryOppositeUnordered
+                    R:A_returnValueRecipient_interactionUse.queryOppositeUnordered
+                    R:A_end_linkEndData.queryOppositeUnordered
+                    R:A_redefinedProperty_property.queryOppositeUnordered
+                    R:A_subsettedProperty_property.queryOppositeUnordered
+                    R:A_qualifier_qualifierValue.queryOppositeUnordered
+                MagicDrawUMLProtocolStateMachine.scala  (2 usages found)
+                    R:A_protocol_port.queryOppositeUnordered
+                    R:A_generalMachine_protocolConformance.queryOppositeUnordered
+                MagicDrawUMLRedefinableElement.scala  (1 usage found)
+                    R:A_redefinedElement_redefinableElement.queryOppositeUnordered
+                MagicDrawUMLRedefinableTemplateSignature.scala  (1 usage found)
+                    R:A_extendedSignature_redefinableTemplateSignature.queryOppositeUnordered
+                MagicDrawUMLRegion.scala  (1 usage found)
+                    R:A_extendedRegion_region.queryOppositeUnordered
+                MagicDrawUMLRelationship.scala  (1 usage found)
+                    R:A_realization_abstraction_flow.queryOppositeUnordered
+                MagicDrawUMLSignal.scala  (4 usages found)
+                    R:A_signal_broadcastSignalAction.queryOppositeUnordered
+                    R:A_signal_reception.queryOppositeUnordered
+                    R:A_signal_sendSignalAction.queryOppositeUnordered
+                    R:A_signal_signalEvent.queryOppositeUnordered
+                MagicDrawUMLState.scala  (2 usages found)
+                    R:A_inState_objectNode.queryOppositeUnordered
+                    R:A_redefinedState_state.queryOppositeUnordered
+                MagicDrawUMLStateMachine.scala  (1 usage found)
+                    R:A_extendedStateMachine_stateMachine.queryOppositeUnordered
+                MagicDrawUMLStereotype.scala  (1 usage found)
+                    R:A_type_extensionEnd.queryOppositeUnordered
+                MagicDrawUMLStructuralFeature.scala  (2 usages found)
+                    R:A_definingFeature_slot.queryOppositeUnordered
+                    R:A_structuralFeature_structuralFeatureAction.queryOppositeUnordered
+                MagicDrawUMLTemplateParameter.scala  (2 usages found)
+                    R:A_inheritedParameter_redefinableTemplateSignature.queryOppositeUnordered
+                    R:A_formal_templateParameterSubstitution.queryOppositeUnordered
+                MagicDrawUMLTemplateSignature.scala  (1 usage found)
+                    R:A_signature_templateBinding.queryOppositeUnordered
+                MagicDrawUMLTimeExpression.scala  (2 usages found)
+                    R:A_max_timeInterval.queryOppositeUnordered
+                    R:A_min_timeInterval.queryOppositeUnordered
+                MagicDrawUMLTransition.scala  (1 usage found)
+                    R:A_redefinedTransition_transition.queryOppositeUnordered
+                MagicDrawUMLType.scala  (5 usages found)
+                    R:A_raisedException_behavioralFeature.queryOppositeUnordered
+                    R:A_raisedException_operation.queryOppositeUnordered
+                    R:A_type_operation.queryOppositeUnordered
+                    R:A_type_typedElement.queryOppositeUnordered
+                    R:A_endType_association.queryOppositeUnordered
+                MagicDrawUMLUseCase.scala  (2 usages found)
+                    R:A_extendedCase_extend.queryOppositeUnordered
+                    R:A_addition_include.queryOppositeUnordered
+                MagicDrawUMLValueSpecification.scala  (2 usages found)
+                    R:A_max_interval.queryOppositeUnordered
+                    R:A_min_interval.queryOppositeUnordered
+                MagicDrawUMLVariable.scala  (1 usage found)
+                    R:A_variable_variableAction.queryOppositeUnordered
+</p>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation#queryOptional" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="queryOptional(source:S):Option[UT]"></a>
+      <a id="queryOptional(S):Option[UT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">queryOptional</span><span class="params">(<span name="source">source: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.UT">UT</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@queryOptional(source:S):Option[UT]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">examples 105
+                MagicDrawUMLAction.scala  (1 usage found)
+                    F:A_context_action.queryOptional
+                MagicDrawUMLActionExecutionSpecification.scala  (1 usage found)
+                    F:A_action_actionExecutionSpecification.queryOptional
+                MagicDrawUMLActivityParameterNode.scala  (1 usage found)
+                    F:A_parameter_activityParameterNode.queryOptional
+                MagicDrawUMLActivityPartition.scala  (1 usage found)
+                    F:A_represents_activityPartition.queryOptional
+                MagicDrawUMLBehavior.scala  (1 usage found)
+                    F:A_context_behavior.queryOptional
+                MagicDrawUMLBehavioredClassifier.scala  (1 usage found)
+                    F:A_classifierBehavior_behavioredClassifier.queryOptional
+                MagicDrawUMLBehaviorExecutionSpecification.scala  (1 usage found)
+                    F:A_behavior_behaviorExecutionSpecification.queryOptional
+                MagicDrawUMLBroadcastSignalAction.scala  (1 usage found)
+                    F:A_signal_broadcastSignalAction.queryOptional
+                MagicDrawUMLCallBehaviorAction.scala  (1 usage found)
+                    F:A_behavior_callBehaviorAction.queryOptional
+                MagicDrawUMLCallEvent.scala  (1 usage found)
+                    F:A_operation_callEvent.queryOptional
+                MagicDrawUMLCallOperationAction.scala  (1 usage found)
+                    F:A_operation_callOperationAction.queryOptional
+                MagicDrawUMLClassifier.scala  (2 usages found)
+                    F:A_representation_classifier.queryOptional
+                    F:A_classifier_templateParameter_parameteredElement.queryOptional
+                MagicDrawUMLClause.scala  (1 usage found)
+                    F:A_decider_clause.queryOptional
+                MagicDrawUMLClearAssociationAction.scala  (1 usage found)
+                    F:A_association_clearAssociationAction.queryOptional
+                MagicDrawUMLCollaborationUse.scala  (1 usage found)
+                    F:A_type_collaborationUse.queryOptional
+                MagicDrawUMLConnectableElement.scala  (1 usage found)
+                    F:A_connectableElement_templateParameter_parameteredElement.queryOptional
+                MagicDrawUMLConnector.scala  (1 usage found)
+                    F:A_type_connector.queryOptional
+                MagicDrawUMLConnectorEnd.scala  (2 usages found)
+                    F:A_definingEnd_connectorEnd.queryOptional
+                    F:A_partWithPort_connectorEnd.queryOptional
+                MagicDrawUMLCreateObjectAction.scala  (1 usage found)
+                    F:A_classifier_createObjectAction.queryOptional
+                MagicDrawUMLDecisionNode.scala  (2 usages found)
+                    F:A_decisionInput_decisionNode.queryOptional
+                    F:A_decisionInputFlow_decisionNode.queryOptional
+                MagicDrawUMLDiagram.scala  (1 usage found)
+                    F:MD_diagramOfContext_context.queryOptional
+                MagicDrawUMLDurationInterval.scala  (2 usages found)
+                    F:A_max_durationInterval.queryOptional
+                    F:A_min_durationInterval.queryOptional
+                MagicDrawUMLElementImport.scala  (1 usage found)
+                    F:A_importedElement_import.queryOptional
+                MagicDrawUMLElementValue.scala  (1 usage found)
+                    F:MD_elementValueOfElement_element.queryOptional
+                MagicDrawUMLExceptionHandler.scala  (2 usages found)
+                    F:A_exceptionInput_exceptionHandler.queryOptional
+                    F:A_handlerBody_exceptionHandler.queryOptional
+                MagicDrawUMLExecutionOccurrenceSpecification.scala  (1 usage found)
+                    F:A_execution_executionOccurrenceSpecification.queryOptional
+                MagicDrawUMLExecutionSpecification.scala  (2 usages found)
+                    F:A_finish_executionSpecification.queryOptional
+                    F:A_start_executionSpecification.queryOptional
+                MagicDrawUMLExtend.scala  (1 usage found)
+                    F:A_extendedCase_extend.queryOptional
+                MagicDrawUMLExtensionEnd.scala  (1 usage found)
+                    F:A_type_extensionEnd.queryOptional
+                MagicDrawUMLGeneralization.scala  (1 usage found)
+                    F:A_general_generalization.queryOptional
+                MagicDrawUMLInclude.scala  (1 usage found)
+                    F:A_addition_include.queryOptional
+                MagicDrawUMLInstanceValue.scala  (1 usage found)
+                    F:A_instance_instanceValue.queryOptional
+                MagicDrawUMLInteractionUse.scala  (2 usages found)
+                    F:A_refersTo_interactionUse.queryOptional
+                    F:A_returnValueRecipient_interactionUse.queryOptional
+                MagicDrawUMLInterfaceRealization.scala  (1 usage found)
+                    F:A_contract_interfaceRealization.queryOptional
+                MagicDrawUMLInterval.scala  (2 usages found)
+                    F:A_max_interval.queryOptional
+                    F:A_min_interval.queryOptional
+                MagicDrawUMLInvocationAction.scala  (1 usage found)
+                    F:A_onPort_invocationAction.queryOptional
+                MagicDrawUMLLifeline.scala  (2 usages found)
+                    F:A_decomposedAs_lifeline.queryOptional
+                    F:A_represents_lifeline.queryOptional
+                MagicDrawUMLLinkEndCreationData.scala  (1 usage found)
+                    F:A_insertAt_linkEndCreationData.queryOptional
+                MagicDrawUMLLinkEndData.scala  (2 usages found)
+                    F:A_end_linkEndData.queryOptional
+                    F:A_value_linkEndData.queryOptional
+                MagicDrawUMLLinkEndDestructionData.scala  (1 usage found)
+                    F:A_destroyAt_linkEndDestructionData.queryOptional
+                MagicDrawUMLLoopNode.scala  (1 usage found)
+                    F:A_decider_loopNode.queryOptional
+                MagicDrawUMLManifestation.scala  (1 usage found)
+                    F:A_utilizedElement_manifestation.queryOptional
+                MagicDrawUMLMessage.scala  (4 usages found)
+                    F:A_connector_message.queryOptional
+                    F:A_receiveEvent_endMessage.queryOptional
+                    F:A_sendEvent_endMessage.queryOptional
+                    F:A_signature_message.queryOptional
+                MagicDrawUMLMessageEnd.scala  (1 usage found)
+                    F:A_message_messageEnd.queryOptional
+                MagicDrawUMLObjectFlow.scala  (2 usages found)
+                    F:A_selection_objectFlow.queryOptional
+                    F:A_transformation_objectFlow.queryOptional
+                MagicDrawUMLObjectNode.scala  (1 usage found)
+                    F:A_selection_objectNode.queryOptional
+                MagicDrawUMLOpaqueExpression.scala  (2 usages found)
+                    F:A_behavior_opaqueExpression.queryOptional
+                    F:A_result_opaqueExpression.queryOptional
+                MagicDrawUMLOperation.scala  (3 usages found)
+                    F:A_bodyCondition_bodyContext.queryOptional
+                    F:A_operation_templateParameter_parameteredElement.queryOptional
+                    F:A_type_operation.queryOptional
+                MagicDrawUMLPackageImport.scala  (1 usage found)
+                    F:A_importedPackage_packageImport.queryOptional
+                MagicDrawUMLPackageMerge.scala  (1 usage found)
+                    F:A_mergedPackage_packageMerge.queryOptional
+                MagicDrawUMLPort.scala  (1 usage found)
+                    F:A_protocol_port.queryOptional
+                MagicDrawUMLProfileApplication.scala  (1 usage found)
+                    F:A_appliedProfile_profileApplication.queryOptional
+                MagicDrawUMLProperty.scala  (1 usage found)
+                    F:A_opposite_property.queryOptional
+                MagicDrawUMLProtocolConformance.scala  (1 usage found)
+                    F:A_generalMachine_protocolConformance.queryOptional
+                MagicDrawUMLProtocolTransition.scala  (2 usages found)
+                    F:A_postCondition_owningTransition.queryOptional
+                    F:A_preCondition_protocolTransition.queryOptional
+                MagicDrawUMLQualifierValue.scala  (2 usages found)
+                    F:A_qualifier_qualifierValue.queryOptional
+                    F:A_value_qualifierValue.queryOptional
+                MagicDrawUMLReadExtentAction.scala  (1 usage found)
+                    F:A_classifier_readExtentAction.queryOptional
+                MagicDrawUMLReadIsClassifiedObjectAction.scala  (1 usage found)
+                    F:A_classifier_readIsClassifiedObjectAction.queryOptional
+                MagicDrawUMLReadLinkObjectEndAction.scala  (1 usage found)
+                    F:A_end_readLinkObjectEndAction.queryOptional
+                MagicDrawUMLReadLinkObjectEndQualifierAction.scala  (1 usage found)
+                    F:A_qualifier_readLinkObjectEndQualifierAction.queryOptional
+                MagicDrawUMLReception.scala  (1 usage found)
+                    F:A_signal_reception.queryOptional
+                MagicDrawUMLReduceAction.scala  (1 usage found)
+                    F:A_reducer_reduceAction.queryOptional
+                MagicDrawUMLRegion.scala  (1 usage found)
+                    F:A_extendedRegion_region.queryOptional
+                MagicDrawUMLReplyAction.scala  (1 usage found)
+                    F:A_replyToCall_replyAction.queryOptional
+                MagicDrawUMLSendSignalAction.scala  (1 usage found)
+                    F:A_signal_sendSignalAction.queryOptional
+                MagicDrawUMLSignalEvent.scala  (1 usage found)
+                    F:A_signal_signalEvent.queryOptional
+                MagicDrawUMLSlot.scala  (1 usage found)
+                    F:A_definingFeature_slot.queryOptional
+                MagicDrawUMLState.scala  (2 usages found)
+                    F:A_redefinedState_state.queryOptional
+                    F:A_stateInvariant_owningState.queryOptional
+                MagicDrawUMLStereotype.scala  (1 usage found)
+                    F:A_profile_stereotype.queryOptional
+                MagicDrawUMLStructuralFeatureAction.scala  (1 usage found)
+                    F:A_structuralFeature_structuralFeatureAction.queryOptional
+                MagicDrawUMLSubstitution.scala  (1 usage found)
+                    F:A_contract_substitution.queryOptional
+                MagicDrawUMLTemplateBinding.scala  (1 usage found)
+                    F:A_signature_templateBinding.queryOptional
+                MagicDrawUMLTemplateParameter.scala  (2 usages found)
+                    F:A_default_templateParameter.queryOptional
+                    F:A_parameteredElement_templateParameter.queryOptional
+                MagicDrawUMLTemplateParameterSubstitution.scala  (2 usages found)
+                    F:A_actual_templateParameterSubstitution.queryOptional
+                    F:A_formal_templateParameterSubstitution.queryOptional
+                MagicDrawUMLTimeInterval.scala  (2 usages found)
+                    F:A_max_timeInterval.queryOptional
+                    F:A_min_timeInterval.queryOptional
+                MagicDrawUMLTimeObservation.scala  (1 usage found)
+                    F:A_event_timeObservation.queryOptional
+                MagicDrawUMLTransition.scala  (2 usages found)
+                    F:A_guard_transition.queryOptional
+                    F:A_redefinedTransition_transition.queryOptional
+                MagicDrawUMLTrigger.scala  (1 usage found)
+                    F:A_event_trigger.queryOptional
+                MagicDrawUMLTypedElement.scala  (1 usage found)
+                    F:A_type_typedElement.queryOptional
+                MagicDrawUMLUnmarshallAction.scala  (1 usage found)
+                    F:A_unmarshallType_unmarshallAction.queryOptional
+                MagicDrawUMLVariableAction.scala  (1 usage found)
+                    F:A_variable_variableAction.queryOptional
+</p>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation#queryUnordered" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="queryUnordered(source:S):scala.collection.immutable.Set[UT]"></a>
+      <a id="queryUnordered(S):Set[UT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">queryUnordered</span><span class="params">(<span name="source">source: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.UT">UT</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@queryUnordered(source:S):scala.collection.immutable.Set[UT]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">examples 96
+                MagicDrawUMLActivity.scala  (1 usage found)
+                    F:A_partition_activity.queryUnordered
+                MagicDrawUMLActivityEdge.scala  (1 usage found)
+                    F:A_redefinedEdge_activityEdge.queryUnordered
+                MagicDrawUMLActivityGroup.scala  (2 usages found)
+                    F:A_containedEdge_inGroup.queryUnordered
+                    F:A_containedNode_inGroup.queryUnordered
+                MagicDrawUMLActivityNode.scala  (5 usages found)
+                    F:A_inInterruptibleRegion_node.queryUnordered
+                    F:A_inPartition_node.queryUnordered
+                    F:A_incoming_target_node.queryUnordered
+                    F:A_outgoing_source_node.queryUnordered
+                    F:A_redefinedNode_activityNode.queryUnordered
+                MagicDrawUMLActivityPartition.scala  (1 usage found)
+                    F:A_edge_inPartition.queryUnordered
+                MagicDrawUMLAssociation.scala  (2 usages found)
+                    F:A_endType_association.queryUnordered
+                    F:A_navigableOwnedEnd_association.queryUnordered
+                MagicDrawUMLBehavior.scala  (3 usages found)
+                    F:A_postcondition_behavior.queryUnordered
+                    F:A_precondition_behavior.queryUnordered
+                    F:A_redefinedBehavior_behavior.queryUnordered
+                MagicDrawUMLBehavioralFeature.scala  (2 usages found)
+                    F:A_method_specification.queryUnordered
+                    F:A_raisedException_behavioralFeature.queryUnordered
+                MagicDrawUMLClass.scala  (2 usages found)
+                    F:A_extension_metaclass.queryUnordered
+                    F:A_superClass_class.queryUnordered
+                MagicDrawUMLClassifier.scala  (5 usages found)
+                    F:A_feature_featuringClassifier.queryUnordered
+                    F:A_general_classifier.queryUnordered
+                    F:A_inheritedMember_inheritingClassifier.queryUnordered
+                    F:A_powertypeExtent_powertype.queryUnordered
+                    F:A_redefinedClassifier_classifier.queryUnordered
+                MagicDrawUMLClassifierTemplateParameter.scala  (1 usage found)
+                    F:A_constrainingClassifier_classifierTemplateParameter.queryUnordered
+                MagicDrawUMLClause.scala  (3 usages found)
+                    F:A_body_clause.queryUnordered
+                    F:A_predecessorClause_successorClause.queryUnordered
+                    F:A_test_clause.queryUnordered
+                MagicDrawUMLCollaboration.scala  (1 usage found)
+                    F:A_collaborationRole_collaboration.queryUnordered
+                MagicDrawUMLComment.scala  (1 usage found)
+                    F:A_annotatedElement_comment.queryUnordered
+                MagicDrawUMLComponent.scala  (2 usages found)
+                    F:A_provided_component.queryUnordered
+                    F:A_required_component.queryUnordered
+                MagicDrawUMLComponentRealization.scala  (1 usage found)
+                    F:A_realizingClassifier_componentRealization.queryUnordered
+                MagicDrawUMLConnectableElement.scala  (1 usage found)
+                    F:A_end_role.queryUnordered
+                MagicDrawUMLConnectionPointReference.scala  (2 usages found)
+                    F:A_entry_connectionPointReference.queryUnordered
+                    F:A_exit_connectionPointReference.queryUnordered
+                MagicDrawUMLConnector.scala  (2 usages found)
+                    F:A_contract_connector.queryUnordered
+                    F:A_redefinedConnector_connector.queryUnordered
+                MagicDrawUMLConsiderIgnoreFragment.scala  (1 usage found)
+                    F:A_message_considerIgnoreFragment.queryUnordered
+                MagicDrawUMLDependency.scala  (2 usages found)
+                    F:A_clientDependency_client.queryUnordered
+                    F:A_supplier_supplierDependency.queryUnordered
+                MagicDrawUMLDeployment.scala  (1 usage found)
+                    F:A_deployedArtifact_deploymentForArtifact.queryUnordered
+                MagicDrawUMLDeploymentTarget.scala  (1 usage found)
+                    F:A_deployedElement_deploymentTarget.queryUnordered
+                MagicDrawUMLDirectedRelationship.scala  (2 usages found)
+                    F:A_source_directedRelationship.queryUnordered
+                    F:A_target_directedRelationship.queryUnordered
+                MagicDrawUMLDuration.scala  (1 usage found)
+                    F:A_observation_duration.queryUnordered
+                MagicDrawUMLExceptionHandler.scala  (1 usage found)
+                    F:A_exceptionType_exceptionHandler.queryUnordered
+                MagicDrawUMLExpansionRegion.scala  (2 usages found)
+                    F:A_inputElement_regionAsInput.queryUnordered
+                    F:A_outputElement_regionAsOutput.queryUnordered
+                MagicDrawUMLGeneralization.scala  (1 usage found)
+                    F:A_generalizationSet_generalization.queryUnordered
+                MagicDrawUMLInformationFlow.scala  (7 usages found)
+                    F:A_conveyed_conveyingFlow.queryUnordered
+                    F:A_informationSource_informationFlow.queryUnordered
+                    F:A_informationTarget_informationFlow.queryUnordered
+                    F:A_realization_abstraction_flow.queryUnordered
+                    F:A_realizingActivityEdge_informationFlow.queryUnordered
+                    F:A_realizingConnector_informationFlow.queryUnordered
+                    F:A_realizingMessage_informationFlow.queryUnordered
+                MagicDrawUMLInformationItem.scala  (1 usage found)
+                    F:A_represented_representation.queryUnordered
+                MagicDrawUMLInterface.scala  (1 usage found)
+                    F:A_redefinedInterface_interface.queryUnordered
+                MagicDrawUMLInterruptibleActivityRegion.scala  (1 usage found)
+                    F:A_interruptingEdge_interrupts.queryUnordered
+                MagicDrawUMLLoopNode.scala  (3 usages found)
+                    F:A_bodyPart_loopNode.queryUnordered
+                    F:A_setupPart_loopNode.queryUnordered
+                    F:A_test_loopNode.queryUnordered
+                MagicDrawUMLNamespace.scala  (2 usages found)
+                    F:A_importedMember_namespace.queryUnordered
+                    F:A_member_memberNamespace.queryUnordered
+                MagicDrawUMLObjectNode.scala  (1 usage found)
+                    F:A_inState_objectNode.queryUnordered
+                MagicDrawUMLOccurrenceSpecification.scala  (2 usages found)
+                    F:A_before_toAfter.queryUnordered
+                    F:A_toBefore_after.queryUnordered
+                MagicDrawUMLOperation.scala  (4 usages found)
+                    F:A_postcondition_postContext.queryUnordered
+                    F:A_precondition_preContext.queryUnordered
+                    F:A_raisedException_operation.queryUnordered
+                    F:A_redefinedOperation_operation.queryUnordered
+                MagicDrawUMLParameter.scala  (1 usage found)
+                    F:A_parameterSet_parameter.queryUnordered
+                MagicDrawUMLPort.scala  (3 usages found)
+                    F:A_provided_port.queryUnordered
+                    F:A_redefinedPort_port.queryUnordered
+                    F:A_required_port.queryUnordered
+                MagicDrawUMLProfile.scala  (2 usages found)
+                    F:A_metaclassReference_profile.queryUnordered
+                    F:A_metamodelReference_profile.queryUnordered
+                MagicDrawUMLProperty.scala  (2 usages found)
+                    F:A_redefinedProperty_property.queryUnordered
+                    F:A_subsettedProperty_property.queryUnordered
+                MagicDrawUMLProtocolTransition.scala  (1 usage found)
+                    F:A_referred_protocolTransition.queryUnordered
+                MagicDrawUMLReclassifyObjectAction.scala  (2 usages found)
+                    F:A_newClassifier_reclassifyObjectAction.queryUnordered
+                    F:A_oldClassifier_reclassifyObjectAction.queryUnordered
+                MagicDrawUMLRedefinableElement.scala  (1 usage found)
+                    F:A_redefinedElement_redefinableElement.queryUnordered
+                MagicDrawUMLRedefinableTemplateSignature.scala  (2 usages found)
+                    F:A_extendedSignature_redefinableTemplateSignature.queryUnordered
+                    F:A_inheritedParameter_redefinableTemplateSignature.queryUnordered
+                MagicDrawUMLRelationship.scala  (1 usage found)
+                    F:A_relatedElement_relationship.queryUnordered
+                MagicDrawUMLStateMachine.scala  (2 usages found)
+                    F:A_extendedStateMachine_stateMachine.queryUnordered
+                    F:A_submachineState_submachine.queryUnordered
+                MagicDrawUMLStructuredClassifier.scala  (2 usages found)
+                    F:A_part_structuredClassifier.queryUnordered
+                    F:A_role_structuredClassifier.queryUnordered
+                MagicDrawUMLTimeExpression.scala  (1 usage found)
+                    F:A_observation_timeExpression.queryUnordered
+                MagicDrawUMLTrigger.scala  (1 usage found)
+                    F:A_port_trigger.queryUnordered
+                MagicDrawUMLUseCase.scala  (1 usage found)
+                    F:A_subject_useCase.queryUnordered
+                MagicDrawUMLVertex.scala  (2 usages found)
+                    F:A_incoming_target_vertex.queryUnordered
+                    F:A_outgoing_source_vertex.queryUnordered
+</p>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.Product">
+              <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
+            </div><div class="parent" name="scala.Equals">
+              <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+            </div><div class="parent" name="org.omg.oti.mof.runtime.metamodel.Association">
+              <h3>Inherited from <a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.UT">UT</span>, <a href="../model/ModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelUnorderedLink">ModelUnorderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>]]</h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

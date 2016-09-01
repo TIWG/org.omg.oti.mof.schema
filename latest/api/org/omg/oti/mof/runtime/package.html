@@ -1,0 +1,218 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>runtime - org.omg.oti.mof.runtime</title>
+          <meta name="description" content="runtime - org.omg.oti.mof.runtime" />
+          <meta name="keywords" content="runtime org.omg.oti.mof.runtime" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../index.html';
+            var hash = 'org.omg.oti.mof.runtime.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../../package.html" class="extype" name="org">org</a>.<a href="../../../package.html" class="extype" name="org.omg">omg</a>.<a href="../../package.html" class="extype" name="org.omg.oti">oti</a>.<a href="../package.html" class="extype" name="org.omg.oti.mof">mof</a></p>
+        <h1>runtime</h1><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.runtime.package" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">runtime</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="org.omg.oti.mof.runtime.ResourceStore" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ResourceStoreextendsAnyRef"></a>
+      <a id="ResourceStore:ResourceStore"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ResourceStore.html"><span class="name">ResourceStore</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.runtime.package@ResourceStoreextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="org.omg.oti.mof.runtime.ResourceStore" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ResourceStore"></a>
+      <a id="ResourceStore:ResourceStore"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ResourceStore$.html"><span class="name">ResourceStore</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.runtime.package@ResourceStore" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.runtime.metamodel" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="metamodel"></a>
+      <a id="metamodel:metamodel"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="metamodel/package.html"><span class="name">metamodel</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.runtime.package@metamodel" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">What are the different kinds of meta-associations used in metamodels?</p><div class="fullcomment"><div class="comment cmt"><p>What are the different kinds of meta-associations used in metamodels?</p><p>All well-formed metamodel associations are ordered from a source to a target association end property.</p><p>It depends on several characteristics:
+- is the source/target association end property ordered?
+- is the source/target association end property composite?</p><p>For each kind of association, there are two sets of query operations:
+- for forward navigation from the association source to target
+- for reverse navigation from the association target to source</p><p>For each kind of association, there is always a forward query in the association source metaclass
+and a reverse query in the association target metaclass.</p><p>This means that a simple test of well-formed code generation is to verify
+that the count of forward query usages equals the count of reverse query usages for each kind of association.
+</p></div><dl class="attributes block"> <div class="block">Example:
+               <ol><li class="cmt"><p>MagicDraw 18's implementation of OMG UML 2.5 has 430 associations:
+- 9 are MD-specific (no code is generated for them currently)
+- 421 correspond to OMG UML 2.5 + two extra metaclasses (Diagram, ElementValue)
+These 421 associations fall in 5 categories as described below:
+Note that in each category, there is a matching number of forward &amp; reverse query operations.
+- 1 <a href="metamodel/SourceOrderedReferenceAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation">org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation</a>
+Forward:
+-- 1 queryIterable
+Reverse:
+-- 1 queryOppositeOrdered
+- 40 <a href="metamodel/TargetOrderedCompositeAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation">org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation</a>
+Forward:
+-- 1 queryIterable
+-- 39 queryOrdered
+Reverse:
+-- 40 queryOppositeOptional
+- 9 <a href="metamodel/TargetOrderedReferenceAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation">org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation</a>
+Forward:
+-- 1 queryIterable
+-- 8 queryOrdered
+Reverse:
+-- 2 queryOppositeOptional
+-- 7 queryOppositeUnordered
+- 163 <a href="metamodel/UnorderedCompositeAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation">org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation</a>
+Forward:
+-- 4 queryIterable
+-- 80 queryOptional
+-- 79 queryUnordered
+Reverse:
+-- 163 queryOppositeOptional
+- 208 <a href="metamodel/UnorderedReferenceAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation">org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation</a>
+Forward:
+-- 7 queryIterable
+-- 105 queryOptional
+-- 96 queryUnordered
+Reverse:
+-- 60 queryOppositeOptional
+-- 148 queryOppositeUnordered</p></li></ol>
+            </div></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.model" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="model"></a>
+      <a id="model:model"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="model/package.html"><span class="name">model</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.runtime.package@model" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

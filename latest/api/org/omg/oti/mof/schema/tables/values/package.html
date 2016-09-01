@@ -1,0 +1,330 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>values - org.omg.oti.mof.schema.tables.values</title>
+          <meta name="description" content="values - org.omg.oti.mof.schema.tables.values" />
+          <meta name="keywords" content="values org.omg.oti.mof.schema.tables.values" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../../../index.html';
+            var hash = 'org.omg.oti.mof.schema.tables.values.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../../../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../../../../package.html" class="extype" name="org">org</a>.<a href="../../../../../package.html" class="extype" name="org.omg">omg</a>.<a href="../../../../package.html" class="extype" name="org.omg.oti">oti</a>.<a href="../../../package.html" class="extype" name="org.omg.oti.mof">mof</a>.<a href="../../package.html" class="extype" name="org.omg.oti.mof.schema">schema</a>.<a href="../package.html" class="extype" name="org.omg.oti.mof.schema.tables">tables</a></p>
+        <h1>values</h1><span class="permalink">
+      <a href="../../../../../../../index.html#org.omg.oti.mof.schema.tables.values.package" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">values</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="org.omg.oti.mof.schema.tables.values.OTIMOFEntityAttributeValue" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="OTIMOFEntityAttributeValueextendsAnyRef"></a>
+      <a id="OTIMOFEntityAttributeValue:OTIMOFEntityAttributeValue"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFEntityAttributeValue.html"><span class="name">OTIMOFEntityAttributeValue</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.omg.oti.mof.schema.tables.values.package@OTIMOFEntityAttributeValueextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Represents the value of an attribute defined in the context of an entity classifier.</p><div class="fullcomment"><div class="comment cmt"><p>Represents the value of an attribute defined in the context of an entity classifier.
+The entity can be one of 3 kinds:
+- A model element that is an instance of a metaclass; the metaclass is the classifier context of the attribute.
+- A model element that with a stereotype applied; the stereotype is the classifier context of the attribute.
+- A structured value that is an instance of a structured datatype that is the classifier context of the attribute.
+</p></div></div>
+    </li><li name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeAtomicValue" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OTIMOFOrderedAttributeAtomicValueextendsOTIMOFEntityAttributeValuewithProductwithSerializable"></a>
+      <a id="OTIMOFOrderedAttributeAtomicValue:OTIMOFOrderedAttributeAtomicValue"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFOrderedAttributeAtomicValue.html"><span class="name">OTIMOFOrderedAttributeAtomicValue</span></a><span class="params">(<span name="resource">resource: <a href="../../common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">ResourceIRI</a></span>, <span name="entity">entity: <a href="../../common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>, <span name="attribute">attribute: <a href="../../common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>, <span name="value">value: <a href="../../common/AtomicValueRepresentation.html" class="extype" name="org.omg.oti.mof.schema.common.AtomicValueRepresentation">AtomicValueRepresentation</a></span>, <span name="index">index: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="OTIMOFEntityAttributeValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFEntityAttributeValue">OTIMOFEntityAttributeValue</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.omg.oti.mof.schema.tables.values.package@OTIMOFOrderedAttributeAtomicValueextendsOTIMOFEntityAttributeValuewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeEnumerationLiteralValue" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OTIMOFOrderedAttributeEnumerationLiteralValueextendsOTIMOFEntityAttributeValuewithProductwithSerializable"></a>
+      <a id="OTIMOFOrderedAttributeEnumerationLiteralValue:OTIMOFOrderedAttributeEnumerationLiteralValue"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFOrderedAttributeEnumerationLiteralValue.html"><span class="name">OTIMOFOrderedAttributeEnumerationLiteralValue</span></a><span class="params">(<span name="resource">resource: <a href="../../common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">ResourceIRI</a></span>, <span name="entity">entity: <a href="../../common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>, <span name="attribute">attribute: <a href="../../common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>, <span name="value">value: <a href="../../common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>, <span name="index">index: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="OTIMOFEntityAttributeValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFEntityAttributeValue">OTIMOFEntityAttributeValue</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.omg.oti.mof.schema.tables.values.package@OTIMOFOrderedAttributeEnumerationLiteralValueextendsOTIMOFEntityAttributeValuewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeStructuredValueLink" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OTIMOFOrderedAttributeStructuredValueLinkextendsOTIMOFEntityAttributeValuewithProductwithSerializable"></a>
+      <a id="OTIMOFOrderedAttributeStructuredValueLink:OTIMOFOrderedAttributeStructuredValueLink"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFOrderedAttributeStructuredValueLink.html"><span class="name">OTIMOFOrderedAttributeStructuredValueLink</span></a><span class="params">(<span name="resource">resource: <a href="../../common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">ResourceIRI</a></span>, <span name="entity">entity: <a href="../../common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>, <span name="attribute">attribute: <a href="../../common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>, <span name="value">value: <a href="../../common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>, <span name="index">index: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="OTIMOFEntityAttributeValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFEntityAttributeValue">OTIMOFEntityAttributeValue</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.omg.oti.mof.schema.tables.values.package@OTIMOFOrderedAttributeStructuredValueLinkextendsOTIMOFEntityAttributeValuewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeAtomicValue" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OTIMOFUnorderedAttributeAtomicValueextendsOTIMOFEntityAttributeValuewithProductwithSerializable"></a>
+      <a id="OTIMOFUnorderedAttributeAtomicValue:OTIMOFUnorderedAttributeAtomicValue"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFUnorderedAttributeAtomicValue.html"><span class="name">OTIMOFUnorderedAttributeAtomicValue</span></a><span class="params">(<span name="resource">resource: <a href="../../common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">ResourceIRI</a></span>, <span name="entity">entity: <a href="../../common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>, <span name="attribute">attribute: <a href="../../common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>, <span name="value">value: <a href="../../common/AtomicValueRepresentation.html" class="extype" name="org.omg.oti.mof.schema.common.AtomicValueRepresentation">AtomicValueRepresentation</a></span>)</span><span class="result"> extends <a href="OTIMOFEntityAttributeValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFEntityAttributeValue">OTIMOFEntityAttributeValue</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.omg.oti.mof.schema.tables.values.package@OTIMOFUnorderedAttributeAtomicValueextendsOTIMOFEntityAttributeValuewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeEnumerationLiteralValue" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OTIMOFUnorderedAttributeEnumerationLiteralValueextendsOTIMOFEntityAttributeValuewithProductwithSerializable"></a>
+      <a id="OTIMOFUnorderedAttributeEnumerationLiteralValue:OTIMOFUnorderedAttributeEnumerationLiteralValue"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFUnorderedAttributeEnumerationLiteralValue.html"><span class="name">OTIMOFUnorderedAttributeEnumerationLiteralValue</span></a><span class="params">(<span name="resource">resource: <a href="../../common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">ResourceIRI</a></span>, <span name="entity">entity: <a href="../../common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>, <span name="attribute">attribute: <a href="../../common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>, <span name="value">value: <a href="../../common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>)</span><span class="result"> extends <a href="OTIMOFEntityAttributeValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFEntityAttributeValue">OTIMOFEntityAttributeValue</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.omg.oti.mof.schema.tables.values.package@OTIMOFUnorderedAttributeEnumerationLiteralValueextendsOTIMOFEntityAttributeValuewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeStructuredValueLink" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OTIMOFUnorderedAttributeStructuredValueLinkextendsOTIMOFEntityAttributeValuewithProductwithSerializable"></a>
+      <a id="OTIMOFUnorderedAttributeStructuredValueLink:OTIMOFUnorderedAttributeStructuredValueLink"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFUnorderedAttributeStructuredValueLink.html"><span class="name">OTIMOFUnorderedAttributeStructuredValueLink</span></a><span class="params">(<span name="resource">resource: <a href="../../common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">ResourceIRI</a></span>, <span name="entity">entity: <a href="../../common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>, <span name="attribute">attribute: <a href="../../common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>, <span name="value">value: <a href="../../common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>)</span><span class="result"> extends <a href="OTIMOFEntityAttributeValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFEntityAttributeValue">OTIMOFEntityAttributeValue</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.omg.oti.mof.schema.tables.values.package@OTIMOFUnorderedAttributeStructuredValueLinkextendsOTIMOFEntityAttributeValuewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeAtomicValue" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OTIMOFOrderedAttributeAtomicValue"></a>
+      <a id="OTIMOFOrderedAttributeAtomicValue:OTIMOFOrderedAttributeAtomicValue"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFOrderedAttributeAtomicValue$.html"><span class="name">OTIMOFOrderedAttributeAtomicValue</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.omg.oti.mof.schema.tables.values.package@OTIMOFOrderedAttributeAtomicValue" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeEnumerationLiteralValue" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OTIMOFOrderedAttributeEnumerationLiteralValue"></a>
+      <a id="OTIMOFOrderedAttributeEnumerationLiteralValue:OTIMOFOrderedAttributeEnumerationLiteralValue"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFOrderedAttributeEnumerationLiteralValue$.html"><span class="name">OTIMOFOrderedAttributeEnumerationLiteralValue</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.omg.oti.mof.schema.tables.values.package@OTIMOFOrderedAttributeEnumerationLiteralValue" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeStructuredValueLink" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OTIMOFOrderedAttributeStructuredValueLink"></a>
+      <a id="OTIMOFOrderedAttributeStructuredValueLink:OTIMOFOrderedAttributeStructuredValueLink"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFOrderedAttributeStructuredValueLink$.html"><span class="name">OTIMOFOrderedAttributeStructuredValueLink</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.omg.oti.mof.schema.tables.values.package@OTIMOFOrderedAttributeStructuredValueLink" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeAtomicValue" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OTIMOFUnorderedAttributeAtomicValue"></a>
+      <a id="OTIMOFUnorderedAttributeAtomicValue:OTIMOFUnorderedAttributeAtomicValue"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFUnorderedAttributeAtomicValue$.html"><span class="name">OTIMOFUnorderedAttributeAtomicValue</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.omg.oti.mof.schema.tables.values.package@OTIMOFUnorderedAttributeAtomicValue" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeEnumerationLiteralValue" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OTIMOFUnorderedAttributeEnumerationLiteralValue"></a>
+      <a id="OTIMOFUnorderedAttributeEnumerationLiteralValue:OTIMOFUnorderedAttributeEnumerationLiteralValue"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFUnorderedAttributeEnumerationLiteralValue$.html"><span class="name">OTIMOFUnorderedAttributeEnumerationLiteralValue</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.omg.oti.mof.schema.tables.values.package@OTIMOFUnorderedAttributeEnumerationLiteralValue" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeStructuredValueLink" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OTIMOFUnorderedAttributeStructuredValueLink"></a>
+      <a id="OTIMOFUnorderedAttributeStructuredValueLink:OTIMOFUnorderedAttributeStructuredValueLink"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFUnorderedAttributeStructuredValueLink$.html"><span class="name">OTIMOFUnorderedAttributeStructuredValueLink</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.omg.oti.mof.schema.tables.values.package@OTIMOFUnorderedAttributeStructuredValueLink" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

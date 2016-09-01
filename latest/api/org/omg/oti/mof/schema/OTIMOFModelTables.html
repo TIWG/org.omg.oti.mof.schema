@@ -1,0 +1,767 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>OTIMOFModelTables - org.omg.oti.mof.schema.OTIMOFModelTables</title>
+          <meta name="description" content="OTIMOFModelTables - org.omg.oti.mof.schema.OTIMOFModelTables" />
+          <meta name="keywords" content="OTIMOFModelTables org.omg.oti.mof.schema.OTIMOFModelTables" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../index.html';
+            var hash = 'org.omg.oti.mof.schema.OTIMOFModelTables';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img alt="Class" src="../../../../../lib/class_big.png" />
+        <p id="owner"><a href="../../../../package.html" class="extype" name="org">org</a>.<a href="../../../package.html" class="extype" name="org.omg">omg</a>.<a href="../../package.html" class="extype" name="org.omg.oti">oti</a>.<a href="../package.html" class="extype" name="org.omg.oti.mof">mof</a>.<a href="package.html" class="extype" name="org.omg.oti.mof.schema">schema</a></p>
+        <h1>OTIMOFModelTables</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="org.omg.oti.mof.schema">package schema</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">OTIMOFModelTables</span><span class="params">(<span name="resourceType">resourceType: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/OTIMOFResourceType.html" class="extype" name="org.omg.oti.mof.schema.tables.OTIMOFResourceType">OTIMOFResourceType</a>]</span>, <span name="instantiatedMetamodels">instantiatedMetamodels: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="OTIMOFResourceInstantiatedMetamodel.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceInstantiatedMetamodel">OTIMOFResourceInstantiatedMetamodel</a>]</span>, <span name="appliedProfiles">appliedProfiles: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="OTIMOFResourceModelAppliedProfile.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceModelAppliedProfile">OTIMOFResourceModelAppliedProfile</a>]</span>, <span name="elements">elements: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFModelElement.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelElement">OTIMOFModelElement</a>]</span>, <span name="toolSpecificElementIDs">toolSpecificElementIDs: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/OTIMOFToolSpecificID.html" class="extype" name="org.omg.oti.mof.schema.tables.OTIMOFToolSpecificID">OTIMOFToolSpecificID</a>]</span>, <span name="toolSpecificElementURLs">toolSpecificElementURLs: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/OTIMOFToolSpecificURL.html" class="extype" name="org.omg.oti.mof.schema.tables.OTIMOFToolSpecificURL">OTIMOFToolSpecificURL</a>]</span>, <span name="orderedAtomicValues">orderedAtomicValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFOrderedAttributeAtomicValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeAtomicValue">OTIMOFOrderedAttributeAtomicValue</a>]</span>, <span name="orderedLiteralValues">orderedLiteralValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFOrderedAttributeEnumerationLiteralValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeEnumerationLiteralValue">OTIMOFOrderedAttributeEnumerationLiteralValue</a>]</span>, <span name="orderedStructuredValues">orderedStructuredValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFOrderedAttributeStructuredValueLink.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeStructuredValueLink">OTIMOFOrderedAttributeStructuredValueLink</a>]</span>, <span name="unorderedAtomicValues">unorderedAtomicValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFUnorderedAttributeAtomicValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeAtomicValue">OTIMOFUnorderedAttributeAtomicValue</a>]</span>, <span name="unorderedLiteralValues">unorderedLiteralValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFUnorderedAttributeEnumerationLiteralValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeEnumerationLiteralValue">OTIMOFUnorderedAttributeEnumerationLiteralValue</a>]</span>, <span name="unorderedStructuredValues">unorderedStructuredValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFUnorderedAttributeStructuredValueLink.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeStructuredValueLink">OTIMOFUnorderedAttributeStructuredValueLink</a>]</span>, <span name="appliedStereotypes">appliedStereotypes: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFAppliedStereotype.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotype">OTIMOFAppliedStereotype</a>]</span>, <span name="orderedStereotypeReferences">orderedStereotypeReferences: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFAppliedStereotypePropertyOrderedReference.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotypePropertyOrderedReference">OTIMOFAppliedStereotypePropertyOrderedReference</a>]</span>, <span name="unorderedStereotypeReferences">unorderedStereotypeReferences: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFAppliedStereotypePropertyUnorderedReference.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotypePropertyUnorderedReference">OTIMOFAppliedStereotypePropertyUnorderedReference</a>]</span>, <span name="orderedLinks">orderedLinks: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFModelOrderedLink.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelOrderedLink">OTIMOFModelOrderedLink</a>]</span>, <span name="unorderedLinks">unorderedLinks: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelUnorderedLink">OTIMOFModelUnorderedLink</a>]</span>)</span><span class="result"> extends <a href="OTIMOFResourceTables.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceTables">OTIMOFResourceTables</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="OTIMOFResourceTables.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceTables">OTIMOFResourceTables</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="org.omg.oti.mof.schema.OTIMOFModelTables"><span>OTIMOFModelTables</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="org.omg.oti.mof.schema.OTIMOFResourceTables"><span>OTIMOFResourceTables</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="org.omg.oti.mof.schema.OTIMOFModelTables#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(resourceType:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.OTIMOFResourceType],instantiatedMetamodels:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.OTIMOFResourceInstantiatedMetamodel],appliedProfiles:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.OTIMOFResourceModelAppliedProfile],elements:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFModelElement],toolSpecificElementIDs:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.OTIMOFToolSpecificID],toolSpecificElementURLs:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.OTIMOFToolSpecificURL],orderedAtomicValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeAtomicValue],orderedLiteralValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeEnumerationLiteralValue],orderedStructuredValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeStructuredValueLink],unorderedAtomicValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeAtomicValue],unorderedLiteralValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeEnumerationLiteralValue],unorderedStructuredValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeStructuredValueLink],appliedStereotypes:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotype],orderedStereotypeReferences:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotypePropertyOrderedReference],unorderedStereotypeReferences:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotypePropertyUnorderedReference],orderedLinks:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFModelOrderedLink],unorderedLinks:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFModelUnorderedLink]):org.omg.oti.mof.schema.OTIMOFModelTables"></a>
+      <a id="&lt;init&gt;:OTIMOFModelTables"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">OTIMOFModelTables</span><span class="params">(<span name="resourceType">resourceType: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/OTIMOFResourceType.html" class="extype" name="org.omg.oti.mof.schema.tables.OTIMOFResourceType">OTIMOFResourceType</a>]</span>, <span name="instantiatedMetamodels">instantiatedMetamodels: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="OTIMOFResourceInstantiatedMetamodel.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceInstantiatedMetamodel">OTIMOFResourceInstantiatedMetamodel</a>]</span>, <span name="appliedProfiles">appliedProfiles: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="OTIMOFResourceModelAppliedProfile.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceModelAppliedProfile">OTIMOFResourceModelAppliedProfile</a>]</span>, <span name="elements">elements: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFModelElement.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelElement">OTIMOFModelElement</a>]</span>, <span name="toolSpecificElementIDs">toolSpecificElementIDs: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/OTIMOFToolSpecificID.html" class="extype" name="org.omg.oti.mof.schema.tables.OTIMOFToolSpecificID">OTIMOFToolSpecificID</a>]</span>, <span name="toolSpecificElementURLs">toolSpecificElementURLs: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/OTIMOFToolSpecificURL.html" class="extype" name="org.omg.oti.mof.schema.tables.OTIMOFToolSpecificURL">OTIMOFToolSpecificURL</a>]</span>, <span name="orderedAtomicValues">orderedAtomicValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFOrderedAttributeAtomicValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeAtomicValue">OTIMOFOrderedAttributeAtomicValue</a>]</span>, <span name="orderedLiteralValues">orderedLiteralValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFOrderedAttributeEnumerationLiteralValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeEnumerationLiteralValue">OTIMOFOrderedAttributeEnumerationLiteralValue</a>]</span>, <span name="orderedStructuredValues">orderedStructuredValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFOrderedAttributeStructuredValueLink.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeStructuredValueLink">OTIMOFOrderedAttributeStructuredValueLink</a>]</span>, <span name="unorderedAtomicValues">unorderedAtomicValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFUnorderedAttributeAtomicValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeAtomicValue">OTIMOFUnorderedAttributeAtomicValue</a>]</span>, <span name="unorderedLiteralValues">unorderedLiteralValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFUnorderedAttributeEnumerationLiteralValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeEnumerationLiteralValue">OTIMOFUnorderedAttributeEnumerationLiteralValue</a>]</span>, <span name="unorderedStructuredValues">unorderedStructuredValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFUnorderedAttributeStructuredValueLink.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeStructuredValueLink">OTIMOFUnorderedAttributeStructuredValueLink</a>]</span>, <span name="appliedStereotypes">appliedStereotypes: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFAppliedStereotype.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotype">OTIMOFAppliedStereotype</a>]</span>, <span name="orderedStereotypeReferences">orderedStereotypeReferences: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFAppliedStereotypePropertyOrderedReference.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotypePropertyOrderedReference">OTIMOFAppliedStereotypePropertyOrderedReference</a>]</span>, <span name="unorderedStereotypeReferences">unorderedStereotypeReferences: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFAppliedStereotypePropertyUnorderedReference.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotypePropertyUnorderedReference">OTIMOFAppliedStereotypePropertyUnorderedReference</a>]</span>, <span name="orderedLinks">orderedLinks: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFModelOrderedLink.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelOrderedLink">OTIMOFModelOrderedLink</a>]</span>, <span name="unorderedLinks">unorderedLinks: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelUnorderedLink">OTIMOFModelUnorderedLink</a>]</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@&lt;init&gt;(resourceType:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.OTIMOFResourceType],instantiatedMetamodels:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.OTIMOFResourceInstantiatedMetamodel],appliedProfiles:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.OTIMOFResourceModelAppliedProfile],elements:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFModelElement],toolSpecificElementIDs:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.OTIMOFToolSpecificID],toolSpecificElementURLs:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.OTIMOFToolSpecificURL],orderedAtomicValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeAtomicValue],orderedLiteralValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeEnumerationLiteralValue],orderedStructuredValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeStructuredValueLink],unorderedAtomicValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeAtomicValue],unorderedLiteralValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeEnumerationLiteralValue],unorderedStructuredValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeStructuredValueLink],appliedStereotypes:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotype],orderedStereotypeReferences:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotypePropertyOrderedReference],unorderedStereotypeReferences:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotypePropertyUnorderedReference],orderedLinks:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFModelOrderedLink],unorderedLinks:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFModelUnorderedLink]):org.omg.oti.mof.schema.OTIMOFModelTables" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#append" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="append(other:org.omg.oti.mof.schema.OTIMOFModelTables):org.omg.oti.mof.schema.OTIMOFModelTables"></a>
+      <a id="append(OTIMOFModelTables):OTIMOFModelTables"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">append</span><span class="params">(<span name="other">other: <a href="" class="extype" name="org.omg.oti.mof.schema.OTIMOFModelTables">OTIMOFModelTables</a></span>)</span><span class="result">: <a href="" class="extype" name="org.omg.oti.mof.schema.OTIMOFModelTables">OTIMOFModelTables</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@append(other:org.omg.oti.mof.schema.OTIMOFModelTables):org.omg.oti.mof.schema.OTIMOFModelTables" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#appliedProfiles" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="appliedProfiles:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.OTIMOFResourceModelAppliedProfile]"></a>
+      <a id="appliedProfiles:Iterable[OTIMOFResourceModelAppliedProfile]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">appliedProfiles</span><span class="result">: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="OTIMOFResourceModelAppliedProfile.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceModelAppliedProfile">OTIMOFResourceModelAppliedProfile</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@appliedProfiles:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.OTIMOFResourceModelAppliedProfile]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#appliedStereotypes" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="appliedStereotypes:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotype]"></a>
+      <a id="appliedStereotypes:Iterable[OTIMOFAppliedStereotype]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">appliedStereotypes</span><span class="result">: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFAppliedStereotype.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotype">OTIMOFAppliedStereotype</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@appliedStereotypes:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotype]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#elements" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="elements:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFModelElement]"></a>
+      <a id="elements:Iterable[OTIMOFModelElement]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">elements</span><span class="result">: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFModelElement.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelElement">OTIMOFModelElement</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@elements:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFModelElement]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#instantiatedMetamodels" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="instantiatedMetamodels:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.OTIMOFResourceInstantiatedMetamodel]"></a>
+      <a id="instantiatedMetamodels:Iterable[OTIMOFResourceInstantiatedMetamodel]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">instantiatedMetamodels</span><span class="result">: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="OTIMOFResourceInstantiatedMetamodel.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceInstantiatedMetamodel">OTIMOFResourceInstantiatedMetamodel</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@instantiatedMetamodels:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.OTIMOFResourceInstantiatedMetamodel]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#orderedAtomicValues" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="orderedAtomicValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeAtomicValue]"></a>
+      <a id="orderedAtomicValues:Iterable[OTIMOFOrderedAttributeAtomicValue]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">orderedAtomicValues</span><span class="result">: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFOrderedAttributeAtomicValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeAtomicValue">OTIMOFOrderedAttributeAtomicValue</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@orderedAtomicValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeAtomicValue]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#orderedLinks" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="orderedLinks:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFModelOrderedLink]"></a>
+      <a id="orderedLinks:Iterable[OTIMOFModelOrderedLink]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">orderedLinks</span><span class="result">: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFModelOrderedLink.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelOrderedLink">OTIMOFModelOrderedLink</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@orderedLinks:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFModelOrderedLink]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#orderedLiteralValues" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="orderedLiteralValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeEnumerationLiteralValue]"></a>
+      <a id="orderedLiteralValues:Iterable[OTIMOFOrderedAttributeEnumerationLiteralValue]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">orderedLiteralValues</span><span class="result">: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFOrderedAttributeEnumerationLiteralValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeEnumerationLiteralValue">OTIMOFOrderedAttributeEnumerationLiteralValue</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@orderedLiteralValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeEnumerationLiteralValue]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#orderedStereotypeReferences" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="orderedStereotypeReferences:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotypePropertyOrderedReference]"></a>
+      <a id="orderedStereotypeReferences:Iterable[OTIMOFAppliedStereotypePropertyOrderedReference]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">orderedStereotypeReferences</span><span class="result">: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFAppliedStereotypePropertyOrderedReference.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotypePropertyOrderedReference">OTIMOFAppliedStereotypePropertyOrderedReference</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@orderedStereotypeReferences:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotypePropertyOrderedReference]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#orderedStructuredValues" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="orderedStructuredValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeStructuredValueLink]"></a>
+      <a id="orderedStructuredValues:Iterable[OTIMOFOrderedAttributeStructuredValueLink]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">orderedStructuredValues</span><span class="result">: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFOrderedAttributeStructuredValueLink.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeStructuredValueLink">OTIMOFOrderedAttributeStructuredValueLink</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@orderedStructuredValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeStructuredValueLink]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#resourceType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="resourceType:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.OTIMOFResourceType]"></a>
+      <a id="resourceType:Iterable[OTIMOFResourceType]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">resourceType</span><span class="result">: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/OTIMOFResourceType.html" class="extype" name="org.omg.oti.mof.schema.tables.OTIMOFResourceType">OTIMOFResourceType</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@resourceType:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.OTIMOFResourceType]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.omg.oti.mof.schema.OTIMOFModelTables">OTIMOFModelTables</a> → <a href="OTIMOFResourceTables.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceTables">OTIMOFResourceTables</a></dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#toolSpecificElementIDs" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="toolSpecificElementIDs:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.OTIMOFToolSpecificID]"></a>
+      <a id="toolSpecificElementIDs:Iterable[OTIMOFToolSpecificID]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toolSpecificElementIDs</span><span class="result">: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/OTIMOFToolSpecificID.html" class="extype" name="org.omg.oti.mof.schema.tables.OTIMOFToolSpecificID">OTIMOFToolSpecificID</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@toolSpecificElementIDs:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.OTIMOFToolSpecificID]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#toolSpecificElementURLs" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="toolSpecificElementURLs:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.OTIMOFToolSpecificURL]"></a>
+      <a id="toolSpecificElementURLs:Iterable[OTIMOFToolSpecificURL]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toolSpecificElementURLs</span><span class="result">: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/OTIMOFToolSpecificURL.html" class="extype" name="org.omg.oti.mof.schema.tables.OTIMOFToolSpecificURL">OTIMOFToolSpecificURL</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@toolSpecificElementURLs:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.OTIMOFToolSpecificURL]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#unorderedAtomicValues" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="unorderedAtomicValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeAtomicValue]"></a>
+      <a id="unorderedAtomicValues:Iterable[OTIMOFUnorderedAttributeAtomicValue]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">unorderedAtomicValues</span><span class="result">: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFUnorderedAttributeAtomicValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeAtomicValue">OTIMOFUnorderedAttributeAtomicValue</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@unorderedAtomicValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeAtomicValue]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#unorderedLinks" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="unorderedLinks:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFModelUnorderedLink]"></a>
+      <a id="unorderedLinks:Iterable[OTIMOFModelUnorderedLink]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">unorderedLinks</span><span class="result">: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelUnorderedLink">OTIMOFModelUnorderedLink</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@unorderedLinks:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFModelUnorderedLink]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#unorderedLiteralValues" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="unorderedLiteralValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeEnumerationLiteralValue]"></a>
+      <a id="unorderedLiteralValues:Iterable[OTIMOFUnorderedAttributeEnumerationLiteralValue]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">unorderedLiteralValues</span><span class="result">: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFUnorderedAttributeEnumerationLiteralValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeEnumerationLiteralValue">OTIMOFUnorderedAttributeEnumerationLiteralValue</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@unorderedLiteralValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeEnumerationLiteralValue]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#unorderedStereotypeReferences" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="unorderedStereotypeReferences:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotypePropertyUnorderedReference]"></a>
+      <a id="unorderedStereotypeReferences:Iterable[OTIMOFAppliedStereotypePropertyUnorderedReference]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">unorderedStereotypeReferences</span><span class="result">: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFAppliedStereotypePropertyUnorderedReference.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotypePropertyUnorderedReference">OTIMOFAppliedStereotypePropertyUnorderedReference</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@unorderedStereotypeReferences:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotypePropertyUnorderedReference]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables#unorderedStructuredValues" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="unorderedStructuredValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeStructuredValueLink]"></a>
+      <a id="unorderedStructuredValues:Iterable[OTIMOFUnorderedAttributeStructuredValueLink]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">unorderedStructuredValues</span><span class="result">: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFUnorderedAttributeStructuredValueLink.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeStructuredValueLink">OTIMOFUnorderedAttributeStructuredValueLink</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@unorderedStructuredValues:scala.collection.immutable.Iterable[org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeStructuredValueLink]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.OTIMOFModelTables@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.Product">
+              <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
+            </div><div class="parent" name="scala.Equals">
+              <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+            </div><div class="parent" name="org.omg.oti.mof.schema.OTIMOFResourceTables">
+              <h3>Inherited from <a href="OTIMOFResourceTables.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceTables">OTIMOFResourceTables</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

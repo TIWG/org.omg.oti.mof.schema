@@ -1,0 +1,776 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>TargetOrderedCompositeAssociation - org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation</title>
+          <meta name="description" content="TargetOrderedCompositeAssociation - org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation" />
+          <meta name="keywords" content="TargetOrderedCompositeAssociation org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../../index.html';
+            var hash = 'org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img alt="Class" src="../../../../../../lib/class_big.png" />
+        <p id="owner"><a href="../../../../../package.html" class="extype" name="org">org</a>.<a href="../../../../package.html" class="extype" name="org.omg">omg</a>.<a href="../../../package.html" class="extype" name="org.omg.oti">oti</a>.<a href="../../package.html" class="extype" name="org.omg.oti.mof">mof</a>.<a href="../package.html" class="extype" name="org.omg.oti.mof.runtime">runtime</a>.<a href="package.html" class="extype" name="org.omg.oti.mof.runtime.metamodel">metamodel</a></p>
+        <h1>TargetOrderedCompositeAssociation</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="org.omg.oti.mof.runtime.metamodel">package metamodel</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">TargetOrderedCompositeAssociation</span><span class="tparams">[<span name="S">S &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="US">US &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span></span>, <span name="T">T &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="UT">UT &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span></span>]</span><span class="params">(<span name="metaAssociation">metaAssociation: <a href="MetaAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation">MetaAssociation</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.UT">UT</span>, <a href="../model/ModelOrderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelOrderedLink">ModelOrderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>]]</span>)</span><span class="result"> extends <a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.UT">UT</span>, <a href="../model/ModelOrderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelOrderedLink">ModelOrderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.UT">UT</span>, <a href="../model/ModelOrderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelOrderedLink">ModelOrderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>]], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation"><span>TargetOrderedCompositeAssociation</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="org.omg.oti.mof.runtime.metamodel.Association"><span>Association</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(metaAssociation:org.omg.oti.mof.runtime.metamodel.MetaAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelOrderedLink[S,T]]):org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation[S,US,T,UT]"></a>
+      <a id="&lt;init&gt;:TargetOrderedCompositeAssociation[S,US,T,UT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">TargetOrderedCompositeAssociation</span><span class="params">(<span name="metaAssociation">metaAssociation: <a href="MetaAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation">MetaAssociation</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.UT">UT</span>, <a href="../model/ModelOrderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelOrderedLink">ModelOrderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>]]</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@&lt;init&gt;(metaAssociation:org.omg.oti.mof.runtime.metamodel.MetaAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelOrderedLink[S,T]]):org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation[S,US,T,UT]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.Association#addLink" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="addLink(link:L):Unit"></a>
+      <a id="addLink(ModelOrderedLink[S,T]):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">addLink</span><span class="params">(<span name="link">link: <a href="../model/ModelOrderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelOrderedLink">ModelOrderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@addLink(link:L):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a></dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.Association#createOrderedLink" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createOrderedLink(o:org.omg.oti.mof.schema.tables.model.OTIMOFModelOrderedLink,s:org.omg.oti.mof.runtime.model.ModelElement,t:org.omg.oti.mof.runtime.model.ModelElement):org.omg.oti.mof.runtime.model.ModelOrderedLink[S,T]"></a>
+      <a id="createOrderedLink(OTIMOFModelOrderedLink,ModelElement,ModelElement):ModelOrderedLink[S,T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createOrderedLink</span><span class="params">(<span name="o">o: <a href="../../schema/tables/model/OTIMOFModelOrderedLink.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelOrderedLink">OTIMOFModelOrderedLink</a></span>, <span name="s">s: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="t">t: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>)</span><span class="result">: <a href="../model/ModelOrderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelOrderedLink">ModelOrderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@createOrderedLink(o:org.omg.oti.mof.schema.tables.model.OTIMOFModelOrderedLink,s:org.omg.oti.mof.runtime.model.ModelElement,t:org.omg.oti.mof.runtime.model.ModelElement):org.omg.oti.mof.runtime.model.ModelOrderedLink[S,T]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a></dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.Association#createUnorderedLink" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createUnorderedLink(u:org.omg.oti.mof.schema.tables.model.OTIMOFModelUnorderedLink,s:org.omg.oti.mof.runtime.model.ModelElement,t:org.omg.oti.mof.runtime.model.ModelElement):org.omg.oti.mof.runtime.model.ModelUnorderedLink[S,T]"></a>
+      <a id="createUnorderedLink(OTIMOFModelUnorderedLink,ModelElement,ModelElement):ModelUnorderedLink[S,T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createUnorderedLink</span><span class="params">(<span name="u">u: <a href="../../schema/tables/model/OTIMOFModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelUnorderedLink">OTIMOFModelUnorderedLink</a></span>, <span name="s">s: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="t">t: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>)</span><span class="result">: <a href="../model/ModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelUnorderedLink">ModelUnorderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@createUnorderedLink(u:org.omg.oti.mof.schema.tables.model.OTIMOFModelUnorderedLink,s:org.omg.oti.mof.runtime.model.ModelElement,t:org.omg.oti.mof.runtime.model.ModelElement):org.omg.oti.mof.runtime.model.ModelUnorderedLink[S,T]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a></dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.Association#describe" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="describe:String"></a>
+      <a id="describe:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">describe</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@describe:String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a></dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation">TargetOrderedCompositeAssociation</a> → AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.Association#linkCount" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="linkCount:Int"></a>
+      <a id="linkCount:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">linkCount</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@linkCount:Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a></dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.Association#links" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="links:scala.collection.mutable.ListBuffer[L]"></a>
+      <a id="links:ListBuffer[ModelOrderedLink[S,T]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">links</span><span class="result">: <span class="extype" name="scala.collection.mutable.ListBuffer">ListBuffer</span>[<a href="../model/ModelOrderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelOrderedLink">ModelOrderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@links:scala.collection.mutable.ListBuffer[L]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a></dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation#metaAssociation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="metaAssociation:org.omg.oti.mof.runtime.metamodel.MetaAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelOrderedLink[S,T]]"></a>
+      <a id="metaAssociation:MetaAssociation[S,US,T,UT,ModelOrderedLink[S,T]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">metaAssociation</span><span class="result">: <a href="MetaAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation">MetaAssociation</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.UT">UT</span>, <a href="../model/ModelOrderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelOrderedLink">ModelOrderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@metaAssociation:org.omg.oti.mof.runtime.metamodel.MetaAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelOrderedLink[S,T]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation">TargetOrderedCompositeAssociation</a> → <a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a></dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation#queryIterable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="queryIterable(source:S):Iterable[UT]"></a>
+      <a id="queryIterable(S):Iterable[UT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">queryIterable</span><span class="params">(<span name="source">source: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.Iterable">Iterable</span>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.UT">UT</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@queryIterable(source:S):Iterable[UT]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">examples 1
+                MagicDrawUMLAssociation.scala  (1 usage found)
+                    F:A_ownedEnd_owningAssociation.queryIterable
+</p>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation#queryOppositeOptional" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="queryOppositeOptional(target:T):Option[US]"></a>
+      <a id="queryOppositeOptional(T):Option[US]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">queryOppositeOptional</span><span class="params">(<span name="target">target: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.US">US</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@queryOppositeOptional(target:T):Option[US]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">examples 40
+                MagicDrawUMLClassifier.scala  (2 usages found)
+                    R:A_nestedClassifier_nestingClass.queryOppositeOptional
+                    R:A_nestedClassifier_interface.queryOppositeOptional
+                MagicDrawUMLConnectorEnd.scala  (1 usage found)
+                    R:A_end_connector.queryOppositeOptional
+                MagicDrawUMLEnumerationLiteral.scala  (1 usage found)
+                    R:A_ownedLiteral_enumeration.queryOppositeOptional
+                MagicDrawUMLExecutableNode.scala  (1 usage found)
+                    R:A_executableNode_sequenceNode.queryOppositeOptional
+                MagicDrawUMLInputPin.scala  (4 usages found)
+                    R:A_input_action.queryOppositeOptional
+                    R:A_argument_invocationAction.queryOppositeOptional
+                    R:A_loopVariableInput_loopNode.queryOppositeOptional
+                    R:A_replyValue_replyAction.queryOppositeOptional
+                MagicDrawUMLInteractionFragment.scala  (2 usages found)
+                    R:A_fragment_enclosingInteraction.queryOppositeOptional
+                    R:A_fragment_enclosingOperand.queryOppositeOptional
+                MagicDrawUMLInteractionOperand.scala  (1 usage found)
+                    R:A_operand_combinedFragment.queryOppositeOptional
+                MagicDrawUMLOperation.scala  (4 usages found)
+                    R:A_ownedOperation_class.queryOppositeOptional
+                    R:A_ownedOperation_artifact.queryOppositeOptional
+                    R:A_ownedOperation_datatype.queryOppositeOptional
+                    R:A_ownedOperation_interface.queryOppositeOptional
+                MagicDrawUMLOutputPin.scala  (7 usages found)
+                    R:A_result_acceptEventAction.queryOppositeOptional
+                    R:A_output_action.queryOppositeOptional
+                    R:A_result_callAction.queryOppositeOptional
+                    R:A_result_conditionalNode.queryOppositeOptional
+                    R:A_loopVariable_loopNode.queryOppositeOptional
+                    R:A_result_loopNode.queryOppositeOptional
+                    R:A_result_unmarshallAction.queryOppositeOptional
+                MagicDrawUMLParameter.scala  (3 usages found)
+                    R:A_ownedParameter_behavior.queryOppositeOptional
+                    R:A_ownedParameter_operation.queryOppositeOptional
+                    R:A_ownedParameter_ownerFormalParam.queryOppositeOptional
+                MagicDrawUMLProperty.scala  (8 usages found)
+                    R:A_ownedAttribute_class.queryOppositeOptional
+                    R:A_ownedAttribute_artifact.queryOppositeOptional
+                    R:A_ownedAttribute_structuredClassifier.queryOppositeOptional
+                    R:A_qualifier_associationEnd.queryOppositeOptional
+                    R:A_ownedAttribute_datatype.queryOppositeOptional
+                    R:A_ownedAttribute_interface.queryOppositeOptional
+                    R:A_ownedEnd_owningAssociation.queryOppositeOptional
+                    R:A_ownedAttribute_owningSignal.queryOppositeOptional
+                MagicDrawUMLStringExpression.scala  (1 usage found)
+                    R:A_subExpression_owningExpression.queryOppositeOptional
+                MagicDrawUMLTemplateParameter.scala  (1 usage found)
+                    R:A_ownedParameter_signature.queryOppositeOptional
+                MagicDrawUMLValueSpecification.scala  (4 usages found)
+                    R:A_argument_interactionUse.queryOppositeOptional
+                    R:A_argument_message.queryOppositeOptional
+                    R:A_operand_expression.queryOppositeOptional
+                    R:A_value_owningSlot.queryOppositeOptional
+</p>
+    </li><li name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation#queryOrdered" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="queryOrdered(source:S):scala.collection.immutable.Seq[UT]"></a>
+      <a id="queryOrdered(S):Seq[UT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">queryOrdered</span><span class="params">(<span name="source">source: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.UT">UT</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@queryOrdered(source:S):scala.collection.immutable.Seq[UT]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">examples 39
+                MagicDrawUMLAcceptEventAction.scala  (1 usage found)
+                    F:A_result_acceptEventAction.queryOrdered
+                MagicDrawUMLAction.scala  (2 usages found)
+                    F:A_input_action.queryOrdered
+                    F:A_output_action.queryOrdered
+                MagicDrawUMLArtifact.scala  (2 usages found)
+                    F:A_ownedAttribute_artifact.queryOrdered
+                    F:A_ownedOperation_artifact.queryOrdered
+                MagicDrawUMLBehavior.scala  (1 usage found)
+                    F:A_ownedParameter_behavior.queryOrdered
+                MagicDrawUMLBehavioralFeature.scala  (1 usage found)
+                    F:A_ownedParameter_ownerFormalParam.queryOrdered
+                MagicDrawUMLCallAction.scala  (1 usage found)
+                    F:A_result_callAction.queryOrdered
+                MagicDrawUMLClass.scala  (3 usages found)
+                    F:A_nestedClassifier_nestingClass.queryOrdered
+                    F:A_ownedAttribute_class.queryOrdered
+                    F:A_ownedOperation_class.queryOrdered
+                MagicDrawUMLCombinedFragment.scala  (1 usage found)
+                    F:A_operand_combinedFragment.queryOrdered
+                MagicDrawUMLConditionalNode.scala  (1 usage found)
+                    F:A_result_conditionalNode.queryOrdered
+                MagicDrawUMLConnector.scala  (1 usage found)
+                    F:A_end_connector.queryOrdered
+                MagicDrawUMLDataType.scala  (2 usages found)
+                    F:A_ownedAttribute_datatype.queryOrdered
+                    F:A_ownedOperation_datatype.queryOrdered
+                MagicDrawUMLEnumeration.scala  (1 usage found)
+                    F:A_ownedLiteral_enumeration.queryOrdered
+                MagicDrawUMLExpression.scala  (1 usage found)
+                    F:A_operand_expression.queryOrdered
+                MagicDrawUMLInteraction.scala  (1 usage found)
+                    F:A_fragment_enclosingInteraction.queryOrdered
+                MagicDrawUMLInteractionOperand.scala  (1 usage found)
+                    F:A_fragment_enclosingOperand.queryOrdered
+                MagicDrawUMLInteractionUse.scala  (1 usage found)
+                    F:A_argument_interactionUse.queryOrdered
+                MagicDrawUMLInterface.scala  (3 usages found)
+                    F:A_nestedClassifier_interface.queryOrdered
+                    F:A_ownedAttribute_interface.queryOrdered
+                    F:A_ownedOperation_interface.queryOrdered
+                MagicDrawUMLInvocationAction.scala  (1 usage found)
+                    F:A_argument_invocationAction.queryOrdered
+                MagicDrawUMLLoopNode.scala  (3 usages found)
+                    F:A_loopVariable_loopNode.queryOrdered
+                    F:A_loopVariableInput_loopNode.queryOrdered
+                    F:A_result_loopNode.queryOrdered
+                MagicDrawUMLMessage.scala  (1 usage found)
+                    F:A_argument_message.queryOrdered
+                MagicDrawUMLOperation.scala  (1 usage found)
+                    F:A_ownedParameter_operation.queryOrdered
+                MagicDrawUMLProperty.scala  (1 usage found)
+                    F:A_qualifier_associationEnd.queryOrdered
+                MagicDrawUMLReplyAction.scala  (1 usage found)
+                    F:A_replyValue_replyAction.queryOrdered
+                MagicDrawUMLSequenceNode.scala  (1 usage found)
+                    F:A_executableNode_sequenceNode.queryOrdered
+                MagicDrawUMLSignal.scala  (1 usage found)
+                    F:A_ownedAttribute_owningSignal.queryOrdered
+                MagicDrawUMLSlot.scala  (1 usage found)
+                    F:A_value_owningSlot.queryOrdered
+                MagicDrawUMLStringExpression.scala  (1 usage found)
+                    F:A_subExpression_owningExpression.queryOrdered
+                MagicDrawUMLStructuredClassifier.scala  (1 usage found)
+                    F:A_ownedAttribute_structuredClassifier.queryOrdered
+                MagicDrawUMLTemplateSignature.scala  (1 usage found)
+                    F:A_ownedParameter_signature.queryOrdered
+                MagicDrawUMLUnmarshallAction.scala  (1 usage found)
+                    F:A_result_unmarshallAction.queryOrdered
+</p>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.Product">
+              <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
+            </div><div class="parent" name="scala.Equals">
+              <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+            </div><div class="parent" name="org.omg.oti.mof.runtime.metamodel.Association">
+              <h3>Inherited from <a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.UT">UT</span>, <a href="../model/ModelOrderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelOrderedLink">ModelOrderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>]]</h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

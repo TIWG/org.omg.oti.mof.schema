@@ -1,0 +1,607 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>schema - org.omg.oti.mof.schema</title>
+          <meta name="description" content="schema - org.omg.oti.mof.schema" />
+          <meta name="keywords" content="schema org.omg.oti.mof.schema" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../index.html';
+            var hash = 'org.omg.oti.mof.schema.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../../package.html" class="extype" name="org">org</a>.<a href="../../../package.html" class="extype" name="org.omg">omg</a>.<a href="../../package.html" class="extype" name="org.omg.oti">oti</a>.<a href="../package.html" class="extype" name="org.omg.oti.mof">mof</a></p>
+        <h1>schema</h1><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">schema</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"></div><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="org.omg.oti.mof.schema"><span>schema</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="org.omg.oti.mof.schema.OTIMOFLibraryTables" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OTIMOFLibraryTablesextendsOTIMOFResourceTableswithProductwithSerializable"></a>
+      <a id="OTIMOFLibraryTables:OTIMOFLibraryTables"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFLibraryTables.html"><span class="name">OTIMOFLibraryTables</span></a><span class="params">(<span name="resourceType">resourceType: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/OTIMOFResourceType.html" class="extype" name="org.omg.oti.mof.schema.tables.OTIMOFResourceType">OTIMOFResourceType</a>]</span>, <span name="importedLibraries">importedLibraries: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="OTIMOFResourceLibraryImport.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceLibraryImport">OTIMOFResourceLibraryImport</a>]</span>, <span name="primitiveDataTypes">primitiveDataTypes: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/library/OTIMOFPrimitiveDataType.html" class="extype" name="org.omg.oti.mof.schema.tables.library.OTIMOFPrimitiveDataType">OTIMOFPrimitiveDataType</a>]</span>, <span name="enumerationDataTypes">enumerationDataTypes: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/library/OTIMOFEnumerationDataType.html" class="extype" name="org.omg.oti.mof.schema.tables.library.OTIMOFEnumerationDataType">OTIMOFEnumerationDataType</a>]</span>, <span name="enumeration2literals">enumeration2literals: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/library/OTIMOFEnumeration2Literal.html" class="extype" name="org.omg.oti.mof.schema.tables.library.OTIMOFEnumeration2Literal">OTIMOFEnumeration2Literal</a>]</span>, <span name="enumerationLiterals">enumerationLiterals: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="common/EnumerationLiteralValue.html" class="extype" name="org.omg.oti.mof.schema.common.EnumerationLiteralValue">EnumerationLiteralValue</a>]</span>, <span name="structuredDataTypes">structuredDataTypes: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/library/OTIMOFStructuredDataType.html" class="extype" name="org.omg.oti.mof.schema.tables.library.OTIMOFStructuredDataType">OTIMOFStructuredDataType</a>]</span>, <span name="generalizations">generalizations: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/library/OTIMOFStructuredDataTypeGeneralization.html" class="extype" name="org.omg.oti.mof.schema.tables.library.OTIMOFStructuredDataTypeGeneralization">OTIMOFStructuredDataTypeGeneralization</a>]</span>, <span name="structure2attribute">structure2attribute: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/library/OTIMOFStructuredDatatype2Attribute.html" class="extype" name="org.omg.oti.mof.schema.tables.library.OTIMOFStructuredDatatype2Attribute">OTIMOFStructuredDatatype2Attribute</a>]</span>, <span name="attributes">attributes: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="features/DataTypedAttributeProperty.html" class="extype" name="org.omg.oti.mof.schema.features.DataTypedAttributeProperty">DataTypedAttributeProperty</a>]</span>, <span name="featureLowerBounds">featureLowerBounds: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="features/FeatureLowerBound.html" class="extype" name="org.omg.oti.mof.schema.features.FeatureLowerBound">FeatureLowerBound</a>]</span>, <span name="featureUpperBounds">featureUpperBounds: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="features/FeatureUpperBound.html" class="extype" name="org.omg.oti.mof.schema.features.FeatureUpperBound">FeatureUpperBound</a>]</span>, <span name="featureOrdering">featureOrdering: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="features/FeatureOrdering.html" class="extype" name="org.omg.oti.mof.schema.features.FeatureOrdering">FeatureOrdering</a>]</span>, <span name="attribute2type">attribute2type: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="features/AttributeProperty2DataType.html" class="extype" name="org.omg.oti.mof.schema.features.AttributeProperty2DataType">AttributeProperty2DataType</a>]</span>)</span><span class="result"> extends <a href="OTIMOFResourceTables.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceTables">OTIMOFResourceTables</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@OTIMOFLibraryTablesextendsOTIMOFResourceTableswithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.OTIMOFMetamodelTables" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OTIMOFMetamodelTablesextendsOTIMOFResourceTableswithProductwithSerializable"></a>
+      <a id="OTIMOFMetamodelTables:OTIMOFMetamodelTables"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFMetamodelTables.html"><span class="name">OTIMOFMetamodelTables</span></a><span class="params">(<span name="resourceType">resourceType: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/OTIMOFResourceType.html" class="extype" name="org.omg.oti.mof.schema.tables.OTIMOFResourceType">OTIMOFResourceType</a>]</span>, <span name="importedMetamodels">importedMetamodels: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="OTIMOFResourceMetamodelImport.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceMetamodelImport">OTIMOFResourceMetamodelImport</a>]</span>, <span name="importedLibraries">importedLibraries: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="OTIMOFResourceLibraryImport.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceLibraryImport">OTIMOFResourceLibraryImport</a>]</span>, <span name="metaClasses">metaClasses: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/metamodel/OTIMOFMetaClass.html" class="extype" name="org.omg.oti.mof.schema.tables.metamodel.OTIMOFMetaClass">OTIMOFMetaClass</a>]</span>, <span name="metaClassGeneralizations">metaClassGeneralizations: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/metamodel/OTIMOFMetaClassGeneralization.html" class="extype" name="org.omg.oti.mof.schema.tables.metamodel.OTIMOFMetaClassGeneralization">OTIMOFMetaClassGeneralization</a>]</span>, <span name="metaAssociations">metaAssociations: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/metamodel/OTIMOFMetaAssociation.html" class="extype" name="org.omg.oti.mof.schema.tables.metamodel.OTIMOFMetaAssociation">OTIMOFMetaAssociation</a>]</span>, <span name="metaAssociationGeneralizations">metaAssociationGeneralizations: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/metamodel/OTIMOFMetaAssociationGeneralization.html" class="extype" name="org.omg.oti.mof.schema.tables.metamodel.OTIMOFMetaAssociationGeneralization">OTIMOFMetaAssociationGeneralization</a>]</span>, <span name="metaClass2orderedAtomicAttribute">metaClass2orderedAtomicAttribute: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/metamodel/OTIMOFMetaClass2Attribute.html" class="extype" name="org.omg.oti.mof.schema.tables.metamodel.OTIMOFMetaClass2Attribute">OTIMOFMetaClass2Attribute</a>]</span>, <span name="metaClass2orderedEnumerationAttribute">metaClass2orderedEnumerationAttribute: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/metamodel/OTIMOFMetaClass2Attribute.html" class="extype" name="org.omg.oti.mof.schema.tables.metamodel.OTIMOFMetaClass2Attribute">OTIMOFMetaClass2Attribute</a>]</span>, <span name="metaClass2orderedStructuredAttribute">metaClass2orderedStructuredAttribute: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/metamodel/OTIMOFMetaClass2Attribute.html" class="extype" name="org.omg.oti.mof.schema.tables.metamodel.OTIMOFMetaClass2Attribute">OTIMOFMetaClass2Attribute</a>]</span>, <span name="metaClass2unorderedAtomicAttribute">metaClass2unorderedAtomicAttribute: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/metamodel/OTIMOFMetaClass2Attribute.html" class="extype" name="org.omg.oti.mof.schema.tables.metamodel.OTIMOFMetaClass2Attribute">OTIMOFMetaClass2Attribute</a>]</span>, <span name="metaClass2unorderedEnumerationAttribute">metaClass2unorderedEnumerationAttribute: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/metamodel/OTIMOFMetaClass2Attribute.html" class="extype" name="org.omg.oti.mof.schema.tables.metamodel.OTIMOFMetaClass2Attribute">OTIMOFMetaClass2Attribute</a>]</span>, <span name="metaClass2unorderedStructuredAttribute">metaClass2unorderedStructuredAttribute: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/metamodel/OTIMOFMetaClass2Attribute.html" class="extype" name="org.omg.oti.mof.schema.tables.metamodel.OTIMOFMetaClass2Attribute">OTIMOFMetaClass2Attribute</a>]</span>, <span name="metaAssociation2Source">metaAssociation2Source: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/metamodel/OTIMOFMetaAssociation2SourceEndProperty.html" class="extype" name="org.omg.oti.mof.schema.tables.metamodel.OTIMOFMetaAssociation2SourceEndProperty">OTIMOFMetaAssociation2SourceEndProperty</a>]</span>, <span name="metaAssociation2Target">metaAssociation2Target: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/metamodel/OTIMOFMetaAssociation2TargetEndProperty.html" class="extype" name="org.omg.oti.mof.schema.tables.metamodel.OTIMOFMetaAssociation2TargetEndProperty">OTIMOFMetaAssociation2TargetEndProperty</a>]</span>, <span name="metaAssociationEnds">metaAssociationEnds: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="features/AssociationEnd.html" class="extype" name="org.omg.oti.mof.schema.features.AssociationEnd">AssociationEnd</a>]</span>, <span name="metaAssociationEnd2MetaClass">metaAssociationEnd2MetaClass: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/metamodel/OTIMOFMetaAssociationEndProperty2MetaClassType.html" class="extype" name="org.omg.oti.mof.schema.tables.metamodel.OTIMOFMetaAssociationEndProperty2MetaClassType">OTIMOFMetaAssociationEndProperty2MetaClassType</a>]</span>, <span name="attributes">attributes: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="features/DataTypedAttributeProperty.html" class="extype" name="org.omg.oti.mof.schema.features.DataTypedAttributeProperty">DataTypedAttributeProperty</a>]</span>, <span name="featureLowerBounds">featureLowerBounds: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="features/FeatureLowerBound.html" class="extype" name="org.omg.oti.mof.schema.features.FeatureLowerBound">FeatureLowerBound</a>]</span>, <span name="featureUpperBounds">featureUpperBounds: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="features/FeatureUpperBound.html" class="extype" name="org.omg.oti.mof.schema.features.FeatureUpperBound">FeatureUpperBound</a>]</span>, <span name="featureOrdering">featureOrdering: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="features/FeatureOrdering.html" class="extype" name="org.omg.oti.mof.schema.features.FeatureOrdering">FeatureOrdering</a>]</span>, <span name="attribute2type">attribute2type: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="features/AttributeProperty2DataType.html" class="extype" name="org.omg.oti.mof.schema.features.AttributeProperty2DataType">AttributeProperty2DataType</a>]</span>)</span><span class="result"> extends <a href="OTIMOFResourceTables.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceTables">OTIMOFResourceTables</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@OTIMOFMetamodelTablesextendsOTIMOFResourceTableswithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.OTIMOFModelTables" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OTIMOFModelTablesextendsOTIMOFResourceTableswithProductwithSerializable"></a>
+      <a id="OTIMOFModelTables:OTIMOFModelTables"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFModelTables.html"><span class="name">OTIMOFModelTables</span></a><span class="params">(<span name="resourceType">resourceType: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/OTIMOFResourceType.html" class="extype" name="org.omg.oti.mof.schema.tables.OTIMOFResourceType">OTIMOFResourceType</a>]</span>, <span name="instantiatedMetamodels">instantiatedMetamodels: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="OTIMOFResourceInstantiatedMetamodel.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceInstantiatedMetamodel">OTIMOFResourceInstantiatedMetamodel</a>]</span>, <span name="appliedProfiles">appliedProfiles: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="OTIMOFResourceModelAppliedProfile.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceModelAppliedProfile">OTIMOFResourceModelAppliedProfile</a>]</span>, <span name="elements">elements: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFModelElement.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelElement">OTIMOFModelElement</a>]</span>, <span name="toolSpecificElementIDs">toolSpecificElementIDs: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/OTIMOFToolSpecificID.html" class="extype" name="org.omg.oti.mof.schema.tables.OTIMOFToolSpecificID">OTIMOFToolSpecificID</a>]</span>, <span name="toolSpecificElementURLs">toolSpecificElementURLs: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/OTIMOFToolSpecificURL.html" class="extype" name="org.omg.oti.mof.schema.tables.OTIMOFToolSpecificURL">OTIMOFToolSpecificURL</a>]</span>, <span name="orderedAtomicValues">orderedAtomicValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFOrderedAttributeAtomicValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeAtomicValue">OTIMOFOrderedAttributeAtomicValue</a>]</span>, <span name="orderedLiteralValues">orderedLiteralValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFOrderedAttributeEnumerationLiteralValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeEnumerationLiteralValue">OTIMOFOrderedAttributeEnumerationLiteralValue</a>]</span>, <span name="orderedStructuredValues">orderedStructuredValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFOrderedAttributeStructuredValueLink.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeStructuredValueLink">OTIMOFOrderedAttributeStructuredValueLink</a>]</span>, <span name="unorderedAtomicValues">unorderedAtomicValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFUnorderedAttributeAtomicValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeAtomicValue">OTIMOFUnorderedAttributeAtomicValue</a>]</span>, <span name="unorderedLiteralValues">unorderedLiteralValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFUnorderedAttributeEnumerationLiteralValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeEnumerationLiteralValue">OTIMOFUnorderedAttributeEnumerationLiteralValue</a>]</span>, <span name="unorderedStructuredValues">unorderedStructuredValues: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/values/OTIMOFUnorderedAttributeStructuredValueLink.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeStructuredValueLink">OTIMOFUnorderedAttributeStructuredValueLink</a>]</span>, <span name="appliedStereotypes">appliedStereotypes: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFAppliedStereotype.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotype">OTIMOFAppliedStereotype</a>]</span>, <span name="orderedStereotypeReferences">orderedStereotypeReferences: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFAppliedStereotypePropertyOrderedReference.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotypePropertyOrderedReference">OTIMOFAppliedStereotypePropertyOrderedReference</a>]</span>, <span name="unorderedStereotypeReferences">unorderedStereotypeReferences: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFAppliedStereotypePropertyUnorderedReference.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFAppliedStereotypePropertyUnorderedReference">OTIMOFAppliedStereotypePropertyUnorderedReference</a>]</span>, <span name="orderedLinks">orderedLinks: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFModelOrderedLink.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelOrderedLink">OTIMOFModelOrderedLink</a>]</span>, <span name="unorderedLinks">unorderedLinks: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/model/OTIMOFModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelUnorderedLink">OTIMOFModelUnorderedLink</a>]</span>)</span><span class="result"> extends <a href="OTIMOFResourceTables.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceTables">OTIMOFResourceTables</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@OTIMOFModelTablesextendsOTIMOFResourceTableswithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.OTIMOFProfileTables" visbl="pub" data-isabs="false" fullComment="yes" group="profile">
+      <a id="OTIMOFProfileTablesextendsOTIMOFResourceTableswithProductwithSerializable"></a>
+      <a id="OTIMOFProfileTables:OTIMOFProfileTables"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFProfileTables.html"><span class="name">OTIMOFProfileTables</span></a><span class="params">(<span name="resourceType">resourceType: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/OTIMOFResourceType.html" class="extype" name="org.omg.oti.mof.schema.tables.OTIMOFResourceType">OTIMOFResourceType</a>]</span>, <span name="extendedMetamodels">extendedMetamodels: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/profile/OTIMOFProfile2ExtendedMetamodel.html" class="extype" name="org.omg.oti.mof.schema.tables.profile.OTIMOFProfile2ExtendedMetamodel">OTIMOFProfile2ExtendedMetamodel</a>]</span>, <span name="importedProfiles">importedProfiles: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="OTIMOFResourceProfileImport.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceProfileImport">OTIMOFResourceProfileImport</a>]</span>, <span name="importedLibraries">importedLibraries: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="OTIMOFResourceLibraryImport.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceLibraryImport">OTIMOFResourceLibraryImport</a>]</span>, <span name="stereotypes">stereotypes: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/profile/OTIMOFStereotype.html" class="extype" name="org.omg.oti.mof.schema.tables.profile.OTIMOFStereotype">OTIMOFStereotype</a>]</span>, <span name="generalizations">generalizations: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/profile/OTIMOFStereotypeGeneralization.html" class="extype" name="org.omg.oti.mof.schema.tables.profile.OTIMOFStereotypeGeneralization">OTIMOFStereotypeGeneralization</a>]</span>, <span name="extendedMetaclasses">extendedMetaclasses: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/profile/OTIMOFStereotype2ExtendedMetaclass.html" class="extype" name="org.omg.oti.mof.schema.tables.profile.OTIMOFStereotype2ExtendedMetaclass">OTIMOFStereotype2ExtendedMetaclass</a>]</span>, <span name="stereotypeAttributes">stereotypeAttributes: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/profile/OTIMOFStereotype2Attribute.html" class="extype" name="org.omg.oti.mof.schema.tables.profile.OTIMOFStereotype2Attribute">OTIMOFStereotype2Attribute</a>]</span>, <span name="stereotype2MetaClassProperty">stereotype2MetaClassProperty: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/profile/OTIMOFStereotypeAssociationTargetEndMetaClassProperty.html" class="extype" name="org.omg.oti.mof.schema.tables.profile.OTIMOFStereotypeAssociationTargetEndMetaClassProperty">OTIMOFStereotypeAssociationTargetEndMetaClassProperty</a>]</span>, <span name="stereotype2StereotypeProperty">stereotype2StereotypeProperty: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="tables/profile/OTIMOFStereotypeAssociationTargetEndStereotypeProperty.html" class="extype" name="org.omg.oti.mof.schema.tables.profile.OTIMOFStereotypeAssociationTargetEndStereotypeProperty">OTIMOFStereotypeAssociationTargetEndStereotypeProperty</a>]</span>, <span name="associationTargetEnds">associationTargetEnds: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="features/AssociationTargetEnd.html" class="extype" name="org.omg.oti.mof.schema.features.AssociationTargetEnd">AssociationTargetEnd</a>]</span>, <span name="attributes">attributes: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="features/DataTypedAttributeProperty.html" class="extype" name="org.omg.oti.mof.schema.features.DataTypedAttributeProperty">DataTypedAttributeProperty</a>]</span>, <span name="featureLowerBounds">featureLowerBounds: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="features/FeatureLowerBound.html" class="extype" name="org.omg.oti.mof.schema.features.FeatureLowerBound">FeatureLowerBound</a>]</span>, <span name="featureUpperBounds">featureUpperBounds: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="features/FeatureUpperBound.html" class="extype" name="org.omg.oti.mof.schema.features.FeatureUpperBound">FeatureUpperBound</a>]</span>, <span name="featureOrdering">featureOrdering: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="features/FeatureOrdering.html" class="extype" name="org.omg.oti.mof.schema.features.FeatureOrdering">FeatureOrdering</a>]</span>, <span name="attribute2type">attribute2type: <span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[<a href="features/AttributeProperty2DataType.html" class="extype" name="org.omg.oti.mof.schema.features.AttributeProperty2DataType">AttributeProperty2DataType</a>]</span>)</span><span class="result"> extends <a href="OTIMOFResourceTables.html" class="extype" name="org.omg.oti.mof.schema.OTIMOFResourceTables">OTIMOFResourceTables</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@OTIMOFProfileTablesextendsOTIMOFResourceTableswithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A resource corresponding to a restricted OMG MOF profile.</p><div class="fullcomment"><div class="comment cmt"><p>A resource corresponding to a restricted OMG MOF profile.
+The restrictions are:</p><ul><li>An OTI MOF Profile can only define Stereotypes and Stereotype associations</li></ul><p>    In an OMG MOF Profile, it is possible to define datatypes and classes.
+    In OTI MOF, a profile-defined datatype must be defined in an OTI MOF Library instead.
+    OTI MOF does not support profile-defined classes because this capability is too under-specified in
+    OMG UML 2.5 and, in practice, very seldom used.</p><ul><li>An OTI MOF Profile can only be applied to an OTI MOF Model.</li></ul><p>    An OMG MOF Profile extension of the OMG UML metamodel can be applied to any UML &quot;model&quot;,
+    including a &quot;model&quot; of the UML metamodel itself, of a profile or of a user-defined model.
+    Applying a profile to a metamodel or to a package library of datatype definitions does not have
+    any semantics that affects the models that instiate this metamodel or that have attrbute values
+    typed by such datatype definitions.</p><p>    OTI MOF is only concerned with semantically-relevant profile application relationships.
+    There is only one such case: that of applying a profile to a model.
+</p></div><dl class="paramcmts block"><dt class="param">resourceType</dt><dd class="cmt"><p>Identifies one or more profile</p></dd><dt class="param">extendedMetamodels</dt><dd class="cmt"><p>Extended metamodels</p></dd><dt class="param">importedProfiles</dt><dd class="cmt"><p>Imported profiles</p></dd><dt class="param">importedLibraries</dt><dd class="cmt"><p>Imported libraries</p></dd><dt class="param">stereotypes</dt><dd class="cmt"><p>Stereotypes defined</p></dd><dt class="param">generalizations</dt><dd class="cmt"><p>Generalizations among stereotypes</p></dd><dt class="param">extendedMetaclasses</dt><dd class="cmt"><p>Metaclasses extended by stereotypes</p></dd><dt class="param">stereotypeAttributes</dt><dd class="cmt"><p>Relates a stereotype to an attribute property</p></dd><dt class="param">stereotype2MetaClassProperty</dt><dd class="cmt"><p>Relates a stereotype to a property typed by a metaclasses</p></dd><dt class="param">stereotype2StereotypeProperty</dt><dd class="cmt"><p>Relates a stereotype to a property typed by stereotypes</p></dd><dt class="param">associationTargetEnds</dt><dd class="cmt"><p>Defines an association target ends property of a stereotype</p></dd><dt class="param">attributes</dt><dd class="cmt"><p>Defines a attribute of a stereotype</p></dd><dt class="param">featureLowerBounds</dt><dd class="cmt"><p>The lower bound of a stereotype feature (attribute or property)</p></dd><dt class="param">featureUpperBounds</dt><dd class="cmt"><p>The upper bound of a stereotype feature (attribute or property)</p></dd><dt class="param">featureOrdering</dt><dd class="cmt"><p>The ordering a stereotype feature (attribute or property)</p></dd><dt class="param">attribute2type</dt><dd class="cmt"><p>Relates a stereotype attribute to its type (a library datatype)</p></dd></dl></div>
+    </li><li name="org.omg.oti.mof.schema.OTIMOFResourceInstantiatedMetamodel" visbl="pub" data-isabs="false" fullComment="yes" group="model">
+      <a id="OTIMOFResourceInstantiatedMetamodelextendsProductwithSerializable"></a>
+      <a id="OTIMOFResourceInstantiatedMetamodel:OTIMOFResourceInstantiatedMetamodel"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFResourceInstantiatedMetamodel.html"><span class="name">OTIMOFResourceInstantiatedMetamodel</span></a><span class="params">(<span name="instantiatingModel">instantiatingModel: <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">ResourceIRI</a></span>, <span name="instantiatedMetamodel">instantiatedMetamodel: <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">ResourceIRI</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@OTIMOFResourceInstantiatedMetamodelextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">OTIMOFResourceInstantiatedMetamodel does not have any explicitly
+defined abstract syntax in OMG modeling specifications.</p><div class="fullcomment"><div class="comment cmt"><p>OTIMOFResourceInstantiatedMetamodel does not have any explicitly
+defined abstract syntax in OMG modeling specifications.
+Informally, this relationship is usually shown in diagrams
+as if it were a dependency stereotyped 'instanceOf'.
+</p></div><dl class="paramcmts block"><dt class="param">instantiatingModel</dt><dd class="cmt"><p>The <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">org.omg.oti.mof.schema.common.ResourceIRI</a> of the instantiating OTI MOF Model</p></dd><dt class="param">instantiatedMetamodel</dt><dd class="cmt"><p>The <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">org.omg.oti.mof.schema.common.ResourceIRI</a> of the instantiated OTI MOF Metamodel</p></dd></dl></div>
+    </li><li name="org.omg.oti.mof.schema.OTIMOFResourceLibraryImport" visbl="pub" data-isabs="false" fullComment="yes" group="resources">
+      <a id="OTIMOFResourceLibraryImportextendsProductwithSerializable"></a>
+      <a id="OTIMOFResourceLibraryImport:OTIMOFResourceLibraryImport"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFResourceLibraryImport.html"><span class="name">OTIMOFResourceLibraryImport</span></a><span class="params">(<span name="importingResource">importingResource: <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">ResourceIRI</a></span>, <span name="importedLibrary">importedLibrary: <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">ResourceIRI</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@OTIMOFResourceLibraryImportextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">OTIMOFResourceLibraryImport corresponds to a UML PackageImport relationship to
+the imported UML Package of an OTI MOF Library resource.</p><div class="fullcomment"><div class="comment cmt"><p>OTIMOFResourceLibraryImport corresponds to a UML PackageImport relationship to
+the imported UML Package of an OTI MOF Library resource.
+</p></div><dl class="paramcmts block"><dt class="param">importingResource</dt><dd class="cmt"><p>The <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">org.omg.oti.mof.schema.common.ResourceIRI</a> of the importing resource</p></dd><dt class="param">importedLibrary</dt><dd class="cmt"><p>The <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">org.omg.oti.mof.schema.common.ResourceIRI</a> of the imported library</p></dd></dl></div>
+    </li><li name="org.omg.oti.mof.schema.OTIMOFResourceMetamodelImport" visbl="pub" data-isabs="false" fullComment="yes" group="metamodel">
+      <a id="OTIMOFResourceMetamodelImportextendsProductwithSerializable"></a>
+      <a id="OTIMOFResourceMetamodelImport:OTIMOFResourceMetamodelImport"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFResourceMetamodelImport.html"><span class="name">OTIMOFResourceMetamodelImport</span></a><span class="params">(<span name="importingMetamodel">importingMetamodel: <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">ResourceIRI</a></span>, <span name="importedMetamodel">importedMetamodel: <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">ResourceIRI</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@OTIMOFResourceMetamodelImportextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">OTIMOFResourceLibraryImport corresponds to a UML PackageImport relationship from
+an importing UML Package of an OTI MOF Metamodel resource
+to the imported UML Package of an OTI Metamodel resource.</p><div class="fullcomment"><div class="comment cmt"><p>OTIMOFResourceLibraryImport corresponds to a UML PackageImport relationship from
+an importing UML Package of an OTI MOF Metamodel resource
+to the imported UML Package of an OTI Metamodel resource.
+</p></div><dl class="paramcmts block"><dt class="param">importingMetamodel</dt><dd class="cmt"><p>The <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">org.omg.oti.mof.schema.common.ResourceIRI</a> of the importing metamodel</p></dd><dt class="param">importedMetamodel</dt><dd class="cmt"><p>The <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">org.omg.oti.mof.schema.common.ResourceIRI</a> of the imported metamodel</p></dd></dl></div>
+    </li><li name="org.omg.oti.mof.schema.OTIMOFResourceModelAppliedProfile" visbl="pub" data-isabs="false" fullComment="no" group="model">
+      <a id="OTIMOFResourceModelAppliedProfileextendsProductwithSerializable"></a>
+      <a id="OTIMOFResourceModelAppliedProfile:OTIMOFResourceModelAppliedProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFResourceModelAppliedProfile.html"><span class="name">OTIMOFResourceModelAppliedProfile</span></a><span class="params">(<span name="applyingResource">applyingResource: <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">ResourceIRI</a></span>, <span name="applyingPackage">applyingPackage: <a href="common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>, <span name="appliedResource">appliedResource: <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">ResourceIRI</a></span>, <span name="appliedProfile">appliedProfile: <a href="common/EntityUUID.html" class="extype" name="org.omg.oti.mof.schema.common.EntityUUID">EntityUUID</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@OTIMOFResourceModelAppliedProfileextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">OTIMOFResourceModelAppliedProfile corresponds to a UML ProfileApplication relationship from
+the applying model UML Package of an OTI Model resource
+to the applied UML Profile of an OTI Profile resource.</p>
+    </li><li name="org.omg.oti.mof.schema.OTIMOFResourceProfileImport" visbl="pub" data-isabs="false" fullComment="yes" group="profile">
+      <a id="OTIMOFResourceProfileImportextendsProductwithSerializable"></a>
+      <a id="OTIMOFResourceProfileImport:OTIMOFResourceProfileImport"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFResourceProfileImport.html"><span class="name">OTIMOFResourceProfileImport</span></a><span class="params">(<span name="importingProfile">importingProfile: <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">ResourceIRI</a></span>, <span name="importedProfile">importedProfile: <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">ResourceIRI</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@OTIMOFResourceProfileImportextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">OTIMOFResourceProfileImport corresponds to a UML PackageImport relationship from
+an importing UML Profile of an OTI Profile resource
+to the imported UML Profile of an OTI Profile resource.</p><div class="fullcomment"><div class="comment cmt"><p>OTIMOFResourceProfileImport corresponds to a UML PackageImport relationship from
+an importing UML Profile of an OTI Profile resource
+to the imported UML Profile of an OTI Profile resource.
+</p></div><dl class="paramcmts block"><dt class="param">importingProfile</dt><dd class="cmt"><p>The <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">org.omg.oti.mof.schema.common.ResourceIRI</a> of the importing OTI MOF Profile</p></dd><dt class="param">importedProfile</dt><dd class="cmt"><p>The <a href="common/ResourceIRI.html" class="extype" name="org.omg.oti.mof.schema.common.ResourceIRI">org.omg.oti.mof.schema.common.ResourceIRI</a> of the imported OTI MOF Profile</p></dd></dl></div>
+    </li><li name="org.omg.oti.mof.schema.OTIMOFResourceTables" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="OTIMOFResourceTablesextendsAnyRef"></a>
+      <a id="OTIMOFResourceTables:OTIMOFResourceTables"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFResourceTables.html"><span class="name">OTIMOFResourceTables</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@OTIMOFResourceTablesextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.Selectable" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Selectable[U,C[X&lt;:U]&lt;:scala.collection.GenTraversable[X]]extendsAnyRef"></a>
+      <a id="Selectable[U,C[X&lt;:U]&lt;:GenTraversable[X]]:Selectable[U,C]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Selectable.html"><span class="name">Selectable</span></a><span class="tparams">[<span name="U">U</span>, <span name="C">C<span class="tparams">[<span name="X">X &lt;: <span class="extype" name="org.omg.oti.mof.schema.Selectable.U">U</span></span>]</span> &lt;: <span class="extype" name="scala.collection.GenTraversable">GenTraversable</span>[<span class="extype" name="org.omg.oti.mof.schema.Selectable.C.X">X</span>]</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@Selectable[U,C[X&lt;:U]&lt;:scala.collection.GenTraversable[X]]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">OCL-like select (filter) + collect (downcast)</p><div class="fullcomment"><div class="comment cmt"><p>OCL-like select (filter) + collect (downcast)</p><p>OCL:</p><pre>s-&gt;select(oclIsKindOf(V))-&gt;collect(oclAsType(V))</pre><p>Scala:</p><pre><span class="kw">import</span> Utils.selectable
+
+s.select { <span class="kw">case</span> v: V <span class="kw">=&gt;</span> v }</pre></div><dl class="paramcmts block"><dt class="tparam">U</dt><dd class="cmt"><p>A type of elements</p></dd><dt class="tparam">C</dt><dd class="cmt"><p>A collection type</p></dd></dl></div>
+    </li><li name="org.omg.oti.mof.schema.TableLoadException" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TableLoadExceptionextendsIllegalArgumentExceptionwithProductwithSerializable"></a>
+      <a id="TableLoadException:TableLoadException"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="TableLoadException.html"><span class="name">TableLoadException</span></a><span class="params">(<span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="jsError">jsError: <span class="extype" name="play.api.libs.json.JsError">JsError</span></span>)</span><span class="result"> extends <span class="extype" name="java.lang.IllegalArgumentException">IllegalArgumentException</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@TableLoadExceptionextendsIllegalArgumentExceptionwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="org.omg.oti.mof.schema.BuildInfo" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BuildInfo"></a>
+      <a id="BuildInfo:BuildInfo"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BuildInfo$.html"><span class="name">BuildInfo</span></a><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@BuildInfo" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">This object was generated by sbt-buildinfo.</p>
+    </li><li name="org.omg.oti.mof.schema.OTIMOFResourceInstantiatedMetamodel" visbl="pub" data-isabs="false" fullComment="no" group="model">
+      <a id="OTIMOFResourceInstantiatedMetamodel"></a>
+      <a id="OTIMOFResourceInstantiatedMetamodel:OTIMOFResourceInstantiatedMetamodel"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFResourceInstantiatedMetamodel$.html"><span class="name">OTIMOFResourceInstantiatedMetamodel</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@OTIMOFResourceInstantiatedMetamodel" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p>
+    </li><li name="org.omg.oti.mof.schema.OTIMOFResourceLibraryImport" visbl="pub" data-isabs="false" fullComment="no" group="resources">
+      <a id="OTIMOFResourceLibraryImport"></a>
+      <a id="OTIMOFResourceLibraryImport:OTIMOFResourceLibraryImport"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFResourceLibraryImport$.html"><span class="name">OTIMOFResourceLibraryImport</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@OTIMOFResourceLibraryImport" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p>
+    </li><li name="org.omg.oti.mof.schema.OTIMOFResourceMetamodelImport" visbl="pub" data-isabs="false" fullComment="no" group="metamodel">
+      <a id="OTIMOFResourceMetamodelImport"></a>
+      <a id="OTIMOFResourceMetamodelImport:OTIMOFResourceMetamodelImport"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFResourceMetamodelImport$.html"><span class="name">OTIMOFResourceMetamodelImport</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@OTIMOFResourceMetamodelImport" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p>
+    </li><li name="org.omg.oti.mof.schema.OTIMOFResourceModelAppliedProfile" visbl="pub" data-isabs="false" fullComment="no" group="model">
+      <a id="OTIMOFResourceModelAppliedProfile"></a>
+      <a id="OTIMOFResourceModelAppliedProfile:OTIMOFResourceModelAppliedProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFResourceModelAppliedProfile$.html"><span class="name">OTIMOFResourceModelAppliedProfile</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@OTIMOFResourceModelAppliedProfile" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p>
+    </li><li name="org.omg.oti.mof.schema.OTIMOFResourceProfileImport" visbl="pub" data-isabs="false" fullComment="no" group="profile">
+      <a id="OTIMOFResourceProfileImport"></a>
+      <a id="OTIMOFResourceProfileImport:OTIMOFResourceProfileImport"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="OTIMOFResourceProfileImport$.html"><span class="name">OTIMOFResourceProfileImport</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@OTIMOFResourceProfileImport" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p>
+    </li><li name="org.omg.oti.mof.schema.Selectable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Selectable"></a>
+      <a id="Selectable:Selectable"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Selectable$.html"><span class="name">Selectable</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@Selectable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.Tables" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Tables"></a>
+      <a id="Tables:Tables"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Tables$.html"><span class="name">Tables</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@Tables" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.common" visbl="pub" data-isabs="false" fullComment="no" group="common">
+      <a id="common"></a>
+      <a id="common:common"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="common/package.html"><span class="name">common</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@common" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Types for representing identifiers and values
+</p>
+    </li><li name="org.omg.oti.mof.schema.events" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="events"></a>
+      <a id="events:events"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="events/package.html"><span class="name">events</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@events" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.features" visbl="pub" data-isabs="false" fullComment="no" group="feature">
+      <a id="features"></a>
+      <a id="features:features"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="features/package.html"><span class="name">features</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@features" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Types for representing features
+</p>
+    </li><li name="org.omg.oti.mof.schema.tables" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="tables"></a>
+      <a id="tables:tables"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="tables/package.html"><span class="name">tables</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@tables" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.views" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="views"></a>
+      <a id="views:views"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="views/package.html"><span class="name">views</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.mof.schema.package@views" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="common">
+              <h3>Common Definitions</h3>
+              
+            </div><div class="group" name="feature">
+              <h3>Features</h3>
+              
+            </div><div class="group" name="resources">
+              <h3>OTI MOF Resources</h3>
+              
+            </div><div class="group" name="metamodel">
+              <h3>OTI MOF Metamodel Resources</h3>
+              
+            </div><div class="group" name="profile">
+              <h3>OTI MOF Profile Resources</h3>
+              
+            </div><div class="group" name="model">
+              <h3>OTI MOF Model Resources</h3>
+              
+            </div><div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

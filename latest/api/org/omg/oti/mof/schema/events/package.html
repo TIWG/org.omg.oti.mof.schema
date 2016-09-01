@@ -1,0 +1,376 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>events - org.omg.oti.mof.schema.events</title>
+          <meta name="description" content="events - org.omg.oti.mof.schema.events" />
+          <meta name="keywords" content="events org.omg.oti.mof.schema.events" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../../index.html';
+            var hash = 'org.omg.oti.mof.schema.events.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../../../package.html" class="extype" name="org">org</a>.<a href="../../../../package.html" class="extype" name="org.omg">omg</a>.<a href="../../../package.html" class="extype" name="org.omg.oti">oti</a>.<a href="../../package.html" class="extype" name="org.omg.oti.mof">mof</a>.<a href="../package.html" class="extype" name="org.omg.oti.mof.schema">schema</a></p>
+        <h1>events</h1><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.schema.events.package" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">events</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="org.omg.oti.mof.schema.events.ChangeKind" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ChangeKindextendsAnyRef"></a>
+      <a id="ChangeKind:ChangeKind"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ChangeKind.html"><span class="name">ChangeKind</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.schema.events.package@ChangeKindextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.events.ModelChangedEvent" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ModelChangedEventextendsAnyRef"></a>
+      <a id="ModelChangedEvent:ModelChangedEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ModelChangedEvent.html"><span class="name">ModelChangedEvent</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.schema.events.package@ModelChangedEventextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.events.ModelElementChangedEvent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ModelElementChangedEventextendsModelChangedEventwithProductwithSerializable"></a>
+      <a id="ModelElementChangedEvent:ModelElementChangedEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ModelElementChangedEvent.html"><span class="name">ModelElementChangedEvent</span></a><span class="params">(<span name="changeKind">changeKind: <a href="ChangeKind.html" class="extype" name="org.omg.oti.mof.schema.events.ChangeKind">ChangeKind</a></span>, <span name="element">element: <a href="../tables/model/OTIMOFModelElement.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelElement">OTIMOFModelElement</a></span>)</span><span class="result"> extends <a href="ModelChangedEvent.html" class="extype" name="org.omg.oti.mof.schema.events.ModelChangedEvent">ModelChangedEvent</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.schema.events.package@ModelElementChangedEventextendsModelChangedEventwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.events.ModelOrderedAttributeAtomicValueChangedEvent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ModelOrderedAttributeAtomicValueChangedEventextendsModelChangedEventwithProductwithSerializable"></a>
+      <a id="ModelOrderedAttributeAtomicValueChangedEvent:ModelOrderedAttributeAtomicValueChangedEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ModelOrderedAttributeAtomicValueChangedEvent.html"><span class="name">ModelOrderedAttributeAtomicValueChangedEvent</span></a><span class="params">(<span name="changeKind">changeKind: <a href="ChangeKind.html" class="extype" name="org.omg.oti.mof.schema.events.ChangeKind">ChangeKind</a></span>, <span name="attributeValue">attributeValue: <a href="../tables/values/OTIMOFOrderedAttributeAtomicValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeAtomicValue">OTIMOFOrderedAttributeAtomicValue</a></span>)</span><span class="result"> extends <a href="ModelChangedEvent.html" class="extype" name="org.omg.oti.mof.schema.events.ModelChangedEvent">ModelChangedEvent</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.schema.events.package@ModelOrderedAttributeAtomicValueChangedEventextendsModelChangedEventwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.events.ModelOrderedAttributeEnumerationLiteralValueChangedEvent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ModelOrderedAttributeEnumerationLiteralValueChangedEventextendsModelChangedEventwithProductwithSerializable"></a>
+      <a id="ModelOrderedAttributeEnumerationLiteralValueChangedEvent:ModelOrderedAttributeEnumerationLiteralValueChangedEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ModelOrderedAttributeEnumerationLiteralValueChangedEvent.html"><span class="name">ModelOrderedAttributeEnumerationLiteralValueChangedEvent</span></a><span class="params">(<span name="changeKind">changeKind: <a href="ChangeKind.html" class="extype" name="org.omg.oti.mof.schema.events.ChangeKind">ChangeKind</a></span>, <span name="attributeValue">attributeValue: <a href="../tables/values/OTIMOFOrderedAttributeEnumerationLiteralValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeEnumerationLiteralValue">OTIMOFOrderedAttributeEnumerationLiteralValue</a></span>)</span><span class="result"> extends <a href="ModelChangedEvent.html" class="extype" name="org.omg.oti.mof.schema.events.ModelChangedEvent">ModelChangedEvent</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.schema.events.package@ModelOrderedAttributeEnumerationLiteralValueChangedEventextendsModelChangedEventwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.events.ModelOrderedAttributeStructuredValueChangedEvent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ModelOrderedAttributeStructuredValueChangedEventextendsModelChangedEventwithProductwithSerializable"></a>
+      <a id="ModelOrderedAttributeStructuredValueChangedEvent:ModelOrderedAttributeStructuredValueChangedEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ModelOrderedAttributeStructuredValueChangedEvent.html"><span class="name">ModelOrderedAttributeStructuredValueChangedEvent</span></a><span class="params">(<span name="changeKind">changeKind: <a href="ChangeKind.html" class="extype" name="org.omg.oti.mof.schema.events.ChangeKind">ChangeKind</a></span>, <span name="attributeValue">attributeValue: <a href="../tables/values/OTIMOFOrderedAttributeStructuredValueLink.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFOrderedAttributeStructuredValueLink">OTIMOFOrderedAttributeStructuredValueLink</a></span>)</span><span class="result"> extends <a href="ModelChangedEvent.html" class="extype" name="org.omg.oti.mof.schema.events.ModelChangedEvent">ModelChangedEvent</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.schema.events.package@ModelOrderedAttributeStructuredValueChangedEventextendsModelChangedEventwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.events.ModelOrderedLinkChangedEvent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ModelOrderedLinkChangedEventextendsModelChangedEventwithProductwithSerializable"></a>
+      <a id="ModelOrderedLinkChangedEvent:ModelOrderedLinkChangedEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ModelOrderedLinkChangedEvent.html"><span class="name">ModelOrderedLinkChangedEvent</span></a><span class="params">(<span name="changeKind">changeKind: <a href="ChangeKind.html" class="extype" name="org.omg.oti.mof.schema.events.ChangeKind">ChangeKind</a></span>, <span name="link">link: <a href="../tables/model/OTIMOFModelOrderedLink.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelOrderedLink">OTIMOFModelOrderedLink</a></span>)</span><span class="result"> extends <a href="ModelChangedEvent.html" class="extype" name="org.omg.oti.mof.schema.events.ModelChangedEvent">ModelChangedEvent</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.schema.events.package@ModelOrderedLinkChangedEventextendsModelChangedEventwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.events.ModelUnorderedAttributeAtomicValueChangedEvent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ModelUnorderedAttributeAtomicValueChangedEventextendsModelChangedEventwithProductwithSerializable"></a>
+      <a id="ModelUnorderedAttributeAtomicValueChangedEvent:ModelUnorderedAttributeAtomicValueChangedEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ModelUnorderedAttributeAtomicValueChangedEvent.html"><span class="name">ModelUnorderedAttributeAtomicValueChangedEvent</span></a><span class="params">(<span name="changeKind">changeKind: <a href="ChangeKind.html" class="extype" name="org.omg.oti.mof.schema.events.ChangeKind">ChangeKind</a></span>, <span name="attributeValue">attributeValue: <a href="../tables/values/OTIMOFUnorderedAttributeAtomicValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeAtomicValue">OTIMOFUnorderedAttributeAtomicValue</a></span>)</span><span class="result"> extends <a href="ModelChangedEvent.html" class="extype" name="org.omg.oti.mof.schema.events.ModelChangedEvent">ModelChangedEvent</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.schema.events.package@ModelUnorderedAttributeAtomicValueChangedEventextendsModelChangedEventwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.events.ModelUnorderedAttributeEnumerationLiteralValueChangedEvent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ModelUnorderedAttributeEnumerationLiteralValueChangedEventextendsModelChangedEventwithProductwithSerializable"></a>
+      <a id="ModelUnorderedAttributeEnumerationLiteralValueChangedEvent:ModelUnorderedAttributeEnumerationLiteralValueChangedEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ModelUnorderedAttributeEnumerationLiteralValueChangedEvent.html"><span class="name">ModelUnorderedAttributeEnumerationLiteralValueChangedEvent</span></a><span class="params">(<span name="changeKind">changeKind: <a href="ChangeKind.html" class="extype" name="org.omg.oti.mof.schema.events.ChangeKind">ChangeKind</a></span>, <span name="attributeValue">attributeValue: <a href="../tables/values/OTIMOFUnorderedAttributeEnumerationLiteralValue.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeEnumerationLiteralValue">OTIMOFUnorderedAttributeEnumerationLiteralValue</a></span>)</span><span class="result"> extends <a href="ModelChangedEvent.html" class="extype" name="org.omg.oti.mof.schema.events.ModelChangedEvent">ModelChangedEvent</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.schema.events.package@ModelUnorderedAttributeEnumerationLiteralValueChangedEventextendsModelChangedEventwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.events.ModelUnorderedAttributeStructuredValueChangedEvent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ModelUnorderedAttributeStructuredValueChangedEventextendsModelChangedEventwithProductwithSerializable"></a>
+      <a id="ModelUnorderedAttributeStructuredValueChangedEvent:ModelUnorderedAttributeStructuredValueChangedEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ModelUnorderedAttributeStructuredValueChangedEvent.html"><span class="name">ModelUnorderedAttributeStructuredValueChangedEvent</span></a><span class="params">(<span name="changeKind">changeKind: <a href="ChangeKind.html" class="extype" name="org.omg.oti.mof.schema.events.ChangeKind">ChangeKind</a></span>, <span name="attributeValue">attributeValue: <a href="../tables/values/OTIMOFUnorderedAttributeStructuredValueLink.html" class="extype" name="org.omg.oti.mof.schema.tables.values.OTIMOFUnorderedAttributeStructuredValueLink">OTIMOFUnorderedAttributeStructuredValueLink</a></span>)</span><span class="result"> extends <a href="ModelChangedEvent.html" class="extype" name="org.omg.oti.mof.schema.events.ModelChangedEvent">ModelChangedEvent</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.schema.events.package@ModelUnorderedAttributeStructuredValueChangedEventextendsModelChangedEventwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.events.ModelUnorderedLinkChangedEvent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ModelUnorderedLinkChangedEventextendsModelChangedEventwithProductwithSerializable"></a>
+      <a id="ModelUnorderedLinkChangedEvent:ModelUnorderedLinkChangedEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ModelUnorderedLinkChangedEvent.html"><span class="name">ModelUnorderedLinkChangedEvent</span></a><span class="params">(<span name="changeKind">changeKind: <a href="ChangeKind.html" class="extype" name="org.omg.oti.mof.schema.events.ChangeKind">ChangeKind</a></span>, <span name="link">link: <a href="../tables/model/OTIMOFModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.schema.tables.model.OTIMOFModelUnorderedLink">OTIMOFModelUnorderedLink</a></span>)</span><span class="result"> extends <a href="ModelChangedEvent.html" class="extype" name="org.omg.oti.mof.schema.events.ModelChangedEvent">ModelChangedEvent</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.schema.events.package@ModelUnorderedLinkChangedEventextendsModelChangedEventwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="org.omg.oti.mof.schema.events.AddedChange" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AddedChange"></a>
+      <a id="AddedChange:AddedChange"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="AddedChange$.html"><span class="name">AddedChange</span></a><span class="result"> extends <a href="ChangeKind.html" class="extype" name="org.omg.oti.mof.schema.events.ChangeKind">ChangeKind</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.schema.events.package@AddedChange" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.events.ChangeKind" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ChangeKind"></a>
+      <a id="ChangeKind:ChangeKind"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ChangeKind$.html"><span class="name">ChangeKind</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.schema.events.package@ChangeKind" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.events.DeletedChange" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DeletedChange"></a>
+      <a id="DeletedChange:DeletedChange"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DeletedChange$.html"><span class="name">DeletedChange</span></a><span class="result"> extends <a href="ChangeKind.html" class="extype" name="org.omg.oti.mof.schema.events.ChangeKind">ChangeKind</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.schema.events.package@DeletedChange" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.events.ModelChangedEvent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ModelChangedEvent"></a>
+      <a id="ModelChangedEvent:ModelChangedEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ModelChangedEvent$.html"><span class="name">ModelChangedEvent</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.schema.events.package@ModelChangedEvent" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.schema.events.ModifiedChange" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ModifiedChange"></a>
+      <a id="ModifiedChange:ModifiedChange"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ModifiedChange$.html"><span class="name">ModifiedChange</span></a><span class="result"> extends <a href="ChangeKind.html" class="extype" name="org.omg.oti.mof.schema.events.ChangeKind">ChangeKind</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.schema.events.package@ModifiedChange" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>metamodel - org.omg.oti.mof.runtime.metamodel</title>
+          <meta name="description" content="metamodel - org.omg.oti.mof.runtime.metamodel" />
+          <meta name="keywords" content="metamodel org.omg.oti.mof.runtime.metamodel" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../../index.html';
+            var hash = 'org.omg.oti.mof.runtime.metamodel.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../../../package.html" class="extype" name="org">org</a>.<a href="../../../../package.html" class="extype" name="org.omg">omg</a>.<a href="../../../package.html" class="extype" name="org.omg.oti">oti</a>.<a href="../../package.html" class="extype" name="org.omg.oti.mof">mof</a>.<a href="../package.html" class="extype" name="org.omg.oti.mof.runtime">runtime</a></p>
+        <h1>metamodel</h1><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.package" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">metamodel</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>What are the different kinds of meta-associations used in metamodels?</p><p>All well-formed metamodel associations are ordered from a source to a target association end property.</p><p>It depends on several characteristics:
+- is the source/target association end property ordered?
+- is the source/target association end property composite?</p><p>For each kind of association, there are two sets of query operations:
+- for forward navigation from the association source to target
+- for reverse navigation from the association target to source</p><p>For each kind of association, there is always a forward query in the association source metaclass
+and a reverse query in the association target metaclass.</p><p>This means that a simple test of well-formed code generation is to verify
+that the count of forward query usages equals the count of reverse query usages for each kind of association.
+</p></div><dl class="attributes block"> <div class="block">Example:
+               <ol><li class="cmt"><p>MagicDraw 18's implementation of OMG UML 2.5 has 430 associations:
+- 9 are MD-specific (no code is generated for them currently)
+- 421 correspond to OMG UML 2.5 + two extra metaclasses (Diagram, ElementValue)
+These 421 associations fall in 5 categories as described below:
+Note that in each category, there is a matching number of forward &amp; reverse query operations.
+- 1 <a href="SourceOrderedReferenceAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation">org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation</a>
+Forward:
+-- 1 queryIterable
+Reverse:
+-- 1 queryOppositeOrdered
+- 40 <a href="TargetOrderedCompositeAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation">org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation</a>
+Forward:
+-- 1 queryIterable
+-- 39 queryOrdered
+Reverse:
+-- 40 queryOppositeOptional
+- 9 <a href="TargetOrderedReferenceAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation">org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation</a>
+Forward:
+-- 1 queryIterable
+-- 8 queryOrdered
+Reverse:
+-- 2 queryOppositeOptional
+-- 7 queryOppositeUnordered
+- 163 <a href="UnorderedCompositeAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation">org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation</a>
+Forward:
+-- 4 queryIterable
+-- 80 queryOptional
+-- 79 queryUnordered
+Reverse:
+-- 163 queryOppositeOptional
+- 208 <a href="UnorderedReferenceAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation">org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation</a>
+Forward:
+-- 7 queryIterable
+-- 105 queryOptional
+-- 96 queryUnordered
+Reverse:
+-- 60 queryOppositeOptional
+-- 148 queryOppositeUnordered</p></li></ol>
+            </div></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="org.omg.oti.mof.runtime.metamodel"><span>metamodel</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="org.omg.oti.mof.runtime.metamodel.Association" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="Association[S&lt;:org.omg.oti.mof.runtime.model.ModelElement,US&gt;:S,T&lt;:org.omg.oti.mof.runtime.model.ModelElement,UT&gt;:T,L&lt;:org.omg.oti.mof.runtime.model.ModelLink[S,T]]extendsAnyRef"></a>
+      <a id="Association[S&lt;:ModelElement,US&gt;:S,T&lt;:ModelElement,UT&gt;:T,L&lt;:ModelLink[S,T]]:Association[S,US,T,UT,L]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Association.html"><span class="name">Association</span></a><span class="tparams">[<span name="S">S &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="US">US &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.Association.S">S</span></span>, <span name="T">T &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="UT">UT &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.Association.T">T</span></span>, <span name="L">L &lt;: <a href="../model/ModelLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelLink">ModelLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.Association.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.Association.T">T</span>]</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.package@Association[S&lt;:org.omg.oti.mof.runtime.model.ModelElement,US&gt;:S,T&lt;:org.omg.oti.mof.runtime.model.ModelElement,UT&gt;:T,L&lt;:org.omg.oti.mof.runtime.model.ModelLink[S,T]]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.runtime.metamodel.MetaAssociation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MetaAssociation[S&lt;:org.omg.oti.mof.runtime.model.ModelElement,US&gt;:S,T&lt;:org.omg.oti.mof.runtime.model.ModelElement,UT&gt;:T,L&lt;:org.omg.oti.mof.runtime.model.ModelLink[S,T]]extendsProductwithSerializable"></a>
+      <a id="MetaAssociation[S&lt;:ModelElement,US&gt;:S,T&lt;:ModelElement,UT&gt;:T,L&lt;:ModelLink[S,T]]:MetaAssociation[S,US,T,UT,L]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MetaAssociation.html"><span class="name">MetaAssociation</span></a><span class="tparams">[<span name="S">S &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="US">US &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation.S">S</span></span>, <span name="T">T &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="UT">UT &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation.T">T</span></span>, <span name="L">L &lt;: <a href="../model/ModelLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelLink">ModelLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation.T">T</span>]</span>]</span><span class="params">(<span name="aInfo">aInfo: <a href="../../schema/views/AssociationInfo.html" class="extype" name="org.omg.oti.mof.schema.views.AssociationInfo">AssociationInfo</a></span>, <span name="sourceMC">sourceMC: <a href="MetaClass.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaClass">MetaClass</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation.S">S</span>]</span>, <span name="targetMC">targetMC: <a href="MetaClass.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaClass">MetaClass</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation.T">T</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="sourceType">sourceType: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation.S">S</span>]</span>, <span name="targetType">targetType: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation.T">T</span>]</span>, <span name="linkType">linkType: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation.L">L</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.package@MetaAssociation[S&lt;:org.omg.oti.mof.runtime.model.ModelElement,US&gt;:S,T&lt;:org.omg.oti.mof.runtime.model.ModelElement,UT&gt;:T,L&lt;:org.omg.oti.mof.runtime.model.ModelLink[S,T]]extendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.runtime.metamodel.MetaClass" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MetaClass[T&lt;:org.omg.oti.mof.runtime.model.ModelElement]extendsProductwithSerializable"></a>
+      <a id="MetaClass[T&lt;:ModelElement]:MetaClass[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MetaClass.html"><span class="name">MetaClass</span></a><span class="tparams">[<span name="T">T &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>]</span><span class="params">(<span name="mc">mc: <a href="../../schema/views/MetaClassView.html" class="extype" name="org.omg.oti.mof.schema.views.MetaClassView">MetaClassView</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="evidence$1">evidence$1: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaClass.T">T</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.package@MetaClass[T&lt;:org.omg.oti.mof.runtime.model.ModelElement]extendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SourceOrderedReferenceAssociation[S&lt;:org.omg.oti.mof.runtime.model.ModelElement,US&gt;:S,T&lt;:org.omg.oti.mof.runtime.model.ModelElement,UT&gt;:T]extendsAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelOrderedLink[S,T]]withProductwithSerializable"></a>
+      <a id="SourceOrderedReferenceAssociation[S&lt;:ModelElement,US&gt;:S,T&lt;:ModelElement,UT&gt;:T]:SourceOrderedReferenceAssociation[S,US,T,UT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SourceOrderedReferenceAssociation.html"><span class="name">SourceOrderedReferenceAssociation</span></a><span class="tparams">[<span name="S">S &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="US">US &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation.S">S</span></span>, <span name="T">T &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="UT">UT &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation.T">T</span></span>]</span><span class="params">(<span name="metaAssociation">metaAssociation: <a href="MetaAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation">MetaAssociation</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation.UT">UT</span>, <a href="../model/ModelOrderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelOrderedLink">ModelOrderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation.T">T</span>]]</span>)</span><span class="result"> extends <a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation.UT">UT</span>, <a href="../model/ModelOrderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelOrderedLink">ModelOrderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.SourceOrderedReferenceAssociation.T">T</span>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.package@SourceOrderedReferenceAssociation[S&lt;:org.omg.oti.mof.runtime.model.ModelElement,US&gt;:S,T&lt;:org.omg.oti.mof.runtime.model.ModelElement,UT&gt;:T]extendsAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelOrderedLink[S,T]]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TargetOrderedCompositeAssociation[S&lt;:org.omg.oti.mof.runtime.model.ModelElement,US&gt;:S,T&lt;:org.omg.oti.mof.runtime.model.ModelElement,UT&gt;:T]extendsAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelOrderedLink[S,T]]withProductwithSerializable"></a>
+      <a id="TargetOrderedCompositeAssociation[S&lt;:ModelElement,US&gt;:S,T&lt;:ModelElement,UT&gt;:T]:TargetOrderedCompositeAssociation[S,US,T,UT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="TargetOrderedCompositeAssociation.html"><span class="name">TargetOrderedCompositeAssociation</span></a><span class="tparams">[<span name="S">S &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="US">US &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span></span>, <span name="T">T &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="UT">UT &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span></span>]</span><span class="params">(<span name="metaAssociation">metaAssociation: <a href="MetaAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation">MetaAssociation</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.UT">UT</span>, <a href="../model/ModelOrderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelOrderedLink">ModelOrderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>]]</span>)</span><span class="result"> extends <a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.UT">UT</span>, <a href="../model/ModelOrderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelOrderedLink">ModelOrderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedCompositeAssociation.T">T</span>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.package@TargetOrderedCompositeAssociation[S&lt;:org.omg.oti.mof.runtime.model.ModelElement,US&gt;:S,T&lt;:org.omg.oti.mof.runtime.model.ModelElement,UT&gt;:T]extendsAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelOrderedLink[S,T]]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TargetOrderedReferenceAssociation[S&lt;:org.omg.oti.mof.runtime.model.ModelElement,US&gt;:S,T&lt;:org.omg.oti.mof.runtime.model.ModelElement,UT&gt;:T]extendsAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelOrderedLink[S,T]]withProductwithSerializable"></a>
+      <a id="TargetOrderedReferenceAssociation[S&lt;:ModelElement,US&gt;:S,T&lt;:ModelElement,UT&gt;:T]:TargetOrderedReferenceAssociation[S,US,T,UT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="TargetOrderedReferenceAssociation.html"><span class="name">TargetOrderedReferenceAssociation</span></a><span class="tparams">[<span name="S">S &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="US">US &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation.S">S</span></span>, <span name="T">T &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="UT">UT &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation.T">T</span></span>]</span><span class="params">(<span name="metaAssociation">metaAssociation: <a href="MetaAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation">MetaAssociation</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation.UT">UT</span>, <a href="../model/ModelOrderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelOrderedLink">ModelOrderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation.T">T</span>]]</span>)</span><span class="result"> extends <a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation.UT">UT</span>, <a href="../model/ModelOrderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelOrderedLink">ModelOrderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.TargetOrderedReferenceAssociation.T">T</span>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.package@TargetOrderedReferenceAssociation[S&lt;:org.omg.oti.mof.runtime.model.ModelElement,US&gt;:S,T&lt;:org.omg.oti.mof.runtime.model.ModelElement,UT&gt;:T]extendsAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelOrderedLink[S,T]]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UnorderedCompositeAssociation[S&lt;:org.omg.oti.mof.runtime.model.ModelElement,US&gt;:S,T&lt;:org.omg.oti.mof.runtime.model.ModelElement,UT&gt;:T]extendsAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelUnorderedLink[S,T]]withProductwithSerializable"></a>
+      <a id="UnorderedCompositeAssociation[S&lt;:ModelElement,US&gt;:S,T&lt;:ModelElement,UT&gt;:T]:UnorderedCompositeAssociation[S,US,T,UT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UnorderedCompositeAssociation.html"><span class="name">UnorderedCompositeAssociation</span></a><span class="tparams">[<span name="S">S &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="US">US &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation.S">S</span></span>, <span name="T">T &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="UT">UT &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation.T">T</span></span>]</span><span class="params">(<span name="metaAssociation">metaAssociation: <a href="MetaAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation">MetaAssociation</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation.UT">UT</span>, <a href="../model/ModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelUnorderedLink">ModelUnorderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation.T">T</span>]]</span>)</span><span class="result"> extends <a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation.UT">UT</span>, <a href="../model/ModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelUnorderedLink">ModelUnorderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedCompositeAssociation.T">T</span>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.package@UnorderedCompositeAssociation[S&lt;:org.omg.oti.mof.runtime.model.ModelElement,US&gt;:S,T&lt;:org.omg.oti.mof.runtime.model.ModelElement,UT&gt;:T]extendsAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelUnorderedLink[S,T]]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UnorderedReferenceAssociation[S&lt;:org.omg.oti.mof.runtime.model.ModelElement,US&gt;:S,T&lt;:org.omg.oti.mof.runtime.model.ModelElement,UT&gt;:T]extendsAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelUnorderedLink[S,T]]withProductwithSerializable"></a>
+      <a id="UnorderedReferenceAssociation[S&lt;:ModelElement,US&gt;:S,T&lt;:ModelElement,UT&gt;:T]:UnorderedReferenceAssociation[S,US,T,UT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UnorderedReferenceAssociation.html"><span class="name">UnorderedReferenceAssociation</span></a><span class="tparams">[<span name="S">S &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="US">US &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span></span>, <span name="T">T &lt;: <a href="../model/ModelElement.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelElement">ModelElement</a></span>, <span name="UT">UT &gt;: <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span></span>]</span><span class="params">(<span name="metaAssociation">metaAssociation: <a href="MetaAssociation.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.MetaAssociation">MetaAssociation</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.UT">UT</span>, <a href="../model/ModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelUnorderedLink">ModelUnorderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>]]</span>)</span><span class="result"> extends <a href="Association.html" class="extype" name="org.omg.oti.mof.runtime.metamodel.Association">Association</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.US">US</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.UT">UT</span>, <a href="../model/ModelUnorderedLink.html" class="extype" name="org.omg.oti.mof.runtime.model.ModelUnorderedLink">ModelUnorderedLink</a>[<span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.S">S</span>, <span class="extype" name="org.omg.oti.mof.runtime.metamodel.UnorderedReferenceAssociation.T">T</span>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.mof.runtime.metamodel.package@UnorderedReferenceAssociation[S&lt;:org.omg.oti.mof.runtime.model.ModelElement,US&gt;:S,T&lt;:org.omg.oti.mof.runtime.model.ModelElement,UT&gt;:T]extendsAssociation[S,US,T,UT,org.omg.oti.mof.runtime.model.ModelUnorderedLink[S,T]]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
