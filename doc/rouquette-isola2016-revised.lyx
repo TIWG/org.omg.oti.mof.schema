@@ -753,8 +753,8 @@ status open
 See 
 \begin_inset CommandInset href
 LatexCommand href
-name "http://www.w3.org/TR/owl2-syntax/#Canonical_Parsing_of_OWL_2_Ontologies"
-target "http://www.w3.org/TR/owl2-syntax/#Canonical_Parsing_of_OWL_2_Ontologies"
+name "http://preview.tinyurl.com/hx89sxl"
+target "http://preview.tinyurl.com/hx89sxl"
 
 \end_inset
 
@@ -1150,8 +1150,9 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename SimplifiedCMOF.svg
-	width 15cm
+	width 12cm
 	height 20cm
+	keepAspectRatio
 
 \end_inset
 
@@ -1476,12 +1477,12 @@ tion and association end subsetting or redefinition were poorly understood.
  in terms of named roles.
  In this ontological view, subsetting and redefinition have the semantics
  of restricting the subsetted or redefined association respectively.
- More precisely, AssociationGeneralization with source and target restriction=fa
-lse corresponds to existential subsetting; that is, the weak restriction
+ More precisely, MAssociationGeneralization with source and target restriction=f
+alse corresponds to existential subsetting; that is, the weak restriction
  that a link classified by the specialized (i.e.
  subsetting) association must be some link classified by the general (i.e.
  subsetted) association.
- AssociationGeneralization with source or target restriction=true corresponds
+ MAssociationGeneralization with source or target restriction=true corresponds
  to a universal redefinition; that is, the strong restriction that all links
  classified by the general association (i.e., with the redefined source and/or
  target end) must also be classified by the specific association (i.e.
@@ -1978,6 +1979,7 @@ based entities, attributes and relations involved in specifying the optional
  and essential roles of metaclasses and associations.
  However, the DataTypeClassifiers that are the dataTypes of MetaClass attributes
  must be directly or indirectly imported from libraries.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -2470,7 +2472,6 @@ key "EMF"
 status open
 
 \begin_layout Plain Layout
-See
 \begin_inset CommandInset href
 LatexCommand href
 name "https://wiki.eclipse.org/MDT/UML2/UML2_5.0_Migration_Guide"
@@ -2488,7 +2489,6 @@ target "https://wiki.eclipse.org/MDT/UML2/UML2_5.0_Migration_Guide"
 status open
 
 \begin_layout Plain Layout
-See
 \begin_inset CommandInset href
 LatexCommand href
 name "http://docs.nomagic.com/display/MD184/UML+2.5+Meta+Model"
@@ -2506,7 +2506,6 @@ target "http://docs.nomagic.com/display/MD184/UML+2.5+Meta+Model"
 status open
 
 \begin_layout Plain Layout
-See
 \begin_inset CommandInset href
 LatexCommand href
 name "http://www.omg.org/spec/UML/20131001/UML.xmi"
@@ -2529,11 +2528,10 @@ target "http://www.omg.org/spec/UML/20131001/UML.xmi"
 status open
 
 \begin_layout Plain Layout
-See
 \begin_inset CommandInset href
 LatexCommand href
-name "http://download.eclipse.org/modeling/mdt/uml2/javadoc/5.0.0/org/eclipse/uml2/uml/Namespace.html"
-target "http://download.eclipse.org/modeling/mdt/uml2/javadoc/5.0.0/org/eclipse/uml2/uml/Namespace.html"
+name "http://preview.tinyurl.com/gpfxxxr"
+target "http://preview.tinyurl.com/gpfxxxr"
 
 \end_inset
 
@@ -2547,11 +2545,10 @@ target "http://download.eclipse.org/modeling/mdt/uml2/javadoc/5.0.0/org/eclipse/
 status open
 
 \begin_layout Plain Layout
-See
 \begin_inset CommandInset href
 LatexCommand href
-name "http://jdocs.nomagic.com/183/com/nomagic/uml2/ext/magicdraw/classes/mdkernel/Namespace.html"
-target "http://jdocs.nomagic.com/183/com/nomagic/uml2/ext/magicdraw/classes/mdkernel/Namespace.html"
+name "http://preview.tinyurl.com/hj9vhg6"
+target "http://preview.tinyurl.com/hj9vhg6"
 
 \end_inset
 

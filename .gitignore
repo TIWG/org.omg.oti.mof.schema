@@ -3,7 +3,13 @@
 .idea
 .iml
 target
+*.aux
+*.log
+*.out
+*.tex
 *.bak
+*.pdf
+*.zip
 #*#
 .~*#
 gh-pages/
