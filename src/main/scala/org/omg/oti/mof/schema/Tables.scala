@@ -78,6 +78,8 @@ object Tables {
   : RunnableGraph[Future[(JsError, Vector[T])]]
   = inputJsonFile(dir, fileName).via(stream2json[T]).toMat(json2Iterable[T])(Keep.right)
 
+  // Loading and Exporting OTI MOF Libraries
+
   def loadLibrary
   (dir: Path)
   (implicit mat: ActorMaterializer, ec: ExecutionContext)
@@ -256,6 +258,8 @@ object Tables {
 
     Success(())
   }
+
+  // Loading and Exporting OTI MOF Metamodels
 
   def loadMetamodel
   (dir: Path)
@@ -518,6 +522,184 @@ object Tables {
 
     Success(())
   }
+
+  // Loading and Exporting OTI MOF Profiles & Models
+
+  def loadProfile
+  (dir: Path)
+  (implicit mat: ActorMaterializer, ec: ExecutionContext)
+  : Future[(JsError, OTIMOFProfileTables)]
+  = {
+    val resources
+    = jsonFile2iterable[tables.OTIMOFResourceType](dir, "resources.json").run()
+    val extendedMetamodels
+    = jsonFile2iterable[tables.profile.OTIMOFProfile2ExtendedMetamodel](dir, "extendedMetamodels.json").run()
+    val importedProfiles
+    = jsonFile2iterable[OTIMOFResourceProfileImport](dir, "importedProfiles.json").run()
+    val importedLibraries
+    = jsonFile2iterable[OTIMOFResourceLibraryImport](dir, "importedLibraries.json").run()
+
+    val stereotypes
+    = jsonFile2iterable[tables.profile.OTIMOFStereotype](dir, "stereotypes.json").run()
+    val generalizations
+    = jsonFile2iterable[tables.profile.OTIMOFStereotypeGeneralization](dir, "generalizations.json").run()
+    val extendedMetaclasses
+    = jsonFile2iterable[tables.profile.OTIMOFStereotype2ExtendedMetaclass](dir, "extendedMetaclasses.json").run()
+    val stereotypeAttributes
+    = jsonFile2iterable[tables.profile.OTIMOFStereotype2Attribute](dir, "stereotypeAttributes.json").run()
+    val stereotype2MetaClassProperty
+    = jsonFile2iterable[tables.profile.OTIMOFStereotypeAssociationTargetEndMetaClassProperty](dir, "stereotype2MetaClassProperty.json").run()
+    val stereotype2StereotypeProperty
+    = jsonFile2iterable[tables.profile.OTIMOFStereotypeAssociationTargetEndStereotypeProperty](dir, "stereotype2StereotypeProperty.json").run()
+
+    val associationTargetEnds
+    = jsonFile2iterable[features.AssociationTargetEnd](dir, "associationTargetEnds.json").run()
+    val attributes
+    = jsonFile2iterable[features.DataTypedAttributeProperty](dir, "attributes.json").run()
+
+    val featureLowerBounds
+    = jsonFile2iterable[features.FeatureLowerBound](dir, "featureLowerBounds.json").run()
+    val featureUpperBounds
+    = jsonFile2iterable[features.FeatureUpperBound](dir, "featureUpperBounds.json").run()
+    val featureOrdering
+    = jsonFile2iterable[features.FeatureOrdering](dir, "featureOrdering.json").run()
+    val attribute2type
+    = jsonFile2iterable[features.AttributeProperty2DataType](dir, "attribute2type.json").run()
+
+    for {
+      r <- resources
+      em <- extendedMetamodels
+      ip <- importedProfiles
+      il <- importedLibraries
+
+      ss <- stereotypes
+      g <- generalizations
+      emc <- extendedMetaclasses
+      sa <- stereotypeAttributes
+      s2mp <- stereotype2MetaClassProperty
+      s2sp <- stereotype2StereotypeProperty
+
+      ates <- associationTargetEnds
+      as <- attributes
+
+      flb <- featureLowerBounds
+      fub <- featureUpperBounds
+      fo <- featureOrdering
+      a2t <- attribute2type
+    } yield {
+      val jsError =
+        Seq(r, em, ip, il, ss, g, emc, sa, s2mp, s2sp, ates, as, flb, fub, fo, a2t)
+        .foldLeft[JsError](JsError()) { case (e1, (e2, _)) => JsError.merge(e1, e2) }
+      val tables =
+        OTIMOFProfileTables(
+          resourceType = r._2,
+          extendedMetamodels= em._2,
+          importedProfiles = ip._2,
+          importedLibraries = il._2,
+          stereotypes = ss._2,
+          generalizations = g._2,
+          extendedMetaclasses = emc._2,
+          stereotypeAttributes = sa._2,
+          stereotype2MetaClassProperty = s2mp._2,
+          stereotype2StereotypeProperty = s2sp._2,
+
+          associationTargetEnds = ates._2,
+          attributes = as._2,
+
+          featureLowerBounds = flb._2,
+          featureUpperBounds = fub._2,
+          featureOrdering = fo._2,
+          attribute2type = a2t._2)
+
+      (jsError, tables)
+    }
+  }
+
+   def loadModel
+  (dir: Path)
+  (implicit mat: ActorMaterializer, ec: ExecutionContext)
+  : Future[(JsError, OTIMOFModelTables)]
+  = {
+     val resources
+     = jsonFile2iterable[tables.OTIMOFResourceType](dir, "resources.json").run()
+     val instantiatedMetamodels
+     = jsonFile2iterable[OTIMOFResourceInstantiatedMetamodel](dir, "instantiatedMetamodels.json").run()
+     val appliedProfiles
+     = jsonFile2iterable[OTIMOFResourceModelAppliedProfile](dir, "appliedProfiles.json").run()
+     val elements
+     = jsonFile2iterable[tables.model.OTIMOFModelElement](dir, "elements.json").run()
+     val toolSpecificElementIDs
+     = jsonFile2iterable[tables.OTIMOFToolSpecificID](dir, "toolSpecificElementIDs.json").run()
+     val toolSpecificElementURLs
+     = jsonFile2iterable[tables.OTIMOFToolSpecificURL](dir, "toolSpecificElementURLs.json").run()
+     val orderedAtomicValues
+     = jsonFile2iterable[tables.values.OTIMOFOrderedAttributeAtomicValue](dir, "orderedAtomicValues.json").run()
+     val orderedLiteralValues
+     = jsonFile2iterable[tables.values.OTIMOFOrderedAttributeEnumerationLiteralValue](dir, "orderedLiteralValues.json").run()
+     val orderedStructuredValues
+     = jsonFile2iterable[tables.values.OTIMOFOrderedAttributeStructuredValueLink](dir, "orderedStructuredValues.json").run()
+     val unorderedAtomicValues
+     = jsonFile2iterable[tables.values.OTIMOFUnorderedAttributeAtomicValue](dir, "unorderedAtomicValues.json").run()
+     val unorderedLiteralValues
+     = jsonFile2iterable[tables.values.OTIMOFUnorderedAttributeEnumerationLiteralValue](dir, "unorderedLiteralValues.json").run()
+     val unorderedStructuredValues
+     = jsonFile2iterable[tables.values.OTIMOFUnorderedAttributeStructuredValueLink](dir, "unorderedStructuredValues.json").run()
+     val appliedStereotypes
+     = jsonFile2iterable[tables.model.OTIMOFAppliedStereotype](dir, "appliedStereotypes.json").run()
+     val orderedStereotypeReferences
+     = jsonFile2iterable[tables.model.OTIMOFAppliedStereotypePropertyOrderedReference](dir, "orderedStereotypeReferences.json").run()
+     val unorderedStereotypeReferences
+     = jsonFile2iterable[tables.model.OTIMOFAppliedStereotypePropertyUnorderedReference](dir, "unorderedStereotypeReferences.json").run()
+     val orderedLinks
+     = jsonFile2iterable[tables.model.OTIMOFModelOrderedLink](dir, "orderedLinks.json").run()
+     val unorderedLinks
+     = jsonFile2iterable[tables.model.OTIMOFModelUnorderedLink](dir, "unorderedLinks.json").run()
+
+     for {
+       r <- resources
+       mm <- instantiatedMetamodels
+       ap <- appliedProfiles
+       es <- elements
+       ids <- toolSpecificElementIDs
+       urls <- toolSpecificElementURLs
+       oav <- orderedAtomicValues
+       olv <- orderedLiteralValues
+       osv <- orderedStructuredValues
+       uav <- unorderedAtomicValues
+       ulv <- unorderedLiteralValues
+       usv <- unorderedStructuredValues
+       as <- appliedStereotypes
+       osr <- orderedStereotypeReferences
+       usr <- unorderedStereotypeReferences
+       ol <- orderedLinks
+       ul <- unorderedLinks
+     } yield {
+       val jsError
+         = Seq(r, mm, ap, es, ids, urls, oav, olv, osv, uav, ulv, usv, as, osr, usr, ol, ul)
+         .foldLeft[JsError](JsError()) { case (e1, (e2, _)) => JsError.merge(e1, e2) }
+       val tables
+         = OTIMOFModelTables(
+         resourceType = r._2,
+         instantiatedMetamodels = mm._2,
+         appliedProfiles = ap._2,
+         elements = es._2,
+         toolSpecificElementIDs = ids._2,
+         toolSpecificElementURLs = urls._2,
+         orderedAtomicValues = oav._2,
+         orderedLiteralValues = olv._2,
+         orderedStructuredValues = osv._2,
+         unorderedAtomicValues = uav._2,
+         unorderedLiteralValues = ulv._2,
+         unorderedStructuredValues = usv._2,
+         appliedStereotypes = as._2,
+         orderedStereotypeReferences = osr._2,
+         unorderedStereotypeReferences = usr._2,
+         orderedLinks = ol._2,
+         unorderedLinks = ul._2)
+
+       (jsError, tables)
+     }
+   }
 
   def exportProfilesAndModels
   (resultDir: Path,
