@@ -38,8 +38,6 @@ lazy val core = Project("org-omg-oti-mof-schema", file("."))
     IMCEKeys.organizationInfo := IMCEPlugin.Organizations.oti,
     IMCEKeys.targetJDK := IMCEKeys.jdk18.value,
 
-    logLevel in assembly := Level.Info,
-
     buildInfoPackage := "org.omg.oti.mof.schema",
     buildInfoKeys ++= Seq[BuildInfoKey](BuildInfoKey.action("buildDateUTC") { buildUTCDate.value }),
 
@@ -51,7 +49,10 @@ lazy val core = Project("org-omg-oti-mof-schema", file("."))
     },
 
     git.baseVersion := Versions.version,
-    
+
+    scalaSource in Compile :=
+      baseDirectory.value / "src" / "main" / "scala",
+
     resourceDirectory in Compile :=
       baseDirectory.value / "resources",
 
@@ -75,47 +76,8 @@ lazy val core = Project("org-omg-oti-mof-schema", file("."))
         artifacts
         Artifact("imce.third_party.other_scala_libraries", "zip", "zip", Some("resource"), Seq(), None, Map()),
 
-    libraryDependencies ~= {
-      _ map { m =>
-        m
-          .exclude("commons-logging", "commons-logging")
-          .exclude("com.typesafe", "config")
-          .exclude("com.typesafe.play", "sbt-link")
-          .exclude("org.slf4j", "slf4j-api")
-          .exclude("org.slf4j", "slf4j-nop")
-          .exclude("org.slf4j", "jcl-over-slf4j")
-          .exclude("ch.qos.logback", "logback-classic")
-      }
-    },
 
-    extractArchives := {},
-
-    // do not include the scala library
-    assembleArtifact in assemblyPackageScala := false,
-
-    assemblyMergeStrategy in assembly := {
-      case x if duplicatedFiles exists (x endsWith _) =>
-        MergeStrategy.first
-      case x =>
-        val oldStrategy = (assemblyMergeStrategy in assembly).value
-        oldStrategy(x)
-    },
-
-    assemblyShadeRules in assembly := Seq(
-      ShadeRule
-        .rename("com.typesafe.config.**" -> "oti_mof_schema_config.@1")
-        .inLibrary("com.typesafe" % "config" % "1.3.0")
-        .inProject
-    ),
-
-    // include the assembly as an artifact for publish or publishLocal
-
-    artifact in (Compile, assembly) := {
-      val art = (artifact in (Compile, assembly)).value
-      art.copy(`classifier` = Some("assembly"))
-    },
-
-    addArtifact(artifact in (Compile, assembly), assembly)
+    extractArchives := {}
   )
 
 def dynamicScriptsResourceSettings(projectName: String): Seq[Setting[_]] = {
