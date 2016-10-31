@@ -72,7 +72,7 @@ lazy val core = Project("org-omg-oti-mof-schema", file("."))
 
     libraryDependencies +=
       "gov.nasa.jpl.imce" %% "imce.third_party.other_scala_libraries" % Versions_other_scala_libraries.version
-        % "provided"
+        % "compile"
         artifacts
         Artifact("imce.third_party.other_scala_libraries", "zip", "zip", Some("resource"), Seq(), None, Map()),
 
