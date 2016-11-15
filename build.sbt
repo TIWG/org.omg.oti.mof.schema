@@ -68,7 +68,7 @@ lazy val core = Project("org-omg-oti-mof-schema", file("."))
     resolvers += Resolver.bintrayRepo("jpl-imce", "gov.nasa.jpl.imce"),
     resolvers += Resolver.bintrayRepo("tiwg", "org.omg.tiwg"),
 
-    unmanagedClasspath in Compile <++= unmanagedJars in Compile,
+    unmanagedClasspath in Compile ++= (unmanagedJars in Compile).value,
 
     libraryDependencies +=
       "gov.nasa.jpl.imce" %% "imce.third_party.other_scala_libraries" % Versions_other_scala_libraries.version
@@ -109,22 +109,20 @@ def dynamicScriptsResourceSettings(projectName: String): Seq[Setting[_]] = {
       val docT = (packageDoc in Test).value
 
       (dir * ".classpath").pair(rebase(dir, projectName)) ++
-      (dir * "*.md").pair(rebase(dir, projectName)) ++
-      (dir / "resources" ***).pair(rebase(dir, projectName)) ++
-      addIfExists(bin, projectName + "/lib/" + bin.name) ++
-      addIfExists(binT, projectName + "/lib/" + binT.name) ++
-      addIfExists(src, projectName + "/lib.sources/" + src.name) ++
-      addIfExists(srcT, projectName + "/lib.sources/" + srcT.name) ++
-      addIfExists(doc, projectName + "/lib.javadoc/" + doc.name) ++
-      addIfExists(docT, projectName + "/lib.javadoc/" + docT.name)
+        (dir * "*.md").pair(rebase(dir, projectName)) ++
+        (dir / "resources" ***).pair(rebase(dir, projectName)) ++
+        addIfExists(bin, projectName + "/lib/" + bin.name) ++
+        addIfExists(binT, projectName + "/lib/" + binT.name) ++
+        addIfExists(src, projectName + "/lib.sources/" + src.name) ++
+        addIfExists(srcT, projectName + "/lib.sources/" + srcT.name) ++
+        addIfExists(doc, projectName + "/lib.javadoc/" + doc.name) ++
+        addIfExists(docT, projectName + "/lib.javadoc/" + docT.name)
     },
-
 
     artifacts += {
       val n = (name in Universal).value
       Artifact(n, "zip", "zip", Some("resource"), Seq(), None, Map())
     },
-
     packagedArtifacts += {
       val p = (packageBin in Universal).value
       val n = (name in Universal).value
