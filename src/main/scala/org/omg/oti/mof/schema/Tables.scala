@@ -44,13 +44,13 @@ object Tables {
   : Sink[T, Future[IOResult]]
   = Flow[T]
     .map(r => ByteString(Json.stringify(Json.toJson(r)) + "\n"))
-    .toMat(FileIO.toFile(file))(Keep.right)
+    .toMat(FileIO.toPath(file.toPath))(Keep.right)
 
   def inputJsonFile
   (dir: Path, fileName: String)
   : Source[ByteString, Future[IOResult]]
   = FileIO
-    .fromFile(resolveFile(dir, fileName))
+    .fromPath(dir.resolve(fileName))
 
   def stream2json[T]
   (implicit formats: Format[T])
